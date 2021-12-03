@@ -124,7 +124,7 @@ a {
 
 .ref-btn {
   display: block;
-  width: 117%;
+  width: 254px;
   height: 50px;
   font-size: 18px;
   padding: 8px 25px 7px;
@@ -171,7 +171,7 @@ a {
 
 .b-text-wrap {
   color: #fff;
-  margin-bottom: 50px;
+  margin-bottom: 2.29vw;
   flex-direction: column;
 }
 
@@ -198,7 +198,7 @@ a {
 }
 
 .slide-btn {
-  margin-top: 50px;
+  margin-top: 2.60vw;
   margin-left: 20%;
 }
 
@@ -250,7 +250,8 @@ a {
   }
 
   .ref-btn {
-    height: 46px;
+    width: 244px;
+    height: 48px;
     cursor: pointer;
   }
 
@@ -277,7 +278,8 @@ a {
   }
 
   .ref-btn {
-    height: 41px;
+    width: 234px;
+    height: 46px;
     cursor: pointer;
   }
 }
