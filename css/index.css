@@ -626,7 +626,7 @@ a {
 
 @media (max-width: 1440px) {
   .sol-text-area h1 {
-    font-size: 36px;
+    font-size: 35px;
   }
 
   .highlight {
@@ -640,15 +640,7 @@ a {
   }
 
   .sol-text-area h1 {
-    font-size: 32px;
-  }
-
-  .sol-text-area span {
-    font-size: 16px;
-  }
-
-  .menu {
-    font-size: 16px;
+    font-size: 30px;
   }
 
   .highlight {
@@ -657,8 +649,17 @@ a {
 }
 
 @media (max-width: 1024px) {
+  .solution-wrap {
+    width: 90%;
+  }
+
   .sol-text-area h1 {
-    font-size: 28px;
+    font-size: 25px;
+  }
+
+  .menu-list ul {
+    flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -791,6 +792,24 @@ a {
 @media (max-width: 1024px) {
   .package-text-area h1 {
     font-size: 28px;
+  }
+
+  .sol-text-area span {
+    line-height: normal;
+  }
+
+  .solution-wrap.first,
+  .solution-wrap.third {
+    flex-direction: row-reverse;
+  }
+
+  .text-menu {
+    width: 40%;
+  }
+
+  .right {
+    margin-left: 0%;
+    margin-right: 5%;
   }
 }
 
