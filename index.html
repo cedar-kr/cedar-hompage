@@ -47,8 +47,8 @@
               </div>
               <div class="gallery">
                 <div class="gallery-container">
-                  <img class="gallery-item gallery-item-1" src="./img/banner_2.png" data-index="1" alt="banner_2">
-                  <img class="gallery-item gallery-item-2" src="./img/banner_1.png" data-index="2" alt="banner_1">
+                  <img class="gallery-item gallery-item-1" src="./webp/banner_2.webp" data-index="1" alt="banner_2">
+                  <img class="gallery-item gallery-item-2" src="./webp/banner_1.webp" data-index="2" alt="banner_1">
                 </div>
               </div>
               <div class="gallery-controls"></div>
@@ -89,7 +89,7 @@
               </div>
               <div class="video-area">
                 <div class="main-img">
-                  <img src="./img/video.png" alt="video">
+                  <img src="./webp/video.webp" alt="video">
                   <a href="#">
                     <div class="video-btn">
                       <span class="blind">비디오 버튼</span>
@@ -141,19 +141,27 @@
               <div class="menu-list">
                 <ul>
                   <li class="menu s active">
-                    <img src="./gif/1.device.gif" class="link" alt="device">
+                    <video autoplay loop muted playsinline class="link">
+                      <source src="./webm/1.device.webm" type="video/webm">
+                    </video>
                     원격 멀티 디바이스 관리
                   </li>
                   <li class="menu s">
-                    <img src="./gif/2.group.gif" class="link" alt="group">
+                    <video autoplay loop muted playsinline class="link">
+                      <source src="./webm/2.group.webm" type="video/webm">
+                    </video>
                     그룹 관리
                   </li>
                   <li class="menu s">
-                    <img src="./gif/3.template.gif" class="link" alt="template">
+                    <video autoplay loop muted playsinline class="link">
+                      <source src="./webm/3.template.webm" type="video/webm">
+                    </video>
                     디자인 템플릿
                   </li>
                   <li class="menu s">
-                    <img src="./gif/4.DMS.gif" class="link" alt="DMS">
+                    <video autoplay loop muted playsinline class="link">
+                      <source src="./webm/4.DMS.webm" type="video/webm">
+                    </video>
                     다양한 센서 연동
                   </li>
                 </ul>
@@ -161,7 +169,9 @@
             </div>
             <div class="right">
               <div class="gif-wrap">
-                <img src="./gif/1.device.gif" class="gif" alt="gif">
+                <video autoplay loop muted playsinline class="webm">
+                  <source src="./webm/1.device.webm" type="video/webm">
+                </video>
               </div>
             </div>
           </div>
@@ -171,7 +181,7 @@
           <div class="solution-wrap seceond">
             <div class="left">
               <div class="gif-wrap">
-                <img src="./img/display.png" class="gif" alt="display">
+                <img src="./webp/display.webp" class="gif" alt="display">
               </div>
             </div>
             <div class="text-menu">
@@ -240,7 +250,9 @@
             </div>
             <div class="right">
               <div class="gif-wrap">
-                <img src="./gif/5.statistics.gif" class="gif" alt="statistics">
+                <video autoplay loop muted playsinline class="webm">
+                  <source src="./webm/5.statistics.webm" type="video/webm">
+                </video>
               </div>
             </div>
           </div>
@@ -352,7 +364,7 @@
     });
   </script>
   <script> 
-    var bigPic = document.querySelector(".gif")
+    var bigPic = document.querySelector(".webm")
     var imgTab = document.querySelectorAll(".menu");
 
     for (var i=0; i < imgTab.length; i++) {
@@ -360,7 +372,7 @@
     }
 
     function changePic() {
-      var menuAttribute = this.querySelector("img").getAttribute("src");
+      var menuAttribute = this.querySelector("source").getAttribute("src");
       bigPic.setAttribute("src", menuAttribute);
     }
   </script>
