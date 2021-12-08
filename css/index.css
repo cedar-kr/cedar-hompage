@@ -731,9 +731,9 @@ a {
   align-items: center;
 }
 
-.package-img img {
+/* .package-img img {
   height: 100%;
-}
+} */
 
 .package-info {
   text-align: center;
