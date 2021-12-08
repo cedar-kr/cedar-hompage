@@ -140,27 +140,31 @@
               <div class="menu-list">
                 <ul>
                   <li class="menu s active">
-                    <video autoplay loop muted playsinline class="link">
+                    <img src="./webp/1.device.webp" class="link" alt="device">
+                    <!-- <video autoplay loop muted playsinline class="link">
                       <source src="./webm/1.device.webm" type="video/webm">
-                    </video>
+                    </video> -->
                     원격 멀티 디바이스 관리
                   </li>
                   <li class="menu s">
-                    <video autoplay loop muted playsinline class="link">
+                    <img src="./webp/2.group.webp" class="link" alt="group">
+                    <!-- <video autoplay loop muted playsinline class="link">
                       <source src="./webm/2.group.webm" type="video/webm">
-                    </video>
+                    </video> -->
                     그룹 관리
                   </li>
                   <li class="menu s">
-                    <video autoplay loop muted playsinline class="link">
+                    <img src="./webp/3.template.webp" class="link" alt="template">
+                    <!-- <video autoplay loop muted playsinline class="link">
                       <source src="./webm/3.template.webm" type="video/webm">
-                    </video>
+                    </video> -->
                     디자인 템플릿
                   </li>
                   <li class="menu s">
-                    <video autoplay loop muted playsinline class="link">
+                    <img src="./webp/4.DMS.webp" class="link" alt="DMS">
+                    <!-- <video autoplay loop muted playsinline class="link">
                       <source src="./webm/4.DMS.webm" type="video/webm">
-                    </video>
+                    </video> -->
                     다양한 센서 연동
                   </li>
                 </ul>
@@ -168,9 +172,10 @@
             </div>
             <div class="right">
               <div class="gif-wrap">
-                <video autoplay loop muted playsinline class="webm">
+                <img src="./webp/1.device.webp" class="gif" alt="device">
+                <!-- <video autoplay loop muted playsinline class="webm">
                   <source src="./webm/1.device.webm" type="video/webm">
-                </video>
+                </video> -->
               </div>
             </div>
           </div>
@@ -364,7 +369,7 @@
     });
   </script>
   <script> 
-    var bigPic = document.querySelector(".webm")
+    var bigPic = document.querySelector(".gif")
     var imgTab = document.querySelectorAll(".menu");
 
     for (var i=0; i < imgTab.length; i++) {
@@ -372,7 +377,7 @@
     }
 
     function changePic() {
-      var menuAttribute = this.querySelector("source").getAttribute("src");
+      var menuAttribute = this.querySelector("img").getAttribute("src");
       bigPic.setAttribute("src", menuAttribute);
     }
   </script>
