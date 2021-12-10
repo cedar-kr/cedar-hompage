@@ -53,6 +53,7 @@ a {
   position: absolute;
   width: 100%;
   z-index: 2;
+  position: fixed;
 }
 
 .header-wrap {
@@ -64,6 +65,91 @@ a {
 @media (max-width: 1280px) {
   .header-wrap {
     width: 900px;
+  }
+}
+
+
+
+
+/* ------------------------------------------------------------- */
+
+
+
+
+/* intro section */
+.intro {
+  position: relative;
+  background-color: #fff;
+  height: 100%;
+  min-height: 48vw;
+  max-height: 69vw;
+}
+
+.intro-wrap {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 auto;
+  width: 70%;
+  padding-top: 9.781vw;
+}
+
+.intro-text-area {
+  margin-bottom: 4.167vw;
+}
+
+.intro-text-area h1 {
+  font-family: NotoSansKR;
+  font-size: 55px;
+  font-weight: 900;
+  text-align: left;
+  color: #000;
+}
+
+.highlight.i {
+  box-shadow: inset 0 -36px 0 hsl(0, 100%, 89%); 
+}
+
+.intro-right {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
+}
+
+.promo {
+  width: 42.188vw;
+  height: 110%;
+}
+
+.promo-video {
+  width: 100%;
+  height: auto;
+}
+
+.bg-logo {
+  margin-top: 1.563vw;
+}
+
+.bg-logo img {
+  width: 34.583vw;
+  height: auto;
+}
+
+@media (max-width: 1440px) {
+  .intro-text-area h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .intro-text-area h1 {
+    font-size: 41px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .intro-text-area h1 {
+    font-size: 34px;
   }
 }
 
@@ -331,6 +417,7 @@ a {
   flex-direction: column;
   scroll-behavior: smooth;
   position: relative;
+  background-color: #f5f5f5;
 }
 
 .video-wrap {
@@ -962,6 +1049,7 @@ a {
   display: flex;
   flex-grow: 1;
   position: relative;
+  background-color: #f5f5f5;
 }
 
 .select-dot-wrap.swiper-pagination {
