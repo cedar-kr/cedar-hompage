@@ -326,16 +326,20 @@ a {
   display: flex;
   padding: 147px 0px;
   overflow: hidden;
+  margin: 0 auto;
+  width: 100%;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  position: relative;
 }
 
 .video-wrap {
   display: flex;
   position: relative;
-  margin: 0 auto;
   align-items: center;
-  /* justify-content: space-between; */
   background-color: #fff;
   width: 70%;
+  margin: 0 auto;
 }
 
 .space-clear {
@@ -434,6 +438,7 @@ a {
   margin-bottom: 30px;
   text-align: left;
   color: #000;
+  transition-delay: 0.2s;
 }
 
 .click {
@@ -441,6 +446,7 @@ a {
   font-size: 18px;
   text-align: left;
   color: #d74c4b;
+  transition-delay: 0.3s;
 }
 
 .select-dot {
@@ -885,4 +891,106 @@ a {
   line-height: 2.69;
   text-align: left;
   color: #333;
+}
+
+
+
+
+/* ------------------------------------------------------------- */
+
+
+
+
+/* video section - slide */
+.box {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  align-items: center;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 320px;
+}
+
+.mySwiper {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.main-header {
+  font-family: NotoSansKR;
+  font-size: 40px;
+  font-weight: 500;
+  text-align: left;
+  color: #000;
+  transition-delay: 0.2s;
+}
+
+.main-title {
+  font-family: NotoSansKR;
+  font-size: 40px;
+  font-weight: 500;
+  text-align: left;
+  color: #000;
+  transition-delay: 0.3s;
+}
+
+.main-subtitle {
+  font-family: NotoSansKR;
+  font-size: 40px;
+  font-weight: 500;
+  text-align: left;
+  color: #000;
+  transition-delay: 0.4s;
+}
+
+.swiper-pagination {
+  position: absolute;
+  right: 30px;
+  left: auto;
+  top: 100px;
+  width: auto;
+  bottom: auto;
+  z-index: 2;
+  font-size: 14px;
+  font-family: var(--body-font);
+  font-weight: 500;
+}
+
+.swiper-slide {
+  opacity: 0 !important;
+  transition: 0.4s;
+}
+.swiper-slide-active {
+  opacity: 1 !important;
+}
+
+.swiper-slide .main-wrapper > *,
+.swiper-slide .main-content > * {
+  transform: translateY(-30px);
+  opacity: 0;
+  transition-duration: 0.8s;
+}
+
+.swiper-slide-active .main-wrapper > *,
+.swiper-slide-active .main-content > * {
+  transform: none;
+  opacity: 1;
+}
+
+.swiper-slide .main-img img {
+  transition-duration: 0.6s;
+  opacity: 0;
+  object-position: 60%;
+}
+
+.swiper-slide-active .main-img img {
+  opacity: 1;
+  transform: none;
+  object-position: 50%;
 }
