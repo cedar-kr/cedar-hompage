@@ -342,18 +342,45 @@ a {
   margin: 0 auto;
 }
 
-.space-clear {
+.box {
   display: flex;
+  flex-grow: 1;
+  position: relative;
   align-items: center;
-  margin-right: 7%;
 }
 
-.left-area h1 {
+.main-header {
   font-family: NotoSansKR;
   font-size: 40px;
   font-weight: 500;
   text-align: left;
   color: #000;
+  transition-delay: 0.2s;
+}
+
+.main-title {
+  font-family: NotoSansKR;
+  font-size: 40px;
+  font-weight: 500;
+  text-align: left;
+  color: #000;
+  transition-delay: 0.3s;
+}
+
+.space-clear {
+  display: flex;
+  align-items: center;
+  margin-right: 5vw;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 250px;
+}
+
+.left-area h1 {
   white-space: nowrap;
 }
 
@@ -429,16 +456,29 @@ a {
 
 
 /* video section - right */
+.right-area {
+  min-width: 230px;
+}
+
 .text-area {
   white-space: nowrap;
 }
+
 .sub-title {
+  font-family: NotoSansKR;
+  font-size: 25px;
+  text-align: left;
+  color: #000;
+  transition-delay: 0.2s;
+}
+
+.sub-title-text {
   font-family: NotoSansKR;
   font-size: 25px;
   margin-bottom: 30px;
   text-align: left;
   color: #000;
-  transition-delay: 0.2s;
+  transition-delay: 0.3s;
 }
 
 .click {
@@ -483,11 +523,19 @@ a {
 
 @media (max-width: 1440px) {
   .left-area h1 {
-    font-size: 36px;
+    font-size: 35px;
   }
 
-  .sub-title {
-    font-size: 23px;
+  .sub-title, .sub-title-text {
+    font-size: 21px;
+  }
+
+  .left-side {
+    min-width: 210px;
+  }
+
+  .right-area {
+    min-width: 200px;
   }
 }
 
@@ -497,11 +545,19 @@ a {
   }
 
   .left-area h1 {
-    font-size: 32px;
+    font-size: 30px;
   }
 
-  .sub-title {
-    font-size: 21px;
+  .sub-title, .sub-title-text {
+    font-size: 19px;
+  }
+
+  .left-side {
+    min-width: 180px;
+  }
+
+  .right-area {
+    min-width: 150px;
   }
 
   .click {
@@ -511,7 +567,7 @@ a {
 
 @media (max-width: 1024px) {
   .left-area h1 {
-    font-size: 28px;
+    font-size: 25px;
   }
 
   .sub-title {
@@ -902,64 +958,14 @@ a {
 
 
 /* video section - slide */
-.box {
-  display: flex;
-  flex-grow: 1;
-  position: relative;
-  align-items: center;
-}
-
-.left-side {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  max-width: 320px;
-}
-
 .mySwiper {
   display: flex;
   flex-grow: 1;
   position: relative;
 }
 
-.main-header {
-  font-family: NotoSansKR;
-  font-size: 40px;
-  font-weight: 500;
-  text-align: left;
-  color: #000;
-  transition-delay: 0.2s;
-}
-
-.main-title {
-  font-family: NotoSansKR;
-  font-size: 40px;
-  font-weight: 500;
-  text-align: left;
-  color: #000;
-  transition-delay: 0.3s;
-}
-
-.main-subtitle {
-  font-family: NotoSansKR;
-  font-size: 40px;
-  font-weight: 500;
-  text-align: left;
-  color: #000;
-  transition-delay: 0.4s;
-}
-
-.swiper-pagination {
-  position: absolute;
-  right: 30px;
-  left: auto;
-  top: 100px;
-  width: auto;
-  bottom: auto;
-  z-index: 2;
-  font-size: 14px;
-  font-family: var(--body-font);
-  font-weight: 500;
+.select-dot-wrap.swiper-pagination {
+  position: relative;
 }
 
 .swiper-slide {
