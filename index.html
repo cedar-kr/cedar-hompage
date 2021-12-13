@@ -20,6 +20,7 @@
   <link rel="icon" href="./icon/favicon.png" type="image/x-icon" sizes="16x16">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
 </head>
 <body>
   <div class="wrap">
@@ -31,7 +32,7 @@
         </div>
       </header>
       <div class="contents">
-        <!-- main intro -->
+        <!-- intro section -->
         <section class="intro">
           <div class="intro-wrap">
             <div class="intro-text-area">
@@ -52,6 +53,160 @@
             </div>
           </div>
         </section>
+        <!-- business section -->
+        <section class="business">
+          <div class="business-wrap">
+            <div class="business-text-area">
+              <h1>
+                시더는 다양한<br>
+                사업분야를<br>
+                구축하고 있습니다.
+              </h1>
+            </div>
+            <!-- <div class="moving-ball">
+              <div class="moving-ball-wrap">
+                <div class="ball">
+                  <div class="ball_2"></div>
+                  <div class="ball_3"></div>
+                  <div class="ball_1"></div>
+                </div>
+                <div class="stroke">
+                  <div class="stroke_1">
+                    <div class="text">
+                      Digital signage<br>
+                      Solution
+                    </div>
+                  </div>
+                  <div class="stroke_2">
+                    <div class="text">
+                      Hardware<br>
+                      & Product
+                    </div>
+                  </div>
+                  <div class="stroke_3">
+                    <div class="text" id="black">
+                      Customer<br>
+                      Service center
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </section>
+        <!-- history section -->
+        <section class="history">
+          <div class="history-wrap">
+            <div class="history-text-area">
+              <h1>
+                시더의<br>
+                즐거운 도전들을<br>
+                소개합니다.
+              </h1>
+            </div>
+            <div class="htr-slide">
+              <div class="htr-btn-wrap">
+                <button class="htr-btn-prev swiper-button swiper-prev-button">
+                  <span class="blind">이전</span>
+                </button>
+              </div>
+              <div class="textgroup-wrapper">
+                <div class="textgroup1">
+                  <div class="head-text">
+                    <strong class="text-highlight">
+                      2021
+                    </strong>
+                  </div>
+                  <nav class="list">
+                    <a class="list-item">
+                      <div class="list-item-image_wrapper">
+                        <div class="list-item-image_inner">
+                          <img class="list-item-image" src="https://d1gbnc4q0p7rpe.cloudfront.net/develop/image/2021-12-09_184328_605.png" alt="" />
+                        </div>
+                      </div>
+                      <div class="list-item-text">
+                        <span class="list-item-innertext">청년친화강소기업 3년 연속 선정</span>
+                      </div>
+                    </a>
+                    <a class="list-item">
+                      <div class="list-item-image_wrapper">
+                        <div class="list-item-image_inner">
+                          <img class="list-item-image" src="https://d1gbnc4q0p7rpe.cloudfront.net/develop/image/2021-12-09_224904_008.png" alt="" />
+                        </div>
+                      </div>
+                      <span class="list-item-text">
+                        <span class="list-item-innertext">미국 특허 등록</span>
+                      </span>
+                    </a>
+                    <a class="list-item">
+                      <div class="list-item-image_wrapper">
+                        <div class="list-item-image_inner">
+                          <img class="list-item-image" src="https://d1gbnc4q0p7rpe.cloudfront.net/develop/image/2021-12-09_224903_625.png" alt="" />
+                        </div>
+                      </div>
+                      <span class="list-item-text">
+                        <span class="list-item-innertext">MODI GS인증 1등급 획득</span>
+                      </span>
+                    </a>
+                    <a class="list-item">
+                      <div class="list-item-image_wrapper">
+                        <div class="list-item-image_inner">
+                          <img class="list-item-image" src="https://d1gbnc4q0p7rpe.cloudfront.net/develop/image/2021-12-09_224903_508.png" alt="" />
+                        </div>
+                      </div>
+                      <span class="list-item-text">
+                        <span class="list-item-innertext">세종큐비즈 키오스크 솔루션 개발</span>
+                      </span>
+                    </a>
+                  </nav>
+                </div>
+                <div class="textgroup2">
+                  <div class="head-text">
+                    <strong class="text-highlight">2022</strong>
+                  </div>
+                  <nav class="list">
+                    <a class="list-item">
+                      <div class="list-item-image_wrapper">
+                        <div class="list-item-image_inner">
+                          <!-- <img class="list-item-image" src="https://d1gbnc4q0p7rpe.cloudfront.net/develop/image/2021-12-09_184328_605.png" alt="" /> -->
+                        </div>
+                      </div>
+                      <span class="list-item-text">
+                        <span class="list-item-innertext">LGU+ 유심 키오스크 계약</span>
+                      </span>
+                    </a>
+                    <a class="list-item">
+                      <div class="list-item-image_wrapper">
+                        <div class="list-item-image_inner">
+                          <!-- <img class="list-item-image" src="https://d1gbnc4q0p7rpe.cloudfront.net/develop/image/2021-12-09_224903_508.png" alt="" /> -->
+                        </div>
+                      </div>
+                      <span class="list-item-text">
+                        <span class="list-item-innertext">김포국제공항 키오스크 솔루션 개발</span>
+                      </span>
+                    </a>
+                    <a class="list-item">
+                      <div class="list-item-image_wrapper">
+                        <div class="list-item-image_inner">
+                            <!-- <img class="list-item-image" src="https://d1gbnc4q0p7rpe.cloudfront.net/develop/image/2021-12-09_184328_605.png" alt="" /> -->
+                        </div>
+                      </div>
+                      <span class="list-item-text">
+                        <span class="list-item-innertext">판교 알파돔시티 빌딩안내 설비공사 계약</span>
+                      </span>
+                    </a>
+                  
+                  </nav>
+                </div>
+              </div>
+              <div class="htr-btn-wrap">
+                <button class="btn-next swiper-button swiper-next-button">
+                  <span class="blind">다음</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>   
         <!-- main section -->
         <section class="main">
           <div class="main-wrap">
@@ -91,7 +246,7 @@
           </div>
         </section>
         <!-- solution section 1 -->
-        <section class="solution">
+        <section class="solution bg1">
           <div class="solution-wrap first">
             <div class="text-menu">
               <div class="sol-text-area">
@@ -148,7 +303,7 @@
           </div>
         </section>
         <!-- solution section 2 -->
-        <section class="solution">
+        <section class="solution bg2">
           <div class="solution-wrap seceond">
             <div class="left">
               <div class="gif-wrap">
@@ -189,7 +344,7 @@
           </div>
         </section>
         <!-- solution section 3 -->
-        <section class="solution">
+        <section class="solution bg3">
           <div class="solution-wrap third">
             <div class="text-menu">
               <div class="sol-text-area">
@@ -390,10 +545,10 @@
                   <div class="select-dot">
                     <div class="select-dot-wrap">
                       <div class="dot-item">
-                        <a href="#" class="dot active">01</a>
+                        <a href="#" class="dot">01</a>
                       </div>
                       <div class="dot-item">
-                        <a href="#" class="dot">02</a>
+                        <a href="#" class="dot active">02</a>
                       </div>
                       <div class="dot-item">
                         <a href="#" class="dot">03</a>
@@ -451,13 +606,13 @@
                   <div class="select-dot">
                     <div class="select-dot-wrap">
                       <div class="dot-item">
-                        <a href="#" class="dot active">01</a>
+                        <a href="#" class="dot">01</a>
                       </div>
                       <div class="dot-item">
                         <a href="#" class="dot">02</a>
                       </div>
                       <div class="dot-item">
-                        <a href="#" class="dot">03</a>
+                        <a href="#" class="dot active">03</a>
                       </div>
                       <div class="dot-item">
                         <a href="#" class="dot">04</a>
@@ -512,7 +667,7 @@
                   <div class="select-dot">
                     <div class="select-dot-wrap">
                       <div class="dot-item">
-                        <a href="#" class="dot active">01</a>
+                        <a href="#" class="dot">01</a>
                       </div>
                       <div class="dot-item">
                         <a href="#" class="dot">02</a>
@@ -521,7 +676,7 @@
                         <a href="#" class="dot">03</a>
                       </div>
                       <div class="dot-item">
-                        <a href="#" class="dot">04</a>
+                        <a href="#" class="dot active">04</a>
                       </div>
                     </div>
                   </div>
@@ -529,6 +684,35 @@
               </div>
               <!-- video end -->
             </div>
+          </div>
+        </section>
+        <!-- contact section -->
+        <section class="contact">
+          <div class="contact-wrap">
+            <div class="contact-text-area">
+              <h1>
+                시더가 전하는<br>
+                특별한 가치들을 만나보세요.
+              </h1>
+              <div class="contact-info">
+                <div class="address">
+                  <span>서울특별시 서초구 강남대로 18길 5 (양재동) 3층</span>
+                </div>
+                <div class="phone">
+                  <span>070.4901.6150</span>
+                </div>
+                <div class="email">
+                  <span>info@cedar.kr</span>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- map section -->
+        <section class="map">
+          <div class="map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.5215064453173!2d127.036959515309!3d37.47201807981576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca132c4ce0d31%3A0x552c6f04ec65d82a!2z7ISc7Jq47Yq567OE7IucIOyEnOy0iOq1rCDqsJXrgqjrjIDroZwxOOq4uCA1IDPsuLU!5e0!3m2!1sko!2skr!4v1639369444913!5m2!1sko!2skr" width="100%" height="524" style="border:0;" allowfullscreen="false" loading="lazy"></iframe>
           </div>
         </section>
         <!-- footer -->
@@ -567,6 +751,15 @@
   </div>
   <script src="./js/carousel.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <script> 
+    $(window).on('scroll',function() { 
+      if ($(window).scrollTop()) { 
+        $('.header').addClass('active'); 
+      } else { 
+        $('.header').removeClass('active'); 
+      } 
+    }); 
+  </script>
   <script>
     $(document).ready(function () {
     $('.menu.s').click(function () {
