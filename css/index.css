@@ -103,7 +103,7 @@ header.active {
   position: relative;
   margin: 0 auto;
   width: 70%;
-  padding-top: 9.781vw;
+  padding-top: 10.781vw;
 }
 
 .intro-text-area {
@@ -372,12 +372,14 @@ color: #FFFFFF;
 .textgroup-wrapper {
   padding: 0px 3.646vw;
   width: 470px;
+  display: grid;
+  position: relative;
 }
 
-.list {
+/* .list {
   opacity: 0;
   pointer-events: none;
-}
+} */
 
 .list-item {
   display: flex;
@@ -401,8 +403,7 @@ color: #FFFFFF;
   overflow: hidden;
 }
 
-.list-item-image_inner,
-.list-item-image {
+.list-item-image_inner .list-item-image {
   position: absolute;
   left: 0;
   top: 0;
@@ -446,8 +447,7 @@ color: #FFFFFF;
   cursor: pointer;
 }
 
-.list-item-text:hover, 
-.list-item-innertext {
+.list-item-text:hover .list-item-innertext {
   letter-spacing: 0.2rem;
 }
 
