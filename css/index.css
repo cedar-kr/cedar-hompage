@@ -852,6 +852,7 @@ header.active {
   flex-grow: 1;
   position: relative;
   align-items: center;
+  justify-content: space-between;
 }
 
 .main-header {
