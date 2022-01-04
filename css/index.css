@@ -119,7 +119,13 @@ header.active {
 }
 
 .highlight.i {
-  box-shadow: inset 0 -36px 0 hsl(0, 100%, 89%); 
+  background: 
+    linear-gradient(#ffc5c5 0 0) 
+    bottom /var(--d, 0) 36px 
+    no-repeat;
+}
+.highlight.i.visible {
+  --d: 100%;
 }
 
 .intro-right {
@@ -153,7 +159,10 @@ header.active {
   }
 
   .highlight.i {
-    box-shadow: inset 0 -30px 0 hsl(0, 100%, 89%); 
+    background: 
+    linear-gradient(#ffc5c5 0 0) 
+    bottom /var(--d, 0) 30px 
+    no-repeat;
   }
 }
 
@@ -167,17 +176,16 @@ header.active {
   }
 
   .highlight.i {
-    box-shadow: inset 0 -27px 0 hsl(0, 100%, 89%); 
+    background: 
+    linear-gradient(#ffc5c5 0 0) 
+    bottom /var(--d, 0) 27px 
+    no-repeat;
   }
 }
 
 @media (max-width: 1024px) {
   .intro-text-area h1 {
     font-size: 34px;
-  }
-
-  .highlight.i {
-    box-shadow: inset 0 -36px 0 hsl(0, 100%, 89%); 
   }
 }
 
@@ -1139,9 +1147,14 @@ header.active {
 }
 
 .highlight {
-  text-decoration: none;
-  display: inline;
-  box-shadow: inset 0 -28px 0 hsl(65, 100%, 84%); 
+  background: 
+    linear-gradient(#f8ffac 0 0) 
+    bottom /var(--d, 0) 28px 
+    no-repeat;
+  transition: 1s;
+}
+.highlight.visible {
+  --d: 100%;
 }
 
 .sol-text-area span {
@@ -1153,7 +1166,7 @@ header.active {
 .menu-list ul {
   display: flex;
   flex-wrap: wrap;
-  width: 460px;
+  width: 500px;
   padding-left: 3px;
 }
 
@@ -1165,6 +1178,11 @@ header.active {
   color: #4f4f4f;
   width: 50%;
   cursor: pointer;
+}
+
+.menu:hover {
+  background-color: #fff;
+  text-decoration: underline;
 }
 
 .menu.active {
@@ -1216,7 +1234,10 @@ header.active {
   }
 
   .highlight {
-    box-shadow: inset 0 -26px 0 hsl(65, 100%, 84%); 
+    background: 
+    linear-gradient(#f8ffac 0 0) 
+    bottom /var(--d, 0) 26px 
+    no-repeat;
   }
 }
 
@@ -1230,7 +1251,10 @@ header.active {
   }
 
   .highlight {
-    box-shadow: inset 0 -24px 0 hsl(65, 100%, 84%); 
+    background: 
+    linear-gradient(#f8ffac 0 0) 
+    bottom /var(--d, 0) 24px 
+    no-repeat;
   }
 }
 
@@ -1286,7 +1310,10 @@ header.active {
 }
 
 .highlight.s {
-  box-shadow: inset 0 -28px 0 hsl(225, 100%, 89%); 
+  background: 
+    linear-gradient(#c6d4ff 0 0) 
+    bottom /var(--d, 0) 28px 
+    no-repeat;
 }
 
 .package-text-area span {
@@ -1345,7 +1372,10 @@ header.active {
   }
 
   .highlight.s {
-    box-shadow: inset 0 -26px 0 hsl(225, 100%, 89%); 
+    background: 
+    linear-gradient(#c6d4ff 0 0) 
+    bottom /var(--d, 0) 26px 
+    no-repeat;
   }
 
   .p-name {
@@ -1363,7 +1393,10 @@ header.active {
   }
 
   .highlight.s {
-    box-shadow: inset 0 -24px 0 hsl(225, 100%, 89%); 
+    background: 
+    linear-gradient(#c6d4ff 0 0) 
+    bottom /var(--d, 0) 24px 
+    no-repeat;
   }
 
   .p-name {
