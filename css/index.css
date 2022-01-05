@@ -1167,7 +1167,7 @@ header.active {
   display: flex;
   flex-wrap: wrap;
   width: 500px;
-  padding-left: 3px;
+  /* padding-left: 3px; */
 }
 
 .menu {
@@ -1194,6 +1194,7 @@ header.active {
   content: '';
   width: 14.3px;
   height: 14.3px;
+  margin-left: 3px;
   transform: rotate(-315deg);
   background-color: #d74c4b;
   display: inline-block;
