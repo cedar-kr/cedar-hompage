@@ -624,7 +624,7 @@ header.active {
   font-size: 80px;
   font-weight: 100;
   letter-spacing: 4px;
-  line-height: 80%;
+  /* line-height: 80%; */
 }
 
 .text-wrap .ms {
@@ -1649,4 +1649,28 @@ header.active {
 
 .swiper-slide {
   left: 15%;
+}
+
+/* main section text effect */
+.m-roles {
+  height: 120px;
+  vertical-align: middle;
+  margin-bottom: 27px;
+  overflow: hidden;
+}
+
+.m-roles div {
+  height: 120px;
+  transition: margin-top 1s ease-in-out;
+}
+
+.roles {
+  height: 45px;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.roles div {
+  height: 45px;
+  transition: margin-top 1s ease-in-out;
 }

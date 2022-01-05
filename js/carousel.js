@@ -1,27 +1,30 @@
+// gallery-container와 일치하는 문서 내 첫 번째 Element를 반환
 const galleryContainer = document.querySelector('.gallery-container');
+// gallery-controls와 일치하는 문서 내 첫 번째 Element를 반환
 const galleryControlsContainer = document.querySelector('.gallery-controls');
+// 배열 선언
 const galleryControls = ['previous', 'next'];
+// gallery-item에 일치하는 정적 NodeList를 반환
 const galleryItems = document.querySelectorAll('.gallery-item');
 
 class Carousel {
+  // 인스턴스 객체 생성 및 초기화
   constructor(container, items, controls) {
     this.carouselContainer = container;
     this.carouselControls = controls;
     this.carouselArray = [...items];
   }
 
-  // Update css classes for gallery
+  // gallery에 있는 css classes를 업데이트
   updateGallery() {
+    // carouselArray 함수를 배열 요소 각각에 대해 실행
     this.carouselArray.forEach(el => {
-      el.classList.remove('gallery-item-1');
-      el.classList.remove('gallery-item-2');
-      // el.classList.remove('gallery-item-3');
-      // el.classList.remove('gallery-item-4');
-      // el.classList.remove('gallery-item-5');
+      el.classList.remove('gallery-item-1');  // 지정된 클래스 제거
+      el.classList.remove('gallery-item-2');   // 지정된 클래스 값 제거
     });
-
+    // 가장 처음부터 2개의 배열을 제외한 나머지 배열을 반환 후 나머지 요소를 실행
     this.carouselArray.slice(0, 2).forEach((el, i) => {
-      el.classList.add(`gallery-item-${i+1}`);
+      el.classList.add(`gallery-item-${i+1}`);  // 지정된 클래스 값 추가
     });
   }
 
@@ -36,16 +39,6 @@ class Carousel {
     
     this.updateGallery();
   }
-
-  // Construct the carousel navigation
-  // setNav() {
-    // galleryContainer.appendChild(document.createElement('ul')).className = 'gallery-nav';
-
-    // this.carouselArray.forEach(item => {
-    //   const nav = galleryContainer.lastElementChild;
-    //   nav.appendChild(document.createElement('li'));
-    // }); 
-  // }s
 
   // Construct the carousel controls
   setControls() {
@@ -69,11 +62,6 @@ class Carousel {
           const latestItem = this.carouselArray.length;
           const latestIndex = this.carouselArray.findIndex(item => item.getAttribute('data-index') == this.carouselArray.length)+1;
 
-          // Assign the necessary properties for new gallery item
-          Object.assign(newItem,{
-            className: 'gallery-item',
-            src: `http://fakeimg.pl/300/?text=${this.carouselArray.length+1}`
-          });
           newItem.setAttribute('data-index', this.carouselArray.length+1);
 
           // Then add it to the carouselArray and update the gallery
@@ -93,5 +81,42 @@ class Carousel {
 const exampleCarousel = new Carousel(galleryContainer, galleryItems, galleryControls);
 
 exampleCarousel.setControls();
-// exampleCarousel.setNav();
 exampleCarousel.useControls();
+
+
+
+var current = 1; //keeps track of the current div
+
+var mheight = $('.m-roles').height(); //the height of the roles div
+var mnumberDivs = $('.m-roles').children().length; //the number of children of the roles div
+var mfirst = $('.m-roles div:nth-child(1)'); //the first div nested in roles div
+
+var height = $('.roles').height(); //the height of the roles div
+var numberDivs = $('.roles').children().length; //the number of children of the roles div
+var first = $('.roles div:nth-child(1)'); //the first div nested in roles div
+
+document.querySelector('.gallery-controls-previous').addEventListener("click", changePrev);
+document.querySelector('.gallery-controls-next').addEventListener("click", changeNext);
+
+function changePrev() {
+  var number = current * -height;
+  first.css('margin-top', number + 'px');
+  if (current === 1) {
+    first.css('margin-top', '-180px');
+    current = 4;
+  } else current--;
+  console.log(number,current);
+};
+
+function changeNext() {
+  var number = current * -height;
+  console.log(number,current);
+  var mnumber = current * -mheight - 2;
+  first.css('margin-top', number + 'px');
+  mfirst.css('margin-top', mnumber + 'px');
+  if (current === numberDivs && current === mnumberDivs) {
+    first.css('margin-top', '0px');
+    mfirst.css('margin-top', '0px');
+    current = 1;
+  } else current++;
+};
