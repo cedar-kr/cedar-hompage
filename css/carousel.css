@@ -24,7 +24,7 @@
 .gallery-item-1 {
   left: 80%;
   opacity: 1;
-  transform: translateX(50%);
+  transform: translateX(45%);
   filter: grayscale(95%);
 }
 

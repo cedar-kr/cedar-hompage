@@ -99,21 +99,24 @@ document.querySelector('.gallery-controls-previous').addEventListener("click", c
 document.querySelector('.gallery-controls-next').addEventListener("click", changeNext);
 
 function changePrev() {
-  var number = current * -height;
+  var number = (current-1) * -height;
+  var mnumber = (current-1) * -mheight - 5;
   first.css('margin-top', number + 'px');
+  mfirst.css('margin-top', mnumber + 'px');
+  console.log(number,current);
   if (current === 1) {
-    first.css('margin-top', '-180px');
+    first.css('margin-top', '0px');
+    mfirst.css('margin-top', '0px');
     current = 4;
   } else current--;
-  console.log(number,current);
 };
 
 function changeNext() {
   var number = current * -height;
-  console.log(number,current);
-  var mnumber = current * -mheight - 2;
+  var mnumber = current * -mheight - 5;
   first.css('margin-top', number + 'px');
   mfirst.css('margin-top', mnumber + 'px');
+  console.log(number,current);
   if (current === numberDivs && current === mnumberDivs) {
     first.css('margin-top', '0px');
     mfirst.css('margin-top', '0px');

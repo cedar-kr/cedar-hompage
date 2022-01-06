@@ -650,16 +650,17 @@ header.active {
 
 .text-wrap .mt {
   font-family: 'Roboto', sans-serif;
-  font-size: 80px;
+  font-size: 75px;
   font-weight: 100;
   letter-spacing: 4px;
+  margin-bottom: 25px;
   /* line-height: 80%; */
 }
 
 .text-wrap .ms {
   margin: 27px 0px;
   font-family: S-CoreDream-5;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 500;
 }
 
@@ -723,12 +724,12 @@ header.active {
   font-weight: 300;
   text-align: center;
   margin-bottom: 10px;
+  margin-right: 20px;
 }
 
 .banner-info {
-  margin-left: 20px;
   font-family: S-CoreDream-5Medium;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 500;
   text-align: left;
 }
@@ -783,11 +784,11 @@ header.active {
 
 @media (max-width: 1440px) {
   .text-wrap .mt {
-    font-size: 72px;
+    font-size: 67px;
   }
 
   .text-wrap .ms {
-    font-size: 23px;
+    font-size: 22px;
   }
 
   .ref-btn {
@@ -797,7 +798,7 @@ header.active {
   }
 
   .banner-info {
-    font-size: 28px;
+    font-size: 26px;
   }
 }
 
@@ -807,15 +808,15 @@ header.active {
   }
 
   .text-wrap .mt {
-    font-size: 64px;
+    font-size: 59px;
   }
 
   .text-wrap .ms {
-    font-size: 21px;
+    font-size: 20px;
   }
 
   .banner-info {
-    font-size: 23px;
+    font-size: 22px;
   }
 
   .ref-btn {
@@ -826,9 +827,9 @@ header.active {
 }
 
 @media (max-width: 1093px) {
-  .banner-info {
+  /* .banner-info {
     font-size: 22px;
-  }
+  } */
 
   .new {
     font-size: 18px;
@@ -837,7 +838,7 @@ header.active {
 
 @media (max-width: 1024px) {
   .text-wrap .mt {
-    font-size: 58px;
+    font-size: 54px;
   }
 
   .text-wrap .ms {
@@ -1683,24 +1684,24 @@ header.active {
 
 /* main section text effect */
 .m-roles {
-  height: 120px;
+  height: 138px;
   vertical-align: middle;
   margin-bottom: 27px;
   overflow: hidden;
 }
 
 .m-roles div {
-  height: 120px;
+  height: 138px;
   transition: margin-top 1s ease-in-out;
 }
 
 .roles {
-  height: 45px;
+  height: 35px;
   vertical-align: middle;
   overflow: hidden;
 }
 
 .roles div {
-  height: 45px;
+  height: 35px;
   transition: margin-top 1s ease-in-out;
 }
