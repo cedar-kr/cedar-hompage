@@ -21,7 +21,10 @@ class Carousel {
     this.carouselArray.forEach(el => {
       el.classList.remove('gallery-item-1');  // 지정된 클래스 제거
       el.classList.remove('gallery-item-2');   // 지정된 클래스 값 제거
+      el.classList.remove('gallery-item-3');  // 지정된 클래스 제거
+      el.classList.remove('gallery-item-4');   // 지정된 클래스 값 제거
     });
+
     // 가장 처음부터 2개의 배열을 제외한 나머지 배열을 반환 후 나머지 요소를 실행
     this.carouselArray.slice(0, 2).forEach((el, i) => {
       el.classList.add(`gallery-item-${i+1}`);  // 지정된 클래스 값 추가
@@ -30,13 +33,11 @@ class Carousel {
 
   // Update the current order of the carouselArray and gallery
   setCurrentState(direction) {
-
     if (direction.className == 'gallery-controls-previous') {
-      this.carouselArray.unshift(this.carouselArray.pop());
-    } else {
       this.carouselArray.push(this.carouselArray.shift());
+    } else {
+      this.carouselArray.unshift(this.carouselArray.pop());
     }
-    
     this.updateGallery();
   }
 
@@ -44,7 +45,6 @@ class Carousel {
   setControls() {
     this.carouselControls.forEach(control => {
       galleryControlsContainer.appendChild(document.createElement('button')).className = `gallery-controls-${control}`;
-
       document.querySelector(`.gallery-controls-${control}`).innerText = control;
     });
   }
@@ -68,11 +68,9 @@ class Carousel {
           this.carouselArray.splice(latestIndex, 0, newItem);
           document.querySelector(`[data-index="${latestItem}"]`).after(newItem);
           this.updateGallery();
-
         } else {
           this.setCurrentState(control);
         }
-
       });
     });
   }
@@ -85,41 +83,45 @@ exampleCarousel.useControls();
 
 
 
-var current = 1; //keeps track of the current div
+let current = 1; //keeps track of the current div
 
-var mheight = $('.m-roles').height(); //the height of the roles div
-var mnumberDivs = $('.m-roles').children().length; //the number of children of the roles div
-var mfirst = $('.m-roles div:nth-child(1)'); //the first div nested in roles div
+let mheight = $('.m-roles').height(); //the height of the roles div
+let mnumberDivs = $('.m-roles').children().length; //the number of children of the roles div
+let mfirst = $('.m-roles div:nth-child(1)'); //the first div nested in roles div
 
-var height = $('.roles').height(); //the height of the roles div
-var numberDivs = $('.roles').children().length; //the number of children of the roles div
-var first = $('.roles div:nth-child(1)'); //the first div nested in roles div
+let height = $('.roles').height(); //the height of the roles div
+let numberDivs = $('.roles').children().length; //the number of children of the roles div
+let first = $('.roles div:nth-child(1)'); //the first div nested in roles div
 
 document.querySelector('.gallery-controls-previous').addEventListener("click", changePrev);
 document.querySelector('.gallery-controls-next').addEventListener("click", changeNext);
 
 function changePrev() {
-  var number = (current-1) * -height;
-  var mnumber = (current-1) * -mheight - 5;
-  first.css('margin-top', number + 'px');
-  mfirst.css('margin-top', mnumber + 'px');
-  console.log(number,current);
+  let number = (current-2) * -height;
+  let mnumber = (current-2) * -mheight;
+  // console.log(mnumber, current);
   if (current === 1) {
-    first.css('margin-top', '0px');
-    mfirst.css('margin-top', '0px');
+    first.css('margin-top', '-100px');
+    mfirst.css('margin-top', '-414px');
     current = 4;
-  } else current--;
+  } else {
+    first.css('margin-top', number + 'px');
+    mfirst.css('margin-top', mnumber + 'px');
+    current--;
+  }
 };
 
 function changeNext() {
-  var number = current * -height;
-  var mnumber = current * -mheight - 5;
-  first.css('margin-top', number + 'px');
-  mfirst.css('margin-top', mnumber + 'px');
-  console.log(number,current);
+  let number = current * -height;
+  let mnumber = current * -mheight;
+  // console.log(number, current);
   if (current === numberDivs && current === mnumberDivs) {
     first.css('margin-top', '0px');
     mfirst.css('margin-top', '0px');
     current = 1;
-  } else current++;
+  } else {
+    first.css('margin-top', number + 'px');
+    mfirst.css('margin-top', mnumber + 'px');
+    current++;
+  }
 };
