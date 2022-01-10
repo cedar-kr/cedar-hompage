@@ -1,7 +1,7 @@
 .gallery {
   position: relative;
   width: 100%;
-  height: 27vw;
+  height: 28vw;
 }
 
 .gallery-container {
@@ -24,7 +24,7 @@
 .gallery-item-1 {
   left: 80%;
   opacity: 1;
-  transform: translateX(45%);
+  transform: translateX(130%);
   filter: grayscale(95%);
 }
 
@@ -35,8 +35,9 @@
 }
 
 .gallery-controls {
+  display: flex;
+  justify-content: center;
   margin-top: 2.60vw;
-  padding-left: 20%;
 }
 
 .gallery-controls button {

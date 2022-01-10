@@ -98,7 +98,7 @@ document.querySelector('.gallery-controls-next').addEventListener("click", chang
 
 function changePrev() {
   let number = (current-2) * -height;
-  let mnumber = (current-2) * -mheight;
+  let mnumber = (current-2) * -mheight-2;
   // console.log(mnumber, current);
   if (current === 1) {
     first.css('margin-top', '-100px');
@@ -113,7 +113,7 @@ function changePrev() {
 
 function changeNext() {
   let number = current * -height;
-  let mnumber = current * -mheight;
+  let mnumber = current * -mheight-2;
   // console.log(number, current);
   if (current === numberDivs && current === mnumberDivs) {
     first.css('margin-top', '0px');
