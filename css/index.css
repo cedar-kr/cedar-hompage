@@ -898,7 +898,6 @@ header.active {
   position: relative;
   align-items: center;
   /* justify-content: space-between; */
-  justify-content: center;
 }
 
 .main-header {
@@ -1736,7 +1735,7 @@ header.active {
 /* video section - pagination */
 .swiper-pagination { 
   position: relative !important; 
-  margin-top: 100px !important;
+  margin-top: 30px !important;
   text-align: left !important;
 }
 
@@ -1765,12 +1764,35 @@ header.active {
   height: 100%;
 }
 
-.video-area {
+.left-side {
   width: 100%;
+  height: 100%;
+}
+
+.video-area {
+  width: 36.833vw;
   height: 100%;
 }
 
 .text-area {
   width: 100%;
-  height: 167px;
+  height: 197px;
+}
+
+@media (max-width: 1440px) {
+  .text-area {
+    height: 177px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .text-area {
+    height: 167px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .text-area {
+    height: 157px;
+  }
 }

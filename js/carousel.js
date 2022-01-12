@@ -97,30 +97,30 @@ document.querySelector('.gallery-controls-previous').addEventListener("click", c
 document.querySelector('.gallery-controls-next').addEventListener("click", changeNext);
 
 function changePrev() {
-  let number = (current-2) * -height;
+  // let number = (current-2) * -height;
   let mnumber = (current-2) * -mheight-2;
   // console.log(mnumber, current);
   if (current === 1) {
-    first.css('margin-top', '-100px');
+    // first.css('margin-top', '-100px');
     mfirst.css('margin-top', '-414px');
     current = 4;
   } else {
-    first.css('margin-top', number + 'px');
+    // first.css('margin-top', number + 'px');
     mfirst.css('margin-top', mnumber + 'px');
     current--;
   }
 };
 
 function changeNext() {
-  let number = current * -height;
+  // let number = current * -height;
   let mnumber = current * -mheight-2;
   // console.log(number, current);
   if (current === numberDivs && current === mnumberDivs) {
-    first.css('margin-top', '0px');
+    // first.css('margin-top', '0px');
     mfirst.css('margin-top', '0px');
     current = 1;
   } else {
-    first.css('margin-top', number + 'px');
+    // first.css('margin-top', number + 'px');
     mfirst.css('margin-top', mnumber + 'px');
     current++;
   }
