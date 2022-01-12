@@ -622,6 +622,7 @@ header.active {
   background-size: cover;
   background-position: center center;
   background-color: rgba(43, 43, 43, 0.6);
+  background-attachment: fixed;
   height: 100vh;
   min-height: 48vw;
   max-height: 59vw;
