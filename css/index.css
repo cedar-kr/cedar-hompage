@@ -441,18 +441,18 @@ header.active {
 } */
 
 .htr-btn-prev {
-  width: 50px;
-  height: 50px;
-  background: url(../icon/c_left_arrow.png) no-repeat;
+  width: 70px;
+  height: 70px;
+  background: url(../icon/h_left_arrow.png) no-repeat;
   background-size: cover;
   border: none;
   cursor: pointer;
 }
 
 .htr-btn-next {
-  width: 50px;
-  height: 50px;
-  background: url(../icon/c_right_arrow.png) no-repeat;
+  width: 70px;
+  height: 70px;
+  background: url(../icon/h_right_arrow.png) no-repeat;
   background-size: cover;
   border: none;
   cursor: pointer;
@@ -1667,8 +1667,8 @@ header.active {
 .swiper-prev-btn {
   position: absolute;
   top: 50%;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   z-index: 1;
   cursor: pointer;
   display: flex;
@@ -1679,8 +1679,8 @@ header.active {
 .swiper-next-btn {
   position: absolute;
   top: 50%;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   z-index: 1;
   cursor: pointer;
   display: flex;
