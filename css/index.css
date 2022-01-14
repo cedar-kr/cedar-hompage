@@ -1801,3 +1801,51 @@ header.active {
     height: 157px;
   }
 }
+
+
+
+
+/* ------------------------------------------------------------- */
+
+
+
+
+/* business section - Venn Diagram */
+.s-text {
+  position: absolute;
+  width: 85px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  align-items: center;
+  color: #4f4f4f;
+}
+
+.s-text.m {
+  left: -20%;
+  bottom: 12%;
+}
+
+.s-text.p {
+  right: -92%;
+  top: -48%;
+}
+
+.s-text.c {
+  right: -68%;
+  bottom: -54%;
+}
+
+.s-text.e {
+  left: 48%;
+  bottom: -20%;
+}
+
+.s-text.a {
+  right: 30%;
+  top: -20%;
+}
+
+.s-text.v {
+  right: -95%;
+  top: 37%;
+}
