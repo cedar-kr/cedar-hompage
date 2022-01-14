@@ -1053,25 +1053,19 @@
   <script src="./js/scroll.js"></script>
   <script src="./js/carousel.js"></script>
   <script>
-    $(document).ready(function () {
     $('.menu.s').click(function () {
-        $('.menu.s').removeClass('active');
-        $(this).addClass('active');
-      });
+      $('.menu.s').removeClass('active');
+      $(this).addClass('active');
     });
 
-    $(document).ready(function () {
     $('.menu.d').click(function () {
-        $('.menu.d').removeClass('active');
-        $(this).addClass('active');
-      });
+      $('.menu.d').removeClass('active');
+      $(this).addClass('active');
     });
 
-    $(document).ready(function () {
-      $('.menu.a').click(function () {
-        $('.menu.a').removeClass('active');
-        $(this).addClass('active');
-      });
+    $('.menu.a').click(function () {
+      $('.menu.a').removeClass('active');
+      $(this).addClass('active');
     });
   </script>
   <script> 
@@ -1106,7 +1100,7 @@
     }
   </script>
   <script>
-    var swiper = new Swiper(".mySwiper", {
+    new Swiper(".mySwiper", {
       navigation: {
         nextEl: ".swiper-next-button",
         prevEl: ".swiper-prev-button" 
@@ -1118,19 +1112,14 @@
         clickable: true
       } 
     });
-  </script>
-  <script>
-    var swiper = new Swiper(".mySwiper2", {
+    
+    new Swiper(".mySwiper2", {
       navigation: {
         nextEl: ".swiper-next-btn",
         prevEl: ".swiper-prev-btn" 
       },
       effect: "slide",
-      loop: "infinite",
-      // pagination: {
-      //   el: ".swiper-pagination",
-      //   type: "fraction"
-      // } 
+      loop: "infinite"
     });
   </script>
 </body>
