@@ -687,7 +687,7 @@ header.active {
 
 .text-wrap .mt {
   font-family: 'Roboto', sans-serif;
-  font-size: 75px;
+  font-size: 80px;
   font-weight: 100;
   letter-spacing: 4px;
   margin-bottom: 25px;
@@ -696,7 +696,7 @@ header.active {
 .text-wrap .ms {
   margin: 27px 0px;
   font-family: S-CoreDream-5;
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 500;
 }
 
@@ -764,7 +764,7 @@ header.active {
 
 .banner-info {
   font-family: S-CoreDream-5Medium;
-  font-size: 30px;
+  font-size: 35px;
   font-weight: 500;
   text-align: left;
 }
@@ -819,7 +819,7 @@ header.active {
 
 @media (max-width: 1440px) {
   .text-wrap .mt {
-    font-size: 67px;
+    font-size: 66px;
   }
 
   .text-wrap .ms {
@@ -832,8 +832,12 @@ header.active {
     cursor: pointer;
   }
 
+  .new {
+    font-size: 18px;
+  }
+
   .banner-info {
-    font-size: 26px;
+    font-size: 31px;
   }
 }
 
@@ -843,15 +847,19 @@ header.active {
   }
 
   .text-wrap .mt {
-    font-size: 59px;
+    font-size: 53px;
   }
 
   .text-wrap .ms {
-    font-size: 20px;
+    font-size: 19px;
+  }
+
+  .new {
+    font-size: 17px;
   }
 
   .banner-info {
-    font-size: 22px;
+    font-size: 28px;
   }
 
   .ref-btn {
@@ -861,26 +869,21 @@ header.active {
   }
 }
 
-@media (max-width: 1093px) {
-  /* .banner-info {
-    font-size: 22px;
-  } */
-
-  .new {
-    font-size: 18px;
+@media (max-width: 1024px) and (min-width: 768px) {
+  .main-wrap {
+    width: 92%;
   }
-}
 
-@media (max-width: 1024px) {
   .text-wrap .mt {
-    font-size: 54px;
+    font-size: 40px;
   }
 
   .text-wrap .ms {
-    font-size: 19px;
+    font-size: 16px;
   }
 
   .ref-btn {
+    width: 195px;
     height: 40px;
     cursor: pointer;
   }
@@ -888,6 +891,18 @@ header.active {
   .new {
     font-size: 16px;
   }
+
+  .banner-info {
+    font-size: 25px;
+  }
+/* 
+  .m-contents {
+    flex-direction: row-reverse;
+  }
+  .banner-slide {
+    margin-left: 0;
+    margin-right: 8.5%;
+  } */
 }
 
 
@@ -1014,6 +1029,8 @@ header.active {
   width: 36.833vw;
   height: 37.510vw;
   object-fit: cover;
+  min-width: 24.792vw;
+  min-height: 24.792vw;
   /* min-width: 400px; */
 }
 
@@ -1105,16 +1122,16 @@ header.active {
   }
 
   .sub-title, .sub-title-text {
-    font-size: 21px;
+    font-size: 22px;
   }
 
   .left-side {
     min-width: 210px;
   }
 
-  .right-area {
+  /* .right-area {
     min-width: 200px;
-  }
+  } */
 }
 
 @media (max-width: 1280px) {
@@ -1134,22 +1151,39 @@ header.active {
     min-width: 180px;
   }
 
-  .right-area {
+  /* .right-area {
     min-width: 150px;
-  }
+  } */
 
   .click {
     font-size: 16px;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 768px) {
+  .video-wrap {
+    width: 95%;
+  }
+
+  .box {
+    align-items: flex-end;
+  }
+
+  .left-area {
+    margin-right: 6.836vw;
+  }
+
   .left-area h1 {
     font-size: 25px;
   }
 
-  .sub-title {
-    font-size: 19px;
+  .sub-title, .sub-title-text {
+    font-size: 16px;
+  }
+
+  .main-img img {
+    width: 44.074vw;
+    height: 44.074vw;
   }
 }
 
@@ -1769,14 +1803,14 @@ header.active {
 
 /* main section - text effect */
 .m-roles {
-  height: 138px;
+  height: 147px;
   vertical-align: middle;
-  margin-bottom: 27px;
+  margin-bottom: 1.406vw;
   overflow: hidden;
 }
 
 .m-roles div {
-  height: 138px;
+  height: 147px;
   transition: margin-top 1s ease-in-out;
 }
 
@@ -1790,6 +1824,38 @@ header.active {
   height: 35px;
   transition: margin-top 1s ease-in-out;
 }
+
+/* @media (max-width: 1440px) {
+  .m-roles {
+    height: 126px;
+  }
+
+  .m-roles div {
+    height: 126px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .m-roles {
+    height: 108px;
+  }
+
+  .m-roles div {
+    height: 108px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .m-roles {
+    height: 92px;
+    margin-bottom: 14px;
+  }
+
+  .m-roles div {
+    height: 92px;
+  }
+} */
+
 
 
 /* ------------------------------------------------------------- */
@@ -1858,9 +1924,13 @@ header.active {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px)and (min-width: 768px) {
   .text-area {
     height: 157px;
+  }
+
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 65px  !important;
   }
 }
 

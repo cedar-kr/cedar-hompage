@@ -74,3 +74,19 @@
   background: url(../icon/right_arrow_r.png) no-repeat;
   border: none;
 }
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  /* .gallery {
+    position: static;
+    height: 31.836vw;
+  } */
+
+  /* .gallery-container {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  } */
+
+  .gallery-item-1 {
+    transform: translateX(5%);
+  }
+}
