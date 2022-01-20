@@ -26,7 +26,7 @@ class Carousel {
     });
 
     // 가장 처음부터 2개의 배열을 제외한 나머지 배열을 반환 후 나머지 요소를 실행
-    this.carouselArray.slice(0, 2).forEach((el, i) => {
+    this.carouselArray.slice(0, 4).forEach((el, i) => {
       el.classList.add(`gallery-item-${i+1}`);  // 지정된 클래스 값 추가
     });
   }
@@ -34,9 +34,9 @@ class Carousel {
   // Update the current order of the carouselArray and gallery
   setCurrentState(direction) {
     if (direction.className == 'gallery-controls-previous') {
-      this.carouselArray.push(this.carouselArray.shift());
-    } else {
       this.carouselArray.unshift(this.carouselArray.pop());
+    } else {
+      this.carouselArray.push(this.carouselArray.shift());
     }
     this.updateGallery();
   }
@@ -99,10 +99,18 @@ document.querySelector('.gallery-controls-next').addEventListener("click", chang
 function changePrev() {
   // let number = (current-2) * -height;
   let mnumber = (current-2) * -mheight-2;
-  console.log(mnumber, current);
+  // console.log(mnumber, current);
   if (current === 1) {
+    if(mheight == 126) {
+      mfirst.css('margin-top', '-380px');
+    } else if(mheight == 108) {
+      mfirst.css('margin-top', '-326px');
+    } else if(mheight == 92) {
+      mfirst.css('margin-top', '-278px');
+    } else {
+      mfirst.css('margin-top', '-443px');
+    }
     // first.css('margin-top', '-100px');
-    mfirst.css('margin-top', '-443px');
     current = 4;
   } else {
     // first.css('margin-top', number + 'px');
@@ -114,7 +122,7 @@ function changePrev() {
 function changeNext() {
   // let number = current * -height;
   let mnumber = current * -mheight-2;
-  console.log(mnumber, current);
+  // console.log(mnumber, current);
   if (current === numberDivs && current === mnumberDivs) {
     // first.css('margin-top', '0px');
     mfirst.css('margin-top', '0px');

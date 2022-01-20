@@ -871,7 +871,7 @@ header.active {
 
 @media (max-width: 1024px) and (min-width: 768px) {
   .main-wrap {
-    width: 92%;
+    width: 87%;
   }
 
   .text-wrap .mt {
@@ -895,14 +895,15 @@ header.active {
   .banner-info {
     font-size: 25px;
   }
-/* 
+
   .m-contents {
     flex-direction: row-reverse;
   }
+
   .banner-slide {
     margin-left: 0;
     margin-right: 8.5%;
-  } */
+  }
 }
 
 
@@ -1825,7 +1826,7 @@ header.active {
   transition: margin-top 1s ease-in-out;
 }
 
-/* @media (max-width: 1440px) {
+@media (max-width: 1440px) {
   .m-roles {
     height: 126px;
   }
@@ -1854,7 +1855,7 @@ header.active {
   .m-roles div {
     height: 92px;
   }
-} */
+}
 
 
 
