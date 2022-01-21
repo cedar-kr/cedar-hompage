@@ -727,7 +727,7 @@ header.active {
 /* main section - right */
 .banner-slide {
   position: relative;
-  margin-left: 8.5%;
+  margin-left: 7%;
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -902,7 +902,7 @@ header.active {
 
   .banner-slide {
     margin-left: 0;
-    margin-right: 8.5%;
+    margin-right: 7%;
   }
 }
 
