@@ -23,16 +23,18 @@ const menuItems = document.querySelectorAll(".list-item");
 
 menuItems.forEach((item) => {
 	const imageWrapper = item.querySelector(".list-item-image_wrapper");
-	const imageWrapperBounds = imageWrapper.getBoundingClientRect();
+  let imageWrapperBounds = undefined;
 	let itemBounds = undefined;
 
 	const onMouseEnter = () => {
 		itemBounds = item.getBoundingClientRect();
+    imageWrapperBounds = imageWrapper.getBoundingClientRect();
 		gsap.set(imageWrapper, { scale: 0.8, yPercent: 50, rotation: -15 });
 		gsap.to(imageWrapper, { opacity: 1, scale: 1, yPercent: -5, rotation: 0 });
 	};
 	const onMouseLeave = () => {
 		itemBounds = undefined;
+    imageWrapperBounds = undefined;
 		gsap.to(imageWrapper, { opacity: 0, yPercent: -50, scale: 0.8, rotation: -15 });
 	};
 	const onMouseMove = ({ x, y }) => {
