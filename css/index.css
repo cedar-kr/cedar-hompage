@@ -144,7 +144,7 @@ a {
 .business {
   position: relative;
   background-color: #fff;
-  padding: 168px 0px;
+  padding: 168px 0px 143px;
   overflow: hidden;
 }
 
@@ -303,7 +303,7 @@ a {
   position: relative;
   background-color: #fff;
   height: 100%;
-  padding: 190px 0px 240px;
+  padding: 240px 0px;
   overflow: hidden;
 }
 
