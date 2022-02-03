@@ -28,7 +28,7 @@ const BusinessItemTitle = styled.p`
   padding-bottom: 10px;
   font-size: 2rem;
   font-weight: 700;
-  color: ${props => props.color === "gray" ? "#000" : "#fff"};
+  color: ${props => props.color === "gray" ? "#4f4f4f" : "#fff"};
 `;
 
 export default function Business(props) {
