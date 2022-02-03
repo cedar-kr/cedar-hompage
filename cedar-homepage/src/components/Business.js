@@ -12,7 +12,7 @@ const BusinessTitle = styled(Title)`
 
 const Box = styled(Center)`
   justify-content: center;
-  width: 71.667vw;
+  width: 71.7%;
   height: 105px;
   min-width: 258px;
   margin: 8px 0px;
