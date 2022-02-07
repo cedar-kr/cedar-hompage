@@ -7,9 +7,16 @@ export const Title = styled.h1`
   line-height: 45px;
 `;
 
-export const Text = styled.span`
+export const Text = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 1.4rem;
   font-weight: 400;
-  color: ${props => props.color==="gray" ? "#4f4f4f" : "#fff"};
+  color: #000;
+  text-align: center;
+`;
+
+export const LgText = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
 `;
