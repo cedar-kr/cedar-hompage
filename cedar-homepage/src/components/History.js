@@ -27,6 +27,10 @@ const YearText = styled(LgText)`
   margin-bottom: 13px;
 `;
 
+const SlideCenter = styled(Center)`
+  height: 414px;
+`;
+
 const TOTAL_SLIDES = 2;  // 전체 슬라이드 개수(총 3개, 배열로 계산)
 
 export default function History(props) {
@@ -40,7 +44,7 @@ export default function History(props) {
       setCurrentSlide(0);
       setDataNum({start: 0, end: 2});
     } else {
-      setCurrentSlide(currentSlide + 1);
+      // setCurrentSlide(currentSlide + 1);
       setDataNum({start: dataNum.start + 1, end: dataNum.end + 1});
     }
     console.log(currentSlide);
@@ -81,7 +85,7 @@ export default function History(props) {
             width={45}
             alt="left arrow"
           />
-          <Center ref={slideRef}>
+          <SlideCenter ref={slideRef}>
             {history_data.map((data,idx) => {
               return (
                 <CenterPadding key={idx}> 
@@ -96,7 +100,7 @@ export default function History(props) {
                 </CenterPadding>
               )
             }).slice(dataNum.start,dataNum.end)}
-          </Center>
+          </SlideCenter>
           <Image
             onClick={NextSlide}
             priority
