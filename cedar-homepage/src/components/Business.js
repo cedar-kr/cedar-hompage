@@ -24,11 +24,15 @@ const Box = styled(Center)`
   };
 `;
 
-const BusinessItemTitle = styled.p`
+const BoxItemTitle = styled.p`
   padding-bottom: 10px;
   font-size: 2rem;
   font-weight: 700;
   color: ${props => props.color === "gray" ? "#4f4f4f" : "#fff"};
+`;
+
+const BoxItemText = styled(Text)`
+  color: ${props => props.color==="gray" ? "#4f4f4f" : "#fff"};
 `;
 
 export default function Business(props) {
@@ -63,12 +67,12 @@ export default function Business(props) {
           {business_data.map((data,idx) => {
             return (
               <Box key={idx} color={data.color}> 
-                <BusinessItemTitle color={data.color}>{data.title}</BusinessItemTitle>
-                <Text color={data.color}>
+                <BoxItemTitle color={data.color}>{data.title}</BoxItemTitle>
+                <BoxItemText color={data.color}>
                   {data.title_exp}
                   <br />
                   {data.title_exp_1}
-                </Text>
+                </BoxItemText>
               </Box>
             )
           })}
