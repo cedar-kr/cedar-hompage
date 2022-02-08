@@ -10,3 +10,10 @@ export const Center = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;

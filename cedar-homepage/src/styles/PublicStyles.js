@@ -14,3 +14,9 @@ export const Text = styled.p`
   color: #000;
   text-align: center;
 `;
+
+export const LgText = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+`;
