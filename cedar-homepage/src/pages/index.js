@@ -4,6 +4,7 @@ import Business from '../components/Business'
 import History from '../components/History'
 import Main from '../components/Main'
 import Contact from '../components/Contact'
+import Map from '../components/Map'
 import Footer from '../components/Footer'
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <History />
       <Main />
       <Contact />
+      <Map />
       <Footer/>
     </div>
   )
