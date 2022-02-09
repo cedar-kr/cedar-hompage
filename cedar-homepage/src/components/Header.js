@@ -6,9 +6,10 @@ import { Wrapper } from '../styles/Layout'
 const HeaderContainer = styled.header`
   padding: 20px 0px;
   background: url(/imgs/bg_header.png);
-  background-position: center center;
-  height: 100vh;
-  max-height: 500px;
+  background-repeat: no-repeat;
+  height: 138.89vw;
+  background-size:cover;
+  background-position: center;
 `;
 
 export const HeaderTitle = styled(Title)`

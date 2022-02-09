@@ -6,10 +6,11 @@ import { Center, Wrapper, Row } from '../styles/Layout'
 const MainContainer = styled.section`
   background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.8) 100%), 
               url(/imgs/reference/1.png);
-  background-position: center center;
-  height: 100vh;
-  max-height: 600px;
+  background-position: center;
+  height: 168.07vw;
   position: relative;
+  background-repeat: no-repeat;
+  background-size:cover;
 `;
 
 const MainText = styled.p`
