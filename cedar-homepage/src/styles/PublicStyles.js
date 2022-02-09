@@ -12,7 +12,6 @@ export const Text = styled.p`
   font-size: 1.4rem;
   font-weight: 400;
   color: #000;
-  text-align: center;
 `;
 
 export const LgText = styled.p`

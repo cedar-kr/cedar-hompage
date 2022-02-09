@@ -2,7 +2,8 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import Business from '../components/Business'
 import History from '../components/History'
-import Contact from '../components/contact'
+import Main from '../components/Main'
+import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <Header />
       <Business />
       <History />
+      <Main />
       <Contact />
       <Footer/>
     </div>
