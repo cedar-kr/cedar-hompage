@@ -36,16 +36,16 @@ const SolutionPkBox = styled.div`
 const SolutionPkItems = styled.div`
   display: flex;
   flex-diretion:row;
-  width: ${ 242 * 3 }px;
-  margin: 0px 16px;
+  width: 726px;
 `;
 
 const SolutionPkItem = styled(Center)`
   border:1px solid #e0e0e0;
-  margin-right:${props => props.mg ? 0 :16}px;
   width: 242px;
   height: 319px;
   justify-content:center;
+  margin-left:16px;
+  margin-right: ${props=> props.mg && 16 }px;
 `;
 
 const SolutionPkItemName = styled.div`
@@ -98,10 +98,10 @@ export default function SolutionPk(props) {
           {
             SolutionPkData.map((data,idx)=>{
               return (
-                <SolutionPkItem key={idx} mg={ data.name == "Modi-Broadcast"? true : false}>
+                <SolutionPkItem key={idx} mg={ idx == SolutionPkData.length-1}>
                   <Image
                     src={data.src}
-                    alt={`SolutionPk_pk_${data.name}`}
+                    alt={`SolutionPk_${data.name}`}
                     height={147}
                     width={120}
                   />
