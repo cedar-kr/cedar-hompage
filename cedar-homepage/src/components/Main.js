@@ -14,7 +14,7 @@ const MainContainer = styled.section`
 `;
 
 const MainText = styled.p`
-  font-family: 'NotoSansCJKKR', sans-serif;
+  font-family: 'Noto Sans CJK KR', sans-serif;
   font-size: 1.4rem;
   font-weight: 500;
   color: #fff;
@@ -22,7 +22,7 @@ const MainText = styled.p`
 `;
 
 export const MainLgText = styled(LgText)`
-  font-family: 'S-CoreDream-6';
+  font-family: 'S-CoreDream-6Bold', sans-serif;
   color: #fff;
 `;
 
