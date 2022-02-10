@@ -13,11 +13,9 @@ export default function Map() {
         name="주식회사 시더"
         width="100%"
         height="235px"
-        frameborder="0px"
-        allowfullscreen="false" 
-        loading="lazy"
-        sandbox="allow-scripts allow-popups"> 
-      </iframe>
+        frameBorder="0"
+        allowFullScreen={false}
+        loading="lazy" /> 
     </MapContainer>
   )
 };
