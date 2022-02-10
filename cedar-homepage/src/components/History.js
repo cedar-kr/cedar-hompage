@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { Title, Text, LgText } from "../styles/PublicStyles"
 import { Center, Wrapper, Row } from '../styles/Layout'
-// import { history_data } from '../utils/contents'
 import React, { useEffect, useRef, useState } from 'react'
 import { chunk } from '../utils/func'
 import { history_data } from '../utils/data';
@@ -20,15 +19,14 @@ const SlideView = styled.div`
 `;
 
 const SlideCenter = styled.div`
-  height: 470px;
   max-width:100%;
   overflow:hidden;
 `;
 
 const SlideContainer = styled.div`
-  display:flex;
-  flex-direction:row;
-  max-width:100%;
+  display: flex;
+  flex-direction :row;
+  max-width: 100%;
 `;
 
 const SlideItems = styled.div`
@@ -53,9 +51,15 @@ const YearText = styled(LgText)`
 `;
 
 const ButtonBox = styled.div`
-  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content:space-between;
+  align-items:center;
+  position: absolute;
+  left: ${props => props.left && 16}px;
+  right: ${props => props.right && 16}px;
+  z-index:100;
+  background:#fff;
+  border-radius:50%;
 `;
 
 const SlideButton = styled(Image)`
@@ -101,7 +105,7 @@ export default function History(props) {
         소개합니다.
       </Title>
       <SlideView>
-        <ButtonBox>
+        <ButtonBox left>
           <SlideButton
             onClick={PrevSlide}
             priority
@@ -113,15 +117,15 @@ export default function History(props) {
         <SlideCenter>
           <SlideContainer ref={slideRef}>
           {
-            data.map((t,idx)=>{
+            data.map((box,idx)=>{
               return <SlideItems key={idx}>
                 { 
-                  t.map((tt,idx)=>{
+                  box.map((boxData,idx)=>{
                     return <CenterPadding key={idx}>
-                      <YearText>{tt.year}</YearText>
+                      <YearText>{boxData.year}</YearText>
                       {
-                        tt.projects.map((ttt,idx)=>{
-                          return <TextPadding key={idx}>{ttt}</TextPadding>
+                        boxData.projects.map((contnet,idx)=>{
+                          return <TextPadding key={idx} dangerouslySetInnerHTML={{__html: contnet }}></TextPadding>
                         })
                       }
                     </CenterPadding>
@@ -132,7 +136,7 @@ export default function History(props) {
           }
           </SlideContainer>
         </SlideCenter>
-        <ButtonBox>
+        <ButtonBox right>
           <SlideButton
             onClick={NextSlide}
             src="/icons/h_right_arrow.png"
