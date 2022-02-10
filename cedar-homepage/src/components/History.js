@@ -20,7 +20,7 @@ const SlideView = styled.div`
 `;
 
 const SlideCenter = styled.div`
-  height: 414px;
+  height: 470px;
   max-width:100%;
   overflow:hidden;
 `;
