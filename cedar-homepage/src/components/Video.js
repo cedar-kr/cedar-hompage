@@ -121,7 +121,6 @@ export default function Video(props) {
         <VideoItems>
           {
             VideoData.map((data,idx)=>{
-              console.log(idx)
               return (
                 <VideoItem key={idx} mg={ idx == VideoData.length-1 ? true : false}>
                   <VideoTest>
