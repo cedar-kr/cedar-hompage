@@ -7,6 +7,10 @@ import Contact from '../components/Contact'
 import Map from '../components/Map'
 import Footer from '../components/Footer'
 
+import SolutionPk from '../components/SolutionPk'
+import Video from '../components/Video'
+import Solution from '../components/Solution'
+
 export default function Home() {
   return (
     <div >
@@ -19,6 +23,9 @@ export default function Home() {
       <Business />
       <History />
       <Main />
+      <Solution />
+      <SolutionPk />
+      <Video />
       <Contact />
       <Map />
       <Footer/>
