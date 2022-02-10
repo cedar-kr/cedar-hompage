@@ -25,6 +25,7 @@ const Box = styled(Center)`
 `;
 
 const BoxItemTitle = styled.p`
+  font-family: 'Roboto', sans-serif;
   padding-bottom: 10px;
   font-size: 2rem;
   font-weight: 700;
