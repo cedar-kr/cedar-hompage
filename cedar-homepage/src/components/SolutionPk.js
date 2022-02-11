@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import React, { useMemo } from 'react'
 import Image from 'next/image'
-import MODI_LITE from '../../public/imgs/Solutionpkg/1.png';
-import MODI from '../../public/imgs/Solutionpkg/2.png';
-import MODI_BROADCAST from '../../public/imgs/Solutionpkg/3.png';
+import MODI_LITE from '../../public/imgs/solutionpkg/1.png';
+import MODI from '../../public/imgs/solutionpkg/2.png';
+import MODI_BROADCAST from '../../public/imgs/solutionpkg/3.png';
 import { Center, Wrapper } from '../styles/Layout';
 
 const SolutionPkContainer = styled.section`
