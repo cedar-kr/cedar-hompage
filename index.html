@@ -20,6 +20,14 @@
   <link rel="icon" href="./icon/favicon.png" type="image/x-icon" sizes="16x16">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 </head>
+<script>
+  function device_check() {
+    if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+      window.location.href='http://m.cedar.kr';
+    }
+  }
+  device_check();
+</script>
 <body>
   <div class="wrap">
     <div class="container">
