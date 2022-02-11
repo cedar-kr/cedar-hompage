@@ -90,7 +90,7 @@ export default function History(props) {
   }
 
   useEffect(() => {
-    slideRef.current.style.transition = 'all 0.5s ease-in-out';
+    // slideRef.current.style.transition = (currentSlide >= data.length-1 ) || currentSlide != 0 ? 'all 0.5s ease-in-out':'';
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`; // 백틱을 사용하여 슬라이드로 이동하는 에니메이션을 만듭니다.
   }, [currentSlide]);
   
@@ -112,6 +112,7 @@ export default function History(props) {
             src="/icons/h_left_arrow.png"
             height={45}
             width={45}
+            alt="left arrow"
           />
         </ButtonBox>
         <SlideCenter>
@@ -140,6 +141,7 @@ export default function History(props) {
           <SlideButton
             onClick={NextSlide}
             src="/icons/h_right_arrow.png"
+            priority
             alt="right arrow"
             height={45}
             width={45}

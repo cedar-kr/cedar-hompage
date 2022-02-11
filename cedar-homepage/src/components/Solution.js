@@ -58,23 +58,7 @@ const SolutionItems = styled.div`
   margin-bottom:30px;
 `;
 
-const SolutionImg = styled(Image)`
-  /* -ms-interpolation-mode: nearest-neighbor;
-	image-rendering: pixelated; */
-`;
-
-const SolutionItem = styled(Center)`
-  border: 1px solid #e0e0e0;
-  margin-right: ${props => props.mg ? 0 :16}px;
-  width: 242px;
-  height: 319px;
-  justify-content: center;
-`;
-
 export default function Solution(props) {
-  const solutionItems = useMemo(()=>[
-
-  ]);
 
   const solutionData = useMemo(()=>[
     { 
@@ -90,7 +74,6 @@ export default function Solution(props) {
       src: Slide_Display,
       bg:'blue',
       width:1008
-
     },
     { 
       title:<SolutionTitle>
@@ -102,7 +85,6 @@ export default function Solution(props) {
       src: Slide_Device,
       bg:'puple',
       width:1268
-
     },
     { 
       title:<SolutionTitle>
@@ -127,14 +109,7 @@ export default function Solution(props) {
               <SolutionSubText dangerouslySetInnerHTML={{__html: data.text }}></SolutionSubText>
               <SolutionBox>
                 <SolutionItems width={data.width}>
-                  {/* {
-                    solutionItems.map((data,idx)=>{
-                      return (
-                        <SolutionItem key={idx}></SolutionItem>
-                      )
-                    })
-                  } */}
-                  <SolutionImg src={data.src}/>
+                  <Image src={data.src} alt="solution slideImg"/>
                 </SolutionItems>
               </SolutionBox>
             </SolutionContainer>

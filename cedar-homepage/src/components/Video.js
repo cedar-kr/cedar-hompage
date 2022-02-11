@@ -126,7 +126,7 @@ export default function Video(props) {
                   <VideoTest>
                     <Link href={data.url}>
                       <VideoThumnail src={data.src}>
-                      <VideoPlayBtn src={playIcon} width={34} height={24}/>
+                      <VideoPlayBtn src={playIcon} width={34} height={24} alt='video play btn'/>
                     </VideoThumnail>
                     </Link>
                   </VideoTest>
