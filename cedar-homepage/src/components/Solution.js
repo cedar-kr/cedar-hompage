@@ -26,9 +26,9 @@ const SolutionTitle = styled.div`
 `;
 
 const TextPoint = styled.span`
-  font-weight: ${props => props.bold ? 700 : 500 };
-  box-shadow: ${props => props.line ? 'inset 0 -25px 0 #f8ffac' : 'none' };
-  padding-right: ${props => props.line && 8}px;
+  font-weight: 700;
+  box-shadow: inset 0 -25px 0 #f8ffac;
+  padding-right: 2px;
 `;
 
 const SolutionSubText = styled.div`
@@ -66,7 +66,7 @@ export default function Solution(props) {
       <SolutionTitle>
         디스플레이를
         <br />
-        <TextPoint bold line>한번에 관리</TextPoint>하는
+        <TextPoint>한번에 관리</TextPoint>하는
         <br />
         쉽고 간편한 솔루션
       </SolutionTitle>, 
@@ -77,7 +77,7 @@ export default function Solution(props) {
     },
     { 
       title:<SolutionTitle>
-      <TextPoint bold line>다양한 디바이스</TextPoint>로
+      <TextPoint>다양한 디바이스</TextPoint>로
       <br />
       매장을 돋보이게
     </SolutionTitle>, 
@@ -88,9 +88,9 @@ export default function Solution(props) {
     },
     { 
       title:<SolutionTitle>
-         <TextPoint bold>효율성을 극대화</TextPoint>한
+         <TextPoint>효율성을 극대화</TextPoint>한
         <br />
-        <TextPoint line>관리페이지까지</TextPoint>
+        관리페이지까지
       </SolutionTitle>, 
       text:'그룹 편성 부터 원격 모니터링, 오류 상황 <br/> 감지 기능을 통해 효율성을 극대화합니다.',
       src: Slide_Admin,
