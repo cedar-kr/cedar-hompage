@@ -19,3 +19,10 @@ export const LgText = styled.p`
   font-size: 2.5rem;
   font-weight: 700;
 `;
+
+export const ModalView = styled.div`
+  overflow:hidden;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+`;

@@ -2,6 +2,9 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { Title } from '../styles/PublicStyles'
 import { Wrapper } from '../styles/Layout'
+import VideoModal from './VideoModal';
+import { useState } from 'react';
+import { useEffect } from 'react/cjs/react.development';
 
 const HeaderContainer = styled.header`
   padding: 20px 0px;
@@ -22,8 +25,39 @@ export const Highlight = styled.div`
   width: fit-content;
 `;
 
+const HeaderPlayBtnBox = styled.div`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top: 120px;   
+  width: 100%;
+`;
+
+const HeaderPlayBtn = styled.div`
+  width: 45px;
+  height: 45px;
+`;
+
 export default function Header() {
+  const [ isOpen, setIsOpen ] = useState(false);
+
+  const openVideo = () => {
+    setIsOpen(true);
+  }
+
+  const closeVideo = () => {
+    setIsOpen(false);
+  }
+
+  useEffect(()=>{
+    document.body.style.overflow = isOpen ? "hidden" : null;
+    document.body.style.height = isOpen ? "100%" : null;
+    document.body.style.touchAction = isOpen ? "none" : null;
+  },[isOpen]);
+
   return (
+    <>
+    {isOpen && <VideoModal closeVideo={closeVideo} /> }
     <HeaderContainer>
       <Wrapper>
       <Image
@@ -40,7 +74,18 @@ export default function Header() {
           <br />
           <Highlight>주식회사 시더</Highlight>
         </HeaderTitle>
+        <HeaderPlayBtnBox>
+          <HeaderPlayBtn>
+            <Image
+              src='/icons/video_play.png'
+              onClick={openVideo}
+              height={45}
+              width={45}
+            />
+          </HeaderPlayBtn>
+        </HeaderPlayBtnBox>
       </Wrapper>
     </HeaderContainer>
+    </>
   )
 };
