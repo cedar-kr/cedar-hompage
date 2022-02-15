@@ -68,14 +68,18 @@ const SlideButton = styled(Image)`
 `;
 
 export default function History(props) {
-  const data = chunk(history_data,2);
+  const [ data, setData] = useState(chunk(history_data,2));
   const TOTAL_SLIDES = data.length;  // 전체 슬라이드 개수(총 3개, 배열로 계산)
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(1);
   const slideRef = useRef();
+  const [ eventTouch , setEventTouch ] = useState({ x: '', y: '' });
 
   const NextSlide = () => {
     if (currentSlide >= data.length-1) {
-      setCurrentSlide(0);
+      slideRef.current.style.transition = '0s';
+      slideRef.current.style.transform = `translateX(-100%)`;
+      setCurrentSlide(1);
+      setCurrentSlide(2);
     } else {
       setCurrentSlide(currentSlide + 1);
     }
@@ -83,16 +87,68 @@ export default function History(props) {
 
   const PrevSlide = () => {
     if ( currentSlide == 0) {
-      setCurrentSlide(TOTAL_SLIDES-1);
+      slideRef.current.style.transition = '0s';
+      slideRef.current.style.transform = `translateX(-500%)`; 
+      setCurrentSlide(5);
+      setCurrentSlide(4);
+
     } else {
       setCurrentSlide(currentSlide - 1);
     }
   }
 
+  const touchEnd = (e) => {
+    const distanceX = Math.abs(eventTouch.x - e.changedTouches[0].pageX);
+    const distanceY = Math.abs(eventTouch.y - e.changedTouches[0].pageY);
+
+    if((distanceY + distanceX > 30) && (distanceX > distanceY)) {
+      if(eventTouch.x - e.changedTouches[0].pageX < 0 ) {
+        PrevSlide();
+      }
+      else if(eventTouch.x - e.changedTouches[0].pageX > 0 ) {
+        NextSlide();
+      }
+    }
+  }
+
   useEffect(() => {
-    // slideRef.current.style.transition = (currentSlide >= data.length-1 ) || currentSlide != 0 ? 'all 0.5s ease-in-out':'';
-    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`; // 백틱을 사용하여 슬라이드로 이동하는 에니메이션을 만듭니다.
+    slideRef.current.style.transition = 'all 0.5s ease-in-out';
+    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
+
+  useEffect(()=> {
+    if(data.length < 7){
+      setData(data.unshift([
+        {
+          year:"2013",
+          projects:[
+            "주식회사 시더(Cedar Inc.) 법인 설립",
+            "부경대학교&서울과학기술대학교 계약 체결",
+            "삼성전자 플랫폼 런칭 파트너 선정",
+            "제 11회 임베디드 경진대회 스마트챌린지 휴맥스분야 최우수상 수상"
+          ]
+        }
+      ]))
+      setData(data.concat([[
+        {
+          year:"2021",
+          projects:[
+            "청년친화강소기업 3년 연속 선정",
+            "미국 특허 등록",
+            "MODI GS인증 1등급 획득",
+            "세종큐비즈 키오스크 솔루션 개발"
+          ]
+        },{
+          year:"2020",
+          projects:[
+            "LGU+ 유심 키오스크 계약",
+            "서울지방경찰청 디지털 사이니지 공급",
+            "청년친화강소기업 첫 선정"
+          ]
+        }
+      ]]));
+    }
+  },[])
   
   return (
     <HistoryContainer>
@@ -116,16 +172,24 @@ export default function History(props) {
           />
         </ButtonBox>
         <SlideCenter>
-          <SlideContainer ref={slideRef}>
+          <SlideContainer 
+            onTouchStart={ 
+              (e) => setEventTouch({ 
+                x: e.changedTouches[0].pageX, 
+                y: e.changedTouches[0].pageY
+              })
+            }
+            onTouchEnd={touchEnd}  
+            ref={slideRef}>
           {
             data.map((box,idx)=>{
               return <SlideItems key={idx}>
                 { 
                   box.map((boxData,idx)=>{
                     return <CenterPadding key={idx}>
-                      <YearText>{boxData.year}</YearText>
+                      <YearText>{boxData && boxData.year}</YearText>
                       {
-                        boxData.projects.map((contnet,idx)=>{
+                        boxData.projects && boxData.projects.map((contnet,idx)=>{
                           return <TextPadding key={idx} dangerouslySetInnerHTML={{__html: contnet }}></TextPadding>
                         })
                       }
