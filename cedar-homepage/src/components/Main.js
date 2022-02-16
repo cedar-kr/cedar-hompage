@@ -140,23 +140,29 @@ export default function Main() {
     },
   ];
 
-  const TOTAL_SLIDES = 4;
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [totalSlide, setTotalSlide] = useState(main_data);
+  const [currentSlide, setCurrentSlide] = useState(1);
   const [isRunning, setIsRunning] = useState(true);
-  const [eventTouch , setEventTouch] = useState({ x: '', y: '' });
+  const [eventTouch, setEventTouch] = useState({ x: '', y: '' });
   const slideRef = useRef();
 
   const NextSlide = () => {
-    if (currentSlide >= TOTAL_SLIDES-1) {
+    if(currentSlide >= totalSlide.length - 2) {
+      slideRef.current.style.transition = '0s';
+      slideRef.current.style.transform = `translateX(0%)`;
       setCurrentSlide(0);
+      setCurrentSlide(1);
     } else {
       setCurrentSlide(currentSlide + 1);
     }
   };
 
   const PrevSlide = () => {
-    if (currentSlide == 0) {
-      setCurrentSlide(TOTAL_SLIDES - 1);
+    if(currentSlide == 1) {
+      slideRef.current.style.transition = '0s';
+      slideRef.current.style.transform = `translateX(-500%)`; 
+      setCurrentSlide(5);
+      setCurrentSlide(4);
     } else {
       setCurrentSlide(currentSlide - 1);
     }
@@ -178,15 +184,11 @@ export default function Main() {
 
   useEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
-    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`; // 백틱을 사용하여 슬라이드로 이동하는 에니메이션을 만듭니다.
+    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
   useInterval(() => {
-    if (currentSlide >= TOTAL_SLIDES-1) {
-      setCurrentSlide(0);
-    } else {
-      setCurrentSlide(currentSlide => currentSlide + 1);
-    }
+    NextSlide();
   }, isRunning ? 4000 : null);
 
   function handleIsRunningChange() {
@@ -196,7 +198,24 @@ export default function Main() {
       setIsRunning(true)
     }
   }
-  
+
+  useEffect(()=> {
+    if(totalSlide.length < 6) {
+      setTotalSlide(totalSlide.unshift(
+        {
+          src: "/imgs/main/bg_main_EVSignage.png",
+          title: "E/V SIGNAGE"
+        }
+      ));
+      setTotalSlide(totalSlide.concat(
+        {
+          src: "/imgs/main/bg_main_KIOSK.png",
+          title: "KIOSK"
+        }
+      ));
+    }
+  },[])
+
   return (
     <MainContainer>
       <SlideView>
@@ -220,7 +239,7 @@ export default function Main() {
             }
             onTouchEnd={touchEnd} ref={slideRef}>
           {
-            main_data.map((data,idx) => {
+            totalSlide.map((data,idx) => {
               return (
                 <BackgroundItem key={idx}>
                   <BackgroundImage src={data.src} />
@@ -235,7 +254,7 @@ export default function Main() {
           </SlideContainer>
           <SlideWrap left>
             <SlideCount>
-              {currentSlide+1}
+              {currentSlide}
               <Slash>/</Slash>
               {main_data.length}
             </SlideCount>
