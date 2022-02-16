@@ -143,6 +143,7 @@ export default function Main() {
   const TOTAL_SLIDES = 4;
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isRunning, setIsRunning] = useState(true);
+  const [eventTouch , setEventTouch] = useState({ x: '', y: '' });
   const slideRef = useRef();
 
   const NextSlide = () => {
@@ -158,6 +159,20 @@ export default function Main() {
       setCurrentSlide(TOTAL_SLIDES - 1);
     } else {
       setCurrentSlide(currentSlide - 1);
+    }
+  }
+
+  const touchEnd = (e) => {
+    const distanceX = Math.abs(eventTouch.x - e.changedTouches[0].pageX);
+    const distanceY = Math.abs(eventTouch.y - e.changedTouches[0].pageY);
+
+    if((distanceY + distanceX > 30) && (distanceX > distanceY)) {
+      if(eventTouch.x - e.changedTouches[0].pageX < 0 ) {
+        PrevSlide();
+      }
+      else if(eventTouch.x - e.changedTouches[0].pageX > 0 ) {
+        NextSlide();
+      }
     }
   }
 
@@ -196,7 +211,14 @@ export default function Main() {
           />
         </ButtonBox>
         <SlideCenter>
-          <SlideContainer ref={slideRef}>
+          <SlideContainer 
+            onTouchStart={ 
+              (e) => setEventTouch({ 
+                x: e.changedTouches[0].pageX, 
+                y: e.changedTouches[0].pageY
+              })
+            }
+            onTouchEnd={touchEnd} ref={slideRef}>
           {
             main_data.map((data,idx) => {
               return (
