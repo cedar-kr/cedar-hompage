@@ -6,7 +6,6 @@ import Main from '../components/Main'
 import Contact from '../components/Contact'
 import Map from '../components/Map'
 import Footer from '../components/Footer'
-
 import SolutionPk from '../components/SolutionPk'
 import Video from '../components/Video'
 import Solution from '../components/Solution'
