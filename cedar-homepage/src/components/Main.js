@@ -188,7 +188,13 @@ export default function Main() {
   }, [currentSlide]);
 
   useInterval(() => {
-    NextSlide();
+    if(currentSlide >= totalSlide.length - 2) {
+      slideRef.current.style.transition = '0s';
+      slideRef.current.style.transform = `translateX(0%)`;
+      setCurrentSlide(1);
+    } else {
+      setCurrentSlide(currentSlide + 1);
+    }
   }, isRunning ? 4000 : null);
 
   function handleIsRunningChange() {
