@@ -27,84 +27,51 @@ export const TextInfo = styled(Text)`
 `;
 
 export default function Contact() {
+  const contact_data = [
+    {
+      img: "/icons/location.png",
+      content: "서울특별시 서초구 강남대로 18길 5 (양재동) 3층",
+      link: "/"
+    },{
+      img: "/icons/phone.png",
+      content: "070.4901.6150",
+      link: "tel:070-4901-6150"
+    },{
+      img: "/icons/email.png",
+      content: "info@cedar.kr",
+      link: "/"
+    }
+  ];
 
-const contact_data = [
-{
-  img: "/icons/location.png",
-  content: "서울특별시 서초구 강남대로 18길 5 (양재동) 3층",
-  link: "/"
-},{
-  img: "/icons/phone.png",
-  content: "070.4901.6150",
-  link: "tel:070-4901-6150"
-},{
-img: "/icons/email.png",
-content: "info@cedar.kr",
-link: "/"
-}
-
-];
-
-return (
-
-<ContactContainer>
-
-<Wrapper>
-
-<ContactTitle>
-
-시더가 전하는
-
-<br />
-
-특별한 가치들을
-
-<br />
-
-만나보세요.
-
-</ContactTitle>
-
-<PaddingTextInfo>
-
-{contact_data.map((data,idx) => {
-
-return (
-
-<Link href={data.link} key={idx} scroll={false}>
-
-<ContactInfo>
-
-<Image
-
-priority
-
-src={data.img}
-
-height={30}
-
-width={30}
-
-alt="Contact Icons"
-
-/>
-
-<TextInfo>{data.content}</TextInfo>
-
-</ContactInfo>
-
-</Link>
-
-)
-
-})}
-
-</PaddingTextInfo>
-
-</Wrapper>
-
-</ContactContainer>
-
-)
-
+  return (
+    <ContactContainer>
+      <Wrapper>
+        <ContactTitle>
+          시더가 전하는
+          <br />
+          특별한 가치들을
+          <br />
+          만나보세요.
+        </ContactTitle>
+        <PaddingTextInfo>
+          {contact_data.map((data,idx) => {
+            return (
+              <Link href={data.link} key={idx} scroll={false}>
+                <ContactInfo>
+                  <Image
+                    priority
+                    src={data.img}
+                    height={30}
+                    width={30}
+                    alt="Contact Icons"
+                  />
+                  <TextInfo>{data.content}</TextInfo>
+                </ContactInfo>
+              </Link>
+            )
+          })}
+        </PaddingTextInfo>
+      </Wrapper>
+    </ContactContainer>
+  )
 };
