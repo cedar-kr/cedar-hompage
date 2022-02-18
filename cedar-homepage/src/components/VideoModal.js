@@ -1,8 +1,8 @@
 import Image from 'next/image';
+import { useEffect } from 'react/cjs/react.development';
 import styled from 'styled-components'
 
 const VideoModalContainer = styled.div`
-  background: rgba(0,0,0,0.7);
   display: flex;
   flex-direction:column;
   justify-content:center;
@@ -12,7 +12,7 @@ const VideoModalContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
 `;
 
@@ -43,16 +43,20 @@ export default function VideoModal(props) {
       <VideoWrapper>
         <VideoView 
           onClick={(e)=> e.stopPropagation()} 
-          autoplay
+          autoPlay={"autoplay"}
           muted
-          loop
           playsInline
           width="100%"
+          loop
           controls
           preload="auto"
         >
           <source
-           src='./videos/promo_video.webm' 
+           src='./videos/promo_video.mp4#t=0.2' 
+           type="video/mp4"
+          />
+          <source
+           src='./videos/promo_video.webm#t=0.2' 
            type="video/webm"
           />
         </VideoView>
