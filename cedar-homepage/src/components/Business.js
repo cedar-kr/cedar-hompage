@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Title, Text } from '../styles/PublicStyles'
+import { Title, NSText, MdText } from '../styles/PublicStyles'
 import { Center, Wrapper } from '../styles/Layout'
 
 const BusinessContainer = styled.section`
@@ -24,19 +24,19 @@ const Box = styled(Center)`
   };
 `;
 
-const BoxItemTitle = styled.p`
+const BoxItemTitle = styled(MdText)`
   font-family: 'Roboto', sans-serif;
   padding-bottom: 10px;
-  font-size: 2rem;
   font-weight: 700;
   color: ${props => props.color === "gray" ? "#4f4f4f" : "#fff"};
 `;
 
-const BoxItemText = styled(Text)`
+const BoxItemText = styled(NSText)`
   color: ${props => props.color==="gray" ? "#4f4f4f" : "#fff"};
+  text-align: center;
 `;
 
-export default function Business(props) {
+export default function Business() {
   const business_data = [
     {
       title: "Digital signage Solution",

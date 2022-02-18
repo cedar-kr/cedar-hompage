@@ -1,17 +1,15 @@
 import styled from 'styled-components'
-import React, { useMemo, useState } from 'react'
 import Image from 'next/image'
-import { Center } from '../styles/Layout';
-import { useEffect, useRef } from 'react/cjs/react.development';
+import { MdText, NSText, Title } from '../styles/PublicStyles'
+import { Center } from '../styles/Layout'
+import React, { useMemo, useState } from 'react'
+import { useEffect, useRef } from 'react/cjs/react.development'
 
 const SolutionPkContainer = styled.section`
   padding: 30px 0px;
 `;
 
-const SolutionPkTitle = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 3rem;
-  line-height: 45px;
+const SolutionPkTitle = styled(Title)`
   margin-left: 16px;
   margin-top: 30px;
 `;
@@ -22,7 +20,7 @@ const TextPoint = styled.span`
 `;
 
 const SolutionPkBox = styled.div`
-  margin-top:30px;
+  margin-top: 30px;
   overflow: hidden;
   ::-webkit-scrollbar {
     display: none;
@@ -31,40 +29,35 @@ const SolutionPkBox = styled.div`
 
 const SolutionPkItems = styled.div`
   display: flex;
-  flex-diretion:row;
   width: 726px;
 `;
 
 const SolutionPkItem = styled(Center)`
-  border:1px solid #e0e0e0;
+  border: 1px solid #e0e0e0;
   width: 242px;
   height: 319px;
-  justify-content:center;
-  margin-left:16px;
-  margin-right: ${props=> props.mg && 16 }px;
+  justify-content: center;
+  margin-left: 16px;
+  margin-right: ${props=> props.mg && 16}px;
 `;
 
-const SolutionPkItemName = styled.div`
+const SolutionPkItemName = styled(MdText)`
   font-family: Avenir;
-  font-size: 20px;
   font-weight: 500;
-  margin-top:20px;
+  margin-top: 20px;
   margin-bottom: 6px;
 `;
 
-const SolutionPkItemInfo = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 14px;
-  font-weight: normal;
+const SolutionPkItemInfo = styled(NSText)`
   text-align: center;
   color: #333;
 `;
 
 const SolutionPkBtns = styled.div`
   display: flex;
-  flex-direction:row;
-  margin-left:16px;
-  margin-top:30px;
+  flex-direction: row;
+  margin-left: 16px;
+  margin-top: 30px;
 `;
 
 const SolutionPkBtn = styled.button`
@@ -72,19 +65,17 @@ const SolutionPkBtn = styled.button`
   height: 40px;
   margin-right: 14px;
   border-radius: 10px;
-  background-color: ${ props => props.select ? '#000' : '#fff' };
-  color: ${ props => props.select ? '#ffffff' : '#828282' };
-  border:1px solid ${ props => props.select ?  '#000' : '#828282' };
+  background-color: ${props => props.select ? '#000' : '#fff'};
+  color: ${props => props.select ? '#ffffff' : '#828282'};
+  border: 1px solid ${props => props.select ? '#000' : '#828282'};
 `;
 
-export default function SolutionPk(props) {
-  const [ select, setSelect ] = useState(0);
+export default function SolutionPk() {
+  const [select, setSelect] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef();
-  const [ eventTouch , setEventTouch ] = useState({ x: '', y: '' });
+  const [eventTouch , setEventTouch] = useState({ x: '', y: '' });
   
-
-
   const changePackage = (num) => {
     setSelect(num);
     setCurrentSlide(num);
@@ -117,7 +108,7 @@ export default function SolutionPk(props) {
     }
   }
 
-  const SolutionPkData = useMemo(()=>[
+  const SolutionPkData = useMemo(() => [
      { 
     src: '/imgs/solutionpkg/1.png', 
     name:'Modi-Lite', 

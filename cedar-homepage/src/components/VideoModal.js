@@ -1,12 +1,9 @@
-import Image from 'next/image';
-import { useEffect } from 'react/cjs/react.development';
+import Image from 'next/image'
 import styled from 'styled-components'
+import { Center } from '../styles/Layout'
 
-const VideoModalContainer = styled.div`
-  display: flex;
-  flex-direction:column;
+const VideoModalContainer = styled(Center)`
   justify-content:center;
-  align-items:center;
   position: fixed;
   top: 0;
   left: 0;
@@ -16,12 +13,9 @@ const VideoModalContainer = styled.div`
   z-index: 100;
 `;
 
-const VideoWrapper = styled.div`
-  display: flex;
+const VideoWrapper = styled(Center)`
   height: 100%;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
 `;
 
 const VideoView = styled.video`
@@ -43,7 +37,7 @@ export default function VideoModal(props) {
       <VideoWrapper>
         <VideoView 
           onClick={(e)=> e.stopPropagation()} 
-          autoPlay={"autoplay"}
+          autoPlay="autoplay"
           muted
           playsInline
           width="100%"
@@ -52,20 +46,21 @@ export default function VideoModal(props) {
           preload="auto"
         >
           <source
-           src='./videos/promo_video.mp4#t=0.2' 
+           src="./videos/promo_video.mp4#t=0.2"
            type="video/mp4"
           />
           <source
-           src='./videos/promo_video.webm#t=0.2' 
+           src="./videos/promo_video.webm#t=0.2"
            type="video/webm"
           />
         </VideoView>
         <VideoClose>
           <Image 
-            src='/icons/video_close.png'
             onClick={closeVideo}
+            src="/icons/video_close.png"
             width={45}
             height={45}
+            alt="Video Close Button"
           />
         </VideoClose>
       </VideoWrapper>

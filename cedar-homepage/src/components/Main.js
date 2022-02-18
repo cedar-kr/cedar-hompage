@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 import Image from 'next/image'
-import { LgText } from "../styles/PublicStyles"
+import { LgText, Text } from '../styles/PublicStyles'
+import { Row, Wrapper } from '../styles/Layout'
 import React, { useEffect, useRef, useState } from 'react'
-import { Wrapper } from '../styles/Layout'
+
 
 const MainContainer = styled.section`
   background-color: #fff;
 `;
 
-const SlideView = styled.div`
-  display: flex;
-  flex-direction:row;
+const SlideView = styled(Row)`
   justify-content: space-between;
   align-items:center;
   min-width: 100%;
@@ -22,16 +21,14 @@ const SlideCenter = styled.div`
   position: relative;
 `;
 
-const SlideContainer = styled.div`
-  display: flex;
-  flex-direction :row;
+const SlideContainer = styled(Row)`
   max-width: 100%;
 `;
 
 const ButtonBox = styled.div`
   display: flex;
-  justify-content:space-between;
-  align-items:center;
+  justify-content: space-between;
+  align-items: center;
   position: absolute;
   left: ${props => props.left && 16}px;
   right: ${props => props.right && 16}px;
@@ -70,9 +67,8 @@ const TextWrap = styled(Wrapper)`
   bottom: 66px;
 `;
 
-const MainText = styled.p`
+const MainText = styled(Text)`
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 1.4rem;
   color: #fff;
   margin-bottom: 10px;
 `;
@@ -90,10 +86,9 @@ const SlideWrap = styled(Wrapper)`
   bottom: 31px;
 `;
 
-const SlideCount = styled.span`  
+const SlideCount = styled(Text)`  
   font-family: 'S-CoreDream-3Light';
   margin-right: 10px;
-  font-size: 1.4rem;
   color: #fff;
 `;
 
@@ -232,7 +227,7 @@ export default function Main() {
             src="/icons/m_left_arrow.png"
             height={45}
             width={45}
-            alt="left arrow"
+            alt="Left Arrow"
           />
         </ButtonBox>
         <SlideCenter>
@@ -244,19 +239,19 @@ export default function Main() {
               })
             }
             onTouchEnd={touchEnd} ref={slideRef}>
-          {
-            totalSlide.map((data,idx) => {
-              return (
-                <BackgroundItem key={idx}>
-                  <BackgroundImage src={data.src} />
-                  <TextWrap>
-                    <MainText>판교 ‘테크원’ 빌딩 솔루션 구축 및 하드웨어 납품</MainText>
-                    <MainLgText>{data.title}</MainLgText>
-                  </TextWrap>
-                </BackgroundItem>
-              )
-            })
-          }
+            {
+              totalSlide.map((data,idx) => {
+                return (
+                  <BackgroundItem key={idx}>
+                    <BackgroundImage src={data.src} />
+                    <TextWrap>
+                      <MainText>판교 ‘테크원’ 빌딩 솔루션 구축 및 하드웨어 납품</MainText>
+                      <MainLgText>{data.title}</MainLgText>
+                    </TextWrap>
+                  </BackgroundItem>
+                )
+              })
+            }
           </SlideContainer>
           <SlideWrap left>
             <SlideCount>
@@ -268,7 +263,7 @@ export default function Main() {
               onClick={handleIsRunningChange}
               src={isRunning ? "/icons/pause_btn.png" : "/icons/play_btn.png"}
               priority
-              alt="slider button"
+              alt="Slider Control Button"
               height={20}
               width={20}
             />
@@ -277,9 +272,9 @@ export default function Main() {
         <ButtonBox right>
           <SlideButton
             onClick={NextSlide}
-            src="/icons/m_right_arrow.png"
             priority
-            alt="right arrow"
+            src="/icons/m_right_arrow.png"
+            alt="Right Arrow"
             height={45}
             width={45}
           />

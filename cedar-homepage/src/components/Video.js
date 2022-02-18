@@ -1,9 +1,10 @@
 import styled from 'styled-components'
-import React, { useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Center, Wrapper } from '../styles/Layout';
-import playIcon from '../../public/imgs/video/playBtn.png';
+import playIcon from '../../public/imgs/video/playBtn.png'
+import { Center, Row } from '../styles/Layout'
+import { NSText, Title } from '../styles/PublicStyles'
+import React, { useMemo } from 'react'
 
 const VideoContainer = styled.section`
   padding: 30px 0px;
@@ -11,10 +12,8 @@ const VideoContainer = styled.section`
   height: 600px;
 `;
 
-const VideoTitle = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 3rem;
-  line-height: 45px;
+const VideoTitle = styled(Title)`
+  font-weight: 500;
   margin: 30px 0px;
   margin-left: 16px;
 `;
@@ -22,23 +21,17 @@ const VideoTitle = styled.div`
 const VideoBox = styled.div`
   margin-top: 30px;
   overflow: scroll;
-
   ::-webkit-scrollbar {
     display: none;
   }
 `;
 
-const VideoItems = styled.div`
-  display: flex;
-  flex-direction: row;
+const VideoItems = styled(Row)`
   width: 1050px;
 `;
 
-const VideoTest = styled.div`
-  display: flex;
-  align-items: center;
+const VideoTest = styled(Center)`
   justify-content: center;
-  flex-direction: column;
   width: 222px;
   height: 240px;
 `;
@@ -48,11 +41,12 @@ const VideoThumnail = styled.div`
   height: 240px;
   background: ${props=> `url(${props.src})`};
   display: flex;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
 `;
+
 const VideoPlayBtn = styled(Image)`
-  position:absolute;
+  position: absolute;
 `;
 
 const VideoItem = styled(Center)`
@@ -72,18 +66,13 @@ const VideoTexts = styled.div`
   margin-top: 10px;
 `;
 
-const VideoText = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 14px;
-  font-weight: normal;
+const VideoText = styled(NSText)`
   color: #333;
   width: 100%;
 `;
 
-
-export default function Video(props) {
-  
-  const VideoData = useMemo(()=>[
+export default function Video() {
+  const VideoData = useMemo(()=> [
     { 
       name: '#01.', 
       info: '더 나은 삶을 위한 새로운 기술',
@@ -120,13 +109,13 @@ export default function Video(props) {
       <VideoBox>
         <VideoItems>
           {
-            VideoData.map((data,idx)=>{
+            VideoData.map((data,idx)=> {
               return (
                 <VideoItem key={idx} mg={ idx == VideoData.length-1 ? true : false}>
                   <VideoTest>
                     <Link href={data.url}>
                       <VideoThumnail src={data.src}>
-                      <VideoPlayBtn src={playIcon} width={34} height={24} alt='video play btn'/>
+                      <VideoPlayBtn src={playIcon} width={34} height={24} alt='Video Play Button'/>
                     </VideoThumnail>
                     </Link>
                   </VideoTest>
