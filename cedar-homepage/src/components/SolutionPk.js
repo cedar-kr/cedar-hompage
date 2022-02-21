@@ -43,7 +43,7 @@ const SolutionPkItem = styled(Center)`
 
 const SolutionPkItemName = styled(MdText)`
   font-family: "Avenir-Heavy";
-  font-weight: 500;
+  font-weight: 900;
   margin-top: 20px;
   margin-bottom: 6px;
 `;
@@ -66,6 +66,7 @@ const SolutionPkBtn = styled.button`
   height: 40px;
   margin-right: 14px;
   border-radius: 10px;
+  font-weight: 900;
   background-color: ${props => props.select ? '#000' : '#fff'};
   color: ${props => props.select ? '#ffffff' : '#828282'};
   border: 1px solid ${props => props.select ? '#000' : '#828282'};

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import Image from 'next/image'
-import { LgText } from "../styles/PublicStyles"
+import { LgText, Text } from "../styles/PublicStyles"
 import React, { useEffect, useRef, useState } from 'react'
-import { Wrapper } from '../styles/Layout'
+import { Row, Wrapper } from '../styles/Layout'
 import useDidMountEffect from '../utils/useDidMountEffect'
 
 const MainContainer = styled.section`
