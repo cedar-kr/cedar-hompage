@@ -12,6 +12,7 @@ const SolutionPkContainer = styled.section`
 const SolutionPkTitle = styled(Title)`
   margin-left: 16px;
   margin-top: 30px;
+  font-weight: 500;
 `;
 
 const TextPoint = styled.span`
