@@ -42,7 +42,7 @@ const SolutionPkItem = styled(Center)`
 `;
 
 const SolutionPkItemName = styled(MdText)`
-  font-family: Avenir;
+  font-family: "Avenir-Heavy";
   font-weight: 500;
   margin-top: 20px;
   margin-bottom: 6px;
@@ -61,6 +61,7 @@ const SolutionPkBtns = styled.div`
 `;
 
 const SolutionPkBtn = styled.button`
+  font-family: "Avenir-Heavy";
   padding: 0px 16px;
   height: 40px;
   margin-right: 14px;
