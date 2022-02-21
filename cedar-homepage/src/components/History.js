@@ -2,9 +2,10 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { Title, Text, LgText } from "../styles/PublicStyles"
 import { Center, Wrapper, Row } from '../styles/Layout'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { chunk } from '../utils/func'
 import { history_data } from '../utils/data';
+import useDidMountEffect from '../utils/useDidMountEffect'
 
 const HistoryContainer = styled.section`
   padding: 30px 0px;
@@ -69,7 +70,6 @@ const SlideButton = styled(Image)`
 
 export default function History(props) {
   const [ data, setData] = useState(chunk(history_data,2));
-  const TOTAL_SLIDES = data.length;  // 전체 슬라이드 개수(총 3개, 배열로 계산)
   const [currentSlide, setCurrentSlide] = useState(1);
   const slideRef = useRef();
   const [ eventTouch , setEventTouch ] = useState({ x: '', y: '' });
@@ -91,7 +91,6 @@ export default function History(props) {
       slideRef.current.style.transform = `translateX(-500%)`; 
       setCurrentSlide(5);
       setCurrentSlide(4);
-
     } else {
       setCurrentSlide(currentSlide - 1);
     }
@@ -111,8 +110,12 @@ export default function History(props) {
     }
   }
 
-  useEffect(() => {
+  useDidMountEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
+  }, [currentSlide]);
+
+  useEffect(() => {
+    // slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 

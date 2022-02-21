@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 import { LgText } from "../styles/PublicStyles"
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Wrapper } from '../styles/Layout'
+import useDidMountEffect from '../utils/useDidMountEffect'
 
 const MainContainer = styled.section`
   background-color: #fff;
@@ -182,8 +183,12 @@ export default function Main() {
     }
   }
 
-  useEffect(() => {
+  useDidMountEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
+  }, [currentSlide]);
+
+  useEffect(() => {
+    // slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
