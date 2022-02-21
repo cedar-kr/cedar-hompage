@@ -8,7 +8,7 @@ const VideoModalContainer = styled(Center)`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100vmax;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
 `;
@@ -46,7 +46,7 @@ export default function VideoModal(props) {
           preload="auto"
         >
           <source
-           src="./videos/promo_video.mp4#t=0.2"
+           src="https://d1rwo7d37ra2e3.cloudfront.net/video/promo_video.mp4#t=0.2"
            type="video/mp4"
           />
           <source
