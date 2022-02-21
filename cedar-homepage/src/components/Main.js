@@ -219,7 +219,7 @@ export default function Main() {
         }
       ));
     }
-  },[])
+  },[totalSlide])
 
   return (
     <MainContainer>

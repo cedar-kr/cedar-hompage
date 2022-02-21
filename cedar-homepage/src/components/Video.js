@@ -113,7 +113,7 @@ export default function Video() {
               return (
                 <VideoItem key={idx} mg={ idx == VideoData.length-1 ? true : false}>
                   <VideoTest>
-                    <Link href={data.url}>
+                    <Link href={data.url} passHref>
                       <VideoThumnail src={data.src}>
                       <VideoPlayBtn src={playIcon} width={34} height={24} alt='Video Play Button'/>
                     </VideoThumnail>

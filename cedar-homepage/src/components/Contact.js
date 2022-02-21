@@ -56,7 +56,7 @@ export default function Contact() {
         <PaddingTextInfo>
           {contact_data.map((data,idx) => {
             return (
-              <Link href={data.link} key={idx} scroll={false}>
+              <Link href={data.link} passHref key={idx} scroll={false}>
                 <ContactInfo>
                   <Image
                     priority

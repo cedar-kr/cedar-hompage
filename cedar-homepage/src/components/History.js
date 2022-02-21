@@ -146,7 +146,7 @@ export default function History() {
         }
       ]]));
     }
-  },[])
+  },[data])
   
   return (
     <HistoryContainer>

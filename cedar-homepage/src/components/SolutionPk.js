@@ -2,8 +2,7 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { MdText, NSText, Title } from '../styles/PublicStyles'
 import { Center } from '../styles/Layout'
-import React, { useMemo, useState } from 'react'
-import { useEffect, useRef } from 'react/cjs/react.development'
+import React, { useMemo, useState, useRef, useEffect } from 'react'
 
 const SolutionPkContainer = styled.section`
   padding: 30px 0px;
