@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import React, { useMemo } from 'react'
 import Image from 'next/image'
-import { Center, Wrapper } from '../styles/Layout';
-import Slide_Display from '../../public/imgs/solution/solution_slide1.png';
-import Slide_Device from '../../public/imgs/solution/solution_slide2.png';
-import Slide_Admin from '../../public/imgs/solution/solution_slide3.png';
+import { NSText, Title } from '../styles/PublicStyles'
+import React, { useMemo } from 'react'
+import Slide_Display from '../../public/imgs/solution/solution_slide1.png'
+import Slide_Device from '../../public/imgs/solution/solution_slide2.png'
+import Slide_Admin from '../../public/imgs/solution/solution_slide3.png'
 
 const SolutionContainer = styled.section`
   padding: 30px 0px;
@@ -15,14 +15,11 @@ const SolutionContainer = styled.section`
   };
 `;
 
-const SolutionTitle = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 3rem;
-  line-height: 45px;
+const SolutionTitle = styled(Title)`
+  font-weight: 500;
   margin-left: 16px;
   margin-top: 30px;
   margin-bottom: 20px;
-  font-weight: 500;
 `;
 
 const TextPoint = styled.span`
@@ -31,19 +28,15 @@ const TextPoint = styled.span`
   padding-right: 2px;
 `;
 
-const SolutionSubText = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  text-align: left;
+const SolutionSubText = styled(NSText)`
   color: #333;
-  margin:0px 16px;xa
+  margin: 0px 16px;
 `;
 
 const SolutionBox = styled.div`
-  margin-top:30px;
-  overflow:scroll;
-  scroll:none;
+  margin-top: 30px;
+  overflow: scroll;
+  scroll: none;
   ::-webkit-scrollbar {
     display: none;
   }
@@ -51,16 +44,14 @@ const SolutionBox = styled.div`
 
 const SolutionItems = styled.div`
   display: flex;
-  flex-diretion:row;
   width: ${props=> props.width}px;
   height: 303px;
   margin: 0px 16px;
-  margin-bottom:30px;
+  margin-bottom: 30px;
 `;
 
-export default function Solution(props) {
-
-  const solutionData = useMemo(()=>[
+export default function Solution() {
+  const solutionData = useMemo(() => [
     { 
       title:
       <SolutionTitle>
@@ -70,10 +61,10 @@ export default function Solution(props) {
         <br />
         쉽고 간편한 솔루션
       </SolutionTitle>, 
-      text:'하드웨어를 가리지 않고 확장이 용이한 <br/> 웹 기반 디지털 사이니지 솔루션입니다.',
+      text: '하드웨어를 가리지 않고 확장이 용이한 <br/> 웹 기반 디지털 사이니지 솔루션입니다.',
       src: Slide_Display,
-      bg:'blue',
-      width:1008
+      bg: 'blue',
+      width: 1008
     },
     { 
       title:<SolutionTitle>
@@ -81,10 +72,10 @@ export default function Solution(props) {
       <br />
       매장을 돋보이게
     </SolutionTitle>, 
-      text:'디바이스의 종류에 구애받지 않고 <br/> 어디서든 관리할 수 있습니다.',
+      text: '디바이스의 종류에 구애받지 않고 <br/> 어디서든 관리할 수 있습니다.',
       src: Slide_Device,
-      bg:'puple',
-      width:1268
+      bg: 'puple',
+      width: 1268
     },
     { 
       title:<SolutionTitle>
@@ -92,10 +83,10 @@ export default function Solution(props) {
         <br />
         관리페이지까지
       </SolutionTitle>, 
-      text:'그룹 편성 부터 원격 모니터링, 오류 상황 <br/> 감지 기능을 통해 효율성을 극대화합니다.',
+      text: '그룹 편성 부터 원격 모니터링, 오류 상황 <br/> 감지 기능을 통해 효율성을 극대화합니다.',
       src: Slide_Admin,
-      bg:'red',
-      width:1008
+      bg: 'red',
+      width: 1008
     },
   ],[])
 
@@ -109,7 +100,7 @@ export default function Solution(props) {
               <SolutionSubText dangerouslySetInnerHTML={{__html: data.text }}></SolutionSubText>
               <SolutionBox>
                 <SolutionItems width={data.width}>
-                  <Image src={data.src} alt="solution slideImg"/>
+                  <Image src={data.src} alt="Solution SlideImg"/>
                 </SolutionItems>
               </SolutionBox>
             </SolutionContainer>

@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 import Image from 'next/image'
+import VideoModal from './VideoModal'
 import { Title } from '../styles/PublicStyles'
-import { Wrapper } from '../styles/Layout'
-import VideoModal from './VideoModal';
-import { useState } from 'react';
-import { useEffect } from 'react/cjs/react.development';
+import { Center, Wrapper } from '../styles/Layout'
+import { useState, useEffect } from 'react'
 
 const HeaderContainer = styled.header`
   padding: 20px 0px;
@@ -25,10 +24,8 @@ export const Highlight = styled.div`
   width: fit-content;
 `;
 
-const HeaderPlayBtnBox = styled.div`
-  display:flex;
+const HeaderPlayBtnBox = styled(Center)`
   justify-content:center;
-  align-items:center;
   margin-top: 120px;   
   width: 100%;
 `;
@@ -39,7 +36,7 @@ const HeaderPlayBtn = styled.div`
 `;
 
 export default function Header() {
-  const [ isOpen, setIsOpen ] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const openVideo = () => {
     setIsOpen(true);
@@ -49,7 +46,7 @@ export default function Header() {
     setIsOpen(false);
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : null;
     document.body.style.height = isOpen ? "100%" : null;
     document.body.style.touchAction = isOpen ? "none" : null;
@@ -57,7 +54,7 @@ export default function Header() {
 
   return (
     <>
-    {isOpen && <VideoModal closeVideo={closeVideo} /> }
+    {isOpen && <VideoModal closeVideo={closeVideo} />}
     <HeaderContainer>
       <Wrapper>
       <Image
@@ -77,10 +74,11 @@ export default function Header() {
         <HeaderPlayBtnBox>
           <HeaderPlayBtn>
             <Image
-              src='/icons/video_play.png'
+              src="/icons/video_play.png"
               onClick={openVideo}
               height={45}
               width={45}
+              alt="Video Play Button"
             />
           </HeaderPlayBtn>
         </HeaderPlayBtnBox>

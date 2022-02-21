@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import Image from 'next/image'
-import { Title, Text, LgText } from "../styles/PublicStyles"
+import { Title, Text, LgText } from '../styles/PublicStyles'
 import { Center, Wrapper, Row } from '../styles/Layout'
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { chunk } from '../utils/func'
 import { history_data } from '../utils/data';
 import useDidMountEffect from '../utils/useDidMountEffect'
@@ -11,34 +11,28 @@ const HistoryContainer = styled.section`
   padding: 30px 0px;
 `;
 
-const SlideView = styled.div`
-  display: flex;
-  flex-direction:row;
+const SlideView = styled(Row)`
   justify-content: space-between;
-  align-items:center;
+  align-items: center;
   min-width: 100%;
 `;
 
 const SlideCenter = styled.div`
-  max-width:100%;
-  overflow:hidden;
+  max-width: 100%;
+  overflow: hidden;
 `;
 
-const SlideContainer = styled.div`
-  display: flex;
-  flex-direction :row;
+const SlideContainer = styled(Row)`
   max-width: 100%;
 `;
 
-const SlideItems = styled.div`
-  display: flex;
-  flex-direction:column;
+const SlideItems = styled(Center)`
   min-width: 100%;
 `;
 
 const TextPadding = styled(Text)`
   padding: 5px 0px;
-  text-align:center;
+  text-align: center;
 `;
 
 const CenterPadding = styled(Center)`
@@ -46,8 +40,9 @@ const CenterPadding = styled(Center)`
 `;
 
 const YearText = styled(LgText)`
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   box-shadow: inset 0 -20px 0 #B0FFE2;
-  color: #000;
   margin-bottom: 13px;
 `;
 
@@ -68,11 +63,11 @@ const SlideButton = styled(Image)`
   width: 45px;
 `;
 
-export default function History(props) {
-  const [ data, setData] = useState(chunk(history_data,2));
+export default function History() {
+  const [data, setData] = useState(chunk(history_data,2));
   const [currentSlide, setCurrentSlide] = useState(1);
+  const [eventTouch, setEventTouch] = useState({ x: '', y: '' });
   const slideRef = useRef();
-  const [ eventTouch , setEventTouch ] = useState({ x: '', y: '' });
 
   const NextSlide = () => {
     if (currentSlide >= data.length-1) {
@@ -86,7 +81,7 @@ export default function History(props) {
   };
 
   const PrevSlide = () => {
-    if ( currentSlide == 0) {
+    if (currentSlide == 0) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-500%)`; 
       setCurrentSlide(5);
@@ -119,8 +114,8 @@ export default function History(props) {
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
-  useEffect(()=> {
-    if(data.length < 7){
+  useEffect(() => {
+    if(data.length < 7) {
       setData(data.unshift([
         {
           year:"2013",
@@ -171,7 +166,7 @@ export default function History(props) {
             src="/icons/h_left_arrow.png"
             height={45}
             width={45}
-            alt="left arrow"
+            alt="Left Arrow"
           />
         </ButtonBox>
         <SlideCenter>
@@ -188,11 +183,11 @@ export default function History(props) {
             data.map((box,idx)=>{
               return <SlideItems key={idx}>
                 { 
-                  box.map((boxData,idx)=>{
+                  box.map((boxData,idx)=> {
                     return <CenterPadding key={idx}>
                       <YearText>{boxData && boxData.year}</YearText>
                       {
-                        boxData.projects && boxData.projects.map((contnet,idx)=>{
+                        boxData.projects && boxData.projects.map((contnet,idx)=> {
                           return <TextPadding key={idx} dangerouslySetInnerHTML={{__html: contnet }}></TextPadding>
                         })
                       }
@@ -207,15 +202,15 @@ export default function History(props) {
         <ButtonBox right>
           <SlideButton
             onClick={NextSlide}
-            src="/icons/h_right_arrow.png"
             priority
-            alt="right arrow"
+            src="/icons/h_right_arrow.png"
             height={45}
             width={45}
+            alt="Right Arrow"
           />
         </ButtonBox>
       </SlideView>
       </Wrapper>
-      </HistoryContainer>
+    </HistoryContainer>
   )
 };

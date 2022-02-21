@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import Image from 'next/image'
-import { Row, Wrapper } from '../styles/Layout'
-import { Title, Text } from '../styles/PublicStyles'
 import Link from 'next/link'
+import { Row, Wrapper } from '../styles/Layout'
+import { Title, NSText } from '../styles/PublicStyles'
 
 const ContactContainer = styled.section`
   padding-top: 60px;
@@ -22,7 +22,7 @@ export const ContactInfo = styled(Row)`
   margin: 5px 0px;
 `;
 
-export const TextInfo = styled(Text)`
+export const TextInfo = styled(NSText)`
   margin-left: 10px;
 `;
 
