@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image';
+import { touchEnd, touchStart } from '../utils/func';
 import useDidMountEffect from '../utils/useDidMountEffect'
 
 const SolutionContainer = styled.section`
@@ -53,7 +54,7 @@ const SlideImg = styled.div`
 `;
 
 const SlideRow = styled.div`
-  overflow: scroll;
+  overflow: auto;
   scroll-behavior: smooth;
   ::-webkit-scrollbar {
     display: none;
@@ -65,6 +66,7 @@ const SlideMenus = styled.div`
   display: flex;
   flex-direction:row;
   width: 560px;
+  scroll-snap-type: x mandatory;
 `;
 
 const SlideMenu = styled.span`
@@ -73,16 +75,80 @@ const SlideMenu = styled.span`
   font-weight: bold;
   margin-right:16px;
   color:${props => props.select? '#d74c4b' : '#4f4f4f'};
+  scroll-snap-align: center;
 `;
 
 export default function SolutionT(props) {
   const slideRef = useRef();
   const [ currentSlide, setCurrentSlide ] = useState(2);
+  const [ eventTouch , setEventTouch ] = useState({ x: '', y: '' });
   const { data } = props;
   const menuRef = useRef();
+  const [ totalWidth, setTotalWidth ] = useState(0); 
+
+  
+  const nextSlide = ()=> {
+    if (currentSlide == data.imgs.length-2) {
+      slideRef.current.style.transition = '0s';
+      slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)-4}%)`; 
+      setTimeout(() => {
+        setCurrentSlide(1);
+        setCurrentSlide(2);
+      }, 50);
+    } else {
+      setCurrentSlide(currentSlide + 1);
+    }
+  };
+
+  const tttest = (id) => {
+    const test = data.imgs.map((ig, idx)=>{
+      return ig.id === id && idx;
+    })
+    const f = test.filter(qwe=> qwe !== false);
+    return f[0];
+  }
+
+  const testSlide = (e,id) => { 
+    // console.log("[test id]"+tttest(id));
+    console.log("[id]"+id);
+    console.log("[currentSlide]"+currentSlide);
+    console.log("===========");
+    if(currentSlide === data.imgs.length-2 ){
+      slideRef.current.style.transition = '0s';
+      slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)-4}%)`; 
+      setCurrentSlide(1);
+      setCurrentSlide(2);
+    }
+    if(currentSlide === 2 && id === 4){
+      slideRef.current.style.transition = '0s';
+      slideRef.current.style.transform = `translateX(-${((data.imgs.length-1)*100/data.imgs.length)-4}%)`; 
+      setCurrentSlide(data.imgs.length-1);
+      setCurrentSlide(data.imgs.length-2);
+    }
+    if(tttest(id)===0){
+      setCurrentSlide(data.imgs.length-3);
+    }else if(tttest(id)===1){
+      setCurrentSlide(data.imgs.length-2);
+    }else{
+      setCurrentSlide(tttest(id));
+    }
+  }
+
+  const prevSlide = () => {
+    if ( currentSlide == 1) {
+      slideRef.current.style.transition = '0s';
+      slideRef.current.style.transform = `translateX(-${((data.imgs.length-2)*100/data.imgs.length)-4}%)`; 
+      setTimeout(() => {
+        setCurrentSlide(data.imgs.length-2);
+        setCurrentSlide(data.imgs.length-3);
+      }, 50);
+    } else {
+      setCurrentSlide(currentSlide - 1);
+    }  
+  }
 
   useDidMountEffect(() => {
-    menuRef.current.scrollLeft = currentSlide*50;
+    menuRef.current.scrollLeft = currentSlide * 50;
     slideRef.current.style.transition = 'all 0.3s ease-in-out';
   }, [currentSlide]);
 
@@ -99,6 +165,8 @@ export default function SolutionT(props) {
         <SolutionSlideRow>
           <SolutionSlideView 
             ref={slideRef} 
+            onTouchStart={(e)=>setEventTouch(touchStart(e))}
+            onTouchEnd={(e)=>touchEnd(e, eventTouch, prevSlide, nextSlide)}
             currentSlide={currentSlide}>
             {
               data.imgs.map((data,idx)=>{
@@ -117,7 +185,7 @@ export default function SolutionT(props) {
           {
             data.menus.map((menu,idx)=>{
               return (
-                <SlideMenu  key={idx} select={data.imgs[currentSlide].id === menu.id}>{menu.name}</SlideMenu>
+                <SlideMenu  key={idx} select={data.imgs[currentSlide].id === menu.id} onClick={(e)=>testSlide(e, menu.id)}>{menu.name}</SlideMenu>
               )
             }) 
           }
