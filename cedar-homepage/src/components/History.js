@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Title, Text, LgText } from '../styles/PublicStyles'
 import { Center, Wrapper, Row } from '../styles/Layout'
 import React, { useEffect, useRef, useState } from 'react'
-import { chunk } from '../utils/func'
+import { chunk, touchEnd, touchStart } from '../utils/func'
 import { history_data } from '../utils/data';
 import useDidMountEffect from '../utils/useDidMountEffect'
 
@@ -69,7 +69,7 @@ export default function History() {
   const [eventTouch, setEventTouch] = useState({ x: '', y: '' });
   const slideRef = useRef();
 
-  const NextSlide = () => {
+  const nextSlide = () => {
     if (currentSlide >= data.length-1) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-100%)`;
@@ -80,7 +80,7 @@ export default function History() {
     }
   };
 
-  const PrevSlide = () => {
+  const prevSlide = () => {
     if (currentSlide == 0) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-500%)`; 
@@ -97,10 +97,10 @@ export default function History() {
 
     if((distanceY + distanceX > 30) && (distanceX > distanceY)) {
       if(eventTouch.x - e.changedTouches[0].pageX < 0 ) {
-        PrevSlide();
+        prevSlide();
       }
       else if(eventTouch.x - e.changedTouches[0].pageX > 0 ) {
-        NextSlide();
+        nextSlide();
       }
     }
   }
@@ -110,7 +110,6 @@ export default function History() {
   }, [currentSlide]);
 
   useEffect(() => {
-    // slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
@@ -161,7 +160,7 @@ export default function History() {
       <SlideView>
         <ButtonBox left>
           <SlideButton
-            onClick={PrevSlide}
+            onClick={prevSlide}
             priority
             src="/icons/h_left_arrow.png"
             height={45}
@@ -171,13 +170,8 @@ export default function History() {
         </ButtonBox>
         <SlideCenter>
           <SlideContainer 
-            onTouchStart={ 
-              (e) => setEventTouch({ 
-                x: e.changedTouches[0].pageX, 
-                y: e.changedTouches[0].pageY
-              })
-            }
-            onTouchEnd={touchEnd}  
+              onTouchStart={(e)=>setEventTouch(touchStart(e))}
+              onTouchEnd={(e)=>touchEnd(e, eventTouch, prevSlide, nextSlide)} 
             ref={slideRef}>
           {
             data.map((box,idx)=>{
@@ -201,7 +195,7 @@ export default function History() {
         </SlideCenter>
         <ButtonBox right>
           <SlideButton
-            onClick={NextSlide}
+            onClick={nextSlide}
             priority
             src="/icons/h_right_arrow.png"
             height={45}

@@ -4,6 +4,7 @@ import { LgText, Text } from "../styles/PublicStyles"
 import React, { useEffect, useRef, useState } from 'react'
 import { Row, Wrapper } from '../styles/Layout'
 import useDidMountEffect from '../utils/useDidMountEffect'
+import { touchEnd, touchStart, useInterval } from '../utils/func'
 
 const MainContainer = styled.section`
   background-color: #fff;
@@ -101,22 +102,7 @@ const SlideBtn = styled(Image)`
   width: 20px;
 `;
 
-function useInterval(callback, delay) {
-  const savedCallback = useRef();
-  useEffect(() => {
-    savedCallback.current = callback;
-  }, [callback]);
 
-  useEffect(() => {
-    function tick() {
-      savedCallback.current();
-    }
-    if (delay !== null) {
-      let id = setInterval(tick, delay);
-      return () => clearInterval(id);
-    }
-  }, [delay]);
-}
 
 export default function Main() {
   const main_data = [
@@ -141,7 +127,7 @@ export default function Main() {
   const [eventTouch, setEventTouch] = useState({ x: '', y: '' });
   const slideRef = useRef();
 
-  const NextSlide = () => {
+  const nextSlide = () => {
     if(currentSlide >= totalSlide.length - 2) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(0%)`;
@@ -152,7 +138,7 @@ export default function Main() {
     }
   };
 
-  const PrevSlide = () => {
+  const prevSlide = () => {
     if(currentSlide == 1) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-500%)`; 
@@ -163,26 +149,11 @@ export default function Main() {
     }
   }
 
-  const touchEnd = (e) => {
-    const distanceX = Math.abs(eventTouch.x - e.changedTouches[0].pageX);
-    const distanceY = Math.abs(eventTouch.y - e.changedTouches[0].pageY);
-
-    if((distanceY + distanceX > 30) && (distanceX > distanceY)) {
-      if(eventTouch.x - e.changedTouches[0].pageX < 0 ) {
-        PrevSlide();
-      }
-      else if(eventTouch.x - e.changedTouches[0].pageX > 0 ) {
-        NextSlide();
-      }
-    }
-  }
-
   useDidMountEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
   }, [currentSlide]);
 
   useEffect(() => {
-    // slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
@@ -226,7 +197,7 @@ export default function Main() {
       <SlideView>
         <ButtonBox left>
           <SlideButton
-            onClick={PrevSlide}
+            onClick={prevSlide}
             priority
             src="/icons/m_left_arrow.png"
             height={45}
@@ -236,13 +207,10 @@ export default function Main() {
         </ButtonBox>
         <SlideCenter>
           <SlideContainer 
-            onTouchStart={ 
-              (e) => setEventTouch({ 
-                x: e.changedTouches[0].pageX, 
-                y: e.changedTouches[0].pageY
-              })
-            }
-            onTouchEnd={touchEnd} ref={slideRef}>
+            ref={slideRef} 
+            onTouchStart={(e)=>setEventTouch(touchStart(e))}
+            onTouchEnd={(e)=>touchEnd(e, eventTouch, prevSlide, nextSlide)}
+          >
             {
               totalSlide.map((data,idx) => {
                 return (
@@ -275,7 +243,7 @@ export default function Main() {
         </SlideCenter>
         <ButtonBox right>
           <SlideButton
-            onClick={NextSlide}
+            onClick={nextSlide}
             priority
             src="/icons/m_right_arrow.png"
             alt="Right Arrow"
