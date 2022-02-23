@@ -103,29 +103,29 @@ export default function SolutionT(props) {
       return img.id === id && idx;
     })
     const imgCurrent = imgs.filter(img => img !== false);
+    if(imgCurrent[0] === 0){
+      return data.imgs.length-3;
+    }else if( imgCurrent[0] ===1){
+      return data.imgs.length-2;
+    }
     return imgCurrent[0];
   }
 
   const clickMenus = (id) => { 
-    if(currentSlide === data.imgs.length-2 ){
+    if(currentSlide == data.imgs.length-2 && id == 1){
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)-4}%)`; 
       setCurrentSlide(1);
       setCurrentSlide(2);
     }
-    if(currentSlide === 2 && id === 4){
+    if(currentSlide == 2 && id == data.imgs.length-3){
+      console.log("맨앞에서 뒤로");
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-${((data.imgs.length-1)*100/data.imgs.length)-4}%)`; 
       setCurrentSlide(data.imgs.length-1);
-      setCurrentSlide(data.imgs.length-2);
+      setCurrentSlide(data.imgs.length-2);  
     }
-    if(getCurrent(id)===0){
-      setCurrentSlide(data.imgs.length-3);
-    }else if(getCurrent(id)===1){
-      setCurrentSlide(data.imgs.length-2);
-    }else{
-      setCurrentSlide(getCurrent(id));
-    }
+    setCurrentSlide(getCurrent(id));
   }
 
   const prevSlide = () => {
