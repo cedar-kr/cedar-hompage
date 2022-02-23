@@ -84,8 +84,6 @@ export default function SolutionT(props) {
   const [ eventTouch , setEventTouch ] = useState({ x: '', y: '' });
   const { data } = props;
   const menuRef = useRef();
-  const [ totalWidth, setTotalWidth ] = useState(0); 
-
   
   const nextSlide = ()=> {
     if (currentSlide == data.imgs.length-2) {
@@ -100,19 +98,15 @@ export default function SolutionT(props) {
     }
   };
 
-  const tttest = (id) => {
-    const test = data.imgs.map((ig, idx)=>{
-      return ig.id === id && idx;
+  const getCurrent = (id) => {
+    const imgs = data.imgs.map((img, idx)=>{
+      return img.id === id && idx;
     })
-    const f = test.filter(qwe=> qwe !== false);
-    return f[0];
+    const imgCurrent = imgs.filter(img => img !== false);
+    return imgCurrent[0];
   }
 
-  const testSlide = (e,id) => { 
-    // console.log("[test id]"+tttest(id));
-    console.log("[id]"+id);
-    console.log("[currentSlide]"+currentSlide);
-    console.log("===========");
+  const clickMenus = (id) => { 
     if(currentSlide === data.imgs.length-2 ){
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)-4}%)`; 
@@ -125,12 +119,12 @@ export default function SolutionT(props) {
       setCurrentSlide(data.imgs.length-1);
       setCurrentSlide(data.imgs.length-2);
     }
-    if(tttest(id)===0){
+    if(getCurrent(id)===0){
       setCurrentSlide(data.imgs.length-3);
-    }else if(tttest(id)===1){
+    }else if(getCurrent(id)===1){
       setCurrentSlide(data.imgs.length-2);
     }else{
-      setCurrentSlide(tttest(id));
+      setCurrentSlide(getCurrent(id));
     }
   }
 
@@ -185,7 +179,7 @@ export default function SolutionT(props) {
           {
             data.menus.map((menu,idx)=>{
               return (
-                <SlideMenu  key={idx} select={data.imgs[currentSlide].id === menu.id} onClick={(e)=>testSlide(e, menu.id)}>{menu.name}</SlideMenu>
+                <SlideMenu  key={idx} select={data.imgs[currentSlide].id === menu.id} onClick={(e)=>clickMenus(e, menu.id)}>{menu.name}</SlideMenu>
               )
             }) 
           }
