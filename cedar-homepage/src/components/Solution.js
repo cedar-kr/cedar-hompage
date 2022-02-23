@@ -179,7 +179,7 @@ export default function SolutionT(props) {
           {
             data.menus.map((menu,idx)=>{
               return (
-                <SlideMenu  key={idx} select={data.imgs[currentSlide].id === menu.id} onClick={(e)=>clickMenus(e, menu.id)}>{menu.name}</SlideMenu>
+                <SlideMenu  key={idx} select={data.imgs[currentSlide].id === menu.id} onClick={()=>clickMenus(menu.id)}>{menu.name}</SlideMenu>
               )
             }) 
           }
