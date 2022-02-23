@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import Image from 'next/image'
-import { NSText, Title } from '../styles/PublicStyles'
-import React, { useMemo } from 'react'
-import Slide_Display from '../../public/imgs/solution/solution_slide1.png'
-import Slide_Device from '../../public/imgs/solution/solution_slide2.png'
-import Slide_Admin from '../../public/imgs/solution/solution_slide3.png'
+import React, { useEffect, useRef, useState } from 'react'
+import Image from 'next/image';
+import useDidMountEffect from '../utils/useDidMountEffect'
 
 const SolutionContainer = styled.section`
+  display: flex;
+  flex-direction:column;
+  width: 100%;
   padding: 30px 0px;
   background:${props=> 
     (props.bg == 'red' && '#ffeeee') ||
@@ -15,99 +15,114 @@ const SolutionContainer = styled.section`
   };
 `;
 
-const SolutionTitle = styled(Title)`
-  font-weight: 500;
-  margin-left: 16px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-`;
-
-const TextPoint = styled.span`
-  font-weight: 700;
-  box-shadow: inset 0 -25px 0 #f8ffac;
-  padding-right: 2px;
-`;
-
-const SolutionSubText = styled(NSText)`
+const SolutionSubText = styled.div`
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: left;
   color: #333;
-  margin: 0px 16px;
+  margin:0px 16px;
+  margin-bottom:50px;
 `;
 
 const SolutionBox = styled.div`
-  margin-top: 30px;
+  display: flex;
+  flex-direction:row;
+  width: 100%;
+  height: 280px;
+`;
+
+const SolutionSlideRow = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction:row;
+  height: 240px;
+  width: 100%;
+  overflow: hidden;
+`;
+
+const SolutionSlideView = styled.div`
+  position:absolute;
+  display: flex;
+  flex-direction:row;
+`;
+
+const SlideImg = styled.div`
+  width: 248px;
+  height: 248px;
+`;
+
+const SlideRow = styled.div`
   overflow: scroll;
-  scroll: none;
+  scroll-behavior: smooth;
   ::-webkit-scrollbar {
     display: none;
   }
+  padding-left:33%;
 `;
 
-const SolutionItems = styled.div`
+const SlideMenus = styled.div`
   display: flex;
-  width: ${props=> props.width}px;
-  height: 303px;
-  margin: 0px 16px;
-  margin-bottom: 30px;
+  flex-direction:row;
+  width: 560px;
 `;
 
-export default function Solution() {
-  const solutionData = useMemo(() => [
-    { 
-      title:
-      <SolutionTitle>
-        디스플레이를
-        <br />
-        <TextPoint>한번에 관리</TextPoint>하는
-        <br />
-        쉽고 간편한 솔루션
-      </SolutionTitle>, 
-      text: '하드웨어를 가리지 않고 확장이 용이한 <br/> 웹 기반 디지털 사이니지 솔루션입니다.',
-      src: Slide_Display,
-      bg: 'blue',
-      width: 1008
-    },
-    { 
-      title:<SolutionTitle>
-      <TextPoint>다양한 디바이스</TextPoint>로
-      <br />
-      매장을 돋보이게
-    </SolutionTitle>, 
-      text: '디바이스의 종류에 구애받지 않고 <br/> 어디서든 관리할 수 있습니다.',
-      src: Slide_Device,
-      bg: 'puple',
-      width: 1268
-    },
-    { 
-      title:<SolutionTitle>
-         <TextPoint>효율성을 극대화</TextPoint>한
-        <br />
-        관리페이지까지
-      </SolutionTitle>, 
-      text: '그룹 편성 부터 원격 모니터링, 오류 상황 <br/> 감지 기능을 통해 효율성을 극대화합니다.',
-      src: Slide_Admin,
-      bg: 'red',
-      width: 1008
-    },
-  ],[])
+const SlideMenu = styled.span`
+  font-family: NotoSansKR;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right:16px;
+  color:${props => props.select? '#d74c4b' : '#4f4f4f'};
+`;
+
+export default function SolutionT(props) {
+  const slideRef = useRef();
+  const [ currentSlide, setCurrentSlide ] = useState(2);
+  const { data } = props;
+  const menuRef = useRef();
+
+  useDidMountEffect(() => {
+    menuRef.current.scrollLeft = currentSlide*50;
+    slideRef.current.style.transition = 'all 0.3s ease-in-out';
+  }, [currentSlide]);
+
+  useEffect(() => {
+    menuRef.current.style.transition = 'all 0.1s ease-in-out';
+    slideRef.current.style.transform = `translateX(-${((currentSlide*100)/data.imgs.length)-4}%)`; // 백틱을 사용하여 슬라이드로 이동하는 에니메이션을 만듭니다.
+  }, [currentSlide]);
 
   return (
-    <div>
-      { 
-        solutionData.map((data, idx)=>{
-          return (
-            <SolutionContainer key={idx} bg={data.bg}>
-              {data.title}
-              <SolutionSubText dangerouslySetInnerHTML={{__html: data.text }}></SolutionSubText>
-              <SolutionBox>
-                <SolutionItems width={data.width}>
-                  <Image src={data.src} alt="Solution SlideImg"/>
-                </SolutionItems>
-              </SolutionBox>
-            </SolutionContainer>
-          )
-        })
-      }
-    </div>
-   
+    <SolutionContainer bg={data.bg}>
+      {data.title}
+      <SolutionSubText dangerouslySetInnerHTML={{__html: data.text}}></SolutionSubText>
+      <SolutionBox>
+        <SolutionSlideRow>
+          <SolutionSlideView 
+            ref={slideRef} 
+            currentSlide={currentSlide}>
+            {
+              data.imgs.map((data,idx)=>{
+                return (
+                  <SlideImg key={idx}>
+                  <Image src={data.src} height={240} width={240}/>
+                </SlideImg>
+                )
+              })
+            }
+          </SolutionSlideView>
+        </SolutionSlideRow>
+      </SolutionBox>
+      <SlideRow ref={menuRef}>
+        <SlideMenus>
+          {
+            data.menus.map((menu,idx)=>{
+              return (
+                <SlideMenu  key={idx} select={data.imgs[currentSlide].id === menu.id}>{menu.name}</SlideMenu>
+              )
+            }) 
+          }
+        </SlideMenus>
+      </SlideRow>
+    </SolutionContainer>
   )
 };
