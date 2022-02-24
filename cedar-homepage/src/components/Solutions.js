@@ -1,11 +1,9 @@
 import styled from 'styled-components'
+import SolutionT from './Solution'
+import { Title } from '../styles/PublicStyles'
 import React, { useMemo } from 'react'
-import SolutionT from './Solution';
 
-const SolutionTitle = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 3rem;
-  line-height: 45px;
+const SolutionTitle = styled(Title)`
   margin-left: 16px;
   margin-top: 30px;
   margin-bottom: 20px;
@@ -13,14 +11,13 @@ const SolutionTitle = styled.div`
 `;
 
 const TextPoint = styled.span`
-  font-weight: 700;
+  font-weight: 900;
   box-shadow: inset 0 -25px 0 #f8ffac;
   padding-right: 2px;
 `;
 
 export default function Solution(props) {
-
-  const solutionData = useMemo(()=>[
+  const solutionData = useMemo(()=> [
     { 
       title:
       <SolutionTitle>
@@ -82,11 +79,12 @@ export default function Solution(props) {
       bg:'blue',
     },
     { 
-      title:<SolutionTitle>
-      <TextPoint>다양한 디바이스</TextPoint>로
-      <br />
-      매장을 돋보이게
-    </SolutionTitle>, 
+      title:
+      <SolutionTitle>
+        <TextPoint>다양한 디바이스</TextPoint>로
+        <br />
+        매장을 돋보이게
+      </SolutionTitle>, 
       text:'디바이스의 종류에 구애받지 않고 <br/> 어디서든 관리할 수 있습니다.',
       imgs: [
         {
@@ -147,8 +145,9 @@ export default function Solution(props) {
       ],
     },
     { 
-      title:<SolutionTitle>
-         <TextPoint>효율성을 극대화</TextPoint>한
+      title:
+      <SolutionTitle>
+        <TextPoint>효율성을 극대화</TextPoint>한
         <br />
         관리페이지까지
       </SolutionTitle>, 
@@ -206,9 +205,9 @@ export default function Solution(props) {
   ],[])
 
   return (
-    solutionData.map((data,idx)=>{
+    solutionData.map((data,idx) => {
       return(
-        <SolutionT key={idx} data={data}/>
+        <SolutionT key={idx} data={data} />
       )
     })
   )
