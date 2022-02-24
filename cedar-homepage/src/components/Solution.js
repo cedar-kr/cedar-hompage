@@ -157,8 +157,8 @@ export default function SolutionT(props) {
               data.imgs.map((data,idx) => {
                 return (
                   <SlideImg key={idx}>
-                  <Image src={data.src} height={240} width={240} />
-                </SlideImg>
+                    <Image src={data.src} height={240} width={240} alt="Solution Images" />
+                  </SlideImg>
                 )
               })
             }
