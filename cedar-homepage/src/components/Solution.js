@@ -7,24 +7,20 @@ import Menus from './menus';
 
 const SolutionContainer = styled.section`
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   width: 100%;
   padding: 30px 0px;
-  background:${props=> 
+  background:${props => 
     (props.bg == 'red' && '#ffeeee') ||
     (props.bg == 'blue' && '#f2f7fb') ||
     (props.bg == 'puple' && '#f3f2ff')
   };
 `;
 
-const SolutionSubText = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  text-align: left;
+const SolutionSubText = styled(NSText)`
   color: #333;
-  margin:0px 16px;
-  margin-bottom:50px;
+  margin: 0px 16px;
+  margin-bottom: 50px;
 `;
 
 const SolutionImgBox = styled.div`
