@@ -1,8 +1,9 @@
 import styled from 'styled-components'
-import React, { useEffect, useRef, useState } from 'react'
-import Image from 'next/image';
+import React, { useEffect, useRef, useState, useMemo } from 'react'
 import { touchEnd, touchStart } from '../utils/func';
-import useDidMountEffect from '../utils/useDidMountEffect'
+import useDidMountEffect from '../utils/useDidMountEffect';
+import Image from 'next/image';
+import Menus from './menus';
 
 const SolutionContainer = styled.section`
   display: flex;
@@ -26,165 +27,87 @@ const SolutionSubText = styled.div`
   margin-bottom:50px;
 `;
 
-const SolutionBox = styled.div`
+const SolutionImgBox = styled.div`
   display: flex;
   flex-direction:row;
-  width: 100%;
-  height: 280px;
+  width: ${props=> 248 * props.data}px;
+  position: relative;
+  left: 50%;
+  margin-bottom:20px;
 `;
 
-const SolutionSlideRow = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction:row;
-  height: 240px;
-  width: 100%;
-  overflow: hidden;
-`;
-
-const SolutionSlideView = styled.div`
-  position:absolute;
-  display: flex;
-  flex-direction:row;
-`;
-
-const SlideImg = styled.div`
+const SolutionImg = styled(Image)`
   width: 248px;
   height: 248px;
+  margin: 0 8px;
 `;
 
-const SlideRow = styled.div`
-  overflow: auto;
-  scroll-behavior: smooth;
+const SolutionSlider = styled.div`
+  overflow: hidden;
   ::-webkit-scrollbar {
     display: none;
   }
-  padding-left:33%;
-`;
-
-const SlideMenus = styled.div`
-  display: flex;
-  flex-direction:row;
-  width: 560px;
-  scroll-snap-type: x mandatory;
-`;
-
-const SlideMenu = styled.span`
-  font-family: NotoSansKR;
-  font-size: 14px;
-  font-weight: bold;
-  margin-right:16px;
-  color:${props => props.select? '#d74c4b' : '#4f4f4f'};
-  scroll-snap-align: center;
 `;
 
 export default function SolutionT(props) {
+  const { data } = props;
   const slideRef = useRef();
   const [ currentSlide, setCurrentSlide ] = useState(2);
   const [ eventTouch , setEventTouch ] = useState({ x: '', y: '' });
-  const { data } = props;
-  const menuRef = useRef();
-  
+
   const nextSlide = ()=> {
+    console.log("이후");
     if (currentSlide == data.imgs.length-2) {
       slideRef.current.style.transition = '0s';
-      slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)-4}%)`; 
-      setTimeout(() => {
-        setCurrentSlide(1);
-        setCurrentSlide(2);
-      }, 50);
+      slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)*(1.5)}%)`; 
+      setCurrentSlide(1);
+      setCurrentSlide(2);
     } else {
       setCurrentSlide(currentSlide + 1);
     }
   };
 
-  const getCurrent = (id) => {
-    const imgs = data.imgs.map((img, idx)=>{
-      return img.id === id && idx;
-    })
-    const imgCurrent = imgs.filter(img => img !== false);
-    if(imgCurrent[0] === 0){
-      return data.imgs.length-3;
-    }else if( imgCurrent[0] ===1){
-      return data.imgs.length-2;
-    }
-    return imgCurrent[0];
-  }
-
-  const clickMenus = (id) => { 
-    if(currentSlide == data.imgs.length-2 && id == 1){
-      slideRef.current.style.transition = '0s';
-      slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)-4}%)`; 
-      setCurrentSlide(1);
-      setCurrentSlide(2);
-    }
-    if(currentSlide == 2 && id == data.imgs.length-3){
-      console.log("맨앞에서 뒤로");
-      slideRef.current.style.transition = '0s';
-      slideRef.current.style.transform = `translateX(-${((data.imgs.length-1)*100/data.imgs.length)-4}%)`; 
-      setCurrentSlide(data.imgs.length-1);
-      setCurrentSlide(data.imgs.length-2);  
-    }
-    setCurrentSlide(getCurrent(id));
-  }
-
   const prevSlide = () => {
+    console.log("이전")
     if ( currentSlide == 1) {
       slideRef.current.style.transition = '0s';
-      slideRef.current.style.transform = `translateX(-${((data.imgs.length-2)*100/data.imgs.length)-4}%)`; 
-      setTimeout(() => {
-        setCurrentSlide(data.imgs.length-2);
-        setCurrentSlide(data.imgs.length-3);
-      }, 50);
+      slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)*(data.imgs.length-2 + 0.5)}%)`; 
+      setCurrentSlide(data.imgs.length-2);
+      setCurrentSlide(data.imgs.length-3);
     } else {
       setCurrentSlide(currentSlide - 1);
     }  
   }
 
   useDidMountEffect(() => {
-    menuRef.current.scrollLeft = currentSlide * 50;
-    slideRef.current.style.transition = 'all 0.3s ease-in-out';
+    slideRef.current.style.transition = 'all 0.2s ease-in-out';
   }, [currentSlide]);
 
-  useEffect(() => {
-    menuRef.current.style.transition = 'all 0.1s ease-in-out';
-    slideRef.current.style.transform = `translateX(-${((currentSlide*100)/data.imgs.length)-4}%)`; // 백틱을 사용하여 슬라이드로 이동하는 에니메이션을 만듭니다.
-  }, [currentSlide]);
+  useEffect(()=>{
+    slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)*(currentSlide + 0.5)}%)`
+  },[currentSlide])
 
   return (
     <SolutionContainer bg={data.bg}>
       {data.title}
       <SolutionSubText dangerouslySetInnerHTML={{__html: data.text}}></SolutionSubText>
-      <SolutionBox>
-        <SolutionSlideRow>
-          <SolutionSlideView 
-            ref={slideRef} 
-            onTouchStart={(e)=>setEventTouch(touchStart(e))}
-            onTouchEnd={(e)=>touchEnd(e, eventTouch, prevSlide, nextSlide)}
-            currentSlide={currentSlide}>
-            {
-              data.imgs.map((data,idx)=>{
-                return (
-                  <SlideImg key={idx}>
-                  <Image src={data.src} height={240} width={240}/>
-                </SlideImg>
-                )
-              })
-            }
-          </SolutionSlideView>
-        </SolutionSlideRow>
-      </SolutionBox>
-      <SlideRow ref={menuRef}>
-        <SlideMenus>
+      <SolutionSlider>
+        <SolutionImgBox 
+          ref={slideRef}
+          onTouchStart={(e)=>setEventTouch(touchStart(e))}
+          onTouchEnd={(e)=>touchEnd(e, eventTouch, prevSlide, nextSlide)}
+          data={data.imgs.length}
+        >
           {
-            data.menus.map((menu,idx)=>{
+            data.imgs.map((img,idx)=>{
               return (
-                <SlideMenu  key={idx} select={data.imgs[currentSlide].id === menu.id} onClick={()=>clickMenus(menu.id)}>{menu.name}</SlideMenu>
+                <SolutionImg key={idx} alt={`solution-img-${idx}`} src={img.src} width={248} height={248}/>
               )
-            }) 
+            })
           }
-        </SlideMenus>
-      </SlideRow>
+        </SolutionImgBox>
+      </SolutionSlider>
+      <Menus data={data} currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} slideRef={slideRef}/>
     </SolutionContainer>
   )
 };
