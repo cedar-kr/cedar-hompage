@@ -30,7 +30,7 @@ const VideoItems = styled(Row)`
   width: 1050px;
 `;
 
-const VideoTest = styled(Center)`
+const VideoThumnailBox = styled(Center)`
   justify-content: center;
   width: 222px;
   height: 240px;
@@ -112,13 +112,13 @@ export default function Video() {
             VideoData.map((data,idx)=> {
               return (
                 <VideoItem key={idx} mg={ idx == VideoData.length-1 ? true : false}>
-                  <VideoTest>
+                  <VideoThumnailBox>
                     <Link href={data.url} passHref>
                       <VideoThumnail src={data.src}>
                       <VideoPlayBtn src={playIcon} width={34} height={24} alt='Video Play Button'/>
                     </VideoThumnail>
                     </Link>
-                  </VideoTest>
+                  </VideoThumnailBox>
                   <VideoTexts>
                     <VideoText>{data.name}</VideoText>
                     <VideoText dangerouslySetInnerHTML={{__html: data.info }}></VideoText>
