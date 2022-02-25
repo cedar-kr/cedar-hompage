@@ -42,6 +42,25 @@ const SolutionSlider = styled.div`
   overflow: hidden;
 `;
 
+const SlideButtons = styled.div`
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-item:center;
+`;
+
+const SlideButton = styled.div`
+  height: 250px;
+  width: 17%;
+  position: absolute;
+  display: flex;
+  justify-content:center;
+  align-item:center;
+  z-index:100;
+  left: ${props => props.left && 0}px;
+  right: ${props => props.right && 0}px;
+`;
+
 const SolutionMenus = styled.div`
   display: flex;
   flex-direction: column;
@@ -214,6 +233,10 @@ export default function SolutionT(props) {
       {data.title}
       <SolutionSubText dangerouslySetInnerHTML={{__html: data.text}}></SolutionSubText>
       <SolutionSlider>
+        <SlideButtons >
+          <SlideButton left onClick={prevSlide}/>
+          <SlideButton right onClick={nextSlide} />
+        </SlideButtons>
         <SolutionImgBox 
           ref={slideRef}
           onTouchStart={(e)=>setEventTouch(touchStart(e))}
