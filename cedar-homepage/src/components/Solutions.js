@@ -19,6 +19,7 @@ const TextPoint = styled.span`
 export default function Solution(props) {
   const solutionData = useMemo(()=> [
     { 
+      id:1,
       title:
       <SolutionTitle>
         디스플레이를
@@ -79,6 +80,7 @@ export default function Solution(props) {
       bg:'blue',
     },
     { 
+      id:2,
       title:
       <SolutionTitle>
         <TextPoint>다양한 디바이스</TextPoint>로
@@ -145,6 +147,7 @@ export default function Solution(props) {
       ],
     },
     { 
+      id:3,
       title:
       <SolutionTitle>
         <TextPoint>효율성을 극대화</TextPoint>한

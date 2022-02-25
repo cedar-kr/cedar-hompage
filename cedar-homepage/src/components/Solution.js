@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import React, { useEffect, useRef, useState } from 'react'
 import { touchEnd, touchStart } from '../utils/func';
 import useDidMountEffect from '../utils/useDidMountEffect';
@@ -50,13 +50,28 @@ const SolutionMenus = styled.div`
   position: relative;
   overflow: hidden;
   margin-bottom:40px;
+  width: 100%;
 `;
 
 const SolutionMenuBox = styled.div`
-  white-space: nowrap;
-  width: 100%;
-  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  width: ${props => props.scroll ? "calc(100%)" : "150px"};
+  margin: 10px;
+  position: relative;
+  ${props => props.scroll && css`
+    height: 30px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  `}
 `;
+
+const defaultLeft = 25;
 
 const Pointer = styled.div`
   width: 1px;
@@ -70,6 +85,14 @@ const SolutionMenu = styled.div`
   flex-direction: row;
   align-items:center;
   justify-content:center;
+  width: max-content;
+  ${props => props.width && css`
+    width: calc(100% + 400px);
+  `}
+  top: 0px;
+  left: ${defaultLeft}px;
+  transition: left ease 0.5s 0s;
+  position: absolute;
 `;
 
 const MenuText = styled.div`
@@ -111,12 +134,20 @@ export default function SolutionT(props) {
   const [ eventTouch , setEventTouch ] = useState({ x: '', y: '' });
   const [textLeft, setTextLeft] = useState(0);
   const [pointerLeft, setPointerLeft] = useState(0);
+  const scrollRef = useRef();
 
   useEffect(() => {
     if (pointerRef?.current) {
       setPointerLeft(pointerRef.current.offsetLeft);
     }
   }, [pointerRef]);
+
+  useEffect(() => {
+    if (currentTextRef.current) {
+      document.getElementById(`scroll-${data.id}`).scrollLeft = -(textLeft - defaultLeft);
+      document.getElementById(`scroll-${data.id}`).style.scrollBehavior = 'smooth';
+    }
+  }, [textLeft, data]);
 
   const getCurrent = (id) => {
     const imgs = data.imgs.map((img, idx)=>{
@@ -200,12 +231,11 @@ export default function SolutionT(props) {
       </SolutionSlider>
         <SolutionMenus>
           <Pointer ref={pointerRef} />
-          <SolutionMenuBox>
-            <SolutionMenu>
+          <SolutionMenuBox scroll id={`scroll-${data.id}`}>
+            <SolutionMenu ref={scrollRef} left={textLeft} width>
               {data.menus.map((menu)=> {
                 return (
                   <Menu 
-                    left={textLeft} 
                     pointerLeft={pointerLeft} 
                     setTextLeft={setTextLeft} 
                     ref={menu.id === data.imgs[currentSlide].id ? currentTextRef :  null} 
