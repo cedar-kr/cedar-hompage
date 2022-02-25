@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Title, Text, LgText } from '../styles/PublicStyles'
 import { Center, Wrapper, Row } from '../styles/Layout'
 import React, { useEffect, useRef, useState } from 'react'
-import { chunk, touchEnd, touchStart } from '../utils/func'
+import { chunk } from '../utils/func'
 import { history_data } from '../utils/data';
 import useDidMountEffect from '../utils/useDidMountEffect'
 
@@ -66,7 +66,6 @@ const SlideButton = styled(Image)`
 export default function History() {
   const [data, setData] = useState(chunk(history_data,2));
   const [currentSlide, setCurrentSlide] = useState(1);
-  const [eventTouch, setEventTouch] = useState({ x: '', y: '' });
   const slideRef = useRef();
 
   const nextSlide = () => {
@@ -78,7 +77,7 @@ export default function History() {
     } else {
       setCurrentSlide(currentSlide + 1);
     }
-  };
+  }
 
   const prevSlide = () => {
     if (currentSlide == 0) {
@@ -88,20 +87,6 @@ export default function History() {
       setCurrentSlide(4);
     } else {
       setCurrentSlide(currentSlide - 1);
-    }
-  }
-
-  const touchEnd = (e) => {
-    const distanceX = Math.abs(eventTouch.x - e.changedTouches[0].pageX);
-    const distanceY = Math.abs(eventTouch.y - e.changedTouches[0].pageY);
-
-    if((distanceY + distanceX > 30) && (distanceX > distanceY)) {
-      if(eventTouch.x - e.changedTouches[0].pageX < 0 ) {
-        prevSlide();
-      }
-      else if(eventTouch.x - e.changedTouches[0].pageX > 0 ) {
-        nextSlide();
-      }
     }
   }
 
@@ -122,7 +107,7 @@ export default function History() {
             "주식회사 시더(Cedar Inc.) 법인 설립",
             "부경대학교&서울과학기술대학교 계약 체결",
             "삼성전자 플랫폼 런칭 파트너 선정",
-            "제 11회 임베디드 경진대회 스마트챌린지 휴맥스분야 최우수상 수상"
+            "제 11회 임베디드 경진대회 스마트챌린지 <br/> 휴맥스분야 최우수상 수상"
           ]
         }
       ]))
@@ -170,8 +155,6 @@ export default function History() {
         </ButtonBox>
         <SlideCenter>
           <SlideContainer 
-              onTouchStart={(e)=>setEventTouch(touchStart(e))}
-              onTouchEnd={(e)=>touchEnd(e, eventTouch, prevSlide, nextSlide)} 
             ref={slideRef}>
           {
             data.map((box,idx)=>{
