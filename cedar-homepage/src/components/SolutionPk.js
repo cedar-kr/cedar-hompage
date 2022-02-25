@@ -41,8 +41,9 @@ const SolutionPkItem = styled(Center)`
   margin-right: ${props=> props.mg && 16}px;
 `;
 
-const SolutionPkItemName = styled(MdText)`
-  font-family: "Avenir-Heavy";
+const SolutionPkItemName = styled.div`
+  font-family: "Avenir-Heavy";  
+  font-size: 20px;
   font-weight: 900;
   margin-top: 20px;
   margin-bottom: 6px;
@@ -62,6 +63,7 @@ const SolutionPkBtns = styled.div`
 
 const SolutionPkBtn = styled.button`
   font-family: "Avenir-Heavy";
+  font-size:14px;
   padding: 0px 16px;
   height: 40px;
   margin-right: 14px;
