@@ -102,8 +102,6 @@ const SlideBtn = styled(Image)`
   width: 20px;
 `;
 
-
-
 export default function Main() {
   const main_data = [
     { 
@@ -190,7 +188,7 @@ export default function Main() {
         }
       ));
     }
-  },[totalSlide])
+  }, [totalSlide])
 
   return (
     <MainContainer>

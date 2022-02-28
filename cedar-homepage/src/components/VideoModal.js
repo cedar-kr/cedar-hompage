@@ -1,9 +1,9 @@
-import Image from 'next/image'
 import styled from 'styled-components'
+import Image from 'next/image'
 import { Center } from '../styles/Layout'
 
 const VideoModalContainer = styled(Center)`
-  justify-content:center;
+  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;

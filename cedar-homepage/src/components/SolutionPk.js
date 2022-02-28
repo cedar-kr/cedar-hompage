@@ -41,9 +41,8 @@ const SolutionPkItem = styled(Center)`
   margin-right: ${props=> props.mg && 16}px;
 `;
 
-const SolutionPkItemName = styled.div`
-  font-family: "Avenir-Heavy";  
-  font-size: 20px;
+const SolutionPkItemName = styled(MdText)`
+  font-family: "Avenir-Heavy";
   font-weight: 900;
   margin-top: 20px;
   margin-bottom: 6px;
@@ -63,7 +62,7 @@ const SolutionPkBtns = styled.div`
 
 const SolutionPkBtn = styled.button`
   font-family: "Avenir-Heavy";
-  font-size:14px;
+  font-size: 1.4rem;
   padding: 0px 16px;
   height: 40px;
   margin-right: 14px;
@@ -103,7 +102,7 @@ export default function SolutionPk() {
         setSelect(currentSlide-1);
       }
       else if(eventTouch.x - e.changedTouches[0].pageX > 0 ) {
-        if(currentSlide == SolutionPkData.length-1){
+        if(currentSlide == SolutionPkData.length-1) {
           return;
         } 
         setCurrentSlide(currentSlide+1);
@@ -113,33 +112,32 @@ export default function SolutionPk() {
   }
 
   const SolutionPkData = useMemo(() => [
-     { 
-    src: '/imgs/solutionpkg/1.png', 
-    name:'Modi-Lite', 
-    info: '비 인터넷,<br/> 소규모 구축 환경에 최적화된 <br/> 디지털 사이니지 솔루션 ',
-    width: '120',
-    height: '147'
-  },
-  { 
-    src: '/imgs/solutionpkg/2.png', 
-    name:'Modi', 
-    info:  '하드웨어를 가리지 않고 <br/> 확장이 용이한 웹 기반 디지털 <br/> 사이니지 솔루션',
-    width: '114',
-    height: '160'
-  },
-  { 
-    src: '/imgs/solutionpkg/3.png', 
-    name: 'Modi-Broadcast', 
-    info: '방송 편성에 맞추어 다량의<br/> 디스플레이와 송수신이 가능한<br/>전문 방송용 솔루션',
-    width: '112',
-    height: '160'
-  },
+    { 
+      src: '/imgs/solutionpkg/1.png', 
+      name:'Modi-Lite', 
+      info: '비 인터넷,<br/> 소규모 구축 환경에 최적화된 <br/> 디지털 사이니지 솔루션 ',
+      width: '120',
+      height: '147'
+    },
+    { 
+      src: '/imgs/solutionpkg/2.png', 
+      name:'Modi', 
+      info:  '하드웨어를 가리지 않고 <br/> 확장이 용이한 웹 기반 디지털 <br/> 사이니지 솔루션',
+      width: '114',
+      height: '160'
+    },
+    { 
+      src: '/imgs/solutionpkg/3.png', 
+      name: 'Modi-Broadcast', 
+      info: '방송 편성에 맞추어 다량의<br/> 디스플레이와 송수신이 가능한<br/>전문 방송용 솔루션',
+      width: '112',
+      height: '160'
+    },
   ],[])
-
 
   return (
     <SolutionPkContainer>
-     <SolutionPkTitle>
+      <SolutionPkTitle>
         매장에 맞는
         <br />
         <TextPoint>솔루션 패키지</TextPoint>가
@@ -162,9 +160,9 @@ export default function SolutionPk() {
           }
           onTouchEnd={touchEnd}>
           {
-            SolutionPkData.map((data,idx)=>{
+            SolutionPkData.map((data,idx) => {
               return (
-                <SolutionPkItem key={idx} mg={ idx == SolutionPkData.length-1}>
+                <SolutionPkItem key={idx} mg={idx == SolutionPkData.length-1}>
                   <Image
                     src={data.src}
                     alt={`SolutionPk_${data.name}`}
@@ -179,6 +177,6 @@ export default function SolutionPk() {
           }
         </SolutionPkItems>
       </SolutionPkBox>
-      </SolutionPkContainer>
+    </SolutionPkContainer>
   )
 };
