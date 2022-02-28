@@ -40,6 +40,7 @@ const VideoThumnail = styled.div`
   width: 222px;
   height: 240px;
   background: ${props=> `url(${props.src})`};
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,8 +116,8 @@ export default function Video() {
                   <VideoThumnailBox>
                     <Link href={data.url} passHref>
                       <VideoThumnail src={data.src}>
-                      <VideoPlayBtn src={playIcon} width={34} height={24} alt='Video Play Button'/>
-                    </VideoThumnail>
+                        <VideoPlayBtn src={playIcon} width={34} height={24} alt='Video Play Button'/>
+                      </VideoThumnail>
                     </Link>
                   </VideoThumnailBox>
                   <VideoTexts>

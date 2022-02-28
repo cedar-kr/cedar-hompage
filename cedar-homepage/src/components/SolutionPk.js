@@ -116,17 +116,23 @@ export default function SolutionPk() {
      { 
     src: '/imgs/solutionpkg/1.png', 
     name:'Modi-Lite', 
-    info: '비 인터넷,<br/> 소규모 구축 환경에 최적화된 <br/> 디지털 사이니지 솔루션 '
+    info: '비 인터넷,<br/> 소규모 구축 환경에 최적화된 <br/> 디지털 사이니지 솔루션 ',
+    width: '120',
+    height: '147'
   },
   { 
     src: '/imgs/solutionpkg/2.png', 
     name:'Modi', 
-    info:  '하드웨어를 가리지 않고 <br/> 확장이 용이한 웹 기반 디지털 <br/> 사이니지 솔루션' 
+    info:  '하드웨어를 가리지 않고 <br/> 확장이 용이한 웹 기반 디지털 <br/> 사이니지 솔루션',
+    width: '114',
+    height: '160'
   },
   { 
     src: '/imgs/solutionpkg/3.png', 
     name: 'Modi-Broadcast', 
-    info: '방송 편성에 맞추어 다량의<br/> 디스플레이와 송수신이 가능한<br/>전문 방송용 솔루션'
+    info: '방송 편성에 맞추어 다량의<br/> 디스플레이와 송수신이 가능한<br/>전문 방송용 솔루션',
+    width: '112',
+    height: '160'
   },
   ],[])
 
@@ -162,8 +168,8 @@ export default function SolutionPk() {
                   <Image
                     src={data.src}
                     alt={`SolutionPk_${data.name}`}
-                    height={147}
-                    width={120}
+                    height={data.height}
+                    width={data.width}
                   />
                   <SolutionPkItemName>{data.name}</SolutionPkItemName>
                   <SolutionPkItemInfo dangerouslySetInnerHTML={{__html: data.info}}></SolutionPkItemInfo>
