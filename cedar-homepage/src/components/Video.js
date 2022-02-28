@@ -98,7 +98,7 @@ export default function Video() {
       src: '/imgs/video/mobile4.png',
       url: 'https://youtu.be/KahdHPSa3yk'
     },
-  ],[])
+  ], [])
 
   return (
     <VideoContainer>

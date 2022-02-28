@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components'
+import Image from 'next/image';
+import { NSText } from '../styles/PublicStyles';
 import React, { useEffect, useRef, useState } from 'react'
 import { touchEnd, touchStart } from '../utils/func';
 import useDidMountEffect from '../utils/useDidMountEffect';
-import Image from 'next/image';
-import { NSText } from '../styles/PublicStyles';
+import { Center, Row } from '../styles/Layout';
 
 const SolutionContainer = styled.section`
   display: flex;
@@ -23,11 +24,9 @@ const SolutionSubText = styled(NSText)`
   margin-bottom: 22px;
 `;
 
-const SolutionImgBox = styled.div`
-  display: flex;
-  flex-direction:row;
-  width: ${props=> 240 * props.data}px;
+const SolutionImgBox = styled(Row)`
   position: relative;
+  width: ${props=> 248 * props.data}px;
   left: 50%;
   margin-bottom: 36px;
   display: flex;
@@ -45,42 +44,33 @@ const SolutionSlider = styled.div`
   overflow: hidden;
 `;
 
-const SlideButtons = styled.div`
-  display: flex;
-  flex-direction:row;
-  justify-content:space-between;
-  align-item:center;
+const SlideButtons = styled(Row)`
+  justify-content: space-between;
 `;
 
-const SlideButton = styled.div`
-  height: 250px;
-  width: 17%;
+const SlideButton = styled(Center)`
   position: absolute;
   display: flex;
-  justify-content:center;
-  align-item:center;
-  z-index:100;
+  justify-content: center;
+  height: 250px;
+  width: 17%;
   left: ${props => props.left && 0}px;
   right: ${props => props.right && 0}px;
+  z-index: 100;
 `;
 
-const SolutionMenus = styled.div`
-  display: flex;
-  flex-direction: column;
+const SolutionMenus = styled(Center)`
   justify-content: center;
-  align-items: center;
   position: relative;
   overflow: hidden;
-  margin-bottom:40px;
+  margin-bottom: 40px;
   width: 100%;
 `;
 
-const SolutionMenuBox = styled.div`
-  display: flex;
-  flex-direction: row;
+const SolutionMenuBox = styled(Row)`
+  position: relative;
   width: ${props => props.scroll ? "calc(100%)" : "150px"};
   margin: 10px;
-  position: relative;
   ${props => props.scroll && css`
     height: 30px;
     overflow-y: hidden;
@@ -102,11 +92,10 @@ const Pointer = styled.div`
   z-index: 1;
 `;
 
-const SolutionMenu = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items:center;
-  justify-content:center;
+const SolutionMenu = styled(Row)`
+  position: absolute;
+  align-items: center;
+  justify-content: center;
   width: max-content;
   ${props => props.width && css`
     width: calc(100% + 400px);
@@ -114,13 +103,12 @@ const SolutionMenu = styled.div`
   top: 0px;
   left: ${defaultLeft}px;
   transition: left ease 0.5s 0s;
-  position: absolute;
 `;
 
 const MenuText = styled.div`
   width: max-content;
-  color:${props => props.select? '#d74c4b' : '#4f4f4f'};
-  font-family: NotoSansKR;
+  color: ${props => props.select? '#d74c4b' : '#4f4f4f'};
+  font-family:  'Noto Sans KR', sans-serif;
   font-size: 14px;
   font-weight: bold;
   white-space: nowrap;
@@ -133,10 +121,10 @@ const Menu = React.forwardRef((props, ref) => {
   const { menu } = props;
 
   useEffect(() => {
-    if (ref?.current) {
+    if(ref?.current) {
       props.setTextLeft((props.pointerLeft - ref.current.offsetLeft) - (ref.current.offsetWidth / 2));
     }
-  }, [ref, props]);
+  },[ref, props]);
 
   return (
     <MenuText {...props} ref={ref}>
@@ -152,8 +140,8 @@ export default function SolutionT(props) {
   const slideRef = useRef();
   const currentTextRef = useRef();
   const pointerRef = useRef();
-  const [ currentSlide, setCurrentSlide ] = useState(2);
-  const [ eventTouch , setEventTouch ] = useState({ x: '', y: '' });
+  const [currentSlide, setCurrentSlide] = useState(2);
+  const [eventTouch , setEventTouch] = useState({ x: '', y: '' });
   const [textLeft, setTextLeft] = useState(0);
   const [pointerLeft, setPointerLeft] = useState(0);
   const scrollRef = useRef();
@@ -186,13 +174,13 @@ export default function SolutionT(props) {
   }
 
   const clickMenus = (id) => { 
-    if(currentSlide == data.imgs.length-2 && id == 1){
+    if(currentSlide == data.imgs.length-2 && id == 1) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)*(1.5)}%)`; 
       setCurrentSlide(1);
       setCurrentSlide(2);
     }
-    if(currentSlide == 2 && id == data.imgs.length-3){
+    if(currentSlide == 2 && id == data.imgs.length-3) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)*(data.imgs.length-1 + 0.5)}%)`; 
       setCurrentSlide(data.imgs.length-1);
@@ -227,9 +215,9 @@ export default function SolutionT(props) {
     slideRef.current.style.transition = 'all 0.2s ease-in-out';
   }, [currentSlide]);
 
-  useEffect(()=>{
+  useEffect(() => {
     slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)*(currentSlide + 0.5)}%)`;
-  },[currentSlide, data]);
+  }, [currentSlide, data]);
 
   return (
     <SolutionContainer bg={data.bg}>
@@ -247,7 +235,7 @@ export default function SolutionT(props) {
           data={data.imgs.length}
         >
           {
-            data.imgs.map((img,idx)=>{
+            data.imgs.map((img,idx) => {
               return (
                 <SolutionImg key={idx} alt={`solution-img-${idx}`} src={img.src} width={240} height={240} />
               )
@@ -259,7 +247,7 @@ export default function SolutionT(props) {
           <Pointer ref={pointerRef} />
           <SolutionMenuBox scroll id={`scroll-${data.id}`}>
             <SolutionMenu ref={scrollRef} left={textLeft} width>
-              {data.menus.map((menu)=> {
+              {data.menus.map((menu) => {
                 return (
                   <Menu 
                     pointerLeft={pointerLeft} 

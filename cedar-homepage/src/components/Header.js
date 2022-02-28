@@ -10,7 +10,7 @@ const HeaderContainer = styled.header`
   background: url(/imgs/bg_header.png);
   background-repeat: no-repeat;
   height: 138.89vw;
-  background-size:cover;
+  background-size: cover;
   background-position: center;
 `;
 
@@ -25,7 +25,7 @@ export const Highlight = styled.div`
 `;
 
 const HeaderPlayBtnBox = styled(Center)`
-  justify-content:center;
+  justify-content: center;
   margin-top: 120px;   
   width: 100%;
 `;

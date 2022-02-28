@@ -16,7 +16,7 @@ const TextPoint = styled.span`
   padding-right: 2px;
 `;
 
-export default function Solution(props) {
+export default function Solution() {
   const solutionData = useMemo(()=> [
     { 
       id:1,
@@ -205,7 +205,7 @@ export default function Solution(props) {
         }
       ],
     },
-  ],[])
+  ], [])
 
   return (
     solutionData.map((data,idx) => {
