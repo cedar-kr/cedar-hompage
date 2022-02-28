@@ -63,9 +63,9 @@ const SolutionPkBtns = styled.div`
 const SolutionPkBtn = styled.button`
   font-family: "Avenir-Heavy";
   font-size: 1.4rem;
-  padding: 0px 16px;
+  padding: 0px 15px;
   height: 40px;
-  margin-right: 14px;
+  margin-right: ${props=> !props.mg && 14}px;
   border-radius: 10px;
   font-weight: 900;
   background-color: ${props => props.select ? '#000' : '#fff'};
@@ -145,9 +145,11 @@ export default function SolutionPk() {
         준비되어 있습니다.
       </SolutionPkTitle>
       <SolutionPkBtns>
-        <SolutionPkBtn select={select === 0 ? true: false} onClick={()=>changePackage(0)}>Modi-Lite</SolutionPkBtn>
-        <SolutionPkBtn select={select === 1 ? true: false} onClick={()=>changePackage(1)}>Modi</SolutionPkBtn>
-        <SolutionPkBtn select={select === 2 ? true: false} onClick={()=>changePackage(2)}>Modi-Broadcast</SolutionPkBtn>
+        {
+          SolutionPkData.map((data, idx)=>{
+            return <SolutionPkBtn key={idx} select={select === idx ? true: false} mg={idx == data.length-1} onClick={()=>changePackage(idx)}>{data.name}</SolutionPkBtn>
+          })
+        }
       </SolutionPkBtns>
       <SolutionPkBox>
         <SolutionPkItems 
