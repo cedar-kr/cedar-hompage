@@ -26,15 +26,18 @@ const SolutionSubText = styled(NSText)`
 const SolutionImgBox = styled.div`
   display: flex;
   flex-direction:row;
-  width: ${props=> 248 * props.data}px;
+  width: ${props=> 240 * props.data}px;
   position: relative;
   left: 50%;
   margin-bottom: 36px;
+  display: flex;
+  justify-content:center;
+  align-items:center;
 `;
 
 const SolutionImg = styled(Image)`
-  width: 248px;
-  height: 248px;
+  width: 240px;
+  height: 240px;
   margin: 0 8px;
 `;
 
@@ -246,7 +249,7 @@ export default function SolutionT(props) {
           {
             data.imgs.map((img,idx)=>{
               return (
-                <SolutionImg key={idx} alt={`solution-img-${idx}`} src={img.src} width={248} height={248} />
+                <SolutionImg key={idx} alt={`solution-img-${idx}`} src={img.src} width={240} height={240} />
               )
             })
           }
