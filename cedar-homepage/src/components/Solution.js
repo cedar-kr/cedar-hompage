@@ -29,9 +29,6 @@ const SolutionImgBox = styled(Row)`
   width: ${props=> 248 * props.data}px;
   left: 50%;
   margin-bottom: 36px;
-  display: flex;
-  justify-content:center;
-  align-items:center;
 `;
 
 const SolutionImg = styled(Image)`
@@ -53,7 +50,7 @@ const SlideButton = styled(Center)`
   display: flex;
   justify-content: center;
   height: 250px;
-  width: 17%;
+  width: 15%;
   left: ${props => props.left && 0}px;
   right: ${props => props.right && 0}px;
   z-index: 100;
@@ -176,13 +173,13 @@ export default function SolutionT(props) {
   const clickMenus = (id) => { 
     if(currentSlide == data.imgs.length-2 && id == 1) {
       slideRef.current.style.transition = '0s';
-      slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)*(1.5)}%)`; 
+      slideRef.current.style.transform = `translateX(-${360}px)`; 
       setCurrentSlide(1);
       setCurrentSlide(2);
     }
     if(currentSlide == 2 && id == data.imgs.length-3) {
       slideRef.current.style.transition = '0s';
-      slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)*(data.imgs.length-1 + 0.5)}%)`; 
+      slideRef.current.style.transform = `translateX(-${((data.imgs.length-1)*240)+120}px)`; 
       setCurrentSlide(data.imgs.length-1);
       setCurrentSlide(data.imgs.length-2);
     }
@@ -192,7 +189,7 @@ export default function SolutionT(props) {
   const nextSlide = ()=> {
     if (currentSlide == data.imgs.length-2) {
       slideRef.current.style.transition = '0s';
-      slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)*(1.5)}%)`; 
+      slideRef.current.style.transform = `translateX(-${360}px)`; 
       setCurrentSlide(1);
       setCurrentSlide(2);
     } else {
@@ -203,7 +200,7 @@ export default function SolutionT(props) {
   const prevSlide = () => {
     if ( currentSlide == 1) {
       slideRef.current.style.transition = '0s';
-      slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)*(data.imgs.length-2 + 0.5)}%)`; 
+      slideRef.current.style.transform = `translateX(-${((data.imgs.length-2)*240)+120}px)`; 
       setCurrentSlide(data.imgs.length-2);
       setCurrentSlide(data.imgs.length-3);
     } else {
@@ -216,7 +213,7 @@ export default function SolutionT(props) {
   }, [currentSlide]);
 
   useEffect(() => {
-    slideRef.current.style.transform = `translateX(-${(100/data.imgs.length)*(currentSlide + 0.5)}%)`;
+    slideRef.current.style.transform = `translateX(-${(currentSlide*240)+120}px)`;
   }, [currentSlide, data]);
 
   return (
@@ -246,7 +243,7 @@ export default function SolutionT(props) {
         <SolutionMenus>
           <Pointer ref={pointerRef} />
           <SolutionMenuBox scroll id={`scroll-${data.id}`}>
-            <SolutionMenu ref={scrollRef} left={textLeft} width>
+            <SolutionMenu ref={scrollRef} left={textLeft} width="true">
               {data.menus.map((menu) => {
                 return (
                   <Menu 
