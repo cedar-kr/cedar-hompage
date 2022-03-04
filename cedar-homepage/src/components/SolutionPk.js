@@ -79,7 +79,7 @@ const SolutionPkItems = styled.div`
   `};
   ${({theme})=> theme.tablet`
     width: 726px;
-    justify-content:space-around;
+    justify-content:space-between;
   `};
   ${({theme})=> theme.pc`
     width: 1152px;
