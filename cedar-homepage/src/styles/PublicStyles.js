@@ -32,3 +32,20 @@ export const MapContact = styled.div`
     flex-direction: row;
   `}  
 `;
+
+export const Mobiles = styled.div`
+  display: none;
+  ${({theme})=> theme.mobile`
+    display: flex;
+  `}
+`;
+
+export const Defaults = styled.div`
+  display: none;
+  ${({theme})=> theme.tablet`
+    display: flex;
+  `}
+  ${({theme})=> theme.pc`
+    display: flex;
+  `}
+`;

@@ -247,14 +247,14 @@ export default function Solution() {
 
   return (
     solutionData.map((data,idx) => {
-      return(<>
+      return(<div key={idx}>
         <Mobile>
-          <SolutionItem key={idx} data={data} />
+          <SolutionItem data={data} />
         </Mobile>
         <Default>
-          <SolutionDesk key={idx} data={data} />
+          <SolutionDesk data={data} />
         </Default>
-      </>
+      </div>
       )
     })
   )

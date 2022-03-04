@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
-import React, { useEffect, useRef, useState } from 'react'
+import React, {  useState } from 'react'
 import { NSText } from '../styles/PublicStyles';
 import { Row, Wrapper } from '../styles/Layout';
 import Image from 'next/image';
-import { Desktop, Tablet } from '../utils/media';
+import { Default, Desktop, Tablet } from '../utils/media';
 
 const SolutionContainer = styled.div`
   padding-top:140px;
@@ -98,48 +98,50 @@ export default function SolutionDesk(props) {
   }
 
   return (
-    <SolutionContainer bg={data.bg} >
-      <Wrapper>
-        <SolutionRow reverse={data.id === 1 || data.id === 3}>
-          <Tablet>
-            <SolutionImg>
-              <Image
-                src={getImg(data.imgs)}
-                height={500}
-                width={500}
-              />
-            </SolutionImg>
-          </Tablet>
-          <Desktop>
-            <SolutionImg reverse={data.id === 1 || data.id === 3 }>
-              <Image
-                src={getImg(data.imgs)}
-                height={700}
-                width={700}
-              />
-            </SolutionImg>
-          </Desktop>
-          <div>
-            {data.title}
-            <Desktop>
-              <SolutionSubText dangerouslySetInnerHTML={{__html:data.id ===1 || data.id ===2 ? data.text: data.text_d}}></SolutionSubText>
-            </Desktop>
+    <Default>
+      <SolutionContainer bg={data.bg} >
+        <Wrapper>
+          <SolutionRow reverse={data.id === 1 || data.id === 3}>
             <Tablet>
-              <SolutionSubText dangerouslySetInnerHTML={{__html:data.text}}></SolutionSubText>
+              <SolutionImg>
+                <Image
+                  src={getImg(data.imgs)}
+                  height={500}
+                  width={500}
+                />
+              </SolutionImg>
             </Tablet>
-            <SoutionMenus>
-            {
-              data.menus.map((data, idx)=>{
-                return <SolutionMenuItems key={idx} onClick={()=>setSelect(data)}>
-                  <SoutionMenuIcon select={select.id === data.id}></SoutionMenuIcon>
-                  <SoutionMenusText select={select.id === data.id}>{data.name}</SoutionMenusText>
-                </SolutionMenuItems>
-              })
-            }
-            </SoutionMenus>
-          </div>
-        </SolutionRow>
-      </Wrapper>
-    </SolutionContainer>
+            <Desktop>
+              <SolutionImg reverse={data.id === 1 || data.id === 3 }>
+                <Image
+                  src={getImg(data.imgs)}
+                  height={700}
+                  width={700}
+                />
+              </SolutionImg>
+            </Desktop>
+            <div>
+              {data.title}
+              <Desktop>
+                <SolutionSubText dangerouslySetInnerHTML={{__html:data.id ===1 || data.id ===2 ? data.text: data.text_d}}></SolutionSubText>
+              </Desktop>
+              <Tablet>
+                <SolutionSubText dangerouslySetInnerHTML={{__html:data.text}}></SolutionSubText>
+              </Tablet>
+              <SoutionMenus>
+              {
+                data.menus.map((data, idx)=>{
+                  return <SolutionMenuItems key={idx} onClick={()=>setSelect(data)}>
+                    <SoutionMenuIcon select={select.id === data.id}></SoutionMenuIcon>
+                    <SoutionMenusText select={select.id === data.id}>{data.name}</SoutionMenusText>
+                  </SolutionMenuItems>
+                })
+              }
+              </SoutionMenus>
+            </div>
+          </SolutionRow>
+        </Wrapper>
+      </SolutionContainer>
+    </Default>
   )
 };

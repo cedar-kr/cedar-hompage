@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { touchEnd, touchStart } from '../utils/func';
 import useDidMountEffect from '../utils/useDidMountEffect';
 import { Center, Row } from '../styles/Layout';
+import { Mobiles } from '../styles/PublicStyles';
 
 const SolutionContainer = styled.section`
   display: flex;
@@ -16,13 +17,6 @@ const SolutionContainer = styled.section`
     (props.bg == 'blue' && '#f2f7fb') ||
     (props.bg == 'puple' && '#f3f2ff')
   };
-`;
-
-const Mobiles = styled.div`
-  display: none;
-  ${({theme})=> theme.mobile`
-    display: flex;
-  `}
 `;
 
 const SolutionSubText = styled(NSText)`
@@ -224,9 +218,7 @@ export default function SolutionT(props) {
   }, [currentSlide, data]);
 
   return (
-    <Mobiles>
     <SolutionContainer bg={data.bg}>
-
       {data.title}
       <SolutionSubText dangerouslySetInnerHTML={{__html: data.text}}></SolutionSubText>
       <SolutionSlider>
@@ -271,6 +263,5 @@ export default function SolutionT(props) {
           </SolutionMenuBox>
         </SolutionMenus>
     </SolutionContainer>
-    </Mobiles>
   )
 };
