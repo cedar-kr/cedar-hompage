@@ -18,6 +18,13 @@ const SolutionContainer = styled.section`
   };
 `;
 
+const Mobiles = styled.div`
+  display: none;
+  ${({theme})=> theme.mobile`
+    display: flex;
+  `}
+`;
+
 const SolutionSubText = styled(NSText)`
   color: #333;
   margin: 0px 16px;
@@ -217,7 +224,9 @@ export default function SolutionT(props) {
   }, [currentSlide, data]);
 
   return (
+    <Mobiles>
     <SolutionContainer bg={data.bg}>
+
       {data.title}
       <SolutionSubText dangerouslySetInnerHTML={{__html: data.text}}></SolutionSubText>
       <SolutionSlider>
@@ -262,5 +271,6 @@ export default function SolutionT(props) {
           </SolutionMenuBox>
         </SolutionMenus>
     </SolutionContainer>
+    </Mobiles>
   )
 };

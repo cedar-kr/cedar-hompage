@@ -1,13 +1,27 @@
 import styled from 'styled-components'
-import SolutionT from './Solution'
+import SolutionItem from './Solution'
 import { Title } from '../styles/PublicStyles'
 import React, { useMemo } from 'react'
+import { Default, Mobile } from '../utils/media';
+import SolutionDesk from './SolutionDesk';
 
 const SolutionTitle = styled(Title)`
-  margin-left: 16px;
-  margin-top: 30px;
-  margin-bottom: 20px;
+  margin:0px;
   font-weight: 500;
+  font-size:3.5rem;
+  margin-bottom: 20px;
+
+  ${({theme})=> theme.pc`
+    font-size:5.5rem;
+    margin-bottom: 30px;
+    line-height:80px;
+  `}
+
+  ${({theme})=> theme.mobile`
+    font-size:3rem;
+    margin-left: 16px;
+    margin-top: 30px;
+  `}
 `;
 
 const TextPoint = styled.span`
@@ -33,30 +47,37 @@ export default function Solution() {
         {
           id:3,
           src:'/imgs/solution/device/design.png',
+          src_d:'/imgs/solution/design.png'
         },
         {
           id:4,
           src:'/imgs/solution/device/sensor.png',
+          src_d:'/imgs/solution/sensor.png'
         },
         {
           id:1,
           src:'/imgs/solution/device/multi.png',
+          src_d:'/imgs/solution/multi.png'
         },
         {
           id:2,
           src:'/imgs/solution/device/group.png',
+          src_d:'/imgs/solution/group.png'
         },
         {
           id:3,
           src:'/imgs/solution/device/design.png',
+          src_d:'/imgs/solution/design.png'
         },
         {
           id:4,
           src:'/imgs/solution/device/sensor.png',
+          src_d:'/imgs/solution/sensor.png'
         },
         {
           id:1,
           src:'/imgs/solution/device/multi.png',
+          src_d:'/imgs/solution/multi.png'
         },
       ],
       menus: [
@@ -92,34 +113,42 @@ export default function Solution() {
         {
           id:4,
           src:'/imgs/solution/display/display.png',
+          src_d:'/imgs/hardware/display.png'
         },
         {
           id:5,
           src:'/imgs/solution/display/led.png',
+          src_d:'/imgs/hardware/led.png'
         },
         {
           id:1,
           src:'/imgs/solution/display/oled.png',
+          src_d:'/imgs/hardware/oled.png'
         },
         {
           id:2,
           src:'/imgs/solution/display/multivision.png',
+          src_d:'/imgs/hardware/multivision.png'
         },
         {
           id:3,
           src:'/imgs/solution/display/kiosk.png',
+          src_d:'/imgs/hardware/kiosk.png'
         },
         {
           id:4,
           src:'/imgs/solution/display/display.png',
+          src_d:'/imgs/hardware/display.png'
         },
         {
           id:5,
           src:'/imgs/solution/display/led.png',
+          src_d:'/imgs/hardware/led.png'
         },
         {
           id:1,
           src:'/imgs/solution/display/oled.png',
+          src_d:'/imgs/hardware/oled.png'
         },
       ],
       bg:'puple',
@@ -155,34 +184,43 @@ export default function Solution() {
         관리페이지까지
       </SolutionTitle>, 
       text:'그룹 편성 부터 원격 모니터링, 오류 상황 <br/> 감지 기능을 통해 효율성을 극대화합니다.',
+      text_d:'그룹 편성 부터 원격 모니터링, 오류 상황 감지 기능을 통해 <br/>효율성을 극대화합니다.',
       imgs: [
         {
           id:3,
           src:'/imgs/solution/admin/error.png',
+          src_d:'/imgs/adminpage/error.png',
         },
         {
           id:4,
           src:'/imgs/solution/admin/otp.png',
+          src_d:'/imgs/adminpage/otp.png',
         },
         {
           id:1,
           src:'/imgs/solution/admin/statistics.png',
+          src_d:'/imgs/adminpage/statistics.png',
         },
         {
           id:2,
           src:'/imgs/solution/admin/remote.png',
+          src_d:'/imgs/adminpage/remote.png',
         },
         {
           id:3,
           src:'/imgs/solution/admin/error.png',
+          src_d:'/imgs/adminpage/error.png',
+          
         },
         {
           id:4,
           src:'/imgs/solution/admin/otp.png',
+          src_d:'/imgs/adminpage/otp.png',
         },
         {
           id:1,
           src:'/imgs/solution/admin/statistics.png',
+          src_d:'/imgs/adminpage/statistics.png',
         },
       ],
       bg:'red',
@@ -209,8 +247,14 @@ export default function Solution() {
 
   return (
     solutionData.map((data,idx) => {
-      return(
-        <SolutionT key={idx} data={data} />
+      return(<>
+        <Mobile>
+          <SolutionItem key={idx} data={data} />
+        </Mobile>
+        <Default>
+          <SolutionDesk key={idx} data={data} />
+        </Default>
+      </>
       )
     })
   )
