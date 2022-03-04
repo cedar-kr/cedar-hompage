@@ -5,11 +5,11 @@ import History from '../components/History'
 import Main from '../components/Main'
 import Solution from '../components/Solutions'
 import SolutionPk from '../components/SolutionPk'
-import Video from '../components/Video'
 import Contact from '../components/Contact'
 import Map from '../components/Map'
 import Footer from '../components/Footer'
 import { MapContact } from '../styles/PublicStyles'
+import Videos from '../components/Videos'
 
 export default function Home() {
   return (
@@ -25,7 +25,7 @@ export default function Home() {
       <Main />
       <Solution />
       <SolutionPk />
-      <Video />
+      <Videos />
       <MapContact>
         <Contact />
         <Map />

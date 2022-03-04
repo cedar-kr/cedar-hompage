@@ -72,33 +72,8 @@ const VideoText = styled(NSText)`
   width: 100%;
 `;
 
-export default function Video() {
-  const VideoData = useMemo(()=> [
-    { 
-      name: '#01.', 
-      info: '더 나은 삶을 위한 새로운 기술',
-      src: '/imgs/video/mobile1.png',
-      url: 'https://youtu.be/TFPumoMADGY',
-    },
-    { 
-      name: '#02.', 
-      info: '주식회사 시더 홍보영상',
-      src: '/imgs/video/mobile2.png',
-      url: 'https://youtu.be/tti2L2HrvuY'
-    },
-    { 
-      name: '#03.', 
-      info: '모디 소개영상',
-      src: '/imgs/video/mobile3.png',
-      url: 'https://www.youtube.com/watch?v=FxkvrWnyKYs'
-    },
-    { 
-      name: '#04.', 
-      info: 'CEO인터뷰',
-      src: '/imgs/video/mobile4.png',
-      url: 'https://youtu.be/KahdHPSa3yk'
-    },
-  ], [])
+export default function Video(props) {
+  const {VideoData} = props;
 
   return (
     <VideoContainer>
@@ -110,7 +85,7 @@ export default function Video() {
       <VideoBox>
         <VideoItems>
           {
-            VideoData.map((data,idx)=> {
+            VideoData && VideoData.map((data,idx)=> {
               return (
                 <VideoItem key={idx} mg={ idx == VideoData.length-1 ? true : false}>
                   <VideoThumnailBox>
