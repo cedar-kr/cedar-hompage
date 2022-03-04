@@ -24,3 +24,11 @@ export const NSText = styled(Text)`
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
 `;
+
+export const MapContact = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${({theme})=> theme.tablet`
+    flex-direction: row;
+  `}  
+`;

@@ -9,6 +9,7 @@ import Video from '../components/Video'
 import Contact from '../components/Contact'
 import Map from '../components/Map'
 import Footer from '../components/Footer'
+import { MapContact } from '../styles/PublicStyles'
 
 export default function Home() {
   return (
@@ -25,8 +26,10 @@ export default function Home() {
       <Solution />
       <SolutionPk />
       <Video />
-      <Contact />
-      <Map />
+      <MapContact>
+        <Contact />
+        <Map />
+      </MapContact>
       <Footer />
     </div>
   )

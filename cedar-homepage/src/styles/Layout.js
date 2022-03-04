@@ -1,8 +1,16 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  width: 91.11%;
-  margin: 0 auto;
+    margin: 0 auto;
+  ${({theme})=> theme.mobile`
+    width: 91.11%;
+  `}
+  ${({theme})=> theme.tablet`
+    width: 95%;
+  `};
+  ${({theme})=> theme.pc`
+    width: 70%;
+  `};
 `;
 
 export const Center = styled.div`
