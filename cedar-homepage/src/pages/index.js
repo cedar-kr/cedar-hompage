@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import Business from '../components/Business'
 import History from '../components/History'
-import Main from '../components/Main'
 import Solution from '../components/Solutions'
 import SolutionPk from '../components/SolutionPk'
 import Contact from '../components/Contact'
@@ -10,6 +9,7 @@ import Map from '../components/Map'
 import Footer from '../components/Footer'
 import { MapContact } from '../styles/PublicStyles'
 import Videos from '../components/Videos'
+import Mains from '../components/Mains'
 
 export default function Home() {
   return (
@@ -22,7 +22,7 @@ export default function Home() {
       <Header />
       <Business />
       <History />
-      <Main />
+      <Mains />
       <Solution />
       <SolutionPk />
       <Videos />
