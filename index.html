@@ -38,23 +38,25 @@
         </div>
       </header>
       <div class="contents">
+        <canvas id="canvas"></canvas>
         <!-- intro section -->
         <section class="intro">
           <div class="intro-wrap">
-            <div class="intro-text-area">
+            <div class="intro-text-area sa">
               <h1>
                 더 나은 삶을 위한 새로운 기술,<br>
-                우리는 <span class="highlight i">주식회사 시더</span>입니다.
+                우리는 <span class="highlight i ha" data-sa-delay="940">주식회사 시더</span>입니다.
               </h1>
             </div>
             <div class="intro-right">
-              <div class="promo">
+              <div class="promo sa" data-sa-delay="470">
                 <video autoplay loop muted playsinline class="promo-video">
                   <source src="./webm/promo_video.webm" type="video/webm">
+                  <source src="./video/promo_video.mp4" type="video/mp4">
                 </video>
               </div>
-              <div class="bg-logo">
-                <img src="./webp/bg_logo.webp" alt="bg_logo">
+              <div class="bg-logo sa" data-sa-delay="940">
+                <img id="scrollLR" src="./webp/bg_logo.webp" alt="bg_logo">
               </div>
             </div>
           </div>
@@ -62,14 +64,14 @@
         <!-- business section -->
         <section class="business">
           <div class="business-wrap">
-            <div class="business-text-area">
+            <div class="business-text-area sa">
               <h1>
                 시더는 다양한<br>
                 사업분야를<br>
                 구축하고 있습니다.
               </h1>
             </div>
-            <div class="moving-ball">
+            <div class="moving-ball sa" data-sa-delay="470">
               <div class="moving-ball-wrap">
                 <div class="ball">
                   <div class="ball_2"></div>
@@ -132,14 +134,14 @@
         <!-- history section -->
         <section class="history">
           <div class="history-wrap">
-            <div class="history-text-area">
+            <div class="history-text-area sa">
               <h1>
                 시더의<br>
                 즐거운 도전들을<br>
                 소개합니다.
               </h1>
             </div>
-            <div class="swiper mySwiper2" style="overflow: visible;">
+            <div class="swiper mySwiper2 sa" style="overflow: visible;"  data-sa-delay="470">
               <div class="swiper-wrapper">
                 <!-- reference 1 -->
                 <div class="textgroup-wrapper swiper-slide htr">
@@ -555,15 +557,17 @@
                   </div>
                 </div>
               </div>
-              <div class="htr-btn-wrap">
-                <button class="htr-btn-prev swiper-button swiper-prev-btn">
-                  <span class="blind">이전</span>
-                </button>
-              </div>
-              <div class="htr-btn-wrap">
-                <button class="htr-btn-next swiper-button swiper-next-btn">
-                  <span class="blind">다음</span>
-                </button>
+              <div class="history-btn sa" data-sa-delay="940">
+                <div class="htr-btn-wrap">
+                  <button class="htr-btn-prev swiper-button swiper-prev-btn">
+                    <span class="blind">이전</span>
+                  </button>
+                </div>
+                <div class="htr-btn-wrap">
+                  <button class="htr-btn-next swiper-button swiper-next-btn">
+                    <span class="blind">다음</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -571,7 +575,7 @@
         <!-- main section -->
         <section class="main">
           <div class="main-wrap">
-            <div class="b-text-wrap">
+            <div class="b-text-wrap sa">
               <div class="roles">
                 <div>
                   <span class="new">New.</span>
@@ -592,7 +596,7 @@
               </div>
             </div>
             <div class="m-contents">
-              <div class="text-wrap">
+              <div class="text-wrap sa" data-sa-delay="470">
                 <div class="m-roles">
                   <div>
                     <h1 class="mt">KIOSK</h1>
@@ -617,7 +621,7 @@
                   </button>
                 </a>
               </div>
-              <div class="banner-slide">
+              <div class="banner-slide sa" data-sa-delay="470">
                 <div class="gallery">
                   <div class="gallery-container">
                     <img class="gallery-item gallery-item-1" src="./img/reference/1.png" data-index="1" alt="banner_1">
@@ -635,39 +639,44 @@
         <section class="solution bg1">
           <div class="solution-wrap first">
             <div class="text-menu">
-              <div class="sol-text-area">
-                <h1>
-                  디스플레이를<br>
-                  <strong class="highlight">한번에 관리</strong>하는<br>
-                  쉽고 간편한 솔루션 
-                </h1>
-                <span>
-                  하드웨어를 가리지 않고 확장이 용이한<br>
-                  웹 기반 디지털 사이니지 솔루션입니다.
-                </span>
+              <div class="taLeft sa">
+                <div class="sol-text-area">
+                  <h1>
+                    디스플레이를<br>
+                    <strong class="highlight ha" data-sa-delay="940">한번에 관리</strong>하는<br>
+                    쉽고 간편한 솔루션 
+                  </h1>
+                  <span>
+                    하드웨어를 가리지 않고 확장이 용이한<br>
+                    웹 기반 디지털 사이니지 솔루션입니다.
+                  </span>
+                </div>
               </div>
               <div class="menu-list">
-                <ul>
-                  <li class="menu s active">
-                    <img src="./img/solution/1.png" class="link" alt="device">
-                    원격 멀티 디바이스 관리
-                  </li>
-                  <li class="menu s">
-                    <img src="./img/solution/2.png" class="link" alt="group">
-                    그룹 관리
-                  </li>
-                  <li class="menu s">
-                    <img src="./img/solution/3.png" class="link" alt="template">
-                    디자인 템플릿
-                  </li>
-                  <li class="menu s">
-                    <img src="./img/solution/4.png" class="link" alt="DMS">
-                    다양한 센서 연동
-                  </li>
-                </ul>
+                <div class="taLeft sa" data-sa-delay="70">
+                  <ul>
+                    <li class="menu s active">
+                      <img src="./img/solution/1.png" class="link" alt="device">
+                      원격 멀티 디바이스 관리
+                    </li>
+                    <li class="menu s">
+                      <img src="./img/solution/2.png" class="link" alt="group">
+                      그룹 관리
+                    </li>
+                    <li class="menu s">
+                      <img src="./img/solution/3.png" class="link" alt="template">
+                      디자인 템플릿
+                    </li>
+                    <li class="menu s">
+                      <img src="./img/solution/4.png" class="link" alt="DMS">
+                      다양한 센서 연동
+                    </li>
+                    <li class="menu hover-slider"></li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div class="right">
+            <div class="right sa" data-sa-delay="470">
               <div class="gif-wrap">
                 <img src="./img/solution/1.png" class="gif s" alt="device">
               </div>
@@ -677,45 +686,50 @@
         <!-- solution section 2 -->
         <section class="solution bg2">
           <div class="solution-wrap seceond">
-            <div class="left">
+            <div class="left sa">
               <div class="gif-wrap">
                 <img src="./img/hardware/1.png" class="gif d" alt="LED">
               </div>
             </div>
             <div class="text-menu">
-              <div class="sol-text-area">
-                <h1>
-                  <strong class="highlight">다양한 디바이스</strong>로<br>
-                  매장을 돋보이게
-                </h1>
-                <span>
-                  디바이스의 종류에 구애받지 않고<br>
-                  어디서든 관리할 수 있습니다.
-                </span>
+              <div class="taRight sa" data-sa-delay="470">
+                <div class="sol-text-area">
+                  <h1>
+                    <strong class="highlight ha" data-sa-delay="940">다양한 디바이스</strong>로<br>
+                    매장을 돋보이게
+                  </h1>
+                  <span>
+                    디바이스의 종류에 구애받지 않고<br>
+                    어디서든 관리할 수 있습니다.
+                  </span>
+                </div>
               </div>
               <div class="menu-list">
-                <ul> 
-                  <li class="menu d active">
-                    <img src="./img/hardware/1.png" class="link" alt="LED">
-                    LED
-                  </li>
-                  <li class="menu d">
-                    <img src="./img/hardware/2.png" class="link" alt="touch_display">
-                    투명OLED 터치 디스플레이
-                  </li>
-                  <li class="menu d">
-                    <img src="./img/hardware/3.png" class="link" alt="multivision">
-                    멀티비젼
-                  </li>
-                  <li class="menu d">
-                    <img src="./img/hardware/4.png" class="link" alt="kiosk">
-                    키오스크
-                  </li>
-                  <li class="menu d">
-                    <img src="./img/hardware/5.png" class="link" alt="display">
-                    일반 디지털 사이니지
-                  </li>
-                </ul>
+                <div class="taRight sa" data-sa-delay="540">
+                  <ul> 
+                    <li class="menu d active">
+                      <img src="./img/hardware/1.png" class="link" alt="LED">
+                      LED
+                    </li>
+                    <li class="menu d">
+                      <img src="./img/hardware/2.png" class="link" alt="touch_display">
+                      투명OLED 터치 디스플레이
+                    </li>
+                    <li class="menu d">
+                      <img src="./img/hardware/3.png" class="link" alt="multivision">
+                      멀티비젼
+                    </li>
+                    <li class="menu d">
+                      <img src="./img/hardware/4.png" class="link" alt="kiosk">
+                      키오스크
+                    </li>
+                    <li class="menu d">
+                      <img src="./img/hardware/5.png" class="link" alt="display">
+                      일반 디지털 사이니지
+                    </li>
+                    <li class="menu hover-slider"></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -724,42 +738,47 @@
         <section class="solution bg3">
           <div class="solution-wrap third">
             <div class="text-menu">
-              <div class="sol-text-area">
-                <h1>
-                  <strong class="highlight">효율성을 극대화</strong>한<br>
-                  관리페이지까지
-                </h1>
-                <span class="web">
-                  그룹 편성부터 원격 모니터링, 오류 상황 감지 기능을 통해<br>
-                  효율성을 극대화합니다.
-                </span>
-                <span class="tablet">
-                  그룹 편성부터 원격 모니터링, 오류 상황<br> 
-                  감지 기능을 통해 효율성을 극대화합니다.
-                </span>
+              <div class="taLeft sa">
+                <div class="sol-text-area">
+                  <h1>
+                    <strong class="highlight ha" data-sa-delay="940">효율성을 극대화</strong>한<br>
+                    관리페이지까지
+                  </h1>
+                  <span class="web">
+                    그룹 편성부터 원격 모니터링, 오류 상황 감지 기능을 통해<br>
+                    효율성을 극대화합니다.
+                  </span>
+                  <span class="tablet">
+                    그룹 편성부터 원격 모니터링, 오류 상황<br> 
+                    감지 기능을 통해 효율성을 극대화합니다.
+                  </span>
+                </div>
               </div>
               <div class="menu-list">
-                <ul>
-                  <li class="menu a active">
-                    <img src="./img/adminpage/1.png" class="link" alt="statistics">
-                    통계 관리
-                  </li>
-                  <li class="menu a">
-                    <img src="./img/adminpage/2.png" class="link" alt="monitering">
-                    원격 모니터링
-                  </li>
-                  <li class="menu a">
-                    <img src="./img/adminpage/3.png" class="link" alt="terror_detect">
-                    오류 감지
-                  </li>
-                  <li class="menu a">
-                    <img src="./img/adminpage/4.png" class="link" alt="OTP">
-                    OTP 로그인
-                  </li>
-                </ul>
+                <div class="taLeft sa" data-sa-delay="70">
+                  <ul>
+                    <li class="menu a active">
+                      <img src="./img/adminpage/1.png" class="link" alt="statistics">
+                      통계 관리
+                    </li>
+                    <li class="menu a">
+                      <img src="./img/adminpage/2.png" class="link" alt="monitering">
+                      원격 모니터링
+                    </li>
+                    <li class="menu a">
+                      <img src="./img/adminpage/3.png" class="link" alt="terror_detect">
+                      오류 감지
+                    </li>
+                    <li class="menu a">
+                      <img src="./img/adminpage/4.png" class="link" alt="OTP">
+                      OTP 로그인
+                    </li>
+                    <li class="menu hover-slider"></li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div class="right">
+            <div class="right sa" data-sa-delay="470">
               <div class="gif-wrap">
                 <img src="./img/adminpage/1.png" class="gif a" alt="statistics">
               </div>
@@ -770,10 +789,10 @@
         <section class="package">
           <div class="package-wrap">
             <div class="package-text-area">
-              <h1>매장에 맞는 <strong class="highlight s">솔루션 패키지</strong>를 선택해보세요.</h1>
-              <span>(더 자세한 상담을 원한다면 문의주세요.)</span>
+              <h1 class="sa">매장에 맞는 <strong class="highlight s ha" data-sa-delay="940">솔루션 패키지</strong>를 선택해보세요.</h1>
+              <span class="sa" data-sa-delay="1410">(더 자세한 상담을 원한다면 문의주세요.)</span>
             </div>
-            <div class="package-series">
+            <div class="package-series sa" data-sa-delay="470">
               <div class="series-wrap">
                 <div class="package-list">
                   <div class="package-img">
@@ -1051,33 +1070,36 @@
         <div class="tablet-wrap">
           <!-- contact section -->
         <section class="contact">
-          <div class="contact-wrap">
-            <div class="contact-text-area">
-              <h1>
-                시더가 전하는<br>
-                특별한 가치들을 만나보세요.
-              </h1>
-              <div class="contact-info">
-                <div class="address">
-                  <img src="./icon/location.png" alt="location">
-                  <span class="web">서울특별시 서초구 강남대로 18길 5 (양재동) 3층</span>
-                  <span class="tablet">서울특별시 서초구 강남대로 18길 5<br> (양재동) 3층</span>
-                </div>
-                <div class="phone">
-                  <img src="./icon/phone.png" alt="phone">
-                  <span>070.4901.6150</span>
-                </div>
-                <div class="email">
-                  <img src="./icon/email.png" alt="email">
-                  <span>info@cedar.kr</span>
+          <div class="contact-bg">
+            <div class="contact-wrap sa">
+              <div class="contact-text-area">
+                <h1>
+                  시더가 전하는<br>
+                  특별한 가치들을 만나보세요.
+                </h1>
+                <div class="contact-info">
+                  <div class="address">
+                    <img src="./icon/location.png" alt="location">
+                    <span class="web">서울특별시 서초구 강남대로 18길 5 (양재동) 3층</span>
+                    <span class="tablet">서울특별시 서초구 강남대로 18길 5<br> (양재동) 3층</span>
+                  </div>
+                  <div class="phone">
+                    <img src="./icon/phone.png" alt="phone">
+                    <span>070.4901.6150</span>
+                  </div>
+                  <div class="email">
+                    <img src="./icon/email.png" alt="email">
+                    <span>info@cedar.kr</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          
         </section>
         <!-- map section -->
         <section class="map">
-          <div class="map-wrap">
+          <div class="map-wrap sa" data-sa-delay="470">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.5215064453173!2d127.036959515309!3d37.47201807981576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca132c4ce0d31%3A0x552c6f04ec65d82a!2z7ISc7Jq47Yq567OE7IucIOyEnOy0iOq1rCDqsJXrgqjrjIDroZwxOOq4uCA1IDPsuLU!5e0!3m2!1sko!2skr!4v1639369444913!5m2!1sko!2skr" width="100%" height="524" style="border:0;" allowfullscreen="false" loading="lazy"></iframe>
           </div>
         </section>
@@ -1122,6 +1144,8 @@
   <script src="./js/hoverImage.js"></script>
   <script src="./js/scroll.js"></script>
   <script src="./js/carousel.js"></script>
+  <script src="./js/scrollAnimation.js"></script>
+  <script src="./js/background.js"></script>
   <script>
     $('.menu.s').click(function () {
       $('.menu.s').removeClass('active');
@@ -1191,6 +1215,41 @@
       effect: "slide",
       // loop: "infinite"
     });
+  </script>
+  <script>
+    // 연혁 영역 화살표 클릭 & 호버 효과 
+    const prevButton = document.querySelector('.swiper-next-btn'); 
+    const nextButton = document.querySelector('.swiper-prev-btn'); 
+
+    prevButton.addEventListener('mousedown', function(event) {
+      const target = event.target; 
+      target.classList.add('isPressed');
+    })
+    prevButton.addEventListener('mouseup', function(event) {
+      const target = event.target; 
+      target.classList.remove('isPressed');
+    })
+
+    nextButton.addEventListener('mousedown', function(event) {
+      const target = event.target; 
+      target.classList.add('isPressed');
+    })
+    nextButton.addEventListener('mouseup', function(event) {
+      const target = event.target; 
+      target.classList.remove('isPressed');
+    })
+  </script>
+  <script>
+    // 로고 마우스 스크롤
+    window.onscroll = function () {
+      scrollLR();
+    };
+
+    function scrollLR() {
+      let image = document.getElementById("scrollLR");
+      image.style.transform = "translateX(" + -window.pageYOffset + "px)";
+      image.style.opacity= 100 - window.pageYOffset/15 + "%";
+    }
   </script>
 </body>
 </html>

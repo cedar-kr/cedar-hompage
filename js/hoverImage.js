@@ -5,11 +5,11 @@ const { gsap } = window;
 gsap.timeline()
 	.set(".list", { autoAlpha: 1 })
 	.from(".list-item-innertext", {
-		delay: 1,
-		duration: 0.85,
-		yPercent: 125,
-		stagger: 0.095,
-		skewY: gsap.utils.wrap([-8, 8]),
+		// delay: 1,
+		// duration: 0.47,
+		// yPercent: 125,
+		// stagger: 0.095,
+		// skewY: gsap.utils.wrap([-8, 8]),
 		ease: "expo.out",
 	})
 	.set(".list", { pointerEvents: "all" });
