@@ -141,7 +141,7 @@
                 소개합니다.
               </h1>
             </div>
-            <div class="swiper mySwiper2 sa" style="overflow: visible;"  data-sa-delay="470">
+            <div class="swiper mySwiper2 sa" style="overflow: visible;" data-sa-delay="470" id="history_swiper">
               <div class="swiper-wrapper">
                 <!-- reference 1 -->
                 <div class="textgroup-wrapper swiper-slide htr">
@@ -557,7 +557,7 @@
                   </div>
                 </div>
               </div>
-              <div class="history-btn sa" data-sa-delay="940">
+              <div class="history-btn sa" data-sa-trigger="#history_swiper" data-sa-delay="940">
                 <div class="htr-btn-wrap">
                   <button class="htr-btn-prev swiper-button swiper-prev-btn">
                     <span class="blind">이전</span>
@@ -639,7 +639,7 @@
         <section class="solution bg1">
           <div class="solution-wrap first">
             <div class="text-menu">
-              <div class="taLeft sa">
+              <div class="taLeft sa" id="solution_left_first">
                 <div class="sol-text-area">
                   <h1>
                     디스플레이를<br>
@@ -653,7 +653,7 @@
                 </div>
               </div>
               <div class="menu-list">
-                <div class="taLeft sa" data-sa-delay="70">
+                <div class="taLeft sa" data-sa-trigger="#solution_left_first" data-sa-delay="200">
                   <ul>
                     <li class="menu s active">
                       <img src="./img/solution/1.png" class="link" alt="device">
@@ -692,10 +692,10 @@
               </div>
             </div>
             <div class="text-menu">
-              <div class="taRight sa" data-sa-delay="470">
+              <div class="taRight sa" id="solution_right" data-sa-delay="470">
                 <div class="sol-text-area">
                   <h1>
-                    <strong class="highlight ha" data-sa-delay="940">다양한 디바이스</strong>로<br>
+                    <strong class="highlight ha" data-sa-delay="1140">다양한 디바이스</strong>로<br>
                     매장을 돋보이게
                   </h1>
                   <span>
@@ -705,7 +705,7 @@
                 </div>
               </div>
               <div class="menu-list">
-                <div class="taRight sa" data-sa-delay="540">
+                <div class="taRight sa" data-sa-trigger="#solution_right" data-sa-delay="670">
                   <ul> 
                     <li class="menu d active">
                       <img src="./img/hardware/1.png" class="link" alt="LED">
@@ -738,10 +738,10 @@
         <section class="solution bg3">
           <div class="solution-wrap third">
             <div class="text-menu">
-              <div class="taLeft sa">
+              <div class="taLeft sa" id="solution_left_last">
                 <div class="sol-text-area">
                   <h1>
-                    <strong class="highlight ha" data-sa-delay="940">효율성을 극대화</strong>한<br>
+                    <strong class="highlight ha" data-sa-delay="1140">효율성을 극대화</strong>한<br>
                     관리페이지까지
                   </h1>
                   <span class="web">
@@ -755,7 +755,7 @@
                 </div>
               </div>
               <div class="menu-list">
-                <div class="taLeft sa" data-sa-delay="70">
+                <div class="taLeft sa" data-sa-trigger="#solution_left_last" data-sa-delay="200">
                   <ul>
                     <li class="menu a active">
                       <img src="./img/adminpage/1.png" class="link" alt="statistics">
@@ -856,7 +856,7 @@
               <!-- video 1 -->
               <div class="box swiper-slide">
                 <div class="space-clear">
-                  <div class="left-area">
+                  <div class="left-area va">
                     <div class="left-side">
                       <div class="main-wrapper">
                         <h1 class="main-header">더 궁금한 것이</h1>
@@ -873,7 +873,7 @@
                     </div>
                   </div>
                   <div class="video-area">
-                    <div class="main-img">
+                    <div class="main-img va" data-sa-delay="940">
                       <img src="./img/video/1.png" alt="video" width="700" height="700">
                       <a href="https://youtu.be/TFPumoMADGY" target="_blank">
                         <div class="video-btn">
@@ -883,7 +883,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="right-area">
+                <div class="right-area va" data-sa-delay="470">
                   <div class="text-area">
                     <div class="main-content">
                       <p class="sub-title">
@@ -906,7 +906,7 @@
               <!-- video 2 -->
               <div class="box swiper-slide">
                 <div class="space-clear">
-                  <div class="left-area">
+                  <div class="left-area va">
                     <div class="left-side">
                       <div class="main-wrapper">
                         <h1 class="main-header">시더는</h1>
@@ -923,7 +923,7 @@
                     </div>
                   </div>
                   <div class="video-area">
-                    <div class="main-img">
+                    <div class="main-img va">
                       <img src="./img/video/2.png" alt="video" width="700" height="700">
                       <a href="https://youtu.be/tti2L2HrvuY" target="_blank">
                         <div class="video-btn">
@@ -933,7 +933,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="right-area">
+                <div class="right-area va">
                   <div class="text-area">
                     <div class="main-content">
                       <p class="sub-title">#02.</p>
@@ -954,7 +954,7 @@
               <!-- video 3 -->
               <div class="box swiper-slide">
                 <div class="space-clear">
-                  <div class="left-area">
+                  <div class="left-area va">
                     <div class="left-side">
                       <div class="main-wrapper">
                         <h1 class="main-header">모디를</h1>
@@ -971,7 +971,7 @@
                     </div>
                   </div>
                   <div class="video-area">
-                    <div class="main-img">
+                    <div class="main-img va">
                       <img src="./img/video/3.png" alt="video" width="700" height="700">
                       <a href="https://www.youtube.com/watch?v=FxkvrWnyKYs" target="_blank">
                         <div class="video-btn">
@@ -981,7 +981,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="right-area">
+                <div class="right-area va">
                   <div class="text-area">
                     <div class="main-content">
                       <p class="sub-title">#03.</p>
@@ -1002,7 +1002,7 @@
               <!-- video 4 -->
               <div class="box swiper-slide">
                 <div class="space-clear">
-                  <div class="left-area">
+                  <div class="left-area va">
                     <div class="left-side">
                       <div class="main-wrapper">
                         <h1 class="main-header">CEO 인터뷰</h1>
@@ -1018,8 +1018,8 @@
                       </button>
                     </div>
                   </div>
-                  <div class="video-area">
-                    <div class="main-img">
+                  <div class="video-area va">
+                    <div class="main-img ">
                       <img src="./img/video/4.png" alt="video" width="700" height="700">
                       <a href="https://youtu.be/KahdHPSa3yk" target="_blank">
                         <div class="video-btn">
@@ -1029,7 +1029,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="right-area">
+                <div class="right-area va">
                   <div class="text-area">
                     <div class="main-content">
                       <p class="sub-title">#04.</p>
@@ -1062,7 +1062,7 @@
               </div>
               <div class="right-area">
                 <div class="text-area"></div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-pagination va"></div>
               </div>
             </div>
           </div>
@@ -1183,14 +1183,26 @@
     function changePicS() {
       var menuAttribute = this.querySelector("img").getAttribute("src");
       bigPicS.setAttribute("src", menuAttribute);
+      bigPicS.setAttribute("style", "animation:imgFadeIn 400ms ease-in");
+      setTimeout(() => {
+        bigPicS.setAttribute("style", "animation: null");
+      }, 400);
     }
     function changePicD() {
       var menuAttribute = this.querySelector("img").getAttribute("src");
       bigPicD.setAttribute("src", menuAttribute);
+      bigPicD.setAttribute("style", "animation:imgFadeIn 400ms ease-in");
+      setTimeout(() => {
+        bigPicD.setAttribute("style", "animation: null");
+      }, 400);
     }
     function changePicA() {
       var menuAttribute = this.querySelector("img").getAttribute("src");
       bigPicA.setAttribute("src", menuAttribute);
+      bigPicA.setAttribute("style", "animation:imgFadeIn 400ms ease-in");
+      setTimeout(() => {
+        bigPicA.setAttribute("style", "animation: null");
+      }, 400);
     }
   </script>
   <script>
