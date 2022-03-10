@@ -771,19 +771,17 @@ a {
 
 @keyframes fadeInTop {
   0% {
-    display: flex;
     opacity: 0;
     transform: translateY(-130px);
   }
   100% {
     opacity: 1;
-    display: flex;
-
     transform: translateY(0px);
   }
 }
 
 .va {
+  opacity: 0;
   transition: all 470ms ease-in;
 }
 
@@ -1056,9 +1054,6 @@ a {
 .video-area {
   width: 36.833vw;
   height: 100%;
-  display: none;
-  animation: fadeInTop 470ms ease-in;
-
 }
 
 .main-img {
