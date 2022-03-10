@@ -6,9 +6,57 @@ import React, { useEffect, useRef, useState } from 'react'
 import { chunk } from '../utils/func'
 import { history_data } from '../utils/data';
 import useDidMountEffect from '../utils/useDidMountEffect'
+import { Default, Mobile } from '../utils/media';
 
 const HistoryContainer = styled.section`
   padding: 30px 0px;
+  ${({theme})=>theme.pc`
+    height:100vh;
+    padding: 259px 0px;
+  `};
+
+  ${({theme})=>theme.tablet`
+    height:768px;
+    padding: 118px 0px;
+  `};
+`;
+
+const HistoryWrapper = styled(Wrapper)`
+  ${({theme})=>theme.pc`
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+  `};
+  ${({theme})=>theme.tablet`
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+  `};
+`;
+
+const HistoryTitle = styled(Title)`
+  ${({theme})=>theme.pc`
+    margin-top: 37px;
+  `};
+   ${({theme})=>theme.tablet`
+  `};
+`;
+
+const HistorySlideView = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content:space-between;
+  align-items:center;
+  position: relative;
+  ${({theme})=>theme.tablet`
+    width: 65%;
+  `};
+`;
+
+const HistorySlide = styled.div`
+  width: 100%;
+  padding:0 79px;
 `;
 
 const SlideView = styled(Row)`
@@ -28,15 +76,53 @@ const SlideContainer = styled(Row)`
 
 const SlideItems = styled(Center)`
   min-width: 100%;
+  ${({theme})=>theme.pc`
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:space-between;
+    padding: 0px 70px;
+  `};
+  ${({theme})=>theme.pc`
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:space-between;
+  `};
 `;
 
 const TextPadding = styled(Text)`
-  padding: 5px 0px;
-  text-align: center;
+    padding: 5px 0px;
+    text-align: center;
+  ${({theme})=>theme.pc`
+    text-align: left;
+    padding: 10px 0px;
+    font-size:2.5rem;
+  `};
+
+  ${({theme})=>theme.tablet`
+    text-align: left;
+    padding: 8px 0px;
+    font-size:1.8rem;
+  `};
 `;
 
 const CenterPadding = styled(Center)`
   margin: 30px 0px;
+  ${({theme})=>theme.pc`
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    text-align:left;
+  `};
+  ${({theme})=>theme.tablet`
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    text-align:left;
+    width:80%;
+    margin: 30px 0px;
+  `};
 `;
 
 const YearText = styled(LgText)`
@@ -44,6 +130,15 @@ const YearText = styled(LgText)`
   font-weight: 700;
   box-shadow: inset 0 -20px 0 #B0FFE2;
   margin-bottom: 13px;
+  
+  ${({theme})=>theme.pc`
+    font-size: 3.5rem;
+    font-weight: bold;
+  `}
+  ${({theme})=>theme.pc`
+    font-size: 3.5rem;
+    font-weight: bold;
+  `}
 `;
 
 const ButtonBox = styled.div`
@@ -61,6 +156,7 @@ const ButtonBox = styled.div`
 const SlideButton = styled(Image)`
   height: 45px;
   width: 45px;
+  
 `;
 
 export default function History() {
@@ -91,11 +187,15 @@ export default function History() {
   }
 
   useDidMountEffect(() => {
-    slideRef.current.style.transition = 'all 0.5s ease-in-out';
+    if(slideRef.current){
+      slideRef.current.style.transition = 'all 0.5s ease-in-out';
+    }
   }, [currentSlide]);
 
-  useEffect(() => {
-    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
+  useEffect(() => { 
+    if(slideRef.current){
+      slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
+    }
   }, [currentSlide]);
 
   useEffect(() => {
@@ -134,60 +234,111 @@ export default function History() {
   
   return (
     <HistoryContainer>
-      <Wrapper>
-      <Title>
-        시더의
-        <br />
-        즐거운 도전들을
-        <br />
-        소개합니다.
-      </Title>
-      <SlideView>
-        <ButtonBox left>
-          <SlideButton
-            onClick={prevSlide}
-            priority
-            src="/icons/h_left_arrow.png"
-            height={45}
-            width={45}
-            alt="Left Arrow"
-          />
-        </ButtonBox>
-        <SlideCenter>
-          <SlideContainer 
-            ref={slideRef}>
-          {
-            data.map((box,idx)=>{
-              return <SlideItems key={idx}>
-                { 
-                  box.map((boxData,idx)=> {
-                    return <CenterPadding key={idx}>
-                      <YearText>{boxData && boxData.year}</YearText>
-                      {
-                        boxData.projects && boxData.projects.map((contnet,idx)=> {
-                          return <TextPadding key={idx} dangerouslySetInnerHTML={{__html: contnet }}></TextPadding>
+      <HistoryWrapper>
+        <HistoryTitle>
+          시더의
+          <br />
+          즐거운 도전들을
+          <br />
+          소개합니다.
+        </HistoryTitle>
+        <Mobile>
+          <SlideView>
+            <ButtonBox left>
+              <SlideButton
+                onClick={prevSlide}
+                priority
+                src="/icons/h_left_arrow.png"
+                height={45}
+                width={45}
+                alt="Left Arrow"
+              />
+            </ButtonBox>
+            <SlideCenter>
+              <SlideContainer 
+                ref={slideRef}>
+              {
+                data.map((box,idx)=>{
+                  return <SlideItems key={idx}>
+                    { 
+                      box.map((boxData,idx)=> {
+                        return <CenterPadding key={idx}>
+                          <YearText>{boxData && boxData.year}</YearText>
+                          {
+                            boxData.projects && boxData.projects.map((contnet,idx)=> {
+                              return <TextPadding key={idx} dangerouslySetInnerHTML={{__html: contnet }}></TextPadding>
+                            })
+                          }
+                        </CenterPadding>
+                      })
+                    }
+                  </SlideItems>
+                })
+              }
+              </SlideContainer>
+            </SlideCenter>
+            <ButtonBox right>
+              <SlideButton
+                onClick={nextSlide}
+                priority
+                src="/icons/h_right_arrow.png"
+                height={45}
+                width={45}
+                alt="Right Arrow"
+              />
+            </ButtonBox>
+          </SlideView>
+        </Mobile>
+        <Default>
+          <HistorySlideView>
+          <ButtonBox left>
+            <SlideButton
+              onClick={prevSlide}
+              priority
+              src="/icons/h_left_arrow.png"
+              height={100}
+              width={100}
+              alt="Left Arrow"
+            />
+            </ButtonBox>
+            <HistorySlide>
+              <SlideCenter>
+                <SlideContainer 
+                  ref={slideRef}>
+                {
+                  data.map((box,idx)=>{
+                    return <SlideItems key={idx}>
+                      { 
+                        box.map((boxData,idx)=> {
+                          return <CenterPadding key={idx}>
+                            <YearText>{boxData && boxData.year}</YearText>
+                            {
+                              boxData.projects && boxData.projects.map((contnet,idx)=> {
+                                return <TextPadding key={idx} dangerouslySetInnerHTML={{__html: contnet }}></TextPadding>
+                              })
+                            }
+                          </CenterPadding>
                         })
                       }
-                    </CenterPadding>
+                    </SlideItems>
                   })
                 }
-              </SlideItems>
-            })
-          }
-          </SlideContainer>
-        </SlideCenter>
-        <ButtonBox right>
-          <SlideButton
-            onClick={nextSlide}
-            priority
-            src="/icons/h_right_arrow.png"
-            height={45}
-            width={45}
-            alt="Right Arrow"
-          />
-        </ButtonBox>
-      </SlideView>
-      </Wrapper>
+                </SlideContainer>
+              </SlideCenter>
+            </HistorySlide>
+            <ButtonBox right >
+              <SlideButton
+                onClick={nextSlide}
+                priority
+                src="/icons/h_right_arrow.png"
+                height={100}
+                width={100}
+                alt="Right Arrow"
+              />
+            </ButtonBox>
+          </HistorySlideView>
+        </Default>
+      </HistoryWrapper>
     </HistoryContainer>
   )
 };
