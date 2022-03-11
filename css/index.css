@@ -554,22 +554,30 @@ a {
 }
 
 .ref-btn {
+  position: relative;
   display: block;
   width: 254px;
   height: 50px;
-  background-image: url(../icon/download_btn_w.png);
   border: 0px solid #000;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   cursor: pointer;
 }
-.ref-btn:hover {
+
+.btn-r {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
   border: 0px solid #fff;
-  background-image: url(../icon/download_btn_r.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  
+}
+.ref-btn:hover .btn-r {
+  display: block;
 }
 
 /* main section - right */
