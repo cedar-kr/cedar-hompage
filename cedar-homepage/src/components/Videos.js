@@ -48,13 +48,13 @@ export default function Videos() {
   ], [])
 
   return (
-    <>
+    <div>
       <Mobile>
         <Video VideoData={VideoData}/>
       </Mobile>
       <Default>
         <VideoDesk VideoData={VideoData}/>
       </Default>
-    </>
+    </div>
   )
 };

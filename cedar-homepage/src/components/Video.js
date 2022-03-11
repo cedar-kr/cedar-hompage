@@ -105,6 +105,6 @@ export default function Video(props) {
           }
         </VideoItems>
       </VideoBox>
-      </VideoContainer>
+    </VideoContainer>
   )
 };
