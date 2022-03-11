@@ -10,7 +10,7 @@ const SolutionContainer = styled.div`
   padding-bottom:130px;
   display: flex;
   flex-direction:colunm;
-  justify-conten:center;
+  height:768px;
   background:${props => 
     (props.bg == 'red' && '#ffeeee') ||
     (props.bg == 'blue' && '#f2f7fb') ||
@@ -20,18 +20,33 @@ const SolutionContainer = styled.div`
   ${({theme})=>theme.pc`
     padding-top:190px;
     padding-bottom:182px;
+    height:100vh;
   `}
 `;
 
+const SolutionWrapper = styled(Wrapper)`
+  width: 70%;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${({theme})=>theme.tablet`
+    width: 91%;
+  `};
+`;
+
 const SolutionRow = styled(Row)`
+  justify-content:left;
   ${({theme})=>theme.pc`
+    justify-content:space-between;
     flex-direction: ${(props) => props.reverse ?'row-reverse':'row'};
   `};
 `;
 
 const SolutionImg = styled.div`
-  widht:500px;
-  height:500px;
+  min-widht:500px;
+  min-height:500px;
   ${({theme})=>theme.tablet`
     margin-right:56px;
   `}
@@ -100,7 +115,7 @@ export default function SolutionDesk(props) {
   return (
     <Default>
       <SolutionContainer bg={data.bg} >
-        <Wrapper>
+        <SolutionWrapper>
           <SolutionRow reverse={data.id === 1 || data.id === 3}>
             <Tablet>
               <SolutionImg>
@@ -129,18 +144,18 @@ export default function SolutionDesk(props) {
                 <SolutionSubText dangerouslySetInnerHTML={{__html:data.text}}></SolutionSubText>
               </Tablet>
               <SoutionMenus>
-              {
-                data.menus.map((data, idx)=>{
-                  return <SolutionMenuItems key={idx} onClick={()=>setSelect(data)}>
-                    <SoutionMenuIcon select={select.id === data.id}></SoutionMenuIcon>
-                    <SoutionMenusText select={select.id === data.id}>{data.name}</SoutionMenusText>
-                  </SolutionMenuItems>
-                })
-              }
+                {
+                  data.menus.map((data, idx)=>{
+                    return <SolutionMenuItems key={idx} onClick={()=>setSelect(data)}>
+                      <SoutionMenuIcon select={select.id === data.id}></SoutionMenuIcon>
+                      <SoutionMenusText select={select.id === data.id}>{data.name}</SoutionMenusText>
+                    </SolutionMenuItems>
+                  })
+                }
               </SoutionMenus>
             </div>
           </SolutionRow>
-        </Wrapper>
+        </SolutionWrapper>
       </SolutionContainer>
     </Default>
   )

@@ -5,6 +5,19 @@ export const Title = styled.h1`
   font-size: 3rem;
   font-weight: 900;
   line-height: 45px;
+  ${({theme})=>theme.pc`
+    font-size: 5.5rem;
+    font-weight: 900;
+    line-height:normal;
+    user-select: none;
+  `};
+   ${({theme})=>theme.tablet`
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height:normal;
+    user-select: none;
+  `};
+
 `;
 
 export const LgText = styled.p`

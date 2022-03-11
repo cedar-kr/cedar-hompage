@@ -15,7 +15,7 @@ const MainContainer = styled.section`
   height: 100vh;
   overflow: hidden;
   ${({theme})=>theme.tablet`
-      height: 768px;
+      height: 76.8vmin;
   `};
 `;
 
@@ -28,7 +28,8 @@ const MainWrapper = styled(Wrapper)`
   width: 80%;
   ${({theme})=>theme.tablet`
     width: 87%;
-    padding-top:9.2vmin;
+    padding: 76px 0;
+    justify-content:space-between;
   `};
 `
 
@@ -37,6 +38,10 @@ const MainTitles = styled.div`
   flex-direction:row;
   align-items:center;
   justify-content:center;
+  margin-bottom:4.4vmin;
+  ${({theme})=>theme.tablet`
+    margin-bottom:4.8vmin;
+  `};
 `;
 
 const MainTitleNew = styled.div`
@@ -68,9 +73,8 @@ const MainContent = styled.div`
   margin-bottom:5vmin;
 
   ${({theme})=>theme.tablet`
-    margin-bottom:4vmin;
+    margin-bottom:40px;
     flex-direction: row-reverse;
-    margin-top:4.8vmin;
     justify-content:space-between;
   `};
 `;
@@ -160,6 +164,7 @@ const MainInfoSliderImgs = styled.div`
   ${({theme})=>theme.tablet`
     position: static;
     width: 100%;
+    height: 100%;
   `};
 `;
 
@@ -249,7 +254,7 @@ export default function MainDesk(props) {
       slideRef.current.style.transform = `translateY(-${305*select}px)`;
     }
     if(isTablet){
-      slideRef.current.style.transform = `translateY(-${145*select}px)`;
+      slideRef.current.style.transform = `translateY(-${170*select}px)`;
     }
   }, [select]);
 

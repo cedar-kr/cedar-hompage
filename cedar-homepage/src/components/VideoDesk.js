@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { NSText, Title } from '../styles/PublicStyles'
 import React, { useMemo, useState } from 'react'
 import { Center, Row, Wrapper } from '../styles/Layout';
@@ -10,6 +10,11 @@ import Link from 'next/link';
 const VideoContainer = styled.section`
   padding: 146px 0px;
   background-color: #f5f5f5;
+  height:768px;
+
+  ${({theme})=>theme.pc`
+    height:100vh;
+  `}
 `;
 
 const VideoWrapper = styled(Wrapper)`
@@ -19,13 +24,58 @@ const VideoWrapper = styled(Wrapper)`
   flex-direction:row;
 `;
 
+const topFristFadeOut = keyframes`
+  0% {
+    position: relative;
+    top:-20%;
+    opacity: 0;
+  }
+  20% {
+    position: relative;
+    top:-10%;
+    opacity: 0;
+  }
+  100% {
+    position: relative;
+    top:0%;
+    opacity: 1;
+  }
+`;
+
+const topFadeOut = keyframes`
+  0% {
+    position: relative;
+    top:-10%;
+    opacity: 0;
+  }
+  100% {
+    position: relative;
+    top:0%;
+    opacity: 1;
+  }
+`;
+
+const fadeOut = keyframes`
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
 const VideoTitle = styled(Title)`
   font-weight: 500;
-  margin: 30px 0px;
+  margin-top: ${props => props.first && 30}px;
+  margin-bottom: ${props => !props.first && 40}px;
   ${({theme})=>theme.pc`
     font-size:4rem;
   `}
-
+  animation-name: ${props => props.first ? topFristFadeOut : topFadeOut };
+  animation-duration: 1s;
 `;
 
 const VideoSlideBtns = styled.div`
@@ -59,13 +109,20 @@ const VideoAlign = styled.div`
   ${({theme})=>theme.pc`
     width:31.6%;
   `}
+  position: relative;
+  height: 460px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 `;
 
 const VideoBtns = styled.div`
   display: flex ;
-  flex-direction:column;
-  justify-content:flex-end;
-  align-items:flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+  height: 200px;
 `;
 
 const VideoText = styled.div`
@@ -76,14 +133,18 @@ const VideoText = styled.div`
   ${({theme})=>theme.pc`
    font-size:2.5rem;
   `}
+  animation-name: ${props => props.first ? topFristFadeOut : topFadeOut };
+  animation-duration: 1s;
 `;
 
 const VideoImgText = styled.div`
-  font-size:1.4rem;
+  font-size:1.8rem;
   color:#d74c4b;
   text-align:left;
   font-family: 'Noto Sans KR', sans-serif;
   margin: 30px 0px;
+  animation-name: ${fadeOut};
+  animation-duration: 1s;
 `;
 
 const VideoPlayIcon = styled.div`
@@ -104,8 +165,8 @@ const VideoPlayIcon = styled.div`
 `;
 
 const VideoSub = styled.div`
-  padding-left:24px;
   height: 460px;
+  padding-left:24px;
   display: flex;
   align-items:flex-end;
   ${({theme})=> theme.pc`
@@ -113,8 +174,6 @@ const VideoSub = styled.div`
     padding-left:96px;
   `}
 `;
-
-
 
 const VideoArrow = styled.div`
   cursor: pointer;
@@ -125,6 +184,7 @@ const VideoArrow = styled.div`
     background: ${props=> `url(${props.src_h})`};
   }
 `;
+
 
 export default function VideoDesk(props) {
   const { VideoData } = props;
@@ -149,12 +209,15 @@ export default function VideoDesk(props) {
 
   return (
     <VideoContainer>
-      <VideoWrapper>
       {VideoData && VideoData.map((data,idx)=> {
        return select === idx && (
-       <> 
-        <VideoAlign>
-          <VideoTitle dangerouslySetInnerHTML={{__html: data.title}}></VideoTitle>
+       <VideoWrapper> 
+          <VideoAlign >
+          {data.title.split('<br/>').map((data,idx)=>{
+              return <VideoTitle key={idx} first={idx==0 ? true : false}>
+                {data}
+              </VideoTitle>
+          })}
           <VideoSlideBtns>
             <VideoArrow 
               src="/icons/left_arrow_b.png"
@@ -185,22 +248,21 @@ export default function VideoDesk(props) {
         <VideoAlign>
           <VideoSub>
             <VideoBtns>
-              <VideoText>{data.name}</VideoText>
+              <VideoText first>{data.name}</VideoText>
               <VideoText dangerouslySetInnerHTML={{__html: isDesktop? data.subTitle_d: data.subTitle}}></VideoText>
               <Desktop>
                 <VideoImgText>이미지를 눌러보세요</VideoImgText>
               </Desktop>
               <VideoIcons>
                 {VideoData.map((v,idx)=>{
-                  return <VideoIcon select={select===idx} onClick={()=>setSelect(idx)}/>
+                  return <VideoIcon key={idx} select={select===idx} onClick={()=>setSelect(idx)}/>
                 })}
               </VideoIcons>
             </VideoBtns>
           </VideoSub>
         </VideoAlign>
-      </>)
+        </VideoWrapper>)
       })}
-    </VideoWrapper>
   </VideoContainer>
   )
 };
