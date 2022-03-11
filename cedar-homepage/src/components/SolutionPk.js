@@ -15,6 +15,7 @@ const SolutionPkContainer = styled.section`
     flex-direction:column;
     align-items:center;
     padding: 110px 0px;
+    height:768px;
 
   `};
   ${({theme})=>theme.pc`

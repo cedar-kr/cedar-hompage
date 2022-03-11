@@ -12,7 +12,7 @@ const BusinessContainer = styled.section`
     padding: 168px 0px;
   `};
   ${({theme})=>theme.tablet`
-     height:768px;
+    height:768px;
     padding-top: 146px;
     padding-bottom:91px;
   `};
@@ -26,11 +26,11 @@ const BusinessTitle = styled(Title)`
     line-height:normal;
     margin-top: 108px;
   `};
-    ${({theme})=>theme.tablet`
+  ${({theme})=>theme.tablet`
     font-size: 3.5rem;
     font-weight: 900;
     line-height:normal;
-    margin-top: 74px;
+    padding-top:102px;
   `};
 `;
 
@@ -50,7 +50,6 @@ const BusinessWrapper = styled(Wrapper)`
 
 const Box = styled(Center)`
   justify-content: center;
-  width: 71.7%;
   height: 105px;
   min-width: 258px;
   margin: 8px 0px;
@@ -63,13 +62,11 @@ const Box = styled(Center)`
 `;
 
 const BusinessView = styled.div`
-  width: 65%;
+  width: 55%;
   display: flex;
   justify-content:space-between;
   align-items:center;
-  ${({theme})=>theme.tablet`
-    width: 65%;
-  `};
+
 `;
 
 const BoxItemTitle = styled(MdText)`
@@ -86,10 +83,12 @@ const BoxItemText = styled(NSText)`
 
 const MovingBall = styled.div`
   margin: 100px 0px;
+  position: relative;
+
 `;
 
 const MovingBallWrap = styled.div`
-  position: relative;
+  position: absolute;
   .s-text {
     position: absolute;
     width: 85px;
@@ -139,10 +138,9 @@ const MovingBallStroke = styled.div`
   width: 40vmin;
   height: 40vmin;
   ${({theme})=>theme.tablet`
-    width: 251.8px;
-    height: 251.8px;
+    width: 25.3vmin;
+    height: 25.3vmin;
   `}
-
   z-index:101;
   ${(props)=>
     props.id == 1 && `left: 16px; top: 0px;` ||
@@ -176,8 +174,9 @@ const MovingBallItem = styled.div`
   width: 40vmin;
   height: 40vmin;
   ${({theme})=>theme.tablet`
-    width: 251.8px;
-    height: 251.8px;
+    width: 25.3vmin;
+    height: 25.3vmin;
+   
   `}
 
   ${(props)=>

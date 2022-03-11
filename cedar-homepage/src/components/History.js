@@ -12,12 +12,12 @@ const HistoryContainer = styled.section`
   padding: 30px 0px;
   ${({theme})=>theme.pc`
     height:100vh;
-    padding: 259px 0px;
+    padding: 168px 0px;
   `};
-
   ${({theme})=>theme.tablet`
     height:768px;
-    padding: 118px 0px;
+    padding-top: 146px;
+    padding-bottom:91px;
   `};
 `;
 
@@ -31,7 +31,6 @@ const HistoryWrapper = styled(Wrapper)`
     display:flex;
     flex-direction:row;
     justify-content:space-between;
-    align-items:center;
   `};
 `;
 
@@ -40,6 +39,7 @@ const HistoryTitle = styled(Title)`
     margin-top: 37px;
   `};
    ${({theme})=>theme.tablet`
+    padding-top:102px;
   `};
 `;
 
@@ -50,7 +50,7 @@ const HistorySlideView = styled.div`
   align-items:center;
   position: relative;
   ${({theme})=>theme.tablet`
-    width: 65%;
+    width: 68%;
   `};
 `;
 
@@ -77,33 +77,25 @@ const SlideContainer = styled(Row)`
 const SlideItems = styled(Center)`
   min-width: 100%;
   ${({theme})=>theme.pc`
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    justify-content:space-between;
     padding: 0px 70px;
-  `};
-  ${({theme})=>theme.pc`
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    justify-content:space-between;
   `};
 `;
 
 const TextPadding = styled(Text)`
-    padding: 5px 0px;
-    text-align: center;
+  padding: 5px 0px;
+  text-align: center;
   ${({theme})=>theme.pc`
     text-align: left;
     padding: 10px 0px;
     font-size:2.5rem;
+    width:100%
   `};
 
   ${({theme})=>theme.tablet`
     text-align: left;
     padding: 8px 0px;
     font-size:1.8rem;
+    width:100%
   `};
 `;
 
@@ -113,15 +105,17 @@ const CenterPadding = styled(Center)`
     display:flex;
     flex-direction:column;
     align-items:flex-start;
+    justify-content:left;
     text-align:left;
+    width:100%;
   `};
   ${({theme})=>theme.tablet`
     display:flex;
     flex-direction:column;
     align-items:flex-start;
+    justify-content:left;
     text-align:left;
-    width:80%;
-    margin: 30px 0px;
+    width:70%;
   `};
 `;
 
@@ -134,10 +128,12 @@ const YearText = styled(LgText)`
   ${({theme})=>theme.pc`
     font-size: 3.5rem;
     font-weight: bold;
+    margin-bottom: 24px;
   `}
-  ${({theme})=>theme.pc`
+  ${({theme})=>theme.tablet`
     font-size: 3.5rem;
     font-weight: bold;
+    margin-bottom: 24px;
   `}
 `;
 
