@@ -558,19 +558,15 @@ a {
   width: 254px;
   height: 50px;
   background-image: url(../icon/download_btn_w.png);
-  font-size: 18px;
-  padding: 8px 25px 7px;
   border: 0px solid #000;
-  border-width: 0px 1px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   cursor: pointer;
 }
 .ref-btn:hover {
-  background-image: url(../icon/download_btn_r.png);
   border: 0px solid #fff;
-  border-width: 0px 1px;
+  background-image: url(../icon/download_btn_r.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
