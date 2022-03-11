@@ -1206,7 +1206,7 @@
     }
   </script>
   <script>
-    new Swiper(".mySwiper", {
+    const swiper = new Swiper(".mySwiper", {
       navigation: {
         nextEl: ".swiper-next-button",
         prevEl: ".swiper-prev-button" 
@@ -1216,7 +1216,19 @@
       pagination: {
         el: ".swiper-pagination",
         clickable: true
-      } 
+      },
+      on: {
+        slideChange: function () {
+          if(this.activeIndex == 5) {
+            swiper.slideTo(1, false);
+          } else if(this.activeIndex == 0) {
+            swiper.slideTo(4, false);
+          }
+        }
+      }
+    });
+    swiper.on('slideChange', function() { 
+      console.log('now index :::', swiper.activeIndex); 
     });
     
     new Swiper(".mySwiper2", {
