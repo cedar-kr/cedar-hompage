@@ -235,7 +235,8 @@ export default function SolutionT(props) {
           {
             data.imgs.map((img,idx) => {
               return (
-                <SolutionImg key={idx} alt={`solution-img-${idx}`} src={img.src_w} width={240} height={240} select={currentSlide==idx?"true":"false"}/>
+                
+                <SolutionImg key={idx} alt={`solution-img-${idx}`} src={img.src} width={240} height={240} select={currentSlide==idx?"true":"false"}/>
               )
             })
           }
