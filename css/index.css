@@ -374,36 +374,36 @@ a {
   transform: translateX(130px);
 }
 
-.htr-btn-prev {
-  background: url(../icon/h_left_arrow.png) no-repeat;
+.htr-btn-prev, .htr-btn-next {
+  border: none;
+  background: transparent;
 }
-.htr-btn-prev:hover {
-  background: url(../icon/h_left_arrow_hover.png) no-repeat;
+
+.htr-btn-prev .btn-w, .htr-btn-next .btn-w {
+  position: relative;
+  width: 70px;
+  height: 70px;
   background-size: cover;
 }
-.htr-btn-prev.isPressed {
+
+.btn-tr {
+  position: absolute;
+  display: none;
+  width: 70px;
+  height: 70px; 
+}
+.htr-btn-prev:hover .btn-tr, .htr-btn-next:hover .btn-tr {
+  display: block;
+}
+
+.htr-btn-prev .btn-tr.isPressed {
   background: url(../icon/h_left_arrow_click.png) no-repeat;
   background-size: cover;
 }
 
-.htr-btn-next {
-  background: url(../icon/h_right_arrow.png) no-repeat;
-}
-.htr-btn-next:hover {
-  background: url(../icon/h_right_arrow_hover.png) no-repeat;
-  background-size: cover;
-}
-.htr-btn-next.isPressed {
+.htr-btn-next .btn-tr.isPressed {
   background: url(../icon/h_right_arrow_click.png) no-repeat;
   background-size: cover;
-}
-
-.htr-btn-prev, .htr-btn-next {
-  width: 70px;
-  height: 70px;
-  background-size: cover;
-  border: none;
-  cursor: pointer;
 }
 
 .head-text {
