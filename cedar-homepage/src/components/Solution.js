@@ -35,6 +35,7 @@ const SolutionImg = styled(Image)`
   width: 240px;
   height: 240px;
   margin: 0 8px;
+  opacity: ${props=> props.select =="true"? 1 : 0.3};
 `;
 
 const SolutionSlider = styled.div`
@@ -50,7 +51,7 @@ const SlideButton = styled(Center)`
   display: flex;
   justify-content: center;
   height: 250px;
-  width: 15%;
+  width: 20%;
   left: ${props => props.left && 0}px;
   right: ${props => props.right && 0}px;
   z-index: 100;
@@ -104,9 +105,9 @@ const SolutionMenu = styled(Row)`
 
 const MenuText = styled.div`
   width: max-content;
-  color: ${props => props.select? '#d74c4b' : '#4f4f4f'};
+  color: ${props => props.select? '#d74c4b' : '#bdbdbd'};
   font-family:  'Noto Sans KR', sans-serif;
-  font-size: 14px;
+  font-size: ${props => props.select? 17: 14 }px;
   font-weight: bold;
   white-space: nowrap;
   transform: translateX(${props => props.left}px);
@@ -209,7 +210,7 @@ export default function SolutionT(props) {
   }
 
   useDidMountEffect(() => {
-    slideRef.current.style.transition = 'all 0.2s ease-in-out';
+    slideRef.current.style.transition = 'all 0.15s ease-in-out';
   }, [currentSlide]);
 
   useEffect(() => {
@@ -234,7 +235,7 @@ export default function SolutionT(props) {
           {
             data.imgs.map((img,idx) => {
               return (
-                <SolutionImg key={idx} alt={`solution-img-${idx}`} src={img.src} width={240} height={240} />
+                <SolutionImg key={idx} alt={`solution-img-${idx}`} src={img.src_w} width={240} height={240} select={currentSlide==idx?"true":"false"}/>
               )
             })
           }
