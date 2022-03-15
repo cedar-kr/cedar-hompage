@@ -231,7 +231,7 @@ export default function Main() {
             </SlideCount>
             <SlideBtn 
               onClick={handleIsRunningChange}
-              src={isRunning ? "/webp/icons/main_stop.webp" : "/webp/icons/main_play.webp"}
+              src={isRunning ?  "/webp/icons/main_play.webp" :"/webp/icons/main_stop.webp"}
               alt="Slider Control Button"
               height={20}
               width={20}
