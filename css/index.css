@@ -335,7 +335,7 @@ a {
   /* background-color: #fff; */
   height: 100%;
   padding: 240px 0px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .history-wrap {
