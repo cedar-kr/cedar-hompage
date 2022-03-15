@@ -105,16 +105,16 @@ const SlideBtn = styled(Image)`
 export default function Main() {
   const main_data = [
     { 
-      src: "/imgs/main/bg_main_KIOSK.png",
+      src: "/webp/reference/1.webp",
       title: "KIOSK"
     },{ 
-      src: "/imgs/main/bg_main_LED.png",
+      src: "/webp/reference/2.webp",
       title: "LED"
     },{ 
-      src: "/imgs/main/bg_main_Signage.png",
+      src: "/webp/reference/3.webp",
       title: "DIGITAL SIGNAGE"
     },{ 
-      src: "/imgs/main/bg_main_EVSignage.png",
+      src: "/webp/reference/4.webp",
       title: "E/V SIGNAGE"
     },
   ];
@@ -177,13 +177,13 @@ export default function Main() {
     if(totalSlide.length < 6) {
       setTotalSlide(totalSlide.unshift(
         {
-          src: "/imgs/main/bg_main_EVSignage.png",
+          src: "/webp/reference/4.webp",
           title: "E/V SIGNAGE"
         }
       ));
       setTotalSlide(totalSlide.concat(
         {
-          src: "/imgs/main/bg_main_KIOSK.png",
+          src: "/webp/reference/1.webp",
           title: "KIOSK"
         }
       ));
@@ -196,11 +196,11 @@ export default function Main() {
         <ButtonBox left>
           <SlideButton
             onClick={prevSlide}
-            priority
-            src="/icons/m_left_arrow.png"
+            src="/webp/icons/prev.webp"
             height={45}
             width={45}
             alt="Left Arrow"
+            priority
           />
         </ButtonBox>
         <SlideCenter>
@@ -231,22 +231,22 @@ export default function Main() {
             </SlideCount>
             <SlideBtn 
               onClick={handleIsRunningChange}
-              src={isRunning ? "/icons/pause_btn.png" : "/icons/play_btn.png"}
-              priority
+              src={isRunning ? "/webp/icons/main_stop.webp" : "/webp/icons/main_play.webp"}
               alt="Slider Control Button"
               height={20}
               width={20}
+              priority
             />
           </SlideWrap>
         </SlideCenter>
         <ButtonBox right>
           <SlideButton
             onClick={nextSlide}
-            priority
-            src="/icons/m_right_arrow.png"
+            src="/webp/icons/next.webp"
             alt="Right Arrow"
             height={45}
             width={45}
+            priority
           />
         </ButtonBox>
       </SlideView>

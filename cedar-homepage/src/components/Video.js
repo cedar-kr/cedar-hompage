@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 import Link from 'next/link'
-import playIcon from '../../public/imgs/video/playBtn.png'
+import playIcon from '../../public/webp/icons/video_play.webp'
 import { Center, Row } from '../styles/Layout'
 import { NSText, Title } from '../styles/PublicStyles'
 import React, { useMemo } from 'react'
@@ -77,25 +77,25 @@ export default function Video() {
     { 
       name: '#01.', 
       info: '더 나은 삶을 위한 새로운 기술',
-      src: '/imgs/video/mobile1.png',
+      src: '/webp/video/1.webp',
       url: 'https://youtu.be/TFPumoMADGY',
     },
     { 
       name: '#02.', 
       info: '주식회사 시더 홍보영상',
-      src: '/imgs/video/mobile2.png',
+      src: '/webp/video/2.webp',
       url: 'https://youtu.be/tti2L2HrvuY'
     },
     { 
       name: '#03.', 
       info: '모디 소개영상',
-      src: '/imgs/video/mobile3.png',
+      src: '/webp/video/3.webp',
       url: 'https://www.youtube.com/watch?v=FxkvrWnyKYs'
     },
     { 
       name: '#04.', 
       info: 'CEO인터뷰',
-      src: '/imgs/video/mobile4.png',
+      src: '/webp/video/4.webp',
       url: 'https://youtu.be/KahdHPSa3yk'
     },
   ], [])
@@ -116,7 +116,7 @@ export default function Video() {
                   <VideoThumnailBox>
                     <Link href={data.url} passHref>
                       <VideoThumnail src={data.src}>
-                        <VideoPlayBtn src={playIcon} width={34} height={24} alt='Video Play Button'/>
+                        <VideoPlayBtn src={playIcon} width={34} height={24} priority alt='Video Play Button'/>
                       </VideoThumnail>
                     </Link>
                   </VideoThumnailBox>

@@ -113,21 +113,21 @@ export default function SolutionPk() {
 
   const SolutionPkData = useMemo(() => [
     { 
-      src: '/imgs/solutionpkg/1.png', 
+      src: '/webp/solutionpkg/1.webp', 
       name:'Modi-Lite', 
       info: '비 인터넷,<br/> 소규모 구축 환경에 최적화된 <br/> 디지털 사이니지 솔루션 ',
       width: '120',
       height: '147'
     },
     { 
-      src: '/imgs/solutionpkg/2.png', 
+      src: '/webp/solutionpkg/2.webp', 
       name:'Modi', 
       info:  '하드웨어를 가리지 않고 <br/> 확장이 용이한 웹 기반 디지털 <br/> 사이니지 솔루션',
       width: '114',
       height: '160'
     },
     { 
-      src: '/imgs/solutionpkg/3.png', 
+      src: '/webp/solutionpkg/3.webp', 
       name: 'Modi-Broadcast', 
       info: '방송 편성에 맞추어 다량의<br/> 디스플레이와 송수신이 가능한<br/>전문 방송용 솔루션',
       width: '112',

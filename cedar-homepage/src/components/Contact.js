@@ -29,15 +29,15 @@ export const TextInfo = styled(NSText)`
 export default function Contact() {
   const contact_data = [
     {
-      img: "/icons/location.png",
+      img: "/webp/icons/contact_loca.webp",
       content: "서울특별시 서초구 강남대로 18길 5 (양재동) 3층",
       link: "/"
     },{
-      img: "/icons/phone.png",
+      img: "/webp/icons/contact_call.webp",
       content: "070.4901.6150",
       link: "tel:070-4901-6150"
     },{
-      img: "/icons/email.png",
+      img: "/webp/icons/contact_email.webp",
       content: "info@cedar.kr",
       link: "/"
     }

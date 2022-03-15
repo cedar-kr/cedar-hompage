@@ -146,8 +146,7 @@ export default function History() {
         <ButtonBox left>
           <SlideButton
             onClick={prevSlide}
-            priority
-            src="/icons/h_left_arrow.png"
+            src="/webp/icons/prev_b.webp"
             height={45}
             width={45}
             alt="Left Arrow"
@@ -179,8 +178,7 @@ export default function History() {
         <ButtonBox right>
           <SlideButton
             onClick={nextSlide}
-            priority
-            src="/icons/h_right_arrow.png"
+            src="/webp/icons/next_b.webp"
             height={45}
             width={45}
             alt="Right Arrow"

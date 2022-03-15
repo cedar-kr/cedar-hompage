@@ -32,31 +32,31 @@ export default function Solution() {
       imgs: [
         {
           id:3,
-          src:'/imgs/solution/device/design.png',
+          src:'/webp/solutions/device/design.webp',
         },
         {
           id:4,
-          src:'/imgs/solution/device/sensor.png',
+          src:'/webp/solutions/device/sensor.webp',
         },
         {
           id:1,
-          src:'/imgs/solution/device/multi.png',
+          src:'/webp/solutions/device/device.webp',
         },
         {
           id:2,
-          src:'/imgs/solution/device/group.png',
+          src:'/webp/solutions/device/group.webp',
         },
         {
           id:3,
-          src:'/imgs/solution/device/design.png',
+          src:'/webp/solutions/device/design.webp',
         },
         {
           id:4,
-          src:'/imgs/solution/device/sensor.png',
+          src:'/webp/solutions/device/sensor.webp',
         },
         {
           id:1,
-          src:'/imgs/solution/device/multi.png',
+          src:'/webp/solutions/device/device.webp',
         },
       ],
       menus: [
@@ -91,35 +91,35 @@ export default function Solution() {
       imgs: [
         {
           id:4,
-          src:'/imgs/solution/display/display.png',
+          src:'/webp/solutions/display/display.webp',
         },
         {
           id:5,
-          src:'/imgs/solution/display/led.png',
+          src:'/webp/solutions/display/led.webp',
         },
         {
           id:1,
-          src:'/imgs/solution/display/oled.png',
+          src:'/webp/solutions/display/oled.webp',
         },
         {
           id:2,
-          src:'/imgs/solution/display/multivision.png',
+          src:'/webp/solutions/display/multivision.webp',
         },
         {
           id:3,
-          src:'/imgs/solution/display/kiosk.png',
+          src:'/webp/solutions/display/kiosk.webp',
         },
         {
           id:4,
-          src:'/imgs/solution/display/display.png',
+          src:'/webp/solutions/display/display.webp',
         },
         {
           id:5,
-          src:'/imgs/solution/display/led.png',
+          src:'/webp/solutions/display/led.webp',
         },
         {
           id:1,
-          src:'/imgs/solution/display/oled.png',
+          src:'/webp/solutions/display/oled.webp',
         },
       ],
       bg:'puple',
@@ -158,31 +158,31 @@ export default function Solution() {
       imgs: [
         {
           id:3,
-          src:'/imgs/solution/admin/error.png',
+          src:'/webp/solutions/admin/error.webp',
         },
         {
           id:4,
-          src:'/imgs/solution/admin/otp.png',
+          src:'/webp/solutions/admin/otp.webp',
         },
         {
           id:1,
-          src:'/imgs/solution/admin/statistics.png',
+          src:'/webp/solutions/admin/statistics.webp',
         },
         {
           id:2,
-          src:'/imgs/solution/admin/remote.png',
+          src:'/webp/solutions/admin/remote.webp',
         },
         {
           id:3,
-          src:'/imgs/solution/admin/error.png',
+          src:'/webp/solutions/admin/error.webp',
         },
         {
           id:4,
-          src:'/imgs/solution/admin/otp.png',
+          src:'/webp/solutions/admin/otp.webp',
         },
         {
           id:1,
-          src:'/imgs/solution/admin/statistics.png',
+          src:'/webp/solutions/admin/statistics.webp',
         },
       ],
       bg:'red',

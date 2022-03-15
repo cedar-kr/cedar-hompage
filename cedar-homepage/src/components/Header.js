@@ -7,7 +7,8 @@ import { useState, useEffect } from 'react'
 
 const HeaderContainer = styled.header`
   padding: 20px 0px;
-  background: url(/imgs/bg_header.png);
+  /* background: url(/imgs/bg_header.png); */
+  background: url(/webp/bg_header.webp);
   background-repeat: no-repeat;
   height: 138.89vw;
   background-size: cover;
@@ -58,11 +59,11 @@ export default function Header() {
     <HeaderContainer>
       <Wrapper>
       <Image
-          priority
           src="/imgs/logo_w.png"
           height={18}
           width={70}
           alt="Cedar Logo White"
+          priority
         />
         <HeaderTitle>
           더 나은 삶을 위한
@@ -74,11 +75,12 @@ export default function Header() {
         <HeaderPlayBtnBox>
           <HeaderPlayBtn>
             <Image
-              src="/icons/video_play.png"
+              src="/webp/icons/play.webp"
               onClick={openVideo}
               height={45}
               width={45}
               alt="Video Play Button"
+              priority
             />
           </HeaderPlayBtn>
         </HeaderPlayBtnBox>

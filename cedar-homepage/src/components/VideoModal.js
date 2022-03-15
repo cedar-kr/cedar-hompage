@@ -43,15 +43,17 @@ export default function VideoModal(props) {
           width="100%"
           loop
           controls
-          preload="auto"
+          preload="none"
         >
           <source
            src="https://d1rwo7d37ra2e3.cloudfront.net/video/promo_video.mp4#t=0.2"
            type="video/mp4"
+           preload="none"
           />
           <source
            src="./videos/promo_video.webm#t=0.2"
            type="video/webm"
+           preload="none"
           />
         </VideoView>
         <VideoClose>
