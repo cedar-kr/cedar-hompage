@@ -10,7 +10,8 @@
 }
 @font-face {
   font-family: 'S-CoreDream-3Light';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  src: url("../font/S-CoreDream-3Light.woff2") format("woff2"),
+       url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
   font-display: swap;
 }
 @font-face {
@@ -20,7 +21,8 @@
 }
 @font-face {
   font-family: 'S-CoreDream-5Medium';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+  src: url("../font/S-CoreDream-5Medium.woff2") format("woff2"),
+       url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
   font-display: swap;
 }
 @font-face {
@@ -508,7 +510,7 @@ a {
 /* main section */
 .main {
   position: relative;
-  background-image: url(../webp/bg_main.webp);
+  background-image: url(../img/bg_main.webp);
   background-size: cover;
   background-position: center center;
   background-color: rgba(43, 43, 43, 0.6);
