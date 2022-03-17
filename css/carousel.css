@@ -34,6 +34,10 @@
   filter: grayscale(95%);
 }
 
+.gallery-wrapper {
+  position: relative;
+}
+
 .gallery-controls {
   display: flex;
   justify-content: center;
@@ -43,6 +47,7 @@
 .gallery-controls button {
   color: transparent;
   cursor: pointer;
+  z-index: 10;
 }
 
 .gallery-controls-previous {
@@ -51,6 +56,15 @@
   background: url(../icon/left_arrow_w.png) no-repeat;
   border: none;
   cursor: pointer;
+}
+
+.fake-gallery-controls {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  margin-top: 2.6vw;
+  top: 0px;
+  width: 100%;
 }
 
 .gallery-controls-previous:hover {
