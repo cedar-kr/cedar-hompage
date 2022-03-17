@@ -560,9 +560,10 @@ a {
 
 .text-wrap .ms {
   margin: 27px 0px;
-  font-family: S-CoreDream-5;
+  font-family:'S-CoreDream-5Medium';
   font-size: 25px;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .ref-btn {
@@ -622,7 +623,7 @@ a {
 
 .new {
   position: relative;
-  font-family: S-CoreDream-3Light;
+  font-family: 'S-CoreDream-3Light';
   font-size: 20px;
   font-weight: 300;
   text-align: center;
@@ -630,7 +631,7 @@ a {
 }
 
 .banner-info {
-  font-family: S-CoreDream-5Medium;
+  font-family: 'S-CoreDream-5Medium';
   font-size: 35px;
   font-weight: 500;
   text-align: left;
