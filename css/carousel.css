@@ -110,6 +110,14 @@
   border: none;
 }
 
+.btn-left, .btn-right {
+  display: none;
+}
+
+.btn-left:hover, .btn-right:hover {
+  display: block;
+}
+
 @media (max-width: 1024px) and (min-width: 768px) {
   .gallery {
     height: 31.766vw;
