@@ -45,8 +45,6 @@ const SolutionRow = styled(Row)`
 `;
 
 const SolutionImg = styled.div`
-  min-widht:500px;
-  min-height:500px;
   ${({theme})=>theme.tablet`
     margin-right:56px;
   `}
@@ -54,8 +52,6 @@ const SolutionImg = styled.div`
     ${props=> props.reverse?
       'margin-left:82px':
       'margin-right:82px'}
-    widht:700px;
-    height:700px;
   `}
 `;
 
@@ -117,24 +113,15 @@ export default function SolutionDesk(props) {
       <SolutionContainer bg={data.bg} >
         <SolutionWrapper>
           <SolutionRow reverse={data.id === 1 || data.id === 3}>
-            <Tablet>
-              <SolutionImg>
-                <Image
-                  src={getImg(data.imgs)}
-                  height={500}
-                  width={500}
-                />
-              </SolutionImg>
-            </Tablet>
-            <Desktop>
               <SolutionImg reverse={data.id === 1 || data.id === 3 }>
                 <Image
+                  alt="solution"
                   src={getImg(data.imgs)}
                   height={700}
                   width={700}
+                  layout="intrinsic"
                 />
               </SolutionImg>
-            </Desktop>
             <div>
               {data.title}
               <Desktop>

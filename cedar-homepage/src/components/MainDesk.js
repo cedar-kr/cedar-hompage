@@ -1,8 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'react-responsive';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Row, Wrapper } from '../styles/Layout';
 import useDidMountEffect from '../utils/useDidMountEffect';
+
+const slideFwdCenter =  keyframes`
+  0%{
+    transform:scale(0.8);
+    opacity: 0;
+  }
+  100%{
+    transform:scale(1);
+    opacity: 1;
+  }
+`; 
 
 const MainContainer = styled.section`
   background-color: #fff;
@@ -17,6 +28,7 @@ const MainContainer = styled.section`
   ${({theme})=>theme.tablet`
       height: 76.8vmin;
   `};
+
 `;
 
 const MainWrapper = styled(Wrapper)`
@@ -38,14 +50,14 @@ const MainTitles = styled.div`
   flex-direction:row;
   align-items:center;
   justify-content:center;
-  margin-bottom:4.4vmin;
+  margin-bottom:44px;
   ${({theme})=>theme.tablet`
-    margin-bottom:4.8vmin;
+    margin-bottom:48px;
   `};
 `;
 
 const MainTitleNew = styled.div`
-  font-family: 'S-CoreDream-3 300', sans-serif;
+  font-family: 'S-CoreDream-3Light', sans-serif;
   font-size: 2rem;
   color:#fff;
   font-weight: 300;
@@ -56,7 +68,7 @@ const MainTitleNew = styled.div`
 `;
 
 const MainTitle = styled.div`
-  font-family: 'S-CoreDream-5 500', sans-serif;
+  font-family: 'S-CoreDream-5Medium';
   font-size: 3.5rem;
   font-weight: 500;
   color:#fff;
@@ -113,7 +125,7 @@ const MainInfoSliderItems = styled.div`
 `
 
 const MainInfoTitle = styled.div`
-  font-family: 'Roboto 100', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 8rem;
   font-weight: 100;
   letter-spacing: 4px;
@@ -130,8 +142,9 @@ const MainInfoTitle = styled.div`
   `};
 `;
 
+
 const MainInfoSubTitle = styled.div`
-  font-family: 'S-CoreDream-5 Bold', sans-serif;
+  font-family: 'S-CoreDream-5Medium';
   font-size: 2.5rem;
   color:#fff;
   font-weight: 500;
@@ -142,11 +155,14 @@ const MainInfoSubTitle = styled.div`
   `};
 `;
 
+
+
 const MainSlider = styled.div`
   width: 100vmin;
   height: 62vmin;
   position: relative;
-  margin-left:130px;
+  margin-left: 130px;
+
   ${({theme})=>theme.tablet`
     width: 57.6vmin;
     height: 35.6vmin;
@@ -161,11 +177,25 @@ const MainInfoSliderImgs = styled.div`
   align-items:center;
   position: absolute;
   width: 100vw;
+
   ${({theme})=>theme.tablet`
     position: static;
     width: 100%;
     height: 100%;
   `};
+`;
+
+const slideChange = keyframes`
+  0%{
+  }
+  50%{
+    transform: translateX(-20%);
+    opacity: 0.5;
+  }
+  100%{
+    transform: translateX(-100%);
+    opacity: 0;
+  }
 `;
 
 const MainInfoSliderImg = styled.div`
@@ -180,12 +210,14 @@ const MainInfoSliderImg = styled.div`
 
   ${({theme})=>theme.pc`
     margin-right: 56.8px;
+    animation: ${slideChange} 0.5s;
   `};
 
   ${({theme})=>theme.tablet`
     width: 576px;
     height: 356px;
     display:${props=> props.main ? 'flex' : 'none'};
+    animation: ${slideFwdCenter} 0.5s;
   `};
 `;
 
@@ -197,6 +229,7 @@ const MainReferanceDown = styled.div`
   width: 254px;
   height: 50px;
   cursor: pointer;
+
   ${({theme})=>theme.tablet`
     width: 176px;
     height: 40px;

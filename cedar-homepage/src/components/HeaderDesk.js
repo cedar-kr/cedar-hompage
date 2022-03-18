@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 import Image from 'next/image'
-import VideoModal from './VideoModal'
 import { Title } from '../styles/PublicStyles'
 import { Center, Wrapper } from '../styles/Layout'
-import { useState, useEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 const HeaderContainer = styled.header`
@@ -43,15 +41,14 @@ const HeaderVideo = styled.div`
   flex-direction:column;
   justify-content:right;
   align-items:flex-end;
-
+  width: 100%;
+  height: auto;
   ${({theme})=>theme.pc`
     margin-top: 83px;
-    height: 360px;
   `};
 
   ${({theme})=>theme.tablet`
     margin-top: 63px;
-    height: 250px;
   `};
 `;
 
