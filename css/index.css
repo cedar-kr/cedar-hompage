@@ -1264,9 +1264,7 @@ a {
   width: 36.823vw;
   height: 36.823vw;
   object-fit: cover;
-  animation: fadeIn 200ms ease-in;
-  -webkit-animation: fadeIn 200ms ease-in;
-  -moz-animation: fadeIn 200ms ease-in;
+  /* animation: fadeIn 200ms ease-in; */
 }
 
 .webm {
@@ -1308,11 +1306,11 @@ a {
 @keyframes imgFadeIn {
   0% {
     opacity: 0;
-    transform: translateY(-30px);
+    -webkit-transform: translateY(-30px);
   }
   100% {
     opacity: 1;
-    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
   }
 }
 
