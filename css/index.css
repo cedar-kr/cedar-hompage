@@ -1265,6 +1265,8 @@ a {
   height: 36.823vw;
   object-fit: cover;
   animation: fadeIn 200ms ease-in;
+  -webkit-animation: fadeIn 200ms ease-in;
+  -moz-animation: fadeIn 200ms ease-in;
 }
 
 .webm {
