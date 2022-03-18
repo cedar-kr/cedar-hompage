@@ -1196,25 +1196,25 @@
     function changePicS() {
       var menuAttribute = this.querySelector("img").getAttribute("src");
       bigPicS.setAttribute("src", menuAttribute);
-      bigPicS.setAttribute("style", "animation:imgFadeIn 400ms ease-in");
+      bigPicS.setAttribute("style", "animation:imgFadeIn 400ms ease-in; -webkit-animation: imgFadeIn 400ms ease-in; -moz-animation: imgFadeIn 400ms;");
       setTimeout(() => {
-        bigPicS.setAttribute("style", "animation: null");
+        bigPicS.setAttribute("style", "animation: null; -webkit-animation: null;");
       }, 400);
     }
     function changePicD() {
       var menuAttribute = this.querySelector("img").getAttribute("src");
       bigPicD.setAttribute("src", menuAttribute);
-      bigPicD.setAttribute("style", "animation:imgFadeIn 400ms ease-in");
+      bigPicD.setAttribute("style", "animation:imgFadeIn 400ms ease-in; -webkit-animation: imgFadeIn 400ms ease-in; -moz-animation: imgFadeIn 400ms;");
       setTimeout(() => {
-        bigPicD.setAttribute("style", "animation: null");
+        bigPicD.setAttribute("style", "animation: null; -webkit-animation: null;");
       }, 400);
     }
     function changePicA() {
       var menuAttribute = this.querySelector("img").getAttribute("src");
       bigPicA.setAttribute("src", menuAttribute);
-      bigPicA.setAttribute("style", "animation:imgFadeIn 400ms ease-in");
+      bigPicA.setAttribute("style", "animation:imgFadeIn 400ms ease-in; -webkit-animation: imgFadeIn 400ms ease-in; -moz-animation: imgFadeIn 400ms;");
       setTimeout(() => {
-        bigPicA.setAttribute("style", "animation: null");
+        bigPicA.setAttribute("style", "animation: null, -webkit-animation: null;");
       }, 400);
     }
   </script>

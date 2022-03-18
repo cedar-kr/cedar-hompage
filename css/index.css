@@ -1281,31 +1281,29 @@ a {
   animation: fadeOut 3s;
 } */
 
-
-@keyframes imgFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-}
-
-
 @-moz-keyframes imgFadeIn {
   0% {
     opacity: 0;
-    transform: translateY(-30px);
+    -moz-transform: translateY(-30px);
   }
   100% {
     opacity: 1;
-    transform: translateX(0px);
+    -moz-transform: translateX(0px);
   }
 }
 
 @-webkit-keyframes imgFadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+}
+
+@keyframes imgFadeIn {
   0% {
     opacity: 0;
     transform: translateY(-30px);
