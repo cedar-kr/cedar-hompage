@@ -26,6 +26,7 @@ const HistoryWrapper = styled(Wrapper)`
     display:flex;
     flex-direction:row;
     justify-content:space-between;
+    height: 100%;
   `};
   ${({theme})=>theme.tablet`
     display:flex;
@@ -37,6 +38,7 @@ const HistoryWrapper = styled(Wrapper)`
 const HistoryTitle = styled(Title)`
   ${({theme})=>theme.pc`
     margin-top: 37px;
+    word-break: keep-all;
   `};
    ${({theme})=>theme.tablet`
     padding-top:102px;
@@ -44,7 +46,7 @@ const HistoryTitle = styled(Title)`
 `;
 
 const HistorySlideView = styled.div`
-  width: 50%;
+  width: 70%;
   display: flex;
   justify-content:space-between;
   align-items:center;

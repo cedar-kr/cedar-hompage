@@ -161,7 +161,7 @@ const MainSlider = styled.div`
   width: 100vmin;
   height: 62vmin;
   position: relative;
-  margin-left: 130px;
+
 
   ${({theme})=>theme.tablet`
     width: 57.6vmin;

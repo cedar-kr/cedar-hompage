@@ -12,13 +12,12 @@ const SolutionTitle = styled(Title)`
   margin-bottom: 20px;
 
   ${({theme})=> theme.pc`
-    font-size:5.5rem;
+    font-size: 2.86vw;
     margin-bottom: 30px;
-    line-height:80px;
   `}
 
   ${({theme})=> theme.mobile`
-    font-size:3rem;
+    font-size: 3rem;
     margin-left: 16px;
     margin-top: 30px;
   `}

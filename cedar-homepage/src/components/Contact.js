@@ -10,7 +10,7 @@ const ContactContainer = styled.section`
   background-color: #dce1ed;
   width: 100%;
   ${({theme})=> theme.tablet`
-    width:43.8%;
+    width: 43.85%;
     padding-top: 110px;
   `};
   ${({theme})=> theme.pc`
@@ -21,10 +21,11 @@ const ContactContainer = styled.section`
 
 export const ContactTitle = styled(Title)`
   font-weight: 500;
+  word-break: keep-all;
   ${({theme})=> theme.pc`
     font-weight: 500;
-    font-size:5.5rem;
-    line-height:80px;
+    font-size: 5.5rem;
+    line-height: 80px;
   `};
 `;
 

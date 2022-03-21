@@ -3,8 +3,8 @@ import styled from 'styled-components'
 const MapContainer = styled.div`
   height: 235px;
   ${({theme})=>theme.tablet`
-    height: 700px;
-    width:56.2%;
+    height: 698px;
+    width: 56.15%;
   `};
   ${({theme})=>theme.pc`
     height: 524px;

@@ -23,6 +23,8 @@ const SolutionPkContainer = styled.section`
     flex-direction:column;
     align-items:center;
     padding: 180px 0px;
+    width: 80%;
+    margin: 0 auto;
   `};
 `;
 
@@ -37,6 +39,8 @@ const SolutionPkTitle = styled(Title)`
   `};
   ${({theme})=> theme.pc`
     font-size:5.5rem;
+    word-break: keep-all;
+    text-align: center;
   `};
 `;
 
@@ -83,7 +87,7 @@ const SolutionPkItems = styled.div`
     justify-content:space-between;
   `};
   ${({theme})=> theme.pc`
-    width: 1152px;
+    width: 1000px;
     padding:70px;
     justify-content:space-around;
     border: 1px solid #e0e0e0;

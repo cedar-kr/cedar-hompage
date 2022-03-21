@@ -69,6 +69,7 @@ const fadeOut = keyframes`
 
 const VideoTitle = styled(Title)`
   font-weight: 500;
+  word-break: keep-all;
   margin-top: ${props => props.first && 30}px;
   margin-bottom: ${props => !props.first && 40}px;
   ${({theme})=>theme.pc`
@@ -122,7 +123,7 @@ const VideoBtns = styled.div`
   justify-content: flex-end;
   align-items: flex-start;
   position: relative;
-  height: 200px;
+  /* height: 200px; */
 `;
 
 const VideoText = styled.div`
@@ -130,6 +131,7 @@ const VideoText = styled.div`
   color:#000;
   text-align:left;
   font-family: 'Noto Sans KR', sans-serif;
+  word-break: keep-all;
   ${({theme})=>theme.pc`
    font-size:2.5rem;
   `}
@@ -139,6 +141,7 @@ const VideoText = styled.div`
 
 const VideoImgText = styled.div`
   font-size:1.8rem;
+  word-break: keep-all;
   color:#d74c4b;
   text-align:left;
   font-family: 'Noto Sans KR', sans-serif;
@@ -171,7 +174,7 @@ const VideoSub = styled.div`
   align-items:flex-end;
   ${({theme})=> theme.pc`
     align-items:center;
-    padding-left:96px;
+    // padding-left:96px;
   `}
 `;
 

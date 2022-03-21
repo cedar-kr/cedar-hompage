@@ -7,44 +7,45 @@ import { useMediaQuery } from 'react-responsive'
 const HeaderContainer = styled.header`
   margin: auto 0px;
   display: flex;
-  flex-direction:column;
-  align-items:center;
+  flex-direction: column;
+  align-items: center;
   height: 768px;
   ${({theme})=>theme.pc`
-    height:100vh;
+    height:100%;
   `}
 `;
 
 const HeaderLogo = styled.div`
   padding: 40px 0;
   width: 95%;
+  margin: 0 auto;
   ${({theme})=>theme.pc`
-    width: 80%;
+    width: 79.5%;
   `};
 `;
 
 const HeaderWrapper = styled(Wrapper)`
-  display: flex
-  flex-direction:row;
+  display: flex;
+  flex-direction: column;
 
   ${({theme})=>theme.pc`
-    margin-top: 160px;
+    padding-top: 160px;
   `};
 
   ${({theme})=>theme.tablet`
-    margin-top: 140px;
+    padding-top: 116px;
   `};
 `;
 
 const HeaderVideo = styled.div`
-  display : flex ;
-  flex-direction:column;
-  justify-content:right;
-  align-items:flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: flex-end;
   width: 100%;
   height: auto;
   ${({theme})=>theme.pc`
-    margin-top: 83px;
+    margin-top: 80px;
   `};
 
   ${({theme})=>theme.tablet`
@@ -53,19 +54,31 @@ const HeaderVideo = styled.div`
 `;
 
 export const HeaderTitle = styled(Title)`
-  color:#000;
+  color: #000;
   user-select: none;
+
+  ${({theme})=>theme.tablet`
+    margin-top: 63px;
+  `};
 `;
 
 export const Highlight = styled.span`
-  box-shadow: inset 0 -40px 0 #ffc5c5;
+  box-shadow: inset 0 -35px 0 #ffc5c5;
   width: fit-content;
   padding:0 4px;
+
+  ${({theme})=>theme.tablet`
+    box-shadow: inset 0 -22px 0 #ffc5c5;
+  `};
 `;
 
 const HeaderText = styled.div`
   ${({theme})=>theme.pc`
-    margin-top: 32px;
+    margin-top: 30px;
+  `};
+
+  ${({theme})=>theme.tablet`
+    margin-top: 27px;
   `};
 `;
 

@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 import { Wrapper } from '../styles/Layout'
-import { Default, Desktop, Mobile } from '../utils/media';
+import { Default, Mobile } from '../utils/media'
 
 const FooterContainer = styled.footer`
   padding: 30px 0px;
   ${({theme})=> theme.tablet`
-    padding-top: 24px ;
-    padding-bottom: 60px;
+    padding-top: 24px;
+    padding-bottom: 59px;
   `};
   ${({theme})=> theme.pc`
     padding-top: 70px;
@@ -16,12 +16,17 @@ const FooterContainer = styled.footer`
 `;
 
 const TextWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin-top: 10px;
-  ${({theme})=> theme.tablet`
-    margin-top: 20px;
-  `};
-    ${({theme})=> theme.pc`
+  ${({theme})=> theme.pc`
     margin-top: 29.4px;
+    white-space: nowrap;
+  `};
+  ${({theme})=> theme.tablet`
+    margin-top: 21px;
+    white-space: nowrap;
   `};
 `;
 
@@ -30,10 +35,11 @@ const Info = styled.span`
   font-size: 1.3rem;
   font-weight: bold;
   margin-right: 24px;
-  color:  '#333';
+  color: #333;
   ${({theme})=> theme.mobile`
     font-weight: 400;
     line-height: 20px;
+    margin-right: 0px;
   `};
 `;
 
@@ -42,7 +48,7 @@ const CopyRight = styled.div`
   font-size: 1.3rem;
   font-weight: 400;
   color: #333;
-  margin-top:10px;
+  margin-top: 10px;
 `;
 
 export default function Footer() {
