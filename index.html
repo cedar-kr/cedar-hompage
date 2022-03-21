@@ -1193,30 +1193,37 @@
       imgTabA[i].addEventListener("click", changePicA);
     }
 
+
+
     function changePicS() {
       var menuAttribute = this.querySelector("img").getAttribute("src");
       bigPicS.setAttribute("src", menuAttribute);
-      bigPicS.setAttribute("style", "animation:imgFadeIn 400ms ease-in; -webkit-animation: imgFadeIn 400ms ease-in; -moz-animation: imgFadeIn 400ms;");
-      setTimeout(() => {
-        bigPicS.setAttribute("style", "animation: null; -webkit-animation: null;  -moz-animation: null;");
-      }, 400);
-    }
+      if(menuAttribute == bigPicS.getAttribute("src")){
+        bigPicS.onload = imgCallback(bigPicS);
+      }
+    }å
     function changePicD() {
       var menuAttribute = this.querySelector("img").getAttribute("src");
       bigPicD.setAttribute("src", menuAttribute);
-      bigPicD.setAttribute("style", "animation:imgFadeIn 400ms ease-in; -webkit-animation: imgFadeIn 400ms ease-in; -moz-animation: imgFadeIn 400ms;");
-      setTimeout(() => {
-        bigPicD.setAttribute("style", "animation: null; -webkit-animation: null; -moz-animation: null;");
-      }, 400);
+      if(menuAttribute == bigPicD.getAttribute("src")){
+        bigPicD.onload = imgCallback(bigPicD);
+      }
     }
     function changePicA() {
       var menuAttribute = this.querySelector("img").getAttribute("src");
       bigPicA.setAttribute("src", menuAttribute);
-      bigPicA.setAttribute("style", "animation:imgFadeIn 400ms ease-in; -webkit-animation: imgFadeIn 400ms ease-in; -moz-animation: imgFadeIn 400ms;");
-      setTimeout(() => {
-        bigPicA.setAttribute("style", "animation: null; -webkit-animation: null; -moz-animation: null;");
-      }, 400);
+      if(menuAttribute == bigPicA.getAttribute("src")){
+        bigPicA.onload = imgCallback(bigPicA);
+      }
     }
+
+    function imgCallback(params) {
+      params.setAttribute("style", "animation: imgFadeIn 400ms ease-in;");
+      params.onloadend = setTimeout(() => {
+        params.setAttribute("style","animation:none");
+      }, 460);
+    }
+
   </script>
   <script>
     const swiper = new Swiper(".mySwiper", {
