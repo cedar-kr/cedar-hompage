@@ -34,6 +34,13 @@ const GlobalStyle = createGlobalStyle`
   html,
   body {
     font-size: 62.5%;
+ 
+    ${({theme})=> theme.desktop`
+      font-size: 12px;
+    `}  
+    ${({theme})=> theme.moniter`
+      font-size: 14px;
+    `}  
   }
 
   * {
