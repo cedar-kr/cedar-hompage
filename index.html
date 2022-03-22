@@ -26,7 +26,7 @@
       window.location.href='http://m.cedar.kr';
     }
   }
-  device_check();
+  // device_check();
 </script>
 <body>
   <div class="wrap">
@@ -1194,34 +1194,39 @@
     }
 
 
-
-    function changePicS() {
+    async function changePicS() {
+      bigPicS.setAttribute("style","animation:none");
       var menuAttribute = this.querySelector("img").getAttribute("src");
-      bigPicS.setAttribute("src", menuAttribute);
-      if(menuAttribute == bigPicS.getAttribute("src")){
-        bigPicS.onload = imgCallback(bigPicS);
-      }
-    }å
-    function changePicD() {
-      var menuAttribute = this.querySelector("img").getAttribute("src");
-      bigPicD.setAttribute("src", menuAttribute);
-      if(menuAttribute == bigPicD.getAttribute("src")){
-        bigPicD.onload = imgCallback(bigPicD);
-      }
+      await new Promise((resolve, reject) => {
+        bigPicS.onload = () => resolve(bigPicS);
+        bigPicS.onerror = reject;
+        bigPicS.src = menuAttribute;
+      }).then(() => imgCallback(bigPicS));
     }
-    function changePicA() {
+    async function changePicD() {
+      bigPicD.setAttribute("style","animation:none");
       var menuAttribute = this.querySelector("img").getAttribute("src");
-      bigPicA.setAttribute("src", menuAttribute);
-      if(menuAttribute == bigPicA.getAttribute("src")){
-        bigPicA.onload = imgCallback(bigPicA);
-      }
+      await new Promise((resolve, reject) => {
+        bigPicD.onload = () => resolve(bigPicD);
+        bigPicD.onerror = reject;
+        bigPicD.src = menuAttribute;
+      }).then(() => imgCallback(bigPicD));
+    }
+    async function changePicA() {
+      bigPicA.setAttribute("style","animation:none");
+      var menuAttribute = this.querySelector("img").getAttribute("src");
+      await new Promise((resolve, reject) => {
+        bigPicA.onload = () => resolve(bigPicA);
+        bigPicA.onerror = reject;
+        bigPicA.src = menuAttribute;
+      }).then(() => imgCallback(bigPicA));
     }
 
     function imgCallback(params) {
       params.setAttribute("style", "animation: imgFadeIn 400ms ease-in;");
-      params.onloadend = setTimeout(() => {
+      setTimeout(() => {
         params.setAttribute("style","animation:none");
-      }, 460);
+      }, 410);
     }
 
   </script>
