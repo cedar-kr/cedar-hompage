@@ -28,6 +28,20 @@
   }
   device_check();
 </script>
+<script>
+  const startVideo = async () => {
+  const video = document.querySelector('#video');
+
+  try {
+    await video.play();
+    video.setAttribute('autoplay', true);
+    video.setAttribute('style', 'background-image:none; ');
+  } catch (err) {
+    console.log(err, 'video play error');
+  }
+}
+setTimeout(startVideo, 100);
+</script>
 <body>
   <div class="wrap">
     <div class="container">
@@ -50,9 +64,9 @@
             </div>
             <div class="intro-right">
               <div class="promo sa" data-sa-delay="470">
-                <video id="video" autoplay loop muted playsinline class="promo-video" preload="auto">
+                <video id="video" loop muted playsinline class="promo-video" preload="none">
                   <source src="./webm/promo_video.webm" type="video/webm" >
-                  <source src="https://d1rwo7d37ra2e3.cloudfront.net/video/promo_video_mobile.mp4#t=0.2" type="video/mp4">
+                  <source src="https://d1rwo7d37ra2e3.cloudfront.net/video/promo_video_mobile.mp4" type="video/mp4" >
                 </video>
               </div>
               <div class="bg-logo sa" data-sa-delay="940">
