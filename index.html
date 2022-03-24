@@ -28,16 +28,6 @@
   }
   device_check();
 </script>
-<!-- <script>
-  var agent = navigator.userAgent.toLowerCase();
-  const video = document.querySelector('#video');
-
-  if(agent.indexOf('safari')!= -1){
-    video.setAttribute('crossorigin', 'use-credentials');
-  }else{
-    video.setAttribute('crossorigin', 'anonymous');
-  }
-</script> -->
 <body>
   <div class="wrap">
     <div class="container">
@@ -58,11 +48,11 @@
                 우리는 <span class="highlight i ha" data-sa-delay="940">주식회사 시더</span>입니다.
               </h1>
             </div>
-            <div class="intro-right">
-              <div class="promo sa" data-sa-delay="470">
-                <video id="video" loop muted playsinline class="promo-video" autoplay >
-                  <source src="./video/promo_video_mobile.mp4" type="video/mp4" >
+            <div class="intro-right" >
+               <div class="promo sa" data-sa-delay="470">
+               <video id="video" loop muted playsinline class="promo-video" autoplay>
                   <source src="./webm/promo_video.webm" type="video/webm" >
+                  <source src="https://d1rwo7d37ra2e3.cloudfront.net/video/promo_video_mobile.mp4" type="video/mp4" >
                 </video>
               </div>
               <div class="bg-logo sa" data-sa-delay="940">
@@ -1305,6 +1295,14 @@
       let image = document.getElementById("scrollLR");
       image.style.transform = "translateX(" + -window.pageYOffset + "px)";
       image.style.opacity= 100 - window.pageYOffset/15 + "%";
+    }
+  </script>
+  <script>
+    const video = document.querySelector("#video");
+    if(/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+      video.setAttribute("crossorigin", "use-credentials");
+    } else {
+      video.setAttribute("crossorigin", "anonymous");
     }
   </script>
 </body>
