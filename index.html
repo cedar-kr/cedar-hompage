@@ -28,22 +28,16 @@
   }
   device_check();
 </script>
-<script>
-  const startVideo = async () => {
+<!-- <script>
+  var agent = navigator.userAgent.toLowerCase();
   const video = document.querySelector('#video');
 
-  try {
-    await video.play();
-    video.setAttribute('autoplay', true);
-    video.setAttribute('style', 'background-image:none; ');
-  } catch (err) {
-    console.log(err, 'video play error');
+  if(agent.indexOf('safari')!= -1){
+    video.setAttribute('crossorigin', 'use-credentials');
+  }else{
+    video.setAttribute('crossorigin', 'anonymous');
   }
-}
-
-setTimeout(startVideo, 100);
-
-</script>
+</script> -->
 <body>
   <div class="wrap">
     <div class="container">
@@ -66,8 +60,8 @@ setTimeout(startVideo, 100);
             </div>
             <div class="intro-right">
               <div class="promo sa" data-sa-delay="470">
-                <video id="video" loop muted playsinline class="promo-video" preload="none">
-                  <source src="https://d1rwo7d37ra2e3.cloudfront.net/video/promo_video_mobile.mp4" type="video/mp4" >
+                <video id="video" loop muted playsinline class="promo-video" autoplay >
+                  <source src="./video/promo_video_mobile.mp4" type="video/mp4" >
                   <source src="./webm/promo_video.webm" type="video/webm" >
                 </video>
               </div>
