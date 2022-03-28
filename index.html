@@ -28,6 +28,11 @@
   }
   device_check();
 </script>
+<script>
+  setTimeout(() => {
+    window.scrollTo(0,0);
+  }, 10);
+</script>
 <body>
   <div class="wrap">
     <div class="container">
@@ -51,7 +56,7 @@
             <div class="intro-right" >
                <div class="promo sa" data-sa-delay="470">
                <video id="video" loop muted playsinline class="promo-video" autoplay>
-                  <source src="./webm/promo_video.webm" type="video/webm" />
+                  <!-- <source src="./webm/promo_video.webm" type="video/webm" /> -->
                   <source src="https://d1rwo7d37ra2e3.cloudfront.net/video/promo_video_mobile.mp4" type="video/mp4" />
                 </video>
               </div>
@@ -1159,6 +1164,8 @@
   <script src="./js/carousel.js"></script>
   <script src="./js/scrollAnimation.js"></script>
   <script src="./js/background.js"></script>
+  <script>
+  </script>
   <script>
     $('.menu.s').click(function () {
       $('.menu.s').removeClass('active');
