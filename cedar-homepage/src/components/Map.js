@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
 const MapContainer = styled.div`
-  height: 235px;
+  height: 524px;
+
   ${({theme})=>theme.tablet`
     height: 698px;
     width: 56.15%;
   `};
-  ${({theme})=>theme.pc`
-    height: 524px;
+  ${({theme})=>theme.mobile`
+    height: 235px;
   `};
 `;
 

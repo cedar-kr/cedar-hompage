@@ -22,7 +22,7 @@ const TextWrap = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 29.4px;
-  white-space: nowrap;
+  word-break: keep-all;
 
   ${({theme})=> theme.tablet`
     margin-top: 21px;

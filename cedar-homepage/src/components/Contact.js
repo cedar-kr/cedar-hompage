@@ -6,38 +6,33 @@ import { Title, NSText } from '../styles/PublicStyles'
 import { Default, Desktop, Mobile, Tablet } from '../utils/media'
 
 const ContactContainer = styled.section`
-  padding-top: 60px;
+  padding-top: 128px;
+  padding-bottom: 86px;
   background-color: #dce1ed;
   width: 100%;
+
   ${({theme})=> theme.tablet`
     width: 43.85%;
     padding-top: 110px;
   `};
-  ${({theme})=> theme.pc`
-    padding-top: 128px;
-    padding-bottom: 86px;
+  ${({theme})=> theme.mobile`
+    padding-top: 60px;
+    padding-bottom: 35px;
   `};
 `;
 
 export const ContactTitle = styled(Title)`
   font-weight: 500;
-  word-break: keep-all;
-  ${({theme})=> theme.pc`
-    font-weight: 500;
-    font-size: 5.5rem;
-    line-height: 80px;
-  `};
 `;
 
 export const PaddingTextInfo = styled.div`
-  ${({theme})=> theme.mobile`
-    padding: 25px 0px;
-  `};
+  padding-top: 57px;
+
   ${({theme})=> theme.tablet`
     padding: 60px 0px;
   `};
-  ${({theme})=> theme.pc`
-    padding-top: 57px;
+  ${({theme})=> theme.mobile`
+    padding: 25px 0px;
   `};
 `;
 
@@ -48,23 +43,19 @@ export const ContactInfo = styled(Row)`
 
 export const TextInfo = styled(NSText)`
   margin-left: 10px;
-
-${({theme})=> theme.pc`
-    height: 556px;
-  `};
 `;
 
 export const PContactInfo = styled.div`
   display: flex;
-  flex-direction:row;
-  align-items: ${props=> props.idx == 0 ? 'flex-start' : 'center' };
-  margin-bottom:10px;
+  flex-direction: row;
+  align-items: ${props=> props.idx == 0 ? 'flex-start' : 'center'};
+  margin-bottom: 10px;
 `;
 
 export const PTextInfo = styled.div`
   font-size: 1.8rem;
   font-family: 'Noto Sans KR', sans-serif;
-  color:#000;
+  color: #000;
 `;
 
 export default function Contact() {

@@ -31,6 +31,9 @@ const TextPoint = styled.span`
   ${({theme})=>theme.tablet`
     box-shadow: inset 0 -22px 0 #f8ffac;
   `};
+  ${({theme})=>theme.mobile`
+    box-shadow: inset 0 -20px 0 #f8ffac;
+  `};
 `;
 
 export default function Solution() {

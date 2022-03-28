@@ -35,7 +35,7 @@ export const NSText = styled(Text)`
   font-weight: 400;
 `;
 
-export const Malaptopontact = styled.div`
+export const MapContact = styled.div`
   display: flex;
   flex-direction: column;
   ${({theme})=> theme.tablet`

@@ -3,66 +3,72 @@ import Image from 'next/image'
 import { MdText, NSText, Title } from '../styles/PublicStyles'
 import { Center } from '../styles/Layout'
 import React, { useMemo, useState, useRef, useEffect } from 'react'
-import { Mobile, Default } from'../utils/media';
+import { Mobile, Default } from'../utils/media'
 import { useMediaQuery } from 'react-responsive'
 
 const SolutionPkContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 180px 0px;
+  /* width: 80%; */
+  margin: 0 auto;
+  overflow: hidden;
+
+  ${({theme})=>theme.tablet`
+    padding: 110px 0px;
+    height: 768px;
+  `};
   ${({theme})=> theme.mobile`
     padding: 30px 0px;
-  `};
-  ${({theme})=>theme.tablet`
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding: 110px 0px;
-    height:768px;
-
-  `};
-  ${({theme})=>theme.pc`
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding: 180px 0px;
-    width: 80%;
-    margin: 0 auto;
+    align-items: flex-start;
   `};
 `;
 
 const SolutionPkTitle = styled(Title)`
   font-weight: 500;
+
+  ${({theme})=> theme.tablet`
+    font-size: 3.5rem;
+  `};
   ${({theme})=> theme.mobile`
     margin-left: 16px;
     margin-top: 30px;
   `};
-  ${({theme})=> theme.tablet`
-    font-size:3.5rem;
-  `};
-  ${({theme})=> theme.pc`
-    font-size:5.5rem;
-    word-break: keep-all;
-    text-align: center;
-  `};
 `;
 
 const TextPoint = styled.span`
-    box-shadow: inset 0 -25px 0 #c6d4ff;
-    font-weight: 900;
+  box-shadow: inset 0 -1.9vw 0 #c6d4ff;
+  font-weight: 900;
+  
+  ${({theme})=>theme.fk`
+    box-shadow: inset 0 -35px 0 #c6d4ff;
+  `};
+  ${({theme})=>theme.tablet`
+    box-shadow: inset 0 -22px 0 #c6d4ff;
+  `};
+
   ${({theme})=> theme.mobile`
     font-weight: 700;
+    box-shadow: inset 0 -20px 0 #c6d4ff;
   `};
 `;
 
 const SolutionContact = styled.div`
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 1.8rem;
-  font-weight: normal;
   text-align: center;
   color: #333;
-  margin-top:10px;
-  margin-bottom:74px;
-  ${({theme})=>theme.pc`
-     margin-top:25px;
-     margin-bottom:102px;
+  margin-top: 20px;
+  margin-bottom: 102px;
+
+  ${({theme})=>theme.tablet`
+    margin-top: 10px;
+    margin-bottom: 30px;
+  `};
+  ${({theme})=>theme.mobile`
+    margin-top: 10px;
+    margin-bottom: 74px;
   `};
 `;
 
@@ -78,19 +84,32 @@ const SolutionPkBox = styled.div`
 
 const SolutionPkItems = styled.div`
   display: flex;
-  flex-direction:row;
-  ${({theme})=> theme.mobile`
-    width: 726px;
+  flex-direction: row;
+  width: 1152px;
+  padding: 70px;
+  justify-content: space-around;
+  border: 1px solid #e0e0e0;
+
+  ${({theme})=> theme.moniter`
+    width: 1052px;
+  `};
+  ${({theme})=> theme.desktop`
+    width: 950px;
+  `};
+  ${({theme})=> theme.laptop`
+    width: 850px;
   `};
   ${({theme})=> theme.tablet`
-    width: 726px;
-    justify-content:space-between;
+    width: 750px;
+    padding-top: 70px;
+    padding-bottom: 30px;
+    justify-content: space-between;
+    border: none;
   `};
-  ${({theme})=> theme.pc`
-    width: 1000px;
-    padding:70px;
-    justify-content:space-around;
-    border: 1px solid #e0e0e0;
+  ${({theme})=> theme.mobile`
+    width: 726px;
+    padding: 0px;
+    border: none;
   `};
 `;
 
@@ -108,18 +127,19 @@ const SolutionPkItem = styled(Center)`
 const SolutionPkItemName = styled(MdText)`
   font-family: "Avenir-Heavy";
   font-weight: 900;
-  color:#000;
+  color: #000;
+  font-size: 2.5rem;
+  margin-top: 30px;
+  margin-bottom: 10px;
+
+  ${({theme})=> theme.tablet`
+    font-size: 2rem;
+    margin-top: 40px;
+  `};
   ${({theme})=> theme.mobile`
+    font-size: 2rem;
     margin-top: 20px;
     margin-bottom: 6px;
-  `};
-  ${({theme})=> theme.tablet`
-    font-size:2rem;
-    margin-top:40px;
-  `};
-  ${({theme})=> theme.pc`
-    font-size:2.5rem;
-    margin-top:29px;
   `};
 `;
 
@@ -273,7 +293,7 @@ export default function SolutionPk() {
       </Mobile>
       <Default>
         <SolutionPkTitle>
-          매장에 맞는 <TextPoint>솔루션 패키지</TextPoint>가 준비되어 있습니다.
+          매장에 맞는 <TextPoint>솔루션 패키지</TextPoint>를 선택해보세요.
           <SolutionContact>(더 자세한 상담을 원한다면 문의주세요.)</SolutionContact>
         </SolutionPkTitle>
         <SolutionPkBox>
