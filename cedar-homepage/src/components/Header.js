@@ -4,6 +4,7 @@ import VideoModal from './VideoModal'
 import { Title } from '../styles/PublicStyles'
 import { Center, Wrapper } from '../styles/Layout'
 import { useState, useEffect } from 'react'
+import * as ga from '../utils/ga';
 
 const HeaderContainer = styled.header`
   padding: 20px 0px;
@@ -39,6 +40,10 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const openVideo = () => {
+    // ga.event({
+    //   action: "moble video play",
+    //   params: {}
+    // })
     setIsOpen(true);
   }
 

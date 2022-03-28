@@ -34,6 +34,22 @@ class MyDocument extends Document {
 					<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
 					<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;700&display=swap" rel="stylesheet" />
 					<link href="https://db.onlinewebfonts.com/c/901497541657a2f24e42848bcf7fad52?family=Avenir+Heavy" rel="stylesheet" type="text/css" disabled />
+					 {/* <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+							window.dataLayer = window.dataLayer || [];
+							function gtag(){dataLayer.push(arguments);}
+							gtag('js', new Date());
+							gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+								page_path: window.location.pathname,
+							});
+						`,
+            }} 
+					/> */}
 				</Head>
 				<body>
 					<Main />
