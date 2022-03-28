@@ -4,14 +4,16 @@ import { Wrapper } from '../styles/Layout'
 import { Default, Mobile } from '../utils/media'
 
 const FooterContainer = styled.footer`
-  padding: 30px 0px;
+  padding-top: 70px;
+  padding-bottom: 60px;
+  
   ${({theme})=> theme.tablet`
     padding-top: 24px;
     padding-bottom: 59px;
   `};
-  ${({theme})=> theme.pc`
-    padding-top: 70px;
-    padding-bottom: 60px;
+  ${({theme})=> theme.mobile`
+    padding-top: 30px;
+    padding-bottom: 30px;
   `};
 `;
 
@@ -19,14 +21,14 @@ const TextWrap = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-top: 10px;
-  ${({theme})=> theme.pc`
-    margin-top: 29.4px;
-    white-space: nowrap;
-  `};
+  margin-top: 29.4px;
+  white-space: nowrap;
+
   ${({theme})=> theme.tablet`
     margin-top: 21px;
-    white-space: nowrap;
+  `};
+  ${({theme})=> theme.mobile`
+    margin-top: 10px;
   `};
 `;
 

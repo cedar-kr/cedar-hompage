@@ -20,7 +20,7 @@ export const HeaderTitle = styled(Title)`
 `;
 
 export const Highlight = styled.div`
-  box-shadow: inset 0 -25px 0 #d74c4b;
+  box-shadow: inset 0 -22px 0 #d74c4b;
   width: fit-content;
 `;
 

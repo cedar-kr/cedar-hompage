@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 import { Title } from '../styles/PublicStyles'
-import { Center, Wrapper } from '../styles/Layout'
+import { Wrapper } from '../styles/Layout'
 import { useMediaQuery } from 'react-responsive'
 
 const HeaderContainer = styled.header`
@@ -9,28 +9,26 @@ const HeaderContainer = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 768px;
-  ${({theme})=>theme.pc`
-    height:100%;
-  `}
+  height: 100%;
 `;
 
 const HeaderLogo = styled.div`
   padding: 40px 0;
-  width: 95%;
+  width: 79.5%;
   margin: 0 auto;
-  ${({theme})=>theme.pc`
-    width: 79.5%;
+
+  ${({theme})=>theme.laptop`
+    width: 1010px;
+  `};
+  ${({theme})=>theme.tablet`
+    width: 95%;
   `};
 `;
 
 const HeaderWrapper = styled(Wrapper)`
   display: flex;
   flex-direction: column;
-
-  ${({theme})=>theme.pc`
-    padding-top: 160px;
-  `};
+  padding-top: 160px;
 
   ${({theme})=>theme.tablet`
     padding-top: 116px;
@@ -44,9 +42,7 @@ const HeaderVideo = styled.div`
   align-items: flex-end;
   width: 100%;
   height: auto;
-  ${({theme})=>theme.pc`
-    margin-top: 80px;
-  `};
+  margin-top: 80px;
 
   ${({theme})=>theme.tablet`
     margin-top: 63px;
@@ -56,26 +52,23 @@ const HeaderVideo = styled.div`
 export const HeaderTitle = styled(Title)`
   color: #000;
   user-select: none;
-
-  ${({theme})=>theme.tablet`
-    margin-top: 63px;
-  `};
 `;
 
 export const Highlight = styled.span`
-  box-shadow: inset 0 -35px 0 #ffc5c5;
+  box-shadow: inset 0 -1.9vw 0 #ffc5c5;
   width: fit-content;
-  padding:0 4px;
+  padding: 0 4px;
 
+  ${({theme})=>theme.fk`
+    box-shadow: inset 0 -35px 0 #ffc5c5;
+  `};
   ${({theme})=>theme.tablet`
     box-shadow: inset 0 -22px 0 #ffc5c5;
   `};
 `;
 
 const HeaderText = styled.div`
-  ${({theme})=>theme.pc`
-    margin-top: 30px;
-  `};
+  margin-top: 30px;
 
   ${({theme})=>theme.tablet`
     margin-top: 27px;

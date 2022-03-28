@@ -2,22 +2,19 @@ import styled from 'styled-components'
 import SolutionItem from './Solution'
 import { Title } from '../styles/PublicStyles'
 import React, { useMemo } from 'react'
-import { Default, Mobile } from '../utils/media';
-import SolutionDesk from './SolutionDesk';
+import { Default, Mobile } from '../utils/media'
+import SolutionDesk from './SolutionDesk'
 
 const SolutionTitle = styled(Title)`
-  margin:0px;
+  margin: 0px;
   font-weight: 500;
-  font-size:3.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  white-space: nowrap;
 
-  ${({theme})=> theme.pc`
-    font-size: 2.86vw;
-    margin-bottom: 30px;
+  ${({theme})=> theme.tablet`
+    margin-bottom: 20px;
   `}
-
   ${({theme})=> theme.mobile`
-    font-size: 3rem;
     margin-left: 16px;
     margin-top: 30px;
   `}
@@ -25,8 +22,15 @@ const SolutionTitle = styled(Title)`
 
 const TextPoint = styled.span`
   font-weight: 900;
-  box-shadow: inset 0 -25px 0 #f8ffac;
+  box-shadow: inset 0 -1.9vw 0 #f8ffac;
   padding-right: 2px;
+
+  ${({theme})=>theme.fk`
+    box-shadow: inset 0 -35px 0 #f8ffac;
+  `};
+  ${({theme})=>theme.tablet`
+    box-shadow: inset 0 -22px 0 #f8ffac;
+  `};
 `;
 
 export default function Solution() {

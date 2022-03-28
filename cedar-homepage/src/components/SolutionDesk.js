@@ -1,73 +1,77 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import React, {  useState } from 'react'
-import { NSText } from '../styles/PublicStyles';
-import { Row, Wrapper } from '../styles/Layout';
+import { NSText } from '../styles/PublicStyles'
+import { Row, Wrapper } from '../styles/Layout'
 import Image from 'next/image';
-import { Default, Desktop, Tablet } from '../utils/media';
+import { Default, Desktop, Tablet } from '../utils/media'
 
 const SolutionContainer = styled.div`
-  padding-top:140px;
-  padding-bottom:130px;
+  padding-top: 190px;
+  padding-bottom: 182px;
+  // height: 100vh;
   display: flex;
-  flex-direction:colunm;
-  height:768px;
+  flex-direction: column;
   background:${props => 
     (props.bg == 'red' && '#ffeeee') ||
     (props.bg == 'blue' && '#f2f7fb') ||
     (props.bg == 'puple' && '#f3f2ff')
   };
-  margin:0 auto;
-  ${({theme})=>theme.pc`
-    padding-top:190px;
-    padding-bottom:182px;
-    height:100vh;
+  margin: 0 auto;
+
+  ${({theme})=>theme.mobile`
+    padding-top: 140px;
+    padding-bottom: 130px;
   `}
 `;
 
 const SolutionWrapper = styled(Wrapper)`
-  width: 70%;
   position: relative;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  ${({theme})=>theme.tablet`
-    width: 91%;
-  `};
 `;
 
 const SolutionRow = styled(Row)`
-  justify-content:left;
-  ${({theme})=>theme.pc`
-    justify-content:space-between;
-    flex-direction: ${(props) => props.reverse ?'row-reverse':'row'};
+  justify-content: space-between;
+  flex-direction: ${(props) => props.reverse ? 'row-reverse' : 'row'};
+  align-items: center;
+
+  ${({theme})=>theme.tablet`
+    justify-content: left;
+    flex-direction: row;
   `};
 `;
 
 const SolutionImg = styled.div`
+  margin-left: ${props=> props.reverse ? '82px': '0px'};
+  margin-right: ${props=> props.reverse ? '0px': '82px'};
+
   ${({theme})=>theme.tablet`
-    margin-right:56px;
-  `}
-  ${({theme})=>theme.pc`
-    ${props=> props.reverse?
-      'margin-left:82px':
-      'margin-right:82px'}
+    margin-right: 56px;
+    min-width: 240px;
+    min-height: 240px;
   `}
 `;
 
 const SolutionSubText = styled(NSText)`
   color: #333;
-  font-size:1.8rem;
+  font-size: 1.8rem;
+  white-space: nowrap;
 `;
 
 const SoutionMenus = styled.div`
-  margin-top:88px;
-  ${({theme})=>theme.pc`
-    margin-top:200px;
-    display:flex;
-    flex-direction:row;
-    flex-wrap:wrap;
-    width:500px;
+  margin-top:10.417vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 740px;
+  min-width: 500px;
+
+  ${({theme})=>theme.tablet`
+    margin-top: 88px;
+    flex-direction: column;
+    min-width: 100%;
   `}
 `;
 
@@ -81,20 +85,18 @@ const SoutionMenuIcon = styled.div`
 `;
 
 const SoutionMenusText = styled.div`
-  font-size:1.8rem;
-  font-weight:bold;
-  color:${props=> props.select ? "#d74c4b" : "#4f4f4f" };
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: ${props=> props.select ? "#d74c4b" : "#4f4f4f"};
 `;
 
 const SolutionMenuItems = styled(Row)`
   cursor: poiner;
-  align-items:center;
+  align-items: center;
   height: 50px;
-  ${({theme})=>theme.pc`
-    width: 250px;
-  `}
+  width: 250px;
   :hover{
-    background-color:#fff;
+    background-color: #fff;
     transition: 0.3s ease in;
   }
 `;

@@ -4,64 +4,62 @@ import { Title, Text, LgText } from '../styles/PublicStyles'
 import { Center, Wrapper, Row } from '../styles/Layout'
 import React, { useEffect, useRef, useState } from 'react'
 import { chunk } from '../utils/func'
-import { history_data } from '../utils/data';
+import { history_data } from '../utils/data'
 import useDidMountEffect from '../utils/useDidMountEffect'
-import { Default, Mobile } from '../utils/media';
+import { Default, Mobile } from '../utils/media'
 
 const HistoryContainer = styled.section`
-  padding: 30px 0px;
-  ${({theme})=>theme.pc`
-    height:100vh;
-    padding: 168px 0px;
-  `};
+  height: 100%;
+  padding: 168px 0px 120px;
+
   ${({theme})=>theme.tablet`
-    height:768px;
+    // height: 768px;
     padding-top: 146px;
-    padding-bottom:91px;
+    padding-bottom: 91px;
+  `};
+  ${({theme})=>theme.mobile`
+    padding: 30px 0px;
   `};
 `;
 
 const HistoryWrapper = styled(Wrapper)`
-  ${({theme})=>theme.pc`
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    height: 100%;
-  `};
-  ${({theme})=>theme.tablet`
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  ${({theme})=>theme.mobile`
+    display: flex;
+    flex-direction: column;
   `};
 `;
 
 const HistoryTitle = styled(Title)`
-  ${({theme})=>theme.pc`
-    margin-top: 37px;
-    word-break: keep-all;
+  margin-top: 37px;
+
+  ${({theme})=>theme.tablet`
+    margin-top: 102px;
   `};
-   ${({theme})=>theme.tablet`
-    padding-top:102px;
+  ${({theme})=>theme.mobile`
+    margin-top: 0px;
   `};
 `;
 
 const HistorySlideView = styled.div`
-  width: 70%;
+  width: 66%;
   display: flex;
-  justify-content:space-between;
-  align-items:center;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
-  ${({theme})=>theme.tablet`
-    width: 68%;
-  `};
 `;
 
 const HistorySlide = styled.div`
   width: 100%;
-  padding:0 79px;
+  padding: 0px 79px;
 `;
 
-const SlideView = styled(Row)`
+const SlideView = styled.div`
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   min-width: 100%;
@@ -72,83 +70,83 @@ const SlideCenter = styled.div`
   overflow: hidden;
 `;
 
-const SlideContainer = styled(Row)`
+const SlideContainer = styled.div`
+  display: flex;
+  flex-direction: row;
   max-width: 100%;
 `;
 
 const SlideItems = styled(Center)`
+  padding: 0px 70px;
+  align-items: normal;
+  align-content: center;
   min-width: 100%;
-  ${({theme})=>theme.pc`
+
+  ${({theme})=>theme.mobile`
     padding: 0px 70px;
+    align-content: center;
   `};
 `;
 
 const TextPadding = styled(Text)`
-  padding: 5px 0px;
-  text-align: center;
-  ${({theme})=>theme.pc`
-    text-align: left;
-    padding: 10px 0px;
-    font-size:2.5rem;
-    width:100%
-  `};
+  text-align: left;
+  padding: 10px 0px;
+  font-size: calc(1.8rem + (100vw - 1024px) * ((25 - 18) / (1920 - 1024)));
+  width: 100%;
+  word-break: keep-all;
 
+  ${({theme})=> theme.fk`
+    font-size: 2.5rem;
+  `}  
   ${({theme})=>theme.tablet`
-    text-align: left;
     padding: 8px 0px;
-    font-size:1.8rem;
-    width:100%
+    font-size: 1.8rem;
   `};
+  ${({theme})=>theme.mobile`
+    font-size: 1.4rem;
+    padding: 5px 0px;
+    text-align: center;
+  `}
 `;
 
 const CenterPadding = styled(Center)`
-  margin: 30px 0px;
-  ${({theme})=>theme.pc`
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    justify-content:left;
-    text-align:left;
-    width:100%;
-  `};
-  ${({theme})=>theme.tablet`
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    justify-content:left;
-    text-align:left;
-    width:70%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: left;
+  text-align: left;
+  width: 100%;
+  margin: 60px 0px;
+
+  ${({theme})=>theme.mobile`
+    align-items: center;
+    margin: 30px 0px;
   `};
 `;
 
 const YearText = styled(LgText)`
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
+  font-size: 3.5rem;
+  font-weight: bold;
   box-shadow: inset 0 -20px 0 #B0FFE2;
-  margin-bottom: 13px;
-  
-  ${({theme})=>theme.pc`
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin-bottom: 24px;
-  `}
-  ${({theme})=>theme.tablet`
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin-bottom: 24px;
+  margin-bottom: 24px;
+
+  ${({theme})=>theme.mobile`
+    margin-bottom: 13px;
   `}
 `;
 
 const ButtonBox = styled.div`
   display: flex;
-  justify-content:space-between;
-  align-items:center;
+  justify-content: space-between;
+  align-items: center;
   position: absolute;
   left: ${props => props.left && 16}px;
   right: ${props => props.right && 16}px;
-  z-index:100;
-  background:#fff;
-  border-radius:50%;
+  z-index: 100;
+  background: #fff;
+  border-radius: 50%;
 `;
 
 const SlideButton = styled(Image)`
