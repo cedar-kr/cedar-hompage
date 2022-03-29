@@ -7,11 +7,14 @@ import { chunk } from '../utils/func'
 import { history_data } from '../utils/data'
 import useDidMountEffect from '../utils/useDidMountEffect'
 import { Default, Mobile } from '../utils/media'
+import gsap from 'gsap'
+import { fadeInLeft, fadeInRight } from '../styles/keyframe'
 
 const HistoryContainer = styled.section`
   height: 100%;
   padding: 168px 0px 120px;
-
+  width: 100%;
+  overflow: hidden;
   ${({theme})=>theme.tablet`
     // height: 768px;
     padding-top: 146px;
@@ -35,6 +38,7 @@ const HistoryWrapper = styled(Wrapper)`
 
 const HistoryTitle = styled(Title)`
   margin-top: 37px;
+  animation : ${fadeInLeft} ease-in 470ms;
 
   ${({theme})=>theme.tablet`
     margin-top: 102px;
@@ -45,16 +49,17 @@ const HistoryTitle = styled(Title)`
 `;
 
 const HistorySlideView = styled.div`
-  width: 66%;
+  width: 60%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  animation : ${fadeInRight} ease-in 940ms;
 `;
 
 const HistorySlide = styled.div`
   width: 100%;
-  padding: 0px 79px;
+  padding: 0px 50px;
 `;
 
 const SlideView = styled.div`
@@ -67,7 +72,10 @@ const SlideView = styled.div`
 
 const SlideCenter = styled.div`
   max-width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
+  display: flex;
+  justify-content:center;
+  z-index:100;
 `;
 
 const SlideContainer = styled.div`
@@ -86,9 +94,11 @@ const SlideItems = styled(Center)`
     padding: 0px 70px;
     align-content: center;
   `};
+  opacity:${props=> props.test ==="t"?1:0};
 `;
 
 const TextPadding = styled(Text)`
+  font-family: 'Noto Sans KR', sans-serif;
   text-align: left;
   padding: 10px 0px;
   font-size: calc(1.8rem + (100vw - 1024px) * ((25 - 18) / (1920 - 1024)));
@@ -107,6 +117,17 @@ const TextPadding = styled(Text)`
     padding: 5px 0px;
     text-align: center;
   `}
+
+  opacity: 1;
+  transition: opacity 350ms ease;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+
+  :hover{
+    letter-spacing: 0.2rem;
+    font-weight:bold;
+  }
 `;
 
 const CenterPadding = styled(Center)`
@@ -122,6 +143,66 @@ const CenterPadding = styled(Center)`
     align-items: center;
     margin: 30px 0px;
   `};
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  position: relative;
+}
+
+.list-item-image_wrapper {
+  position: absolute;
+  width: 400px;
+  height: 250px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.list-item-image_inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.list-item-image_inner .list-item-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+}
+
+.list-item-innertext {
+  display: inline-block;
+  transition: letter-spacing 250ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.list:hover .list-item-text {
+  opacity: 0.3;
+}
+.list:hover .list-item-text:hover {
+  opacity: 0.8;
+  font-weight: bold;
+}
+
+.list-item:hover .list-item-text {
+  z-index: 100;
+}
+.list-item:hover .list-item-image_wrapper {
+  z-index: 100;
+}
+
+.list-item-text {
+  position: relative;
+  display: block;
+  color: #000;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 25px;
+  padding: 10px;
+}
 `;
 
 const YearText = styled(LgText)`
@@ -147,18 +228,21 @@ const ButtonBox = styled.div`
   z-index: 100;
   background: #fff;
   border-radius: 50%;
+  height: 8vmin;
+  width:8vmin;
 `;
 
 const SlideButton = styled(Image)`
-  height: 45px;
-  width: 45px;
-  
+  height: 8vmin;
+  width: 8vmin;
 `;
 
 export default function History() {
   const [data, setData] = useState(chunk(history_data,2));
   const [currentSlide, setCurrentSlide] = useState(1);
   const slideRef = useRef();
+  const textRef = useRef({});
+  const imgRef = useRef({});
 
   const nextSlide = () => {
     if (currentSlide >= data.length-1) {
@@ -194,16 +278,88 @@ export default function History() {
     }
   }, [currentSlide]);
 
+  useEffect(()=>{
+    gsap.timeline()
+    .set(".list", { autoAlpha: 1 })
+    .from(".list-item-innertext", {
+      delay: 1,
+      duration: 0.85,
+      yPercent: 125,
+      stagger: 0.095,
+      skewY: gsap.utils.wrap([-8, 8]),
+      ease: "expo.out",
+    })
+    .set(".list", { pointerEvents: "all" });
+
+    gsap.defaults({
+      duration: 0.55,
+      ease: "expo.out",
+    });
+
+    const menuItems = document.querySelectorAll(".list-item");
+
+    menuItems.forEach((item) => {
+      const imageWrapper = item.querySelector(".list-item-image_wrapper");
+      let imageWrapperBounds = undefined;
+      let itemBounds = undefined;
+
+      const onMouseEnter = () => {
+        itemBounds = item.getBoundingClientRect();
+        imageWrapperBounds = imageWrapper.getBoundingClientRect();
+        gsap.set(imageWrapper, { scale: 0.8, yPercent: 50, rotation: -15 });
+        gsap.to(imageWrapper, { opacity: 1, scale: 1, yPercent: -5, rotation: 0 });
+      };
+      const onMouseLeave = () => {
+        itemBounds = undefined;
+        imageWrapperBounds = undefined;
+        gsap.to(imageWrapper, { opacity: 0, yPercent: -50, scale: 0.8, rotation: -15 });
+      };
+      const onMouseMove = ({ x, y }) => {
+        let yOffset = itemBounds.top / imageWrapperBounds.height;
+        yOffset = gsap.utils.mapRange(0, 1.5, 150, 150, yOffset);
+        gsap.to(imageWrapper, {
+          duration: 1.25,
+          x: Math.abs(x - itemBounds.left) - imageWrapperBounds.width / 1.55,
+          y: Math.abs(y - itemBounds.top) - imageWrapperBounds.height / 2 - yOffset,
+        });
+      };
+
+      item.addEventListener("mouseenter", onMouseEnter);
+      item.addEventListener("mouseleave", onMouseLeave);
+      item.addEventListener("mousemove", onMouseMove);
+
+      window.addEventListener("resize", () => {
+        itemBounds = item.getBoundingClientRect();
+      });
+    });
+  },[])
+
   useEffect(() => {
     if(data.length < 7) {
       setData(data.unshift([
         {
           year:"2013",
           projects:[
-            "주식회사 시더(Cedar Inc.) 법인 설립",
-            "부경대학교&서울과학기술대학교 계약 체결",
-            "삼성전자 플랫폼 런칭 파트너 선정",
-            "제 11회 임베디드 경진대회 스마트챌린지 <br/> 휴맥스분야 최우수상 수상"
+            {
+              id:1,
+              text: "주식회사 시더(Cedar Inc.) 법인 설립",
+              img: '/webp/history/2013-1.webp',
+            },
+            {
+              id:2,
+              text: "부경대학교&서울과학기술대학교 계약 체결",
+              img: '/webp/history/2013-2.webp',
+            },
+            {
+              id:3,
+              text:  "삼성전자 플랫폼 런칭 파트너 선정",
+              img: '/webp/history/2013-3.webp',
+            },
+            {
+              id:4,
+              text: "제 11회 임베디드 경진대회 스마트챌린지 <br/> 휴맥스분야 최우수상 수상",
+              img: '/webp/history/2013-4.webp',
+            },
           ]
         }
       ]))
@@ -211,17 +367,45 @@ export default function History() {
         {
           year:"2021",
           projects:[
-            "청년친화강소기업 3년 연속 선정",
-            "미국 특허 등록",
-            "MODI GS인증 1등급 획득",
-            "세종큐비즈 키오스크 솔루션 개발"
+            {
+              id:1,
+              text:"청년친화강소기업 3년 연속 선정",
+              img:'/webp/history/2021-1.webp',
+            },
+            {
+              id:2,
+              text: "미국 특허 등록",
+              img:'/webp/history/2021-2.webp',
+            },
+            {
+              id:3,
+              text:"MODI GS인증 1등급 획득",
+              img:'/webp/history/2021-3.webp',
+            },
+            {
+              id:4,
+              text:"세종큐비즈 키오스크 솔루션 개발",
+              img:'/webp/history/2021-4.webp',
+            },
           ]
         },{
           year:"2020",
           projects:[
-            "LGU+ 유심 키오스크 계약",
-            "서울지방경찰청 디지털 사이니지 공급",
-            "청년친화강소기업 첫 선정"
+            {
+              id:1,
+              text: "LGU+ 유심 키오스크 계약",
+              img:'/webp/history/2020-1.webp',
+            },
+            {
+              id:2,
+              text:"서울지방경찰청 디지털 사이니지 공급",
+              img:'/webp/history/2020-2.webp',
+            },
+            {
+              id:3,
+              text: "청년친화강소기업 첫 선정",
+              img:'/webp/history/2020-3.webp',
+            },
           ]
         }
       ]]));
@@ -229,7 +413,7 @@ export default function History() {
   },[data])
   
   return (
-    <HistoryContainer>
+    <HistoryContainer >
       <HistoryWrapper>
         <HistoryTitle>
           시더의
@@ -258,7 +442,7 @@ export default function History() {
                   return <SlideItems key={idx}>
                     { 
                       box.map((boxData,idx)=> {
-                        return <CenterPadding key={idx}>
+                        return <CenterPadding key={idx} >
                           <YearText>{boxData && boxData.year}</YearText>
                           {
                             boxData.projects && boxData.projects.map((contnet,idx)=> {
@@ -303,14 +487,23 @@ export default function History() {
                   ref={slideRef}>
                 {
                   data.map((box,idx)=>{
-                    return <SlideItems key={idx}>
+                    return <SlideItems key={idx} test={currentSlide ===idx ?"t":"f"}>
                       { 
                         box.map((boxData,idx)=> {
                           return <CenterPadding key={idx}>
                             <YearText>{boxData && boxData.year}</YearText>
                             {
-                              boxData.projects && boxData.projects.map((contnet,idx)=> {
-                                return <TextPadding key={idx} dangerouslySetInnerHTML={{__html: contnet }}></TextPadding>
+                              boxData.projects && boxData.projects.map((content,idx)=> {
+                                return <nav class="list" key={idx}>
+                                <a className="list-item">
+                                <div className="list-item-image_wrapper">
+                                  <div className="list-item-image_inner">
+                                    <img className="list-item-image"  src={content.img} alt={content.text} />
+                                  </div>
+                                </div>
+                                <TextPadding className="list-item-innertext" dangerouslySetInnerHTML={{__html:content.text}}/>
+                              </a>
+                              </nav>
                               })
                             }
                           </CenterPadding>
