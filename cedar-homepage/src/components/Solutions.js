@@ -4,12 +4,14 @@ import { Title } from '../styles/PublicStyles'
 import React, { useMemo } from 'react'
 import { Default, Mobile } from '../utils/media'
 import SolutionDesk from './SolutionDesk'
+import { fadeInLeft, fadeInRight } from '../styles/keyframe'
 
 const SolutionTitle = styled(Title)`
   margin: 0px;
   font-weight: 500;
   margin-bottom: 30px;
   white-space: nowrap;
+  animation: ${props => props.reverse ? fadeInRight: fadeInLeft} 470ms;
 
   ${({theme})=> theme.tablet`
     margin-bottom: 20px;
@@ -109,7 +111,7 @@ export default function Solution() {
     { 
       id:2,
       title:
-      <SolutionTitle>
+      <SolutionTitle reverse>
         <TextPoint>다양한 디바이스</TextPoint>로
         <br />
         매장을 돋보이게

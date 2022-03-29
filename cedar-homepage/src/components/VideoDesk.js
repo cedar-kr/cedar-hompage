@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 import { Desktop } from '../utils/media'
 import Link from 'next/link'
+import { fadeInLeft, fadeInRight, fadeInTop } from '../styles/keyframe'
 
 const VideoContainer = styled.section`
   padding: 146px 0px;
@@ -80,7 +81,7 @@ const VideoTitle = styled(Title)`
   ${({theme})=> theme.tablet`
     font-size: 2.5rem;
   `}  
-
+  
   animation-name: ${props => props.first ? topFristFadeOut : topFadeOut};
   animation-duration: 1s;
 `;
@@ -94,6 +95,7 @@ const VideoSlideBtns = styled.div`
 const VideoImg = styled.div`
   display: flex;
   position: relative;
+  animation : ${fadeInTop} ease-in 1410ms;
 `;
 
 const VideoIcons = styled(Row)`
@@ -118,10 +120,10 @@ const VideoAlign = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   ${({theme})=>theme.tablet`
     width: 26.8%;
   `}
+  animation : ${props=> props.left ? fadeInLeft: fadeInRight} ease-in 470ms;
 `;
 
 const VideoBtns = styled.div`
@@ -226,8 +228,8 @@ export default function VideoDesk(props) {
     <VideoContainer>
       {VideoData && VideoData.map((data,idx)=> {
        return select === idx && (
-       <VideoWrapper> 
-          <VideoAlign >
+       <VideoWrapper key={idx}> 
+          <VideoAlign left>
           {data.title.split('<br/>').map((data,idx)=>{
               return <VideoTitle key={idx} first={idx==0 ? true : false}>
                 {data}

@@ -1,9 +1,12 @@
-import styled from 'styled-components'
-import React, {  useState } from 'react'
+import styled, { keyframes } from 'styled-components'
+import React, {  useRef, useState } from 'react'
 import { NSText } from '../styles/PublicStyles'
 import { Row, Wrapper } from '../styles/Layout'
 import Image from 'next/image';
 import { Default, Desktop, Tablet } from '../utils/media'
+import { fadeInLeft, fadeInRight } from '../styles/keyframe';
+import { useEffect } from 'react/cjs/react.development';
+import useDidMountEffect from '../utils/useDidMountEffect';
 
 const SolutionContainer = styled.div`
   padding-top: 190px;
@@ -52,13 +55,26 @@ const SolutionImg = styled.div`
     min-width: 240px;
     min-height: 240px;
   `}
+  animation: ${props=> props.reverse ? fadeInRight : fadeInLeft} 470ms;
 `;
 
 const SolutionSubText = styled(NSText)`
   color: #333;
   font-size: 1.8rem;
   white-space: nowrap;
+  animation:  ${props=> props.reverse ? fadeInLeft : fadeInRight} 470ms;
 `;
+
+
+const fadeInTop = keyframes`
+  0%{
+    transform: translateY(-130px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+`;
+
 
 const SoutionMenus = styled.div`
   margin-top:10.417vw;
@@ -67,13 +83,14 @@ const SoutionMenus = styled.div`
   flex-wrap: wrap;
   max-width: 740px;
   min-width: 500px;
-
+  animation:  ${props=> props.reverse ? fadeInLeft :fadeInRight } 470ms;
   ${({theme})=>theme.tablet`
     margin-top: 88px;
     flex-direction: column;
     min-width: 100%;
   `}
 `;
+
 
 const SoutionMenuIcon = styled.div`
   width: 10px;
@@ -85,37 +102,71 @@ const SoutionMenuIcon = styled.div`
 `;
 
 const SoutionMenusText = styled.div`
+  font-family: 'Noto Sans KR', sans-serif;
   font-size: 1.8rem;
   font-weight: bold;
   color: ${props=> props.select ? "#d74c4b" : "#4f4f4f"};
 `;
 
-const SolutionMenuItems = styled(Row)`
-  cursor: poiner;
+const SolutionMenuItems = styled(Row)`  
+  display: flex;
   align-items: center;
   height: 50px;
   width: 250px;
-  :hover{
+  z-index: 2;
+  cursor: pointer;
+
+  & + .hover-slider {
+    width: 250px;
+    position: absolute;
+    z-index: 1;
+    transition: all 200ms, background-color 200ms;
+  }
+  :nth-child(1):hover ~ .hover-slider {
+    transform: translateX(0);
     background-color: #fff;
-    transition: 0.3s ease in;
+  }
+  :nth-child(2):hover ~ .hover-slider {
+    transform: translateX(100%);
+    background-color: #fff;
+
+  }
+  :nth-child(3):hover ~ .hover-slider {
+    transform: translateY(100%);
+    background-color: #fff;
+
+  }
+  :nth-child(4):hover ~ .hover-slider {
+    transform: translate3d(100%, 100%, 0);
+    background-color: #fff;
+  }
+  :nth-child(5):hover ~ .hover-slider {
+    transform: translateY(200%);
+    background-color: #fff;
   }
 `;
+
 
 export default function SolutionDesk(props) {
   const { data } = props;
   const [ select, setSelect ] = useState({id:1});
+  const solutionRef = useRef(null);
 
   const getImg = (imgs)=> {
     const data = imgs.filter(data=> data.id === select.id);
     return data[0].src_d;
   }
 
+  useDidMountEffect(()=>{
+    solutionRef.current.style.animation = 'fadeInTop 470ms';
+  },[select])
+
   return (
     <Default>
       <SolutionContainer bg={data.bg} >
         <SolutionWrapper>
           <SolutionRow reverse={data.id === 1 || data.id === 3}>
-              <SolutionImg reverse={data.id === 1 || data.id === 3 }>
+              <SolutionImg reverse={data.id === 1 || data.id === 3 } ref={solutionRef}>
                 <Image
                   alt="solution"
                   src={getImg(data.imgs)}
@@ -127,12 +178,12 @@ export default function SolutionDesk(props) {
             <div>
               {data.title}
               <Desktop>
-                <SolutionSubText dangerouslySetInnerHTML={{__html:data.id ===1 || data.id ===2 ? data.text: data.text_d}}></SolutionSubText>
+                <SolutionSubText reverse={data.id === 1 || data.id === 3 } dangerouslySetInnerHTML={{__html:data.id ===1 || data.id ===2 ? data.text: data.text_d}}></SolutionSubText>
               </Desktop>
               <Tablet>
-                <SolutionSubText dangerouslySetInnerHTML={{__html:data.text}}></SolutionSubText>
+                <SolutionSubText reverse={data.id === 1 || data.id === 3 } dangerouslySetInnerHTML={{__html:data.text}}></SolutionSubText>
               </Tablet>
-              <SoutionMenus>
+              <SoutionMenus  reverse={data.id === 1 || data.id === 3 }>
                 {
                   data.menus.map((data, idx)=>{
                     return <SolutionMenuItems key={idx} onClick={()=>setSelect(data)}>
@@ -141,6 +192,8 @@ export default function SolutionDesk(props) {
                     </SolutionMenuItems>
                   })
                 }
+                <SolutionMenuItems className="menu hover-slider">
+                </SolutionMenuItems>
               </SoutionMenus>
             </div>
           </SolutionRow>
