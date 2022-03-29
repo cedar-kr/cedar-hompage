@@ -215,6 +215,7 @@ const YearText = styled(LgText)`
 
   ${({theme})=>theme.mobile`
     margin-bottom: 13px;
+    font-size: 2.5rem;
   `}
 `;
 

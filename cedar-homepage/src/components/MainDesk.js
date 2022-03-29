@@ -1,15 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useMediaQuery } from 'react-responsive';
-import styled, { keyframes } from 'styled-components';
-import { Row, Wrapper } from '../styles/Layout';
-import useDidMountEffect from '../utils/useDidMountEffect';
+import { useMediaQuery } from 'react-responsive'
+import styled, { keyframes } from 'styled-components'
+import { Row, Wrapper } from '../styles/Layout'
+import useDidMountEffect from '../utils/useDidMountEffect'
 
-const slideFwdCenter =  keyframes`
-  0%{
+const slideFwdCenter = keyframes`
+  0% {
     transform:scale(0.8);
     opacity: 0;
   }
-  100%{
+  100% {
     transform:scale(1);
     opacity: 1;
   }
@@ -23,45 +23,49 @@ const MainContainer = styled.section`
   background-position: center center;
   background-color: rgba(43, 43, 43, 0.6);
   background-attachment: fixed;
-  height: 100vh;
+  height: 100%;
+  padding-top: 198px;
+  padding-bottom: 76px;
   overflow: hidden;
-  ${({theme})=>theme.tablet`
-      height: 76.8vmin;
-  `};
 
+  ${({theme})=>theme.tablet`
+    padding-top: 168px;
+  `};
 `;
 
 const MainWrapper = styled(Wrapper)`
   display: flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100%;
-  width: 80%;
+  width: 78%;
+
   ${({theme})=>theme.tablet`
     width: 87%;
-    padding: 76px 0;
-    justify-content:space-between;
+    justify-content: space-between;
   `};
 `
 
 const MainTitles = styled.div`
   display: flex;
-  flex-direction:row;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:44px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 44px;
+
   ${({theme})=>theme.tablet`
-    margin-bottom:48px;
+    margin-bottom: 48px;
   `};
 `;
 
 const MainTitleNew = styled.div`
   font-family: 'S-CoreDream-3Light', sans-serif;
   font-size: 2rem;
-  color:#fff;
+  color: #fff;
   font-weight: 300;
-  margin-right:2vmin;
+  margin-right: 2vmin;
+
   ${({theme})=>theme.tablet`
     font-size: 1.6rem;
   `};
@@ -69,9 +73,13 @@ const MainTitleNew = styled.div`
 
 const MainTitle = styled.div`
   font-family: 'S-CoreDream-5Medium';
-  font-size: 3.5rem;
+  font-size: calc(2.5rem + (100vw - 1024px) * ((35 - 25) / (1920 - 1024)));
   font-weight: 500;
-  color:#fff;
+  color: #fff;
+
+  ${({theme})=> theme.fk`
+    font-size: 3.5rem;
+  `} 
   ${({theme})=>theme.tablet`
     font-size: 2.5rem;
   `};
@@ -79,45 +87,49 @@ const MainTitle = styled.div`
 
 const MainContent = styled.div`
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   width: 100%;
-  margin-top:4.4vmin;
-  margin-bottom:5vmin;
 
   ${({theme})=>theme.tablet`
-    margin-bottom:40px;
     flex-direction: row-reverse;
-    justify-content:space-between;
+    justify-content: space-between;
   `};
 `;
 
-
 const MainInfo = styled.div`
   display: flex;
-  flex-direction:column;
-  justify-content:center;
-  align-item:left;
-  width: 41vmin;
-  margin-bottom:150px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+
   ${({theme})=>theme.tablet`
-    width: 25vmin;
-    margin-left:50px;
-    justify-content:flex-start;
-    margin-bottom:0px;
+    width: 25.5vmin;
+    justify-content: flex-start;
+    margin-left: 6%;
+    margin-bottom: 0px;
   `};
 `;
 
 const MainInfoSlider = styled.div`
-  height: 280px;
+  height: 288px;
   overflow: hidden;
+
+  ${({theme})=>theme.moniter`
+    height: 288px;
+  `};
+  ${({theme})=>theme.desktop`
+    height: 270px;
+  `};
+  ${({theme})=>theme.laptop`
+    height: 265px;
+  `};
   ${({theme})=>theme.tablet`
-     height: 145px;
-     margin-top:14px;
+    height: 146px;
+    margin-top: 14px;
   `};
 `;
 
 const MainInfoSliderItems = styled.div`
-  margin-bottom:5px;
   ${({theme})=>theme.tablet`
     width: 100%;
     height: 100%;
@@ -126,46 +138,52 @@ const MainInfoSliderItems = styled.div`
 
 const MainInfoTitle = styled.div`
   font-family: 'Roboto', sans-serif;
-  font-size: 8rem;
+  font-size: calc(4rem + (100vw - 1024px) * ((80 - 40) / (1920 - 1024)));
   font-weight: 100;
   letter-spacing: 4px;
-  color:#fff;
+  color: #fff;
   height: 220px;
   display: flex;
-  align-items:flex-end;
-  text-align:left;
-  margin-bottom:27px;
+  align-items: flex-end;
+  text-align: left;
+  margin-bottom: 27px;
+
+  ${({theme})=> theme.fk`
+    font-size: 8rem;
+  `}  
   ${({theme})=>theme.tablet`
     font-size: 4rem;
     height: 95px;
-    margin-bottom:30px;
-  `};
+    margin-bottom: 30px;
+  `}; 
 `;
 
 
 const MainInfoSubTitle = styled.div`
   font-family: 'S-CoreDream-5Medium';
-  font-size: 2.5rem;
+  font-size: calc(1.6rem + (100vw - 1024px) * ((25 - 16) / (1920 - 1024)));
   color:#fff;
   font-weight: 500;
   text-align:left;
-  margin-bottom:27px;
+  margin-bottom: 27px;
+  white-space: nowrap;
+
+  ${({theme})=> theme.fk`
+    font-size: 2.5rem;
+  `} 
   ${({theme})=>theme.tablet`
     font-size: 1.6rem;
   `};
 `;
 
-
-
 const MainSlider = styled.div`
   width: 100vmin;
-  height: 62vmin;
   position: relative;
+  margin-left: 7%;
 
 
   ${({theme})=>theme.tablet`
     width: 57.6vmin;
-    height: 35.6vmin;
     position: relative;
     margin-left:0px;
   `};
@@ -173,9 +191,8 @@ const MainSlider = styled.div`
 
 const MainInfoSliderImgs = styled.div`
   display: flex;
-  flex-direction:row;
-  align-items:center;
-  position: absolute;
+  flex-direction: row;
+  align-items: center;
   width: 100vw;
 
   ${({theme})=>theme.tablet`
@@ -186,52 +203,62 @@ const MainInfoSliderImgs = styled.div`
 `;
 
 const slideChange = keyframes`
-  0%{
+  0% {
   }
-  50%{
+  50% {
     transform: translateX(-20%);
     opacity: 0.5;
   }
-  100%{
+  100% {
     transform: translateX(-100%);
     opacity: 0;
   }
 `;
 
 const MainInfoSliderImg = styled.div`
-  width:${props=> props.main ? 100 : 80}vmin;
-  height: ${props=> props.main ? 64 : 50}vmin;
+  width:${props=> props.main ? 100 : 80}vw;
+  height: ${props=> props.main ? 34 : 28}vw;
   background: gray;
   background: ${props=> `url(${props.src})`};
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 10px;
   filter: ${props=> !props.main && 'grayscale(95%)'};
-
-  ${({theme})=>theme.pc`
-    margin-right: 56.8px;
-    animation: ${slideChange} 0.5s;
-  `};
+  margin-right: 57px;
+  animation: ${slideChange} 0.5s;
 
   ${({theme})=>theme.tablet`
-    width: 576px;
-    height: 356px;
+    width: 100vw;
+    height: 36vw;
+    margin-right: 0px;
     display:${props=> props.main ? 'flex' : 'none'};
     animation: ${slideFwdCenter} 0.5s;
   `};
 `;
 
 const MainReferanceDown = styled.div`
-  margin-top:27px;
+  margin-top: 27px;
   background: url('./icons/download_btn_w.png');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   width: 254px;
   height: 50px;
   cursor: pointer;
 
+  ${({theme})=>theme.moniter`
+    width: 244px;
+    height: 48px;
+  `}
+  ${({theme})=>theme.desktop`
+    width: 224px;
+    height: 44px;
+  `}
+  ${({theme})=>theme.laptop`
+    width: 214px;
+    height: 42px;
+  `}
   ${({theme})=>theme.tablet`
-    width: 176px;
+    width: 204px;
     height: 40px;
   `}
   :hover{
@@ -243,6 +270,14 @@ const MainReferanceDown = styled.div`
     background-repeat: no-repeat;
   `}
   }
+`;
+
+const SlideRow = styled(Row)`
+  margin-top: 50px;
+
+  ${({theme})=>theme.tablet`
+    margin-top: 40px;
+  `}
 `;
 
 const MainSlideArrow = styled.div`
@@ -259,7 +294,10 @@ export default function MainDesk(props) {
   const { mainData } = props;
   const [ select, setSelect ] = useState(0);
   const slideRef = useRef();
-  const isDesktop = useMediaQuery({ minWidth: 1025 })
+  const isFourK = useMediaQuery({ minWidth: 1921 })
+  const isMoniter = useMediaQuery({ minWidth: 1441, maxWidth: 1920 })
+  const isDesktop= useMediaQuery({ minWidth: 1281, maxWidth: 1440 })
+  const isLaptop= useMediaQuery({ minWidth: 1025, maxWidth: 1280 })
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 })
 
   const prevMain = () => {
@@ -283,10 +321,19 @@ export default function MainDesk(props) {
   }, [select]);
 
   useEffect(() => {
-    if(isDesktop){
-      slideRef.current.style.transform = `translateY(-${305*select}px)`;
+    if(isFourK) {
+      slideRef.current.style.transform = `translateY(-${307*select}px)`;
     }
-    if(isTablet){
+    if(isMoniter) {
+      slideRef.current.style.transform = `translateY(-${307*select}px)`;
+    }
+    if(isDesktop) {
+      slideRef.current.style.transform = `translateY(-${300*select}px)`;
+    }
+    if(isLaptop) {
+      slideRef.current.style.transform = `translateY(-${298*select}px)`;
+    }
+    if(isTablet) {
       slideRef.current.style.transform = `translateY(-${170*select}px)`;
     }
   }, [select]);
@@ -301,7 +348,7 @@ export default function MainDesk(props) {
         </MainTitles>
         <MainContent>
           <MainInfo>
-            <MainInfoSlider >
+            <MainInfoSlider>
               <MainInfoSliderItems ref={slideRef}>
               {
                 mainData.map((data, idx)=>{
@@ -328,7 +375,7 @@ export default function MainDesk(props) {
             </MainInfoSliderImgs>
           </MainSlider>
         </MainContent>
-        <Row>
+        <SlideRow>
           <MainSlideArrow 
             src="/icons/left_arrow_w.png"
             src_h="/icons/left_arrow_r.png"
@@ -339,7 +386,7 @@ export default function MainDesk(props) {
             src_h="/icons/right_arrow_r.png"
             onClick={nextMain}
           />
-        </Row>
+        </SlideRow>
       </MainWrapper>
     </MainContainer>
   )

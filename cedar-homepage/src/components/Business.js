@@ -1,52 +1,48 @@
 import styled from 'styled-components'
 import { Title, NSText, MdText } from '../styles/PublicStyles'
 import { Center, Wrapper } from '../styles/Layout'
-import { Default, Mobile } from '../utils/media';
-import { gsap } from "gsap";
-import { useEffect, useRef } from 'react';
+import { Default, Mobile } from '../utils/media'
+import { gsap } from 'gsap'
+import { useRef } from 'react'
 
 const BusinessContainer = styled.section`
-    padding: 60px 0px;
-  ${({theme})=>theme.pc`
-    height:100vh;
-    padding: 168px 0px;
-  `};
+  height: 100vh;
+  padding-top: 168px;
+  overflow: hidden;
+
   ${({theme})=>theme.tablet`
-    height:768px;
+    height: 768px;
     padding-top: 146px;
-    padding-bottom:91px;
+    padding-bottom: 91px;
+  `};
+  ${({theme})=>theme.mobile`
+    padding: 60px 0px;
+    height: 100%;
   `};
 `;
 
 const BusinessTitle = styled(Title)`
-  margin-bottom: 22px;
-  ${({theme})=>theme.pc`
-    font-size: 5.5rem;
-    font-weight: 900;
-    line-height:normal;
-    margin-top: 108px;
-  `};
+  padding-top: 108px;
+
   ${({theme})=>theme.tablet`
-    font-size: 3.5rem;
-    font-weight: 900;
-    line-height:normal;
-    padding-top:102px;
+    padding-top: 74px;
+  `};
+  ${({theme})=>theme.mobile`
+    padding-top: 0px;
+    margin-bottom: 22px;
   `};
 `;
 
 const BusinessWrapper = styled(Wrapper)`
-  ${({theme})=>theme.pc`
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-  `};
-  ${({theme})=>theme.tablet`
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+
+  ${({theme})=>theme.mobile`
+    flex-direction: column;
   `};
 `;
-
 
 const Box = styled(Center)`
   justify-content: center;
@@ -64,9 +60,8 @@ const Box = styled(Center)`
 const BusinessView = styled.div`
   width: 55%;
   display: flex;
-  justify-content:space-between;
-  align-items:center;
-
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const BoxItemTitle = styled(MdText)`
@@ -88,7 +83,7 @@ const MovingBall = styled.div`
 `;
 
 const MovingBallWrap = styled.div`
-  position: absolute;
+  position: relative;
   .s-text {
     position: absolute;
     width: 85px;
@@ -96,7 +91,7 @@ const MovingBallWrap = styled.div`
     font-size: 14px;
     align-items: center;
     color: #4f4f4f;
-    z-index:103;
+    z-index: 103;
   }
 
   .s-text.m {
@@ -110,8 +105,8 @@ const MovingBallWrap = styled.div`
   }
 
   .s-text.c {
-    right: -68%;
-    bottom: -54%;
+    right: -92%;
+    bottom: -38%;
   }
 
   .s-text.e {
@@ -126,7 +121,7 @@ const MovingBallWrap = styled.div`
 
   .s-text.v {
     right: -115%;
-    top: 37%;
+    top: 20%;
   }
 `;
 
@@ -135,18 +130,19 @@ const MovingBallStroke = styled.div`
   border: 2px solid #fff;
   box-sizing: border-box;
   border-radius: 100%;
-  width: 40vmin;
-  height: 40vmin;
-  ${({theme})=>theme.tablet`
-    width: 25.3vmin;
-    height: 25.3vmin;
-  `}
-  z-index:101;
+  width: 20.833vw;
+  height: 20.833vw;
+  z-index: 101;
   ${(props)=>
     props.id == 1 && `left: 16px; top: 0px;` ||
     props.id == 2 && `left: 75%; top: -50%;` ||
     props.id == 3 && `left: 95%; top: 25%;` 
   }
+
+  ${({theme})=>theme.tablet`
+    width: 25.3vmin;
+    height: 25.3vmin;
+  `}
 
   .text {
     position: absolute;
@@ -157,10 +153,14 @@ const MovingBallStroke = styled.div`
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 4rem;
-    line-height: normal;
     align-items: center;
     text-align: center;
     color: ${props=> props.id===3 ? '#4F4F4F' :'#FFFFFF'};
+    font-size: calc(3rem + (100vw - 1024px) * ((40 - 30) / (1920 - 1024)));
+
+    ${({theme})=> theme.fk`
+      font-size: 4rem;
+    `} 
     ${({theme})=>theme.tablet`
       width: 269px;
       font-size: 3rem;
@@ -171,12 +171,12 @@ const MovingBallStroke = styled.div`
 
 const MovingBallItem = styled.div`
   border-radius: 100%;
-  width: 40vmin;
-  height: 40vmin;
+  width: 20.833vw;
+  height: 20.833vw;
+
   ${({theme})=>theme.tablet`
     width: 25.3vmin;
     height: 25.3vmin;
-   
   `}
 
   ${(props)=>
@@ -201,7 +201,7 @@ const MovingBallItem = styled.div`
       background: #EDEDED;
       box-shadow: 0px 15px 25px rgba(228, 228, 228, 0.4);
       left: 95%;
-      top: 35%;
+      top: 30%;
       z-index:99;
     ` 
   };
