@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Row, Wrapper } from '../styles/Layout'
 import { Title, NSText } from '../styles/PublicStyles'
 import { Default, Desktop, Mobile, Tablet } from '../utils/media'
+import Fade from 'react-reveal/Fade';
 
 const ContactContainer = styled.section`
   padding-top: 128px;
@@ -81,6 +82,7 @@ export default function Contact() {
   return (
     <ContactContainer>
       <Wrapper>
+        <Fade left duration={470}>
         <ContactTitle>
           <Mobile>
             시더가 전하는
@@ -95,6 +97,8 @@ export default function Contact() {
             특별한 가치들을 만나보세요.
           </Default>
         </ContactTitle>
+        </Fade>
+        <Fade left duration={470}>
         <PaddingTextInfo>
           {contact_data.map((data,idx) => {
             return (
@@ -130,6 +134,7 @@ export default function Contact() {
             )
           })}
         </PaddingTextInfo>
+        </Fade>
       </Wrapper>
     </ContactContainer>
   )

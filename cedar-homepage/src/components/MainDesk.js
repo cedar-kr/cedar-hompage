@@ -3,6 +3,7 @@ import { useMediaQuery } from 'react-responsive'
 import styled, { keyframes } from 'styled-components'
 import { Row, Wrapper } from '../styles/Layout'
 import useDidMountEffect from '../utils/useDidMountEffect'
+import Fade from 'react-reveal/Fade';
 
 const slideFwdCenter = keyframes`
   0% {
@@ -359,9 +360,12 @@ export default function MainDesk(props) {
     <MainContainer>
       <MainWrapper>
         <MainTitles>
-          <MainTitleNew>New.</MainTitleNew>
-          <MainTitle>판교 '테크원' 빌딩 솔루션 구축 및 하드웨어 납품</MainTitle>
+          <Fade top>
+            <MainTitleNew>New.</MainTitleNew>
+            <MainTitle>판교 '테크원' 빌딩 솔루션 구축 및 하드웨어 납품</MainTitle>
+          </Fade>
         </MainTitles>
+        <Fade>
         <MainContent>
           <MainInfo>
             <MainInfoSlider>
@@ -403,6 +407,7 @@ export default function MainDesk(props) {
             onClick={nextMain}
           />
         </SlideRow>
+        </Fade>
       </MainWrapper>
     </MainContainer>
   )

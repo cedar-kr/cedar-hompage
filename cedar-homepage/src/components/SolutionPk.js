@@ -5,6 +5,7 @@ import { Center } from '../styles/Layout'
 import React, { useMemo, useState, useRef, useEffect } from 'react'
 import { Mobile, Default } from'../utils/media'
 import { useMediaQuery } from 'react-responsive'
+import Fade from 'react-reveal/Fade';
 
 const SolutionPkContainer = styled.section`
   display: flex;
@@ -292,10 +293,13 @@ export default function SolutionPk() {
         </SolutionPkBox>
       </Mobile>
       <Default>
+        <Fade>
         <SolutionPkTitle>
           매장에 맞는 <TextPoint>솔루션 패키지</TextPoint>를 선택해보세요.
           <SolutionContact>(더 자세한 상담을 원한다면 문의주세요.)</SolutionContact>
         </SolutionPkTitle>
+        </Fade>
+        <Fade>
         <SolutionPkBox>
           <SolutionPkItems>
             {
@@ -316,6 +320,7 @@ export default function SolutionPk() {
             }
           </SolutionPkItems>
         </SolutionPkBox>
+        </Fade>
       </Default>
     </SolutionPkContainer>
   )
