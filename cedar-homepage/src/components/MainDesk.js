@@ -92,7 +92,7 @@ const MainContent = styled.div`
 
   ${({theme})=>theme.tablet`
     flex-direction: row-reverse;
-    justify-content: space-between;
+    justify-content: flex-end;
   `};
 `;
 
@@ -103,7 +103,7 @@ const MainInfo = styled.div`
   align-items: left;
 
   ${({theme})=>theme.tablet`
-    width: 25.5vmin;
+    width: 35vmin;
     justify-content: flex-start;
     margin-left: 6%;
     margin-bottom: 0px;
@@ -111,21 +111,18 @@ const MainInfo = styled.div`
 `;
 
 const MainInfoSlider = styled.div`
-  height: 288px;
+  height: 237px;
   overflow: hidden;
 
-  ${({theme})=>theme.moniter`
-    height: 288px;
-  `};
   ${({theme})=>theme.desktop`
-    height: 270px;
+    height: 187px;
   `};
   ${({theme})=>theme.laptop`
-    height: 265px;
+    height: 166px;
   `};
   ${({theme})=>theme.tablet`
     height: 146px;
-    margin-top: 14px;
+    margin-top: 2.930vw;
   `};
 `;
 
@@ -142,7 +139,7 @@ const MainInfoTitle = styled.div`
   font-weight: 100;
   letter-spacing: 4px;
   color: #fff;
-  height: 220px;
+  height: 180px;
   display: flex;
   align-items: flex-end;
   text-align: left;
@@ -150,7 +147,13 @@ const MainInfoTitle = styled.div`
 
   ${({theme})=> theme.fk`
     font-size: 8rem;
-  `}  
+  `}
+  ${({theme})=>theme.desktop`
+    height: 136px;
+  `};
+  ${({theme})=>theme.laptop`
+    height: 117px;
+  `};
   ${({theme})=>theme.tablet`
     font-size: 4rem;
     height: 95px;
@@ -183,9 +186,9 @@ const MainSlider = styled.div`
 
 
   ${({theme})=>theme.tablet`
-    width: 57.6vmin;
+    width: 58vw;
     position: relative;
-    margin-left:0px;
+    margin-left: 0px;
   `};
 `;
 
@@ -261,14 +264,27 @@ const MainReferanceDown = styled.div`
     width: 204px;
     height: 40px;
   `}
-  :hover{
+  :hover {
     background: url('./icons/download_btn_r.png');
-    ${({theme})=>theme.tablet`
-    width: 176px;
-    height: 40px;
     background-size: contain;
     background-repeat: no-repeat;
-  `}
+
+    ${({theme})=>theme.moniter`
+      width: 244px;
+      height: 48px;
+    `}
+    ${({theme})=>theme.desktop`
+      width: 224px;
+      height: 44px;
+    `}
+    ${({theme})=>theme.laptop`
+      width: 214px;
+      height: 42px;
+    `}
+    ${({theme})=>theme.tablet`
+      width: 204px;
+      height: 40px;
+    `}
   }
 `;
 
@@ -322,16 +338,16 @@ export default function MainDesk(props) {
 
   useEffect(() => {
     if(isFourK) {
-      slideRef.current.style.transform = `translateY(-${307*select}px)`;
+      slideRef.current.style.transform = `translateY(-${267*select}px)`;
     }
     if(isMoniter) {
-      slideRef.current.style.transform = `translateY(-${307*select}px)`;
+      slideRef.current.style.transform = `translateY(-${267*select}px)`;
     }
     if(isDesktop) {
-      slideRef.current.style.transform = `translateY(-${300*select}px)`;
+      slideRef.current.style.transform = `translateY(-${217*select}px)`;
     }
     if(isLaptop) {
-      slideRef.current.style.transform = `translateY(-${298*select}px)`;
+      slideRef.current.style.transform = `translateY(-${194*select}px)`;
     }
     if(isTablet) {
       slideRef.current.style.transform = `translateY(-${170*select}px)`;
