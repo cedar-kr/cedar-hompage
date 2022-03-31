@@ -4,6 +4,7 @@ import styled, { keyframes } from 'styled-components'
 import { Row, Wrapper } from '../styles/Layout'
 import useDidMountEffect from '../utils/useDidMountEffect'
 import Fade from 'react-reveal/Fade';
+import Slide from 'react-reveal/Slide';
 
 const slideFwdCenter = keyframes`
   0% {
@@ -219,24 +220,24 @@ const slideChange = keyframes`
   }
 `;
 
+
 const MainInfoSliderImg = styled.div`
-  width:${props=> props.main ? 100 : 80}vw;
+  width:${props=> props.main ? 55 : 80}vw;
   height: ${props=> props.main ? 34 : 28}vw;
+  margin-right: ${props=> props.main&&57}px;
   background: gray;
   background: ${props=> `url(${props.src})`};
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 10px;
   filter: ${props=> !props.main && 'grayscale(95%)'};
-  margin-right: 57px;
-  animation: ${slideChange} 0.5s;
 
   ${({theme})=>theme.tablet`
-    width: 100vw;
+    width: 60vw;
     height: 36vw;
     margin-right: 0px;
     display:${props=> props.main ? 'flex' : 'none'};
-    animation: ${slideFwdCenter} 0.5s;
+    // animation: ${slideFwdCenter} 0.5s;
   `};
 `;
 
@@ -366,35 +367,41 @@ export default function MainDesk(props) {
           </Fade>
         </MainTitles>
         <MainContent>
-          <Fade>
-            <MainInfo>
-              <MainInfoSlider>
-                <MainInfoSliderItems ref={slideRef}>
-                {
-                  mainData.map((data, idx)=>{
-                    return <div key={idx}>
-                      <MainInfoTitle>{data.title}</MainInfoTitle>
-                      <MainInfoSubTitle>{data.subTitle}</MainInfoSubTitle>
-                    </div>
-                  })
-                }
-                </MainInfoSliderItems>
-              </MainInfoSlider>
-              <MainReferanceDown></MainReferanceDown>
-            </MainInfo>
-            <MainSlider>
-              <MainInfoSliderImgs>
-                {
-                  mainData.map((data,idx)=>{
-                    return select===idx && ( 
-                      <MainInfoSliderImg key={idx} main src={data.src_d} />
-                    )
-                  })
-                }
-                <MainInfoSliderImg src={select+1 >= mainData.length ? mainData[0].src_d :  mainData[select+1].src_d} />
-              </MainInfoSliderImgs>
-            </MainSlider>
-          </Fade>
+          <MainInfo>
+            <MainInfoSlider>
+              <MainInfoSliderItems ref={slideRef}>
+              {
+                mainData.map((data, idx)=>{
+                  return <div key={idx}>
+                    <MainInfoTitle>{data.title}</MainInfoTitle>
+                    <MainInfoSubTitle>{data.subTitle}</MainInfoSubTitle>
+                  </div>
+                })
+              }
+              </MainInfoSliderItems>
+            </MainInfoSlider>
+            <MainReferanceDown></MainReferanceDown>
+          </MainInfo>
+          <MainSlider>
+            <MainInfoSliderImgs>
+              {
+                mainData.map((data,idx)=>{
+                  return select===idx && ( 
+                    <Slide main right={!isTablet} easing>
+                      <Fade spy={select}>
+                        <MainInfoSliderImg key={idx} main src={data.src_d} />
+                      </Fade>
+                    </Slide>
+                  )
+                })
+              }
+              <Slide left spy={select} easing >
+                <Fade spy={select}>
+                  <MainInfoSliderImg src={select+1 >= mainData.length ? mainData[0].src_d :  mainData[select+1].src_d} />
+                </Fade>
+              </Slide>
+            </MainInfoSliderImgs>
+          </MainSlider>
         </MainContent>
         <SlideRow>
           <MainSlideArrow 

@@ -37,7 +37,7 @@ const HistoryWrapper = styled(Wrapper)`
 
 const HistoryTitle = styled(Title)`
   margin-top: 37px;
-  animation : ${fadeInLeft} ease-in 470ms;
+  /* animation : ${fadeInLeft} ease-in 470ms; */
 
   ${({theme})=>theme.tablet`
     margin-top: 102px;
@@ -53,7 +53,7 @@ const HistorySlideView = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
-  animation : ${fadeInRight} ease-in 940ms;
+  /* animation : ${fadeInRight} ease-in 940ms; */
 `;
 
 const HistorySlide = styled.div`
@@ -103,6 +103,7 @@ const TextPadding = styled(Text)`
   font-size: calc(1.8rem + (100vw - 1024px) * ((25 - 18) / (1920 - 1024)));
   width: 100%;
   word-break: keep-all;
+  cursor: pointer;
 
   ${({theme})=> theme.fk`
     font-size: 2.5rem;
@@ -121,7 +122,6 @@ const TextPadding = styled(Text)`
   transition: opacity 350ms ease;
   white-space: nowrap;
   overflow: hidden;
-  cursor: pointer;
 
   :hover{
     letter-spacing: 0.2rem;
@@ -268,8 +268,6 @@ export default function History() {
   const [data, setData] = useState(chunk(history_data,2));
   const [currentSlide, setCurrentSlide] = useState(1);
   const slideRef = useRef();
-  const textRef = useRef({});
-  const imgRef = useRef({});
 
   const nextSlide = () => {
     if (currentSlide >= data.length-1) {

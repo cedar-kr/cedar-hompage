@@ -82,7 +82,6 @@ export default function Contact() {
   return (
     <ContactContainer>
       <Wrapper>
-        <Fade left duration={470}>
         <ContactTitle>
           <Mobile>
             시더가 전하는
@@ -91,20 +90,20 @@ export default function Contact() {
             <br />
             만나보세요.
           </Mobile>
+        <Fade left duration={470} distance="130px" easing>
           <Default>
             시더가 전하는 
             <br />
             특별한 가치들을 만나보세요.
           </Default>
-        </ContactTitle>
         </Fade>
-        <Fade left duration={470}>
+        </ContactTitle>
         <PaddingTextInfo>
+          <Mobile>
           {contact_data.map((data,idx) => {
             return (
               <Link href={data.link} passHref key={idx} scroll={false}>
                 <PContactInfo idx={idx}>
-                  <Mobile> 
                     <Image
                       priority
                       src={data.img}
@@ -113,8 +112,17 @@ export default function Contact() {
                       alt="Contact Icons"
                     />
                     <TextInfo>{data.content}</TextInfo>
-                  </Mobile>
-                  <Default>
+                </PContactInfo>
+              </Link>
+            )
+          })}
+          </Mobile>
+          <Default>
+          {contact_data.map((data,idx) => {
+            return (
+        <Fade left duration={470} cascade easing>
+              <Link href={data.link} passHref key={idx} scroll={false}>
+                <PContactInfo idx={idx}>
                     <Image
                       priority
                       src={data.img}
@@ -128,13 +136,13 @@ export default function Contact() {
                     <Tablet>
                       <PTextInfo dangerouslySetInnerHTML={{__html: data.content_t}}></PTextInfo>
                     </Tablet>
-                  </Default>
                 </PContactInfo>
               </Link>
+              </Fade>
             )
           })}
+          </Default>
         </PaddingTextInfo>
-        </Fade>
       </Wrapper>
     </ContactContainer>
   )
