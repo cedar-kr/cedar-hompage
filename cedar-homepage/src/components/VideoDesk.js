@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 import { Title } from '../styles/PublicStyles'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Row, Wrapper } from '../styles/Layout'
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
@@ -83,8 +83,8 @@ const VideoTitle = styled(Title)`
     font-size: 2.5rem;
   `}  
   
-  /* animation-name: ${props => props.first ? topFristFadeOut : topFadeOut}; */
-  /* animation-duration: 1s; */
+  animation-name: ${props => props.first ? topFristFadeOut : topFadeOut};
+  animation-duration: 1s;
 `;
 
 const VideoSlideBtns = styled.div`
@@ -96,6 +96,8 @@ const VideoSlideBtns = styled.div`
 const VideoImg = styled.div`
   display: flex;
   position: relative;
+  /* width: 70vw;
+  height: 70vw; */
   /* animation : ${fadeInTop} ease-in 1410ms; */
 `;
 
@@ -115,7 +117,7 @@ const VideoIcon = styled.div`
 `;
 
 const VideoAlign = styled.div`
-  width: 31.6%;
+  width: 35%;
   height: 460px;
   position: relative;
   display: flex;
@@ -208,7 +210,7 @@ export default function VideoDesk(props) {
   const { VideoData } = props;
   const [ select, setSelect ] = useState(0);
   const isDesktop = useMediaQuery({ minWidth: 1025 });
-
+  const [ first, setFirst] = useState(true);
   const prevVideo = () => {
     if(select === 0 ){
       setSelect(3);
@@ -225,13 +227,19 @@ export default function VideoDesk(props) {
     }
   }
 
+  useEffect(()=>{
+    setTimeout(() => {
+      setFirst(false)
+    }, 1000);
+  },[]);
+
   return (
     <VideoContainer>
       {VideoData && VideoData.map((data,idx)=> {
        return select === idx && (
        <VideoWrapper key={idx}> 
-       <Fade left>
           <VideoAlign left>
+       <Fade left appear distance={'130px'} duration={470} easing spy={false} >
           {data.title.split('<br/>').map((data,idx)=>{
               return <VideoTitle key={idx} first={idx==0 ? true : false}>
                 {data}
@@ -249,14 +257,14 @@ export default function VideoDesk(props) {
               onClick={nextVideo}
             />
           </VideoSlideBtns>
-        </VideoAlign>
         </Fade>
-        <Fade top>
+        </VideoAlign>
+        <Fade top delay={1140} distance={'130px'} duration={470} easing>
         <VideoImg>
           <Image
             src={data.src_d}
-            width={isDesktop ? 707 : 467}
-            height={isDesktop ? 720 : 467}
+            width={700}
+            height={700}
           />
           <Link href={data.url} passHref>
             <VideoPlayIcon
@@ -267,10 +275,10 @@ export default function VideoDesk(props) {
           </Link>
         </VideoImg>
         </Fade>
-        <Fade right>
         <VideoAlign>
           <VideoSub>
             <VideoBtns>
+              <Fade right delay={740} distance={'130px'} duration={470} easing >
               <VideoText first>{data.name}</VideoText>
               <VideoText dangerouslySetInnerHTML={{__html: isDesktop? data.subTitle_d: data.subTitle}}></VideoText>
               <Desktop>
@@ -281,10 +289,10 @@ export default function VideoDesk(props) {
                   return <VideoIcon key={idx} select={select===idx} onClick={()=>setSelect(idx)}/>
                 })}
               </VideoIcons>
+              </Fade>
             </VideoBtns>
           </VideoSub>
         </VideoAlign>
-        </Fade>
         </VideoWrapper>)
       })}
   </VideoContainer>

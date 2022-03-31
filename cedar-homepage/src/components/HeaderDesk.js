@@ -109,8 +109,10 @@ export default function HeaderDesk() {
   };
 
   function scrollLR() {
-    scrollRef.current.style.transform = "translateX(" + -window.pageYOffset + "px)";
-    scrollRef.current.style.opacity= 100 - window.pageYOffset/15 + "%";
+    if(scrollRef.current){
+      scrollRef.current.style.transform = "translateX(" + -window.pageYOffset + "px)";
+      scrollRef.current.style.opacity= 100 - window.pageYOffset/15 + "%";
+    }
   }
 
   return (

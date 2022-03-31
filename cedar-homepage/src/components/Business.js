@@ -4,6 +4,7 @@ import { Center, Wrapper } from '../styles/Layout'
 import { Default, Mobile } from '../utils/media'
 import { gsap } from 'gsap'
 import { useRef } from 'react'
+import Fade from 'react-reveal/Fade';
 
 const BusinessContainer = styled.section`
   height: 100vh;
@@ -262,14 +263,14 @@ export default function Business() {
   return (
     <BusinessContainer>
       <BusinessWrapper>
-        <BusinessTitle>
-          시더는 다양한
-          <br />
-          사업분야를
-          <br />
-          구축하고 있습니다.
-        </BusinessTitle>
         <Mobile>
+          <BusinessTitle>
+            시더는 다양한
+            <br />
+            사업분야를
+            <br />
+            구축하고 있습니다.
+          </BusinessTitle>
           <Center>
             {business_data.map((data,idx) => {
               return (
@@ -286,7 +287,17 @@ export default function Business() {
           </Center>
         </Mobile>
         <Default>
-          <BusinessView>
+        <Fade left duration={470} distance={'130px'} fraction={0.47} easing >
+          <BusinessTitle>
+            시더는 다양한
+            <br />
+            사업분야를
+            <br />
+            구축하고 있습니다.
+          </BusinessTitle>
+          </Fade>
+        <BusinessView>
+        <Fade right delay={940} duration={470} distance={'130px'} fraction={0.47} easing >
           <MovingBall onMouseMove={test} ref={ballRef}>
               <MovingBallWrap>
                 <div class="ball">
@@ -345,6 +356,7 @@ export default function Business() {
                 </div>
               </MovingBallWrap>
             </MovingBall>
+        </Fade>
           </BusinessView>
         </Default>
       </BusinessWrapper>
