@@ -365,35 +365,36 @@ export default function MainDesk(props) {
             <MainTitle>판교 '테크원' 빌딩 솔루션 구축 및 하드웨어 납품</MainTitle>
           </Fade>
         </MainTitles>
-        <Fade>
         <MainContent>
-          <MainInfo>
-            <MainInfoSlider>
-              <MainInfoSliderItems ref={slideRef}>
-              {
-                mainData.map((data, idx)=>{
-                  return <div key={idx}>
-                    <MainInfoTitle>{data.title}</MainInfoTitle>
-                    <MainInfoSubTitle>{data.subTitle}</MainInfoSubTitle>
-                  </div>
-                })
-              }
-              </MainInfoSliderItems>
-            </MainInfoSlider>
-            <MainReferanceDown></MainReferanceDown>
-          </MainInfo>
-          <MainSlider>
-            <MainInfoSliderImgs>
-              {
-                mainData.map((data,idx)=>{
-                  return select===idx && ( 
-                    <MainInfoSliderImg key={idx} main src={data.src_d} />
-                  )
-                })
-              }
-              <MainInfoSliderImg src={select+1 >= mainData.length ? mainData[0].src_d :  mainData[select+1].src_d} />
-            </MainInfoSliderImgs>
-          </MainSlider>
+          <Fade>
+            <MainInfo>
+              <MainInfoSlider>
+                <MainInfoSliderItems ref={slideRef}>
+                {
+                  mainData.map((data, idx)=>{
+                    return <div key={idx}>
+                      <MainInfoTitle>{data.title}</MainInfoTitle>
+                      <MainInfoSubTitle>{data.subTitle}</MainInfoSubTitle>
+                    </div>
+                  })
+                }
+                </MainInfoSliderItems>
+              </MainInfoSlider>
+              <MainReferanceDown></MainReferanceDown>
+            </MainInfo>
+            <MainSlider>
+              <MainInfoSliderImgs>
+                {
+                  mainData.map((data,idx)=>{
+                    return select===idx && ( 
+                      <MainInfoSliderImg key={idx} main src={data.src_d} />
+                    )
+                  })
+                }
+                <MainInfoSliderImg src={select+1 >= mainData.length ? mainData[0].src_d :  mainData[select+1].src_d} />
+              </MainInfoSliderImgs>
+            </MainSlider>
+          </Fade>
         </MainContent>
         <SlideRow>
           <MainSlideArrow 
@@ -407,7 +408,6 @@ export default function MainDesk(props) {
             onClick={nextMain}
           />
         </SlideRow>
-        </Fade>
       </MainWrapper>
     </MainContainer>
   )
