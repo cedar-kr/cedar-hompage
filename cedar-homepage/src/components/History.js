@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import Image from 'next/image'
 import { Title, Text, LgText } from '../styles/PublicStyles'
-import { Center, Wrapper, Row } from '../styles/Layout'
+import { Center, Wrapper } from '../styles/Layout'
 import React, { useEffect, useRef, useState } from 'react'
 import { chunk } from '../utils/func'
 import { history_data } from '../utils/data'
@@ -226,16 +225,43 @@ const ButtonBox = styled.div`
   position: absolute;
   left: ${props => props.left && 16}px;
   right: ${props => props.right && 16}px;
-  z-index: 100;
+  z-index: 101;
   background: #fff;
   border-radius: 50%;
-  height: 8vmin;
-  width:8vmin;
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+
+  ${({theme})=>theme.tablet`
+    width: calc(45px + (100vw - 768px) * ((100 - 45) / (1024 - 768)));
+    height: calc(45px + (100vw - 768px) * ((100 - 45) / (1024 - 768)));
+  `}
+  ${({theme})=>theme.mobile`
+    height: 45px;
+    width: 45px;
+  `}
 `;
 
-const SlideButton = styled(Image)`
-  height: 8vmin;
-  width: 8vmin;
+const SlideButton = styled.div`
+  height: 100px;
+  width: 100px;
+  background: ${props=> `url(${props.src})`};
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  ${({theme})=>theme.tablet`
+    width: calc(45px + (100vw - 768px) * ((100 - 45) / (1024 - 768)));
+    height: calc(45px + (100vw - 768px) * ((100 - 45) / (1024 - 768)));
+  `}
+  ${({theme})=>theme.mobile`
+    height: 45px;
+    width: 45px;
+  `}
+  :hover {
+    background: ${props=> `url(${props.src_h})`};
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 `;
 
 export default function History() {
@@ -428,11 +454,8 @@ export default function History() {
             <ButtonBox left>
               <SlideButton
                 onClick={prevSlide}
-                priority
                 src="/icons/h_left_arrow.png"
-                height={45}
-                width={45}
-                alt="Left Arrow"
+                src_h="/icons/h_left_arrow_hover.png"
               />
             </ButtonBox>
             <SlideCenter>
@@ -461,11 +484,8 @@ export default function History() {
             <ButtonBox right>
               <SlideButton
                 onClick={nextSlide}
-                priority
                 src="/icons/h_right_arrow.png"
-                height={45}
-                width={45}
-                alt="Right Arrow"
+                src_h="/icons/h_right_arrow_hover.png"
               />
             </ButtonBox>
           </SlideView>
@@ -475,11 +495,8 @@ export default function History() {
           <ButtonBox left>
             <SlideButton
               onClick={prevSlide}
-              priority
               src="/icons/h_left_arrow.png"
-              height={100}
-              width={100}
-              alt="Left Arrow"
+              src_h="/icons/h_left_arrow_hover.png"
             />
             </ButtonBox>
             <HistorySlide>
@@ -519,11 +536,8 @@ export default function History() {
             <ButtonBox right >
               <SlideButton
                 onClick={nextSlide}
-                priority
                 src="/icons/h_right_arrow.png"
-                height={100}
-                width={100}
-                alt="Right Arrow"
+                src_h="/icons/h_right_arrow_hover.png"
               />
             </ButtonBox>
           </HistorySlideView>
