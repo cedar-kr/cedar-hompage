@@ -5,6 +5,7 @@ import { Wrapper } from '../styles/Layout'
 import { useMediaQuery } from 'react-responsive'
 import { useState, useEffect, useRef } from 'react'
 import { fadeInLeft, fadeInRight, fadeInRightText } from '../styles/keyframe'
+import Particles from 'react-tsparticles'
 
 const HeaderContainer = styled.header`
   margin: auto 0px;
@@ -72,6 +73,7 @@ export const Highlight = styled.span`
   box-shadow: inset 0 -1.9vw 0 #ffc5c5;
   width: fit-content;
   padding: 0 4px;
+
   ${({theme})=>theme.fk`
     box-shadow: inset 0 -35px 0 #ffc5c5;
   `};
@@ -159,6 +161,87 @@ export default function HeaderDesk() {
             </HeaderText>
         </HeaderVideo>
       </HeaderWrapper>
+      <Particles
+      id="tsparticles"
+      className="wrapper"
+      options={{
+        background: {
+          color: {
+            value: "#fff",
+          },
+        },
+        fpsLimit: 120,
+        interactivity: {
+          events: {
+            onClick: {
+              enable: false,
+              mode: "push",
+            },
+            onHover: {
+              enable: false,
+              mode: "repulse",
+            },
+            resize: true,
+          },
+          modes: {
+            bubble: {
+              distance: 400,
+              duration: 2,
+              opacity: 0.8,
+              size: 20,
+            },
+            push: {
+              quantity: 4,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+          },
+        },
+        particles: {
+          color: {
+            value: "rgb(195,195,195)",
+          },
+          links: {
+            color: "rgb(195,195,195)",
+            distance: 150,
+            enable: true,
+            opacity: 0.8,
+            width: 1,
+          },
+          collisions: {
+            enable: true,
+          },
+          move: {
+            direction: "none",
+            enable: true,
+            outMode: "bounce",
+            random: false,
+            speed: 1,
+            straight: false,
+          },
+          number: {
+            density: {
+              enable: true,
+              area: 800,
+            },
+            value: 80,
+          },
+          opacity: {
+            value: 0.7,
+          },
+          shape: {
+            type: "circle",
+          },
+          size: {
+            random: true,
+            value: 4,
+          },
+        },
+        detectRetina: true,
+      }}
+    />
     </HeaderContainer>     
   )
 };

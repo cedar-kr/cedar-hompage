@@ -6,6 +6,7 @@ import { Default, Mobile } from '../utils/media'
 const FooterContainer = styled.footer`
   padding-top: 70px;
   padding-bottom: 60px;
+  background-color: #fff;
   
   ${({theme})=> theme.tablet`
     padding-top: 24px;

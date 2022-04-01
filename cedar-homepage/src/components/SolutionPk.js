@@ -15,6 +15,7 @@ const SolutionPkContainer = styled.section`
   padding: 180px 0px;
   margin: 0 auto;
   overflow: hidden;
+  background-color: #fff;
 
   ${({theme})=>theme.tablet`
     padding: 110px 0px;
