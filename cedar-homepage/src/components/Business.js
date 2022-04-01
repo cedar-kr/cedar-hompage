@@ -4,8 +4,9 @@ import { Center, Wrapper } from '../styles/Layout'
 import { Default, Mobile } from '../utils/media'
 import { gsap } from 'gsap'
 import { useRef } from 'react'
-import Fade from 'react-reveal/Fade';
 import * as ga from '../utils/ga';
+import { Reveal } from 'react-awesome-reveal';
+import { fadeInLeftDefualt, fadeInRightBusiness, fadeInRightDefualt } from '../styles/keyframe'
 
 const BusinessContainer = styled.section`
   height: 100vh;
@@ -64,6 +65,7 @@ const BusinessView = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top:80px;
 `;
 
 const BoxItemTitle = styled(MdText)`
@@ -86,6 +88,7 @@ const MovingBall = styled.div`
 
 const MovingBallWrap = styled.div`
   position: relative;
+  text-align: center;
   .s-text {
     position: absolute;
     width: 85px;
@@ -292,17 +295,17 @@ export default function Business() {
           </Center>
         </Mobile>
         <Default>
-        <Fade left duration={470} distance={'130px'} fraction={0.47} easing >
-          <BusinessTitle>
-            시더는 다양한
-            <br />
-            사업분야를
-            <br />
-            구축하고 있습니다.
-          </BusinessTitle>
-          </Fade>
+          <Reveal keyframes={fadeInLeftDefualt} duration={470} triggerOnce>
+            <BusinessTitle>
+              시더는 다양한
+              <br />
+              사업분야를
+              <br />
+              구축하고 있습니다.
+            </BusinessTitle>
+          </Reveal>
+        <Reveal keyframes={fadeInRightBusiness} delay={550} duration={1000} triggerOnce>
         <BusinessView>
-        <Fade right delay={940} duration={470} distance={'130px'} fraction={0.47} easing >
           <MovingBall onMouseMove={gsapControl} ref={ballRef}>
               <MovingBallWrap>
                 <div class="ball">
@@ -361,8 +364,9 @@ export default function Business() {
                 </div>
               </MovingBallWrap>
             </MovingBall>
-        </Fade>
+
           </BusinessView>
+          </Reveal>
         </Default>
       </BusinessWrapper>
     </BusinessContainer>

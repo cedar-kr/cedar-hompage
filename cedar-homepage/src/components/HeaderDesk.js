@@ -4,8 +4,46 @@ import { Title } from '../styles/PublicStyles'
 import { Wrapper } from '../styles/Layout'
 import { useMediaQuery } from 'react-responsive'
 import { useState, useEffect, useRef } from 'react'
-import { fadeInLeft, fadeInRight, fadeInRightText } from '../styles/keyframe'
+// import { fadeInLeft, fadeInRight, fadeInRightText } from '../styles/keyframe'
 import Particles from 'react-tsparticles'
+
+const fadeInRight = keyframes`
+  0%{
+    transform: translateX(130px);
+    opacity: 0;
+  }
+  50%{
+    transform: translateX(130px);
+    opacity: 0;
+  }100%{
+    transform: translateX(0px);
+    opacity: 1;
+  }
+`;  
+
+const fadeInRightText = keyframes`
+0%{
+  transform: translateX(130px);
+  opacity: 0;
+}
+50%{
+  transform: translateX(130px);
+  opacity: 0;
+}100%{
+  transform: translateX(0px);
+  opacity: 1;
+}
+`;  
+
+const fadeInLeft = keyframes`
+0%{
+  transform: translateX(-130px);
+  opacity: 0;
+}100%{
+  transform: translateX(0px);
+  opacity: 1;
+}
+`;  
 
 const HeaderContainer = styled.header`
   margin: auto 0px;
@@ -168,6 +206,7 @@ export default function HeaderDesk() {
       <ParticleBackground
       id="tsparticles"
       options={{
+        zIndex:'-1',
         background: {
           color: {
             value: "#fff",
@@ -244,7 +283,7 @@ export default function HeaderDesk() {
         },
         detectRetina: true,
       }}
-    />
+    /> 
     </HeaderContainer>     
   )
 };

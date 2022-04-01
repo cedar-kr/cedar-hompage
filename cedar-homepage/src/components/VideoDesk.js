@@ -6,9 +6,9 @@ import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 import { Desktop } from '../utils/media'
 import Link from 'next/link'
-import { fadeInLeft, fadeInRight, fadeInTop } from '../styles/keyframe'
-import Fade from 'react-reveal/Fade';
 import * as ga from '../utils/ga';
+import { fadeInLeft, fadeInRight, fadeInRightDefualt, fadeInTop, fadeInTopDefualt } from '../styles/keyframe'
+import Reveal from 'react-awesome-reveal'
 
 const VideoContainer = styled.section`
   padding: 146px 0px;
@@ -262,27 +262,29 @@ export default function VideoDesk(props) {
        return select === idx && (
        <VideoWrapper key={idx}> 
           <VideoAlign left>
-       <Fade left appear distance={'130px'} duration={470} easing spy={false} >
-          {data.title.split('<br/>').map((data,idx)=>{
+       <Reveal triggerOnce keyframes={fadeInLeft}>
+         <div>
+            {data.title.split('<br/>').map((data,idx)=>{
               return <VideoTitle key={idx} first={idx==0 ? true : false}>
                 {data}
               </VideoTitle>
-          })}
-          <VideoSlideBtns>
-            <VideoArrow 
-              src="/icons/left_arrow_b.png"
-              src_h="/icons/left_arrow_r.png"
-              onClick={prevVideo}
+            })}
+            <VideoSlideBtns>
+              <VideoArrow 
+                src="/icons/left_arrow_b.png"
+                src_h="/icons/left_arrow_r.png"
+                onClick={prevVideo}
+                />
+              <VideoArrow
+                src="/icons/right_arrow_b.png"
+                src_h="/icons/right_arrow_r.png"
+                onClick={nextVideo}
               />
-            <VideoArrow
-              src="/icons/right_arrow_b.png"
-              src_h="/icons/right_arrow_r.png"
-              onClick={nextVideo}
-            />
-          </VideoSlideBtns>
-        </Fade>
+            </VideoSlideBtns>
+          </div>
+        </Reveal>
         </VideoAlign>
-        <Fade top delay={1140} distance={'130px'} duration={470} easing>
+        <Reveal triggerOnce keyframes={fadeInTopDefualt} delay={1140}>
         <VideoImg>
           <Image
             src={data.src_d}
@@ -297,24 +299,24 @@ export default function VideoDesk(props) {
             />
           </Link>
         </VideoImg>
-        </Fade>
+        </Reveal>
         <VideoAlign>
+        <Reveal triggerOnce keyframes={fadeInRightDefualt} delay={550}>
           <VideoSub>
             <VideoBtns>
-              <Fade right delay={740} distance={'130px'} duration={470} easing >
-              <VideoText first>{data.name}</VideoText>
-              <VideoText dangerouslySetInnerHTML={{__html: isDesktop? data.subTitle_d: data.subTitle}}></VideoText>
-              <Desktop>
-                <VideoImgText>이미지를 눌러보세요</VideoImgText>
-              </Desktop>
-              <VideoIcons>
-                {VideoData.map((v,idx)=>{
-                  return <VideoIcon key={idx} select={select===idx} onClick={()=>clickPage(idx)}/>
-                })}
-              </VideoIcons>
-              </Fade>
+                <VideoText first>{data.name}</VideoText>
+                <VideoText dangerouslySetInnerHTML={{__html: isDesktop? data.subTitle_d: data.subTitle}}></VideoText>
+                <Desktop>
+                  <VideoImgText>이미지를 눌러보세요</VideoImgText>
+                </Desktop>
+                <VideoIcons>
+                  {VideoData.map((v,idx)=>{
+                    return <VideoIcon key={idx} select={select===idx} onClick={()=>setSelect(idx)}/>
+                  })}
+                </VideoIcons>
             </VideoBtns>
           </VideoSub>
+        </Reveal>
         </VideoAlign>
         </VideoWrapper>)
       })}

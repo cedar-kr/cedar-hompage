@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { Wrapper } from '../styles/Layout'
 import { Default, Mobile } from '../utils/media'
+import { Fade } from 'react-awesome-reveal';
 
 const FooterContainer = styled.footer`
   padding-top: 70px;
@@ -77,6 +78,7 @@ export default function Footer() {
           </TextWrap>
         </Mobile>
         <Default>
+          <Fade duration={1500} triggerOnce>
           <Image
             priority
             src="/imgs/logo_r.png"
@@ -94,6 +96,7 @@ export default function Footer() {
           <CopyRight>
             COPYRIGHT© CEDAR. ALL RIGHTS RESERVED.
           </CopyRight>
+          </Fade>
         </Default>
       </Wrapper>
     </FooterContainer>

@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { Row, Wrapper } from '../styles/Layout'
 import { Title, NSText } from '../styles/PublicStyles'
 import { Default, Desktop, Mobile, Tablet } from '../utils/media'
-import Fade from 'react-reveal/Fade';
 import * as ga from '../utils/ga';
+import { Fade } from 'react-awesome-reveal'
 
 const ContactContainer = styled.section`
   padding-top: 128px;
@@ -98,13 +98,13 @@ export default function Contact() {
             <br />
             만나보세요.
           </Mobile>
-        <Fade left duration={470} distance="130px" easing>
+          <Fade direction="left" triggerOnce>
           <Default>
             시더가 전하는 
             <br />
             특별한 가치들을 만나보세요.
           </Default>
-        </Fade>
+          </Fade>
         </ContactTitle>
         <PaddingTextInfo>
           <Mobile>
@@ -128,8 +128,8 @@ export default function Contact() {
           <Default>
           {contact_data.map((data,idx) => {
             return (
-        <Fade left duration={470} cascade easing>
               <Link href={data.link} passHref key={idx} scroll={false}>
+                <Fade direction="left" cascade triggerOnce>
                 <PContactInfo idx={idx}>
                     <Image
                       priority
@@ -145,8 +145,8 @@ export default function Contact() {
                       <PTextInfo dangerouslySetInnerHTML={{__html: data.content_t}}></PTextInfo>
                     </Tablet>
                 </PContactInfo>
+                </Fade>
               </Link>
-              </Fade>
             )
           })}
           </Default>

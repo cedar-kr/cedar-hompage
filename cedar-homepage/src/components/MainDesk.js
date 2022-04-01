@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
+import Reveal from 'react-awesome-reveal'
 import { useMediaQuery } from 'react-responsive'
 import styled, { keyframes } from 'styled-components'
+import { fadeDefualt, fadeInTop, fadeInTopDefualt } from '../styles/keyframe'
 import { Row, Wrapper } from '../styles/Layout'
 import useDidMountEffect from '../utils/useDidMountEffect'
-import Fade from 'react-reveal/Fade';
-import Slide from 'react-reveal/Slide';
 import * as ga from '../utils/ga';
 
 const slideFwdCenter = keyframes`
@@ -24,11 +24,13 @@ const MainContainer = styled.section`
   background-position: center center;
   background-color: rgba(43, 43, 43, 0.6);
   background-attachment: fixed;
-  height: 100%;
   padding-top: 198px;
   padding-bottom: 76px;
   overflow: hidden;
   -webkit-background-attachment: fixed;
+  -webkit-background-size: cover;
+  -webkit-background-repeat: no-repeat;
+
   ${({theme})=>theme.tablet`
     padding-top: 168px;
   `};
@@ -222,7 +224,7 @@ const slideChange = keyframes`
 
 
 const MainInfoSliderImg = styled.div`
-  width:${props=> props.main ? 55 : 80}vw;
+  width:${props=> props.main ? 100 : 80}vw;
   height: ${props=> props.main ? 34 : 28}vw;
   margin-right: ${props=> props.main&&57}px;
   background: gray;
@@ -233,7 +235,7 @@ const MainInfoSliderImg = styled.div`
   filter: ${props=> !props.main && 'grayscale(95%)'};
 
   ${({theme})=>theme.tablet`
-    width: 60vw;
+    width: 100vw;
     height: 36vw;
     margin-right: 0px;
     display:${props=> props.main ? 'flex' : 'none'};
@@ -368,12 +370,13 @@ export default function MainDesk(props) {
   return (
     <MainContainer>
       <MainWrapper>
-        <MainTitles>
-          <Fade top>
+        <Reveal keyframes={fadeInTopDefualt} triggerOnce>
+          <MainTitles>
             <MainTitleNew>New.</MainTitleNew>
             <MainTitle>판교 '테크원' 빌딩 솔루션 구축 및 하드웨어 납품</MainTitle>
-          </Fade>
-        </MainTitles>
+          </MainTitles>
+        </Reveal>
+        <Reveal keyframes={fadeDefualt} duration={2500} triggerOnce>
         <MainContent>
           <MainInfo>
             <MainInfoSlider>
@@ -395,22 +398,15 @@ export default function MainDesk(props) {
               {
                 mainData.map((data,idx)=>{
                   return select===idx && ( 
-                    <Slide main right={!isTablet} easing>
-                      <Fade spy={select}>
                         <MainInfoSliderImg key={idx} main src={data.src_d} />
-                      </Fade>
-                    </Slide>
                   )
                 })
               }
-              <Slide left spy={select} easing >
-                <Fade spy={select}>
-                  <MainInfoSliderImg src={select+1 >= mainData.length ? mainData[0].src_d :  mainData[select+1].src_d} />
-                </Fade>
-              </Slide>
+              <MainInfoSliderImg src={select+1 >= mainData.length ? mainData[0].src_d :  mainData[select+1].src_d} />
             </MainInfoSliderImgs>
           </MainSlider>
         </MainContent>
+        </Reveal>
         <SlideRow>
           <MainSlideArrow 
             src="/icons/left_arrow_w.png"

@@ -4,9 +4,11 @@ import { NSText } from '../styles/PublicStyles'
 import { Row, Wrapper } from '../styles/Layout'
 import Image from 'next/image';
 import { Default, Desktop, Tablet } from '../utils/media'
-import Fade from 'react-reveal/Fade';
-import { useMediaQuery } from 'react-responsive';
 import * as ga from '../utils/ga';
+import { fadeInLeftDefualt, fadeInRightDefualt } from '../styles/keyframe';
+import { useMediaQuery } from 'react-responsive';
+import {Reveal} from 'react-awesome-reveal';
+import Fade from 'react-reveal/Fade';
 
 const SolutionContainer = styled.div`
   padding-top: 190px;
@@ -44,6 +46,16 @@ const SolutionRow = styled(Row)`
     flex-direction: row;
   `};
 `;
+
+const fadeInTop = keyframes`
+0%{
+  transform: translateX(-130px);
+  opacity: 0;
+}100%{
+  transform: translateX(0px);
+  opacity: 1;
+}
+`; 
 
 const SolutionImg = styled.div`
   margin-left: ${props=> props.reverse ? '82px': '0px'};
@@ -181,9 +193,12 @@ export default function SolutionDesk(props) {
       <SolutionContainer bg={data.bg} >
         <SolutionWrapper>
           <SolutionRow reverse={data.id !=2 || isTablet}>
+          <Reveal 
+            keyframes={ data.id !=2 || isTablet ?fadeInRightDefualt: fadeInLeftDefualt} 
+            delay={ data.id !=2 || isTablet ? 550 : 0} 
+            triggerOnce>
               <SolutionImg reverse={data.id !=2|| isTablet} ref={solutionRef}>
-                <Fade left={data.id ===2} right={data.id !=2||isTablet} duration={470} delay={data.id != 2 ? 740 : 0}  easing distance={'130px'}>
-                  <Fade top ssr fraction={0.1} spy={select}>
+                <Fade top spy={select}>
                     <Image
                       alt="solution"
                       src={getImg(data.imgs)}
@@ -191,22 +206,27 @@ export default function SolutionDesk(props) {
                       width={700}
                       layout="intrinsic"
                     />
-                  </Fade>
                 </Fade>
               </SolutionImg>
+              </Reveal>
               <div style={{display:'flex',width:'50%'}}>
-                <Fade style={{display:'flex', justifyContent:'right',alignItems:'flex-end'}} left={data.id !=2||isTablet} right={data.id ===2||!isTablet} cascade duration={470} delay={data.id==2 ? 740 : 0} easing distance={'130px'}>
+              <Reveal
+                keyframes={ data.id !=2 || isTablet ? fadeInLeftDefualt : fadeInRightDefualt} 
+                delay={ data.id !=2 || isTablet ? 0 :550 }
+                triggerOnce
+                cascade
+                >
                   <div>
                     {data.title}
                     <div>
                     <Desktop>
-                      <SolutionSubText reverse={data.id !=2 || isTablet} dangerouslySetInnerHTML={{__html:data.id ===1 || data.id ===2 ? data.text: data.text_d}}></SolutionSubText>
+                      <SolutionSubText reverse={data.id ==2 || !isTablet} dangerouslySetInnerHTML={{__html:data.id ===1 || data.id ===2 ? data.text: data.text_d}}></SolutionSubText>
                     </Desktop>
                     <Tablet>
-                      <SolutionSubText rreverse={data.id !=2 || isTablet} dangerouslySetInnerHTML={{__html:data.text}}></SolutionSubText>
+                      <SolutionSubText rreverse={data.id ==2 || !isTablet} dangerouslySetInnerHTML={{__html:data.text}}></SolutionSubText>
                     </Tablet>
                     </div>
-                  <SoutionMenus reverse={data.id !=2 || isTablet}>
+                  <SoutionMenus reverse={data.id ==2 || !isTablet}>
                   {
                     data.menus.map((data, idx)=>{
                       return <SolutionMenuItems key={idx} onClick={()=>menuClick(data)}>
@@ -219,7 +239,7 @@ export default function SolutionDesk(props) {
                 </SolutionMenuItems>
               </SoutionMenus>
             </div>
-            </Fade>
+            </Reveal>
             </div>
           </SolutionRow>
         </SolutionWrapper>
