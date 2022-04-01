@@ -100,6 +100,10 @@ const HeaderText = styled.div`
   animation : ${fadeInRightText} ease-in 1410ms;
 `;
 
+const ParticleBackground = styled(Particles)`
+  z-index: -1;
+`;
+
 export default function HeaderDesk() {
   const isDesktop = useMediaQuery({ minWidth: 1025 })
   const scrollRef = useRef();
@@ -161,9 +165,8 @@ export default function HeaderDesk() {
             </HeaderText>
         </HeaderVideo>
       </HeaderWrapper>
-      <Particles
+      <ParticleBackground
       id="tsparticles"
-      className="wrapper"
       options={{
         background: {
           color: {
