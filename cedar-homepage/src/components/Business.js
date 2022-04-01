@@ -5,6 +5,7 @@ import { Default, Mobile } from '../utils/media'
 import { gsap } from 'gsap'
 import { useRef } from 'react'
 import Fade from 'react-reveal/Fade';
+import * as ga from '../utils/ga';
 
 const BusinessContainer = styled.section`
   height: 100vh;
@@ -228,7 +229,11 @@ export default function Business() {
     }
   ]
 
-  const test = (e) => {
+  const gsapControl = (e) => {
+    ga.event({
+      action: "business gsap",
+      params: {}
+    })
     let winPercent = { x:e.clientX/window.innerWidth, y:e.clientY/window.innerHeight },
         distFromCenter = 1 - Math.abs((e.clientX - window.innerWidth/2)/window.innerWidth*2);
       gsap.timeline({defaults:{duration:0.5, overwrite:'auto'}})
@@ -298,7 +303,7 @@ export default function Business() {
           </Fade>
         <BusinessView>
         <Fade right delay={940} duration={470} distance={'130px'} fraction={0.47} easing >
-          <MovingBall onMouseMove={test} ref={ballRef}>
+          <MovingBall onMouseMove={gsapControl} ref={ballRef}>
               <MovingBallWrap>
                 <div class="ball">
                   <MovingBallItem className="ball_1" id={1}></MovingBallItem>

@@ -8,6 +8,7 @@ import { Desktop } from '../utils/media'
 import Link from 'next/link'
 import { fadeInLeft, fadeInRight, fadeInTop } from '../styles/keyframe'
 import Fade from 'react-reveal/Fade';
+import * as ga from '../utils/ga';
 
 const VideoContainer = styled.section`
   padding: 146px 0px;
@@ -211,7 +212,12 @@ export default function VideoDesk(props) {
   const [ select, setSelect ] = useState(0);
   const isDesktop = useMediaQuery({ minWidth: 1025 });
   const [ first, setFirst] = useState(true);
+
   const prevVideo = () => {
+    ga.event({
+      action: `video slide prev btn click `,
+      params: {}
+    })
     if(select === 0 ){
       setSelect(3);
     }else{
@@ -220,6 +226,10 @@ export default function VideoDesk(props) {
   }
 
   const nextVideo = () => {
+    ga.event({
+      action: `video slide next btn click `,
+      params: {}
+    })
     if(select === VideoData.length-1){
       setSelect(0);
     }else{
@@ -227,11 +237,24 @@ export default function VideoDesk(props) {
     }
   }
 
+  const clickPage = (e) => {
+    setSelect(e);
+    ga.event({
+      action: `video pagenation #0${e+1} btn click `,
+      params: {}
+    })
+  }
+
   useEffect(()=>{
     setTimeout(() => {
       setFirst(false)
     }, 1000);
   },[]);
+
+  const videoPlay = (data,idx)=>{
+    setSelect(idx);
+    ga.event({action: `video ${data.name} click`})
+  }
 
   return (
     <VideoContainer>
@@ -270,7 +293,7 @@ export default function VideoDesk(props) {
             <VideoPlayIcon
               isDesktop={isDesktop}
               src="/icons/video_btn_b.png"
-              onClick={()=>setSelect(idx)}
+              onClick={()=>videoPlay(data,idx)}
             />
           </Link>
         </VideoImg>
@@ -286,7 +309,7 @@ export default function VideoDesk(props) {
               </Desktop>
               <VideoIcons>
                 {VideoData.map((v,idx)=>{
-                  return <VideoIcon key={idx} select={select===idx} onClick={()=>setSelect(idx)}/>
+                  return <VideoIcon key={idx} select={select===idx} onClick={()=>clickPage(idx)}/>
                 })}
               </VideoIcons>
               </Fade>

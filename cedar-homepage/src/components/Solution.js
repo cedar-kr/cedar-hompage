@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { touchEnd, touchStart } from '../utils/func';
 import useDidMountEffect from '../utils/useDidMountEffect';
 import { Center, Row } from '../styles/Layout';
-import { Mobiles } from '../styles/PublicStyles';
+import * as ga from '../utils/ga';
 
 const SolutionContainer = styled.section`
   display: flex;
@@ -171,23 +171,29 @@ export default function SolutionT(props) {
     return imgCurrent[0];
   }
 
-  const clickMenus = (id) => { 
-    if(currentSlide == data.imgs.length-2 && id == 1) {
+  const clickMenus = (menu) => { 
+    ga.event({
+      action: `solution slide menuClick-${menu.name}`,
+    })
+    if(currentSlide == data.imgs.length-2 && menu.id == 1) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-${360}px)`; 
       setCurrentSlide(1);
       setCurrentSlide(2);
     }
-    if(currentSlide == 2 && id == data.imgs.length-3) {
+    if(currentSlide == 2 && menu.id == data.imgs.length-3) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-${((data.imgs.length-1)*240)+120}px)`; 
       setCurrentSlide(data.imgs.length-1);
       setCurrentSlide(data.imgs.length-2);
     }
-    setCurrentSlide(getCurrent(id));
+    setCurrentSlide(getCurrent(menu.id));
   }
 
   const nextSlide = ()=> {
+    ga.event({
+      action: "solution slide next btn",
+    })
     if (currentSlide == data.imgs.length-2) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-${360}px)`; 
@@ -199,6 +205,9 @@ export default function SolutionT(props) {
   };
 
   const prevSlide = () => {
+    ga.event({
+      action: "solution slide prev btn",
+    })
     if ( currentSlide == 1) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-${((data.imgs.length-2)*240)+120}px)`; 
@@ -251,7 +260,7 @@ export default function SolutionT(props) {
                     pointerLeft={pointerLeft} 
                     setTextLeft={setTextLeft} 
                     ref={menu.id === data.imgs[currentSlide].id ? currentTextRef :  null} 
-                    onClick={() => clickMenus(menu.id)} 
+                    onClick={() => clickMenus(menu)} 
                     key={menu.id} 
                     select={menu.id === data.imgs[currentSlide].id} 
                     menu={menu.name} 

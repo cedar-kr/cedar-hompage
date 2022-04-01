@@ -5,6 +5,7 @@ import { Row, Wrapper } from '../styles/Layout'
 import { Title, NSText } from '../styles/PublicStyles'
 import { Default, Desktop, Mobile, Tablet } from '../utils/media'
 import Fade from 'react-reveal/Fade';
+import * as ga from '../utils/ga';
 
 const ContactContainer = styled.section`
   padding-top: 128px;
@@ -79,6 +80,13 @@ export default function Contact() {
     }
   ];
 
+  const getGa=()=>{
+    ga.event({
+      action: "contact call",
+      params: {}
+    })
+  }
+
   return (
     <ContactContainer>
       <Wrapper>
@@ -102,7 +110,7 @@ export default function Contact() {
           <Mobile>
           {contact_data.map((data,idx) => {
             return (
-              <Link href={data.link} passHref key={idx} scroll={false}>
+              <Link href={data.link} passHref key={idx} scroll={false} onClick={getGa}>
                 <PContactInfo idx={idx}>
                     <Image
                       priority

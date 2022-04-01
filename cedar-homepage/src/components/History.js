@@ -7,7 +7,7 @@ import { history_data } from '../utils/data'
 import useDidMountEffect from '../utils/useDidMountEffect'
 import { Default, Mobile } from '../utils/media'
 import gsap from 'gsap'
-import { fadeInLeft, fadeInRight } from '../styles/keyframe'
+import * as ga from '../utils/ga';
 
 const HistoryContainer = styled.section`
   height: 100%;
@@ -52,7 +52,6 @@ const HistorySlideView = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
-  /* animation : ${fadeInRight} ease-in 940ms; */
 `;
 
 const HistorySlide = styled.div`
@@ -66,6 +65,7 @@ const SlideView = styled.div`
   justify-content: space-between;
   align-items: center;
   min-width: 100%;
+  /* background: red; */
 `;
 
 const SlideCenter = styled.div`
@@ -92,7 +92,6 @@ const SlideItems = styled(Center)`
     padding: 0px 70px;
     align-content: center;
   `};
-  opacity:${props=> props.test ==="t"?1:0};
 `;
 
 const TextPadding = styled(Text)`
@@ -274,6 +273,10 @@ export default function History() {
   const slideRef = useRef();
 
   const nextSlide = () => {
+    ga.event({
+      action: "history next btn",
+      params: {}
+    })
     if (currentSlide >= data.length-1) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-100%)`;
@@ -285,6 +288,10 @@ export default function History() {
   }
 
   const prevSlide = () => {
+    ga.event({
+      action: "history slide next btn",
+      params: {}
+    })
     if (currentSlide == 0) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-500%)`; 
@@ -471,8 +478,8 @@ export default function History() {
                         return <CenterPadding key={idx} >
                           <YearText>{boxData && boxData.year}</YearText>
                           {
-                            boxData.projects && boxData.projects.map((contnet,idx)=> {
-                              return <TextPadding key={idx} dangerouslySetInnerHTML={{__html: contnet }}></TextPadding>
+                            boxData.projects && boxData.projects.map((content,idx)=> {
+                              return <TextPadding key={idx} dangerouslySetInnerHTML={{__html: content.text }}></TextPadding>
                             })
                           }
                         </CenterPadding>
@@ -522,7 +529,7 @@ export default function History() {
                                     <img className="list-item-image"  src={content.img} alt={content.text} />
                                   </div>
                                 </div>
-                                <TextPadding className="list-item-innertext" dangerouslySetInnerHTML={{__html:content.text}}/>
+                                <TextPadding className="list-item-innertext" onMouseEnter={()=>ga.event({action:`history image hover ${content.text}`})} dangerouslySetInnerHTML={{__html:content.text}}/>
                               </a>
                               </nav>
                               })

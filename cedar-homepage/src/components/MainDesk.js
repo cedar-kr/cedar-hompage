@@ -5,6 +5,7 @@ import { Row, Wrapper } from '../styles/Layout'
 import useDidMountEffect from '../utils/useDidMountEffect'
 import Fade from 'react-reveal/Fade';
 import Slide from 'react-reveal/Slide';
+import * as ga from '../utils/ga';
 
 const slideFwdCenter = keyframes`
   0% {
@@ -18,8 +19,6 @@ const slideFwdCenter = keyframes`
 `; 
 
 const MainContainer = styled.section`
-  background-color: #fff;
-  position: relative;
   background-image: url(./webp/bg_main.webp);
   background-size: cover;
   background-position: center center;
@@ -29,11 +28,12 @@ const MainContainer = styled.section`
   padding-top: 198px;
   padding-bottom: 76px;
   overflow: hidden;
-
+  -webkit-background-attachment: fixed;
   ${({theme})=>theme.tablet`
     padding-top: 168px;
   `};
 `;
+
 
 const MainWrapper = styled(Wrapper)`
   display: flex;
@@ -319,6 +319,10 @@ export default function MainDesk(props) {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 })
 
   const prevMain = () => {
+    ga.event({
+      action: "referance slide prev btn click ",
+      params: {}
+    })
     if(select === 0 ){
       setSelect(3);
     }else{
@@ -327,6 +331,10 @@ export default function MainDesk(props) {
   }
 
   const nextMain = () => {
+    ga.event({
+      action: "referance slide next btn click ",
+      params: {}
+    })
     if(select === mainData.length-1){
       setSelect(0);
     }else{

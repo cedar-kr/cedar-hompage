@@ -4,14 +4,13 @@ import { NSText } from '../styles/PublicStyles'
 import { Row, Wrapper } from '../styles/Layout'
 import Image from 'next/image';
 import { Default, Desktop, Tablet } from '../utils/media'
-// import { fadeInLeft, fadeInRight } from '../styles/keyframe';
 import Fade from 'react-reveal/Fade';
 import { useMediaQuery } from 'react-responsive';
+import * as ga from '../utils/ga';
 
 const SolutionContainer = styled.div`
   padding-top: 190px;
   padding-bottom: 182px;
-  // height: 100vh;
   display: flex;
   flex-direction: column;
   background:${props => 
@@ -55,14 +54,12 @@ const SolutionImg = styled.div`
     min-width: 240px;
     min-height: 240px;
   `}
-  /* animation: ${props=> props.reverse ? fadeInRight : fadeInLeft} 470ms; */
 `;
 
 const SolutionSubText = styled(NSText)`
   color: #333;
   font-size: 1.8rem;
   white-space: nowrap;
-  /* animation:  ${props=> props.reverse ? fadeInLeft : fadeInRight} 470ms; */
 `;
 
 
@@ -73,7 +70,6 @@ const SoutionMenus = styled.div`
   flex-wrap: wrap;
   max-width: 740px;
   min-width: 500px;
-  /* animation:  ${props=> props.reverse ? fadeInLeft :fadeInRight } 470ms; */
   ${({theme})=>theme.tablet`
     margin-top: 88px;
     flex-direction: column;
@@ -167,13 +163,18 @@ export default function SolutionDesk(props) {
   const solutionRef = useRef(null);
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
 
-
-  const getImg = (imgs)=> {
+  const getImg = (imgs) => {
     const data = imgs.filter(data=> data.id === select.id);
     return data[0].src_d;
   }
 
-  console.log(data);
+  const menuClick = (e) => {
+    setSelect(e);
+    ga.event({
+      action: `solution menuClick ${e.name} `,
+      params: {}
+    })
+  }
 
   return (
     <Default>
@@ -208,7 +209,7 @@ export default function SolutionDesk(props) {
                   <SoutionMenus reverse={data.id !=2 || isTablet}>
                   {
                     data.menus.map((data, idx)=>{
-                      return <SolutionMenuItems key={idx} onClick={()=>setSelect(data)}>
+                      return <SolutionMenuItems key={idx} onClick={()=>menuClick(data)}>
                         <SoutionMenuIcon select={select.id === data.id}></SoutionMenuIcon>
                         <SoutionMenusText select={select.id === data.id}>{data.name}</SoutionMenusText>
                       </SolutionMenuItems>

@@ -2,6 +2,7 @@ import { Default, Mobile } from '../utils/media';
 import Video from './Video';
 import VideoDesk from './VideoDesk';
 import { useMemo } from 'react';
+import * as ga from '../utils/ga';
 
 export default function Videos() {
   const VideoData = useMemo(()=> [

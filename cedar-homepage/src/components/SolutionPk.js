@@ -6,13 +6,13 @@ import React, { useMemo, useState, useRef, useEffect } from 'react'
 import { Mobile, Default } from'../utils/media'
 import { useMediaQuery } from 'react-responsive'
 import Fade from 'react-reveal/Fade';
+import * as ga from '../utils/ga';
 
 const SolutionPkContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 180px 0px;
-  /* width: 80%; */
   margin: 0 auto;
   overflow: hidden;
 
@@ -176,7 +176,10 @@ export default function SolutionPk() {
   const [eventTouch , setEventTouch] = useState({ x: '', y: '' });
   const isDesktop = useMediaQuery({ minWidth: 1025 });
 
-  const changePackage = (num) => {
+  const changePackage = (data,num) => {
+    ga.event({
+      action: `M_solutionPk menu click ${data.name}`,
+    })
     setSelect(num);
     setCurrentSlide(num);
   }
@@ -259,7 +262,7 @@ export default function SolutionPk() {
         <SolutionPkBtns>
           {
             SolutionPkData.map((data, idx)=>{
-              return <SolutionPkBtn key={idx} select={select === idx ? true: false} mg={idx == data.length-1} onClick={()=>changePackage(idx)}>{data.name}</SolutionPkBtn>
+              return <SolutionPkBtn key={idx} select={select === idx ? true: false} mg={idx == data.length-1} onClick={()=>changePackage(data,idx)}>{data.name}</SolutionPkBtn>
             })
           }
         </SolutionPkBtns>

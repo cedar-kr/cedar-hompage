@@ -5,6 +5,7 @@ import playIcon from '../../public/imgs/video/playBtn.png'
 import { Center, Row } from '../styles/Layout'
 import { NSText, Title } from '../styles/PublicStyles'
 import React, { useMemo } from 'react'
+import * as ga from '../utils/ga';
 
 const VideoContainer = styled.section`
   padding: 30px 0px;
@@ -89,8 +90,8 @@ export default function Video(props) {
               return (
                 <VideoItem key={idx} mg={ idx == VideoData.length-1 ? true : false}>
                   <VideoThumnailBox>
-                    <Link href={data.url} passHref>
-                      <VideoThumnail src={data.src}>
+                    <Link href={data.url} passHref >
+                      <VideoThumnail src={data.src} onClick={()=>ga.event({action: `mobile video ${data.name} click `})}>
                         <VideoPlayBtn src={playIcon} width={34} height={24} alt='Video Play Button'/>
                       </VideoThumnail>
                     </Link>

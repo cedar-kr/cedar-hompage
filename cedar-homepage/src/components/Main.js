@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Row, Wrapper } from '../styles/Layout'
 import useDidMountEffect from '../utils/useDidMountEffect'
 import { touchEnd, touchStart, useInterval } from '../utils/func'
+import * as ga from '../utils/ga';
 
 const MainContainer = styled.section`
   background-color: #fff;
@@ -126,6 +127,11 @@ export default function Main() {
   const slideRef = useRef();
 
   const nextSlide = () => {
+    ga.event({
+      action: "referance slide next btn",
+      params: {}
+    })
+
     if(currentSlide >= totalSlide.length - 2) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(0%)`;
@@ -137,6 +143,10 @@ export default function Main() {
   };
 
   const prevSlide = () => {
+    ga.event({
+      action: "referance slide prev btn",
+      params: {}
+    })
     if(currentSlide == 1) {
       slideRef.current.style.transition = '0s';
       slideRef.current.style.transform = `translateX(-500%)`; 
@@ -167,8 +177,16 @@ export default function Main() {
 
   function handleIsRunningChange() {
     if(isRunning == true) {
+      ga.event({
+        action: "referance slide auto stop",
+        params: {}
+      })
       setIsRunning(false)
     } else {
+      ga.event({
+        action: "referance slide auto play",
+        params: {}
+      })
       setIsRunning(true)
     }
   }

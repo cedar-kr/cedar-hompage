@@ -72,7 +72,6 @@ export const Highlight = styled.span`
   box-shadow: inset 0 -1.9vw 0 #ffc5c5;
   width: fit-content;
   padding: 0 4px;
-  /* transition: box-shadow ${HighlightAni} 300ms ease-in-out; */
   ${({theme})=>theme.fk`
     box-shadow: inset 0 -35px 0 #ffc5c5;
   `};
@@ -109,6 +108,7 @@ export default function HeaderDesk() {
   };
 
   function scrollLR() {
+
     if(scrollRef.current){
       scrollRef.current.style.transform = "translateX(" + -window.pageYOffset + "px)";
       scrollRef.current.style.opacity= 100 - window.pageYOffset/15 + "%";
