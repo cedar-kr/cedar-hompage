@@ -8,6 +8,7 @@ import useDidMountEffect from '../utils/useDidMountEffect'
 import { Default, Mobile } from '../utils/media'
 import gsap from 'gsap'
 import * as ga from '../utils/ga';
+import { useMediaQuery } from 'react-responsive'
 
 const HistoryContainer = styled.section`
   height: 100%;
@@ -65,15 +66,16 @@ const SlideView = styled.div`
   justify-content: space-between;
   align-items: center;
   min-width: 100%;
-  /* background: red; */
 `;
 
 const SlideCenter = styled.div`
   max-width: 100%;
-  /* overflow: hidden; */
   display: flex;
   justify-content:center;
   z-index:100;
+  ${({theme})=> theme.mobile`
+    opacity:1;
+  `}
 `;
 
 const SlideContainer = styled.div`
@@ -87,10 +89,11 @@ const SlideItems = styled(Center)`
   align-items: normal;
   align-content: center;
   min-width: 100%;
-
+  opacity:${props=> props.center?1:0};
   ${({theme})=>theme.mobile`
     padding: 0px 70px;
     align-content: center;
+    opacity:1;
   `};
 `;
 
@@ -255,22 +258,25 @@ const SlideButton = styled.a`
     height: 45px;
     width: 45px;
   `}
-  :hover {
-    background: ${props=>`url(${props.src_h})`};
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  &:active {
-    background: ${props=>`url(${props.src_a})`};
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
+  ${props=> props.isDefault &&`
+    :hover {
+      background: ${props=>`url(${props.src_h})`};
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    &:active {
+      background: ${props=>`url(${props.src_a})`};
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  `}
 `;
 
 export default function History() {
   const [data, setData] = useState(chunk(history_data,2));
   const [currentSlide, setCurrentSlide] = useState(1);
   const slideRef = useRef();
+  const isDefault = useMediaQuery({ minWidth: 768 });
 
   const nextSlide = () => {
     ga.event({
@@ -451,20 +457,22 @@ export default function History() {
   return (
     <HistoryContainer >
       <HistoryWrapper>
-        <HistoryTitle>
-          시더의
-          <br />
-          즐거운 도전들을
-          <br />
-          소개합니다.
-        </HistoryTitle>
         <Mobile>
+          <HistoryTitle>
+            시더의
+            <br />
+            즐거운 도전들을
+            <br />
+            소개합니다.
+          </HistoryTitle>
           <SlideView>
             <ButtonBox left>
               <SlideButton
                 onClick={prevSlide}
                 src="/icons/h_left_arrow.png"
                 src_h="/icons/h_left_arrow_hover.png"
+                src_a="/icons/h_left_arrow_click.png"
+                isDefault={isDefault}
               />
             </ButtonBox>
             <SlideCenter>
@@ -495,11 +503,20 @@ export default function History() {
                 onClick={nextSlide}
                 src="/icons/h_right_arrow.png"
                 src_h="/icons/h_right_arrow_hover.png"
+                src_a="/icons/h_right_arrow_click.png"
+                isDefault={isDefault}
               />
             </ButtonBox>
           </SlideView>
         </Mobile>
         <Default>
+          <HistoryTitle>
+            시더의
+            <br />
+            즐거운 도전들을
+            <br />
+            소개합니다.
+          </HistoryTitle>
           <HistorySlideView>
           <ButtonBox left>
             <SlideButton
@@ -515,7 +532,7 @@ export default function History() {
                   ref={slideRef}>
                 {
                   data.map((box,idx)=>{
-                    return <SlideItems key={idx} test={currentSlide ===idx ?"t":"f"}>
+                    return <SlideItems key={idx} center={currentSlide === idx}>
                       { 
                         box.map((boxData,idx)=> {
                           return <CenterPadding key={idx}>
