@@ -37,7 +37,6 @@ const HistoryWrapper = styled(Wrapper)`
 
 const HistoryTitle = styled(Title)`
   margin-top: 37px;
-  /* animation : ${fadeInLeft} ease-in 470ms; */
 
   ${({theme})=>theme.tablet`
     margin-top: 102px;
@@ -242,10 +241,10 @@ const ButtonBox = styled.div`
   `}
 `;
 
-const SlideButton = styled.div`
+const SlideButton = styled.a`
   height: 100px;
   width: 100px;
-  background: ${props=> `url(${props.src})`};
+  background: ${props=>`url(${props.src})`};
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -258,7 +257,12 @@ const SlideButton = styled.div`
     width: 45px;
   `}
   :hover {
-    background: ${props=> `url(${props.src_h})`};
+    background: ${props=>`url(${props.src_h})`};
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  &:active {
+    background: ${props=>`url(${props.src_a})`};
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -495,6 +499,7 @@ export default function History() {
               onClick={prevSlide}
               src="/icons/h_left_arrow.png"
               src_h="/icons/h_left_arrow_hover.png"
+              src_a="/icons/h_left_arrow_click.png"
             />
             </ButtonBox>
             <HistorySlide>
@@ -536,6 +541,7 @@ export default function History() {
                 onClick={nextSlide}
                 src="/icons/h_right_arrow.png"
                 src_h="/icons/h_right_arrow_hover.png"
+                src_a="/icons/h_right_arrow_click.png"
               />
             </ButtonBox>
           </HistorySlideView>
