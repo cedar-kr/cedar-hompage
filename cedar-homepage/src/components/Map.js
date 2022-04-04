@@ -6,6 +6,8 @@ import { fadeDefualt } from '../styles/keyframe';
 const MapContainer = styled(Reveal)`
   width: 100%;
   height: 524px;
+  background-color: #fff;
+  
   ${({theme})=>theme.tablet`
     height: 698px;
     width: 56.1%;
