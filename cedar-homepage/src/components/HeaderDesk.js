@@ -243,10 +243,10 @@ export default function HeaderDesk() {
         },
         particles: {
           color: {
-            value: "rgb(195,195,195)",
+            value: "rgb(200,200,200)",
           },
           links: {
-            color: "rgb(195,195,195)",
+            color: "rgb(200,200,200)",
             distance: 150,
             enable: true,
             opacity: 0.8,
