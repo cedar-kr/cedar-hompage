@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Wrapper } from '../styles/PublicStyles'
+import { Section } from '../section'
 
 export default function Home() {
   return (
@@ -56,7 +56,7 @@ export default function Home() {
 
         <link rel="icon" href="/icons/favicon.png" />
       </Head>
-      <Wrapper />
+      <Section />
     </div>
   )
 }
