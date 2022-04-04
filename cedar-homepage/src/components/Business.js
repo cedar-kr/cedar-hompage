@@ -295,7 +295,7 @@ export default function Business() {
           </Center>
         </Mobile>
         <Default>
-          <Reveal keyframes={fadeInLeftDefualt} duration={470} triggerOnce>
+          <Reveal keyframes={fadeInLeftDefualt} triggerOnce>
             <BusinessTitle>
               시더는 다양한
               <br />
@@ -304,7 +304,7 @@ export default function Business() {
               구축하고 있습니다.
             </BusinessTitle>
           </Reveal>
-        <Reveal keyframes={fadeInRightBusiness} delay={550} duration={1000} triggerOnce>
+        <Reveal keyframes={fadeInRightBusiness} delay={470} triggerOnce>
         <BusinessView>
           <MovingBall onMouseMove={gsapControl} ref={ballRef}>
               <MovingBallWrap>

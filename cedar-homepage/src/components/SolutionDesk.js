@@ -11,8 +11,9 @@ import {Reveal} from 'react-awesome-reveal';
 import Fade from 'react-reveal/Fade';
 
 const SolutionContainer = styled.div`
-  padding-top: 190px;
-  padding-bottom: 182px;
+  padding-top: 160px;
+  padding-bottom: 152px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   background:${props => 
@@ -21,6 +22,10 @@ const SolutionContainer = styled.div`
     (props.bg == 'puple' && '#f3f2ff')
   };
   margin: 0 auto;
+
+  ${({theme})=>theme.tablet`
+    height:768px;
+  `};
 
   ${({theme})=>theme.mobile`
     padding-top: 140px;
@@ -57,7 +62,7 @@ const fadeInTop = keyframes`
 }
 `; 
 
-const SolutionImg = styled.div`
+const SolutionImg = styled(Reveal)`
   margin-left: ${props=> props.reverse ? '82px': '0px'};
   margin-right: ${props=> props.reverse ? '0px': '82px'};
 
@@ -173,15 +178,16 @@ export default function SolutionDesk(props) {
   const { data } = props;
   const [ select, setSelect ] = useState({id:1});
   const solutionRef = useRef(null);
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1025 });
 
   const getImg = (imgs) => {
     const data = imgs.filter(data=> data.id === select.id);
     return data[0].src_d;
   }
 
-  const menuClick = (e) => {
-    setSelect(e);
+  const menuClick = async(e) => {
+    await setSelect(e);
+    getImg(data.imgs);
     ga.event({
       action: `solution menuClick ${e.name} `,
       params: {}
@@ -193,26 +199,27 @@ export default function SolutionDesk(props) {
       <SolutionContainer bg={data.bg} >
         <SolutionWrapper>
           <SolutionRow reverse={data.id !=2 || isTablet}>
-          <Reveal 
-            keyframes={ data.id !=2 || isTablet ?fadeInRightDefualt: fadeInLeftDefualt} 
-            delay={ data.id !=2 || isTablet ? 550 : 0} 
-            triggerOnce>
-              <SolutionImg reverse={data.id !=2|| isTablet} ref={solutionRef}>
-                <Fade top spy={select}>
-                    <Image
-                      alt="solution"
-                      src={getImg(data.imgs)}
-                      height={700}
-                      width={700}
-                      layout="intrinsic"
-                    />
+              <SolutionImg 
+                reverse={data.id !=2|| isTablet} 
+                ref={solutionRef}
+                keyframes={data.id ==2 || isTablet ?fadeInLeftDefualt:fadeInRightDefualt } 
+                delay={ data.id ==2 || isTablet ?  0 : 470} 
+                triggerOnce
+                >
+                <Fade top spy={select} delay={250} distance={'110px'} duraction={400}>
+                  <Image
+                    alt="solution"
+                    src={getImg(data.imgs)}
+                    height={700}
+                    width={700}
+                    layout="intrinsic"
+                  />
                 </Fade>
               </SolutionImg>
-              </Reveal>
-              <div style={{display:'flex',width:'50%'}}>
               <Reveal
-                keyframes={ data.id !=2 || isTablet ? fadeInLeftDefualt : fadeInRightDefualt} 
-                delay={ data.id !=2 || isTablet ? 0 :550 }
+                style={{display:'flex',width:'50%'}}
+                keyframes={ data.id ==2 || isTablet ? fadeInRightDefualt:fadeInLeftDefualt } 
+                delay={ data.id ==2 || isTablet ? 470 :0 }
                 triggerOnce
                 cascade
                 >
@@ -240,7 +247,6 @@ export default function SolutionDesk(props) {
               </SoutionMenus>
             </div>
             </Reveal>
-            </div>
           </SolutionRow>
         </SolutionWrapper>
       </SolutionContainer>

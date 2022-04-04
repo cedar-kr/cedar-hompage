@@ -4,46 +4,9 @@ import { Title } from '../styles/PublicStyles'
 import { Wrapper } from '../styles/Layout'
 import { useMediaQuery } from 'react-responsive'
 import { useState, useEffect, useRef } from 'react'
-// import { fadeInLeft, fadeInRight, fadeInRightText } from '../styles/keyframe'
 import Particles from 'react-tsparticles'
-
-const fadeInRight = keyframes`
-  0%{
-    transform: translateX(130px);
-    opacity: 0;
-  }
-  50%{
-    transform: translateX(130px);
-    opacity: 0;
-  }100%{
-    transform: translateX(0px);
-    opacity: 1;
-  }
-`;  
-
-const fadeInRightText = keyframes`
-0%{
-  transform: translateX(130px);
-  opacity: 0;
-}
-50%{
-  transform: translateX(130px);
-  opacity: 0;
-}100%{
-  transform: translateX(0px);
-  opacity: 1;
-}
-`;  
-
-const fadeInLeft = keyframes`
-0%{
-  transform: translateX(-130px);
-  opacity: 0;
-}100%{
-  transform: translateX(0px);
-  opacity: 1;
-}
-`;  
+import Reveal from 'react-awesome-reveal'
+import { fadeInLeftDefualt, fadeInRightDefualt } from '../styles/keyframe'
 
 const HeaderContainer = styled.header`
   margin: auto 0px;
@@ -84,29 +47,25 @@ const HeaderVideo = styled.div`
   width: 100%;
   height: auto;
   margin-top: 8vmin;
-  animation : ${fadeInRight} ease-in 940ms;
 
   ${({theme})=>theme.tablet`
     margin-top: 6.5vmin;
   `};
 `;
 
+const HeaderVideoAlign=styled(Reveal)`
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: flex-end;
+  width: 100%;
+  height: auto;
+`;
+
 export const HeaderTitle = styled(Title)`
   color: #000;
   user-select: none;
-  animation : ${fadeInLeft} ease-in 470ms;
 `;
-
-const HighlightAni = keyframes`
-  0%{
-    width: 0px;
-  }
-  100%{
-    width: fit-content;
-  }
-`;
-
-
 export const Highlight = styled.span`
   box-shadow: inset 0 -1.9vw 0 #ffc5c5;
   width: fit-content;
@@ -135,7 +94,6 @@ const HeaderText = styled.div`
   ${({theme})=>theme.tablet`
     margin-top: 27px;
   `};
-  animation : ${fadeInRightText} ease-in 1410ms;
 `;
 
 const ParticleBackground = styled(Particles)`
@@ -145,17 +103,15 @@ const ParticleBackground = styled(Particles)`
 export default function HeaderDesk() {
   const isDesktop = useMediaQuery({ minWidth: 1025 })
   const scrollRef = useRef();
-  const [scrollTop,setScrollTop] = useState(null);
 
   window.onscroll = function () {
     scrollLR();
   };
 
   function scrollLR() {
-
     if(scrollRef.current){
       scrollRef.current.style.transform = "translateX(" + -window.pageYOffset + "px)";
-      scrollRef.current.style.opacity= 100 - window.pageYOffset/15 + "%";
+      scrollRef.current.style.opacity= 100 - window.pageYOffset/10 + "%";
     }
   }
 
@@ -170,11 +126,14 @@ export default function HeaderDesk() {
         />
       </HeaderLogo>
       <HeaderWrapper>
-        <HeaderTitle draggable={false}>
-          더 나은 삶을 위한 새로운 기술,<br/>
-          우리는 <Highlight>주식회사 시더</Highlight>입니다.
-        </HeaderTitle>
+      <Reveal keyframes={fadeInLeftDefualt} triggerOnce>
+          <HeaderTitle draggable={false}>
+            더 나은 삶을 위한 새로운 기술,<br/>
+            우리는 <Highlight>주식회사 시더</Highlight>입니다.
+          </HeaderTitle>
+        </Reveal>
         <HeaderVideo isDesktop={isDesktop}>
+        <HeaderVideoAlign keyframes={fadeInRightDefualt} delay={470} triggerOnce>
             <video 
               onClick={(e)=> e.stopPropagation()} 
               autoPlay="autoplay"
@@ -185,21 +144,24 @@ export default function HeaderDesk() {
               loop
               preload="auto"
             >
-              {/* <source
-              src="https://d1rwo7d37ra2e3.cloudfront.net/video/promo_video.mp4#t=0.2"
+              <source
+              src="https://d1rwo7d37ra2e3.cloudfront.net/video/promo_video_mobile.mp4"
               type="video/mp4"
-              /> */}
+              />
               <source
               src="./videos/promo_video.webm#t=0.2"
               type="video/webm"
               />
             </video>
+            </HeaderVideoAlign>
             <HeaderText isDesktop={isDesktop} ref={scrollRef} onScroll={scrollLR}>
+            <HeaderVideoAlign keyframes={fadeInRightDefualt} delay={940} triggerOnce>
               <Image
                 width={isDesktop? 664 : 400}
                 height={isDesktop? 172 : 104}
                 src='/webp/bg_logo.webp'
               />
+            </HeaderVideoAlign>
             </HeaderText>
         </HeaderVideo>
       </HeaderWrapper>

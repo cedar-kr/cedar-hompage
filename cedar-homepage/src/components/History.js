@@ -9,6 +9,8 @@ import { Default, Mobile } from '../utils/media'
 import gsap from 'gsap'
 import * as ga from '../utils/ga';
 import { useMediaQuery } from 'react-responsive'
+import Reveal, { Fade } from 'react-awesome-reveal'
+import { fadeInLeftDefualt, fadeInRightDefualt } from '../styles/keyframe'
 
 const HistoryContainer = styled.section`
   height: 100%;
@@ -47,13 +49,22 @@ const HistoryTitle = styled(Title)`
   `};
 `;
 
-const HistorySlideView = styled.div`
-  width: 60%;
+const HistorySlideBox = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
 `;
+
+const HistorySlideView = styled(Reveal)`
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+`;
+
 
 const HistorySlide = styled.div`
   width: 100%;
@@ -85,13 +96,13 @@ const SlideContainer = styled.div`
 `;
 
 const SlideItems = styled(Center)`
-  padding: 0px 70px;
+  padding: 0px 80px;
   align-items: normal;
   align-content: center;
   min-width: 100%;
   opacity:${props=> props.center?1:0};
   ${({theme})=>theme.mobile`
-    padding: 0px 70px;
+    padding: 0px 18px;
     align-content: center;
     opacity:1;
   `};
@@ -113,11 +124,6 @@ const TextPadding = styled(Text)`
     padding: 8px 0px;
     font-size: 1.8rem;
   `};
-  ${({theme})=>theme.mobile`
-    font-size: 1.4rem;
-    padding: 5px 0px;
-    text-align: center;
-  `}
 
   opacity: 1;
   transition: opacity 350ms ease;
@@ -128,6 +134,19 @@ const TextPadding = styled(Text)`
     letter-spacing: 0.2rem;
     font-weight:bold;
   }
+`;
+
+const TextPaddingMobile = styled(Text)`
+  font-size: 1.4rem;
+  padding: 5px 0px;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: center;
+  padding: 10px 0px;
+  font-size: calc(1.8rem + (100vw - 1024px) * ((25 - 18) / (1920 - 1024)));
+  width: 100%;
+  word-break: keep-all;
+  cursor: pointer;
 `;
 
 const CenterPadding = styled(Center)`
@@ -142,6 +161,7 @@ const CenterPadding = styled(Center)`
   ${({theme})=>theme.mobile`
     align-items: center;
     margin: 30px 0px;
+    justify-content: center;
   `};
 
 .list-item {
@@ -242,6 +262,13 @@ const ButtonBox = styled.div`
     width: 45px;
   `}
 `;
+const SlideMobileButton = styled.div`
+    height: 45px;
+    width: 45px;
+    background: ${props=>`url(${props.src})`};
+  background-size: cover;
+  background-repeat: no-repeat;
+`;
 
 const SlideButton = styled.a`
   height: 100px;
@@ -254,22 +281,16 @@ const SlideButton = styled.a`
     width: calc(45px + (100vw - 768px) * ((100 - 45) / (1024 - 768)));
     height: calc(45px + (100vw - 768px) * ((100 - 45) / (1024 - 768)));
   `}
-  ${({theme})=>theme.mobile`
-    height: 45px;
-    width: 45px;
-  `}
-  ${props=> props.isDefault &&`
-    :hover {
-      background: ${props=>`url(${props.src_h})`};
-      background-size: contain;
-      background-repeat: no-repeat;
+  :hover {
+    background: ${props=>`url(${props.src_h})`};
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  &:active {
+    background: ${props=>`url(${props.src_a})`};
+    background-size: contain;
+    background-repeat: no-repeat;
     }
-    &:active {
-      background: ${props=>`url(${props.src_a})`};
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
-  `}
 `;
 
 export default function History() {
@@ -467,7 +488,7 @@ export default function History() {
           </HistoryTitle>
           <SlideView>
             <ButtonBox left>
-              <SlideButton
+              <SlideMobileButton
                 onClick={prevSlide}
                 src="/icons/h_left_arrow.png"
                 src_h="/icons/h_left_arrow_hover.png"
@@ -487,7 +508,7 @@ export default function History() {
                           <YearText>{boxData && boxData.year}</YearText>
                           {
                             boxData.projects && boxData.projects.map((content,idx)=> {
-                              return <TextPadding key={idx} dangerouslySetInnerHTML={{__html: content.text }}></TextPadding>
+                              return <TextPaddingMobile key={idx} dangerouslySetInnerHTML={{__html: content.text }}></TextPaddingMobile>
                             })
                           }
                         </CenterPadding>
@@ -499,7 +520,7 @@ export default function History() {
               </SlideContainer>
             </SlideCenter>
             <ButtonBox right>
-              <SlideButton
+              <SlideMobileButton
                 onClick={nextSlide}
                 src="/icons/h_right_arrow.png"
                 src_h="/icons/h_right_arrow_hover.png"
@@ -510,6 +531,10 @@ export default function History() {
           </SlideView>
         </Mobile>
         <Default>
+          <Reveal
+            keyframes={ fadeInLeftDefualt} 
+            triggerOnce
+          >
           <HistoryTitle>
             시더의
             <br />
@@ -517,8 +542,10 @@ export default function History() {
             <br />
             소개합니다.
           </HistoryTitle>
-          <HistorySlideView>
-          <ButtonBox left>
+          </Reveal>
+          <HistorySlideView keyframes={fadeInRightDefualt} delay={470} triggerOnce>
+            <HistorySlideBox>
+            <ButtonBox left>
             <SlideButton
               onClick={prevSlide}
               src="/icons/h_left_arrow.png"
@@ -568,6 +595,7 @@ export default function History() {
                 src_a="/icons/h_right_arrow_click.png"
               />
             </ButtonBox>
+            </HistorySlideBox>
           </HistorySlideView>
         </Default>
       </HistoryWrapper>

@@ -24,15 +24,16 @@ const MainContainer = styled.section`
   background-position: center center;
   background-color: rgba(43, 43, 43, 0.6);
   background-attachment: fixed;
-  padding-top: 198px;
+  padding-top: 160px;
   padding-bottom: 76px;
   overflow: hidden;
   -webkit-background-attachment: fixed;
   -webkit-background-size: cover;
   -webkit-background-repeat: no-repeat;
-
+  height: 100vh;
   ${({theme})=>theme.tablet`
     padding-top: 168px;
+    height:768px;
   `};
 `;
 
