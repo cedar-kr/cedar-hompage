@@ -310,6 +310,10 @@ const MainSlideArrow = styled.div`
   }
 `;
 
+const MainContentReveal = styled(Reveal)`
+  width: 100%;
+`;
+
 export default function MainDesk(props) {
   const { mainData } = props;
   const [ select, setSelect ] = useState(0);
@@ -366,7 +370,6 @@ export default function MainDesk(props) {
     }
   }, [select]);
 
-
   return (
     <MainContainer>
       <MainWrapper>
@@ -376,37 +379,37 @@ export default function MainDesk(props) {
             <MainTitle>판교 '테크원' 빌딩 솔루션 구축 및 하드웨어 납품</MainTitle>
           </MainTitles>
         </Reveal>
-        <Reveal keyframes={fadeDefualt} duration={2500} triggerOnce>
-        <MainContent>
-          <MainInfo>
-            <MainInfoSlider>
-              <MainInfoSliderItems ref={slideRef}>
-              {
-                mainData.map((data, idx)=>{
-                  return <div key={idx}>
-                    <MainInfoTitle>{data.title}</MainInfoTitle>
-                    <MainInfoSubTitle>{data.subTitle}</MainInfoSubTitle>
-                  </div>
-                })
-              }
-              </MainInfoSliderItems>
-            </MainInfoSlider>
-            <MainReferanceDown></MainReferanceDown>
-          </MainInfo>
-          <MainSlider>
-            <MainInfoSliderImgs>
-              {
-                mainData.map((data,idx)=>{
-                  return select===idx && ( 
-                        <MainInfoSliderImg key={idx} main src={data.src_d} />
-                  )
-                })
-              }
-              <MainInfoSliderImg src={select+1 >= mainData.length ? mainData[0].src_d :  mainData[select+1].src_d} />
-            </MainInfoSliderImgs>
-          </MainSlider>
-        </MainContent>
-        </Reveal>
+        <MainContentReveal keyframes={fadeDefualt} duration={2500} triggerOnce>
+          <MainContent>
+            <MainInfo>
+              <MainInfoSlider>
+                <MainInfoSliderItems ref={slideRef}>
+                {
+                  mainData.map((data, idx)=>{
+                    return <div key={idx}>
+                      <MainInfoTitle>{data.title}</MainInfoTitle>
+                      <MainInfoSubTitle>{data.subTitle}</MainInfoSubTitle>
+                    </div>
+                  })
+                }
+                </MainInfoSliderItems>
+              </MainInfoSlider>
+              <MainReferanceDown></MainReferanceDown>
+            </MainInfo>
+            <MainSlider>
+              <MainInfoSliderImgs>
+                {
+                  mainData.map((data,idx)=>{
+                    return select===idx && ( 
+                          <MainInfoSliderImg key={idx} main src={data.src_d} />
+                    )
+                  })
+                }
+                <MainInfoSliderImg src={select+1 >= mainData.length ? mainData[0].src_d :  mainData[select+1].src_d} />
+              </MainInfoSliderImgs>
+            </MainSlider>
+          </MainContent>
+          </MainContentReveal>
         <SlideRow>
           <MainSlideArrow 
             src="/icons/left_arrow_w.png"
