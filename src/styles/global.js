@@ -4,7 +4,7 @@ const GlobalStyle = createGlobalStyle`
 
   html,
   body {
-    font-size: 0.1vw;
+    font-size: 62.5%;
   }
 
   * {
