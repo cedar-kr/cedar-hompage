@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import { Title } from '../styles/fontStyles'
-import Image from 'next/image';
-import { business_data } from '../utils/data';
+import { Wrapper } from '../styles/Layout'
+import Image from 'next/image'
+import { business_data } from '../utils/data'
 
 
 const BusinessContainer = styled.section`
@@ -61,6 +62,7 @@ const BoxItemText = styled.p`
 export default function Business(props) {
   return (
     <BusinessContainer>
+      <Wrapper>
       <BusinessTitle>사업분야</BusinessTitle>
       <BusinessContents>
         {business_data.map((data,idx) => {
@@ -80,6 +82,7 @@ export default function Business(props) {
           )
         })}
       </BusinessContents>
+      </Wrapper>
     </BusinessContainer>
   )
 }
