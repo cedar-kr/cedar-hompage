@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react'
 
 const useDidMountEffect = (func, deps) => {
 	const didMount = useRef(false);
@@ -9,4 +9,4 @@ const useDidMountEffect = (func, deps) => {
 	}, deps);
 };
 
-export default useDidMountEffect;
+export default useDidMountEffect
