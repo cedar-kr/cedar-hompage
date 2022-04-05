@@ -18,4 +18,4 @@ const media = Object.keys(mediaQuery).reduce((acc, label) => {
   return acc
 }, {})
 
-export default { media }
+export { media }
