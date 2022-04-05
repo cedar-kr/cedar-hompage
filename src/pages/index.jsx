@@ -10,7 +10,9 @@ export default function Home() {
           name="description"
           content="(주)시더는 매장내에 정보나 광고 디스플레이를 원격 관리하는 클라우드 및 안드로이드 기반 디지털 사이니지 솔루션을 서비스하고 있는 회사입니다."
         />
-
+        <meta charset="UTF-8"/>
+        <link rel="icon" href="/favicon.png" type="image/x-icon" sizes="16x16" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.1" />
         {/* 기본 태그 미리보기 */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="http://cedar.kr" />
