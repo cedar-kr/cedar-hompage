@@ -6,4 +6,5 @@ export const Title = styled.h1`
   font-weight: 600;
   line-height: 60px;
   text-align: center;
+  color: #222222;
 `;

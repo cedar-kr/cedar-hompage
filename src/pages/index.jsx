@@ -57,6 +57,7 @@ export default function Home() {
         <meta httpEquiv="Subject" content="주식회사 시더" />
 
         <link rel="icon" href="/icons/favicon.png" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@700&display=swap" rel="stylesheet" />
       </Head>
       <Section />
     </div>
