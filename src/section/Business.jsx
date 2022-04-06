@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 import { Title } from '../styles/fontStyles'
-import { Wrapper } from '../styles/Layout'
 import Image from 'next/image'
-import { business_data } from '../utils/data'
-
+import { businessData } from '../utils/data'
+import { Wrapper } from '../styles/Layout';
 
 const BusinessContainer = styled.section`
   padding-top: 80px;
@@ -20,6 +19,7 @@ const BusinessContents = styled.div`
 `;
 
 const Box = styled.div`
+  width:100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,6 +46,7 @@ const BoxItemTitle = styled.p`
   line-height: 44px;
   color: #000;
   text-align: center;
+  width:100%;
   // white-space: nowrap;
 `;
 
@@ -65,7 +66,7 @@ export default function Business(props) {
       <Wrapper>
       <BusinessTitle>사업분야</BusinessTitle>
       <BusinessContents>
-        {business_data.map((data,idx) => {
+        {businessData.map((data,idx) => {
           return (
             <Box key={idx}> 
               <BoxItemIcon

@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components'
-import { Wrapper } from '../styles/Layout'
 import Image from 'next/image'
+import { Wrapper } from '../styles/PublicStyles';
 
 const VideoContainer = styled.section`
   background-color: #19B4A2;
@@ -61,7 +61,7 @@ const PlayBtn = styled.div`
 
 const PlayBtnArrow = styled.div`
   background: url(../icons/play_btn.png) no-repeat;
-  background-position: center;
+  background-position: center center;
   width: 27px;
   height: 28px;
 `;
@@ -89,26 +89,27 @@ position: absolute;
 export default function Video() {
   return(
     <VideoContainer>
-      <Wrapper><VideoContents>
-      <VideoTextArea>
-          <VideoTitle>더 자세한 정보가 필요하신가요?</VideoTitle>
-          <VideoText>시더 디지털 사이니지의 다양한 정보를 영상으로 만나보세요.</VideoText>
-        </VideoTextArea>
-        <VideoImgArea>
-          <BtnWrapper>
-            <PlayBtn>
-              <PlayBtnArrow />
-            </PlayBtn>
-            <TextCircle />
-          </BtnWrapper>
-          <Image
-            src="/imgs/video_banner.png"
-            width={621}
-            height={150}
-            alt="Video Banner"
-          />
-        </VideoImgArea>
-      </VideoContents>
+      <Wrapper width={80}>
+        <VideoContents>
+          <VideoTextArea>
+            <VideoTitle>더 자세한 정보가 필요하신가요?</VideoTitle>
+            <VideoText>시더 디지털 사이니지의 다양한 정보를 영상으로 만나보세요.</VideoText>
+          </VideoTextArea>
+          <VideoImgArea>
+            <BtnWrapper>
+              <PlayBtn>
+                <PlayBtnArrow />
+              </PlayBtn>
+              <TextCircle />
+            </BtnWrapper>
+            <Image
+              src="/imgs/video_banner.png"
+              width={621}
+              height={150}
+              alt="Video Banner"
+            />
+          </VideoImgArea>
+        </VideoContents>
       </Wrapper>
     </VideoContainer>
   )
