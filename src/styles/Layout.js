@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   width: 79.17%;
 
-  ${({ theme }) => theme.fk` 
+  /* ${({ theme }) => theme.fk` 
 
   `};
   ${({ theme }) => theme.tv` 
@@ -21,5 +21,5 @@ export const Wrapper = styled.div`
   `};
   ${({ theme }) => theme.mobile` 
 
-  `};
+  `}; */
 `;
