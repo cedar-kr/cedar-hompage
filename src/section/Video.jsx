@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 import Image from 'next/image'
-import { Wrapper } from '../styles/PublicStyles';
+import Link from 'next/link'
 
 const VideoContainer = styled.section`
   background-color: #19B4A2;
@@ -8,8 +8,12 @@ const VideoContainer = styled.section`
   padding-bottom: 67px;
 `;
 
+const VideoWrapper = styled.div`
+  width:80%;
+  margin: 0 auto;
+`;
 const VideoTextArea = styled.div`
-  font-family: 'Noto Sans KR';
+  font-family: 'NotoSansKR-Regular';
   font-weight: 400;
   color: #FFFFFF;
 `;
@@ -89,19 +93,21 @@ position: absolute;
 export default function Video() {
   return(
     <VideoContainer>
-      <Wrapper width={80}>
+      <VideoWrapper width={80}>
         <VideoContents>
           <VideoTextArea>
             <VideoTitle>더 자세한 정보가 필요하신가요?</VideoTitle>
             <VideoText>시더 디지털 사이니지의 다양한 정보를 영상으로 만나보세요.</VideoText>
           </VideoTextArea>
           <VideoImgArea>
+            <Link href={'https://www.youtube.com/channel/UCivb3IzyMclwLiXcKOKKTtw'}>
             <BtnWrapper>
               <PlayBtn>
                 <PlayBtnArrow />
               </PlayBtn>
               <TextCircle />
             </BtnWrapper>
+            </Link>
             <Image
               src="/imgs/video_banner.png"
               width={621}
@@ -110,7 +116,7 @@ export default function Video() {
             />
           </VideoImgArea>
         </VideoContents>
-      </Wrapper>
+      </VideoWrapper>
     </VideoContainer>
   )
 }

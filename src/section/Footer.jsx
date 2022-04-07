@@ -36,7 +36,7 @@ const FooterText = styled.div`
   color:#fff;
   margin-left:19px;
 
-  font-family: 'Noto Sans KR';
+  font-family: 'NotoSansKR-Regular';
   font-style: normal;
   font-weight: 400;
   font-size: 18px;

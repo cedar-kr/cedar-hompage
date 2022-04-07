@@ -16,6 +16,21 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
+  @font-face { 
+    font-family: 'NotoSansKR-Black'; 
+    src: url("/fonts/NotoSansKR-Black.otf"); 
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face { 
+    font-family: 'NotoSansKR-Regular'; 
+    src: url("/fonts/NotoSansKR-Regular.otf"); 
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
   html,
   body {
     font-size: 62.5%;

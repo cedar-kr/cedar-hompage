@@ -1,13 +1,14 @@
 import styled from "styled-components";
-import { Wrapper } from "../styles/PublicStyles";
 import React from 'react';
 import { solutionData } from "../utils/data";
 import Image from "next/image";
 
-const SolutionWrapper = styled(Wrapper)`
+const SolutionWrapper = styled.div`
   height:800px;
   display:flex;
   flex-direction:row;
+  width:100%;
+  
 `;
 
 const SolutionInfo = styled.div`
@@ -18,7 +19,7 @@ const SolutionInfo = styled.div`
 `;
 
 const SolutionNumber = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSansKR-Regular', sans-serif;
   font-weight:700;
   font-size:4rem;
   line-height:59.2px;
@@ -38,7 +39,7 @@ const SolutionTitle = styled.div`
 `;
 
 const SolutionSubs = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSansKR-Regular', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 2rem;
@@ -77,7 +78,7 @@ const ContentBlock = styled.div`
 `;
 
 const ContentBlockTitle = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSansKR-Regular', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 30px;
@@ -112,8 +113,8 @@ export default function Solution(params) {
           <SolutionContents>
             <ContentBox>
               {
-                data.contents.map((content)=>{
-                  return <ContentBlock bg={content.type === 'image' ? content.src : null} grid={content.grid}>
+                data.contents.map((content,idx)=>{
+                  return <ContentBlock key={idx} bg={content.type === 'image' ? content.src : null} grid={content.grid}>
                   <ContentBlockTitle color={content.type === 'image' && content.name!=="키오스크" && content.name!=="OTP 로그인"} center={content.name=="키오스크"} dangerouslySetInnerHTML={{__html:content.name}}></ContentBlockTitle>
                   {content.type==='defualt' && 
                     <ContentBlockImg top={content.top} left={content.left}>

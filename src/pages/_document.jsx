@@ -32,7 +32,6 @@ class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
-          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
            <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}

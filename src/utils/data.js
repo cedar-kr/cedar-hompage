@@ -12,8 +12,8 @@ export const headerData = [
       },
       {
         src:'/imgs/headers/plant.png',
-        width:240,
-        height:300,
+        width:250,
+        height:430,
       }
     ],
   },
@@ -30,8 +30,8 @@ export const headerData = [
       },
       {
         src:'/imgs/headers/usim.png',
-        width:240,
-        height:300,
+        width:250,
+        height:430,
       }
     ],
   }
@@ -58,6 +58,7 @@ export const referanceData = [
     id:1,
     title:"길찾기 키오스크",
     src:'/imgs/referances/kiosk.png',
+    bg:'/imgs/referances/길찾기.jpg',
     subs:'판교 알파돔시티 테크원빌딩',
     imgSize:{
       width:277,
@@ -68,6 +69,7 @@ export const referanceData = [
     id:2,
     title:'유심 키오스크',
     src:'/imgs/referances/usim.png',
+    bg:'/imgs/referances/유심키오스크.jpg',
     subs:'LG U+ 무인 매장',
     imgSize:{
       width:277,
@@ -78,6 +80,7 @@ export const referanceData = [
     id:3,
     title:'LED',
     src:'/imgs/referances/led.png',
+    video:'/videos/LED.mp4',
     subs:'현대백화점',
     imgSize:{
       width:364,
@@ -86,8 +89,9 @@ export const referanceData = [
   },
   {
     id:4,
-    title:'멀티비전',
+    title:'멀티비젼',
     src:'/imgs/referances/multi.png',
+    bg:'/imgs/referances/멀티비젼.jpg',
     subs:'하나은행',
     imgSize:{
       width:306,
@@ -98,6 +102,7 @@ export const referanceData = [
     id:5,
     title:'터치 키오스크',
     src:'/imgs/referances/kimpo.png',
+    bg:'/imgs/referances/터치키오스크.jpg',
     subs:'김포국제공항, 청주국제공항',
     imgSize:{
       width:263,
