@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Title } from '../styles/fontStyles'
 import Image from 'next/image'
 import { businessData } from '../utils/data'
 import { Wrapper } from '../styles/Layout';
@@ -9,8 +8,18 @@ const BusinessContainer = styled.section`
   padding-bottom: 140px;
 `;
 
-const BusinessTitle = styled(Title)`
+const BusinessTitle = styled.div`
   margin-bottom: 80px;
+  font-family:'SCDream6';
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 60px;
+  text-align: center;
+  color: #222222;
+
+  ${({theme})=> theme.pnt`
+    font-size:4.5rem;
+  `}
 `;
 
 const BusinessContents = styled.div`
@@ -40,23 +49,26 @@ const BoxItemIcon = styled(Image)`
 
 const BoxItemTitle = styled.p`
   margin: 30px 0px;
-  font-family: 'Noto Sans KR';
+  font-family: 'NotoSansKR-Regular';
   font-weight: 400;
   font-size: 3rem;
   line-height: 44px;
   color: #000;
   text-align: center;
   width:100%;
-  // white-space: nowrap;
 `;
 
 const BoxItemText = styled.p`
-  font-family: 'Noto Sans KR';
+  font-family: 'NotoSansKR-Regular';
   font-weight: 400;
   font-size: 2rem;
   line-height: 30px;
   color: #222;
   padding-bottom: 36px;
+  width:${props=> 
+    props.idx==2 && 95 ||
+    props.idx==1 && 86.8||
+    props.idx==0 && 86 }%;
 `;
 
 
@@ -76,7 +88,7 @@ export default function Business(props) {
                 alt="Business Icons"
               />
               <BoxItemTitle>{data.title}</BoxItemTitle>
-              <BoxItemText>
+              <BoxItemText idx={idx}>
                 {data.content}
               </BoxItemText>
             </Box>

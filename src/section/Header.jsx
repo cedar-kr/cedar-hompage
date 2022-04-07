@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Wrapper } from "../styles/PublicStyles";
+import { Wrapper } from "../styles/Layout";
 import styled, { keyframes } from "styled-components";
 import { Progress } from "../styles/Keyframes";
 import { headerData } from "../utils/data";
@@ -7,17 +7,16 @@ import { useEffect, useState } from "react";
 import { useInterval } from "../utils/func";
 
 const HeaderLogo = styled(Wrapper)`
-  height:80px;
-  display:flex;
-  align-items:center;
+  height: 80px;
+  display: flex;
+  align-items :center;
 `;
 
 const HeaderSlide = styled.div`
   display:flex;
   background-image:url('/imgs/headers/header_bg.jpg');
   height: 65.472vh;
-  padding-left: 298px ;
-  padding-right:185px;
+  justify-content:center;
   align-items:center;
   background-repeat: no-repeat;
   background-size: 97%;
@@ -26,10 +25,12 @@ const HeaderSlide = styled.div`
 const HeaderIntro = styled.div`
   display:flex;
   flex-direction:column;
+  justify-content:center;
+  width: 33%;
 `;
 
 const HeaderText = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSansKR-Regular', sans-serif;
   font-weight:700;
   font-size:7rem;
   color:${props=> props.point ?'#2FCFBE':'#000'};
@@ -44,6 +45,8 @@ const HeaderEngText = styled.div`
 `;
 
 const HeaderFrame = styled.div`
+  width: 40%;
+  margin-left:-4%;
 `;
 
 const HeaderFrameImg = styled.div`
@@ -51,7 +54,6 @@ const HeaderFrameImg = styled.div`
   flex-direction:row;
   justify-content:center;
   align-items:center;
-  width:700px;
 `;
 
 const FrameLeft = keyframes`
@@ -67,7 +69,6 @@ const FrameLeft = keyframes`
 const FrameRight = keyframes`
   0%{
     transform:translate3d(0px, 0px,0px);
-
   }50%{
     transform:translate3d(15px, 15px,0px);
   }100%{
@@ -82,7 +83,7 @@ const Frame = styled.div`
 `;
 
 const ImageInfo = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSansKR-Regular', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 1.5rem;
@@ -91,14 +92,17 @@ const ImageInfo = styled.div`
   color: #8D8D8D;
   margin-top:20px;
 `;
-
+const SliderTimerBox = styled.div`
+  width:97%;
+  margin: 0 auto;
+`
 
 const HeaderSlideTimer = styled.progress`
  appearance: none;
  width:100%;
  border:0;
  position:relative;
- top:-4px;
+ top:-5px;
  height:5px;
   ::-webkit-progress-bar{
     background:white;
@@ -122,13 +126,13 @@ export default function Header(params) {
 
   return (
     <>
-      <HeaderLogo width={80}>
+      <HeaderLogo>
         <Image src={'/icons/logo.png'} width={112} height={30}/>
       </HeaderLogo>
         {
           headerData.map((data,idx)=>{
             return slide == data.id && (
-              <HeaderSlide width={97}>
+              <HeaderSlide width={97} key={idx}>
                 <HeaderIntro>
                   <HeaderText point>{data.text}</HeaderText>
                   <HeaderText>더 쉽고 편리하게.</HeaderText>
@@ -152,9 +156,9 @@ export default function Header(params) {
             )
           })
         }
-      <Wrapper width={97}>
+      <SliderTimerBox>
         <HeaderSlideTimer min="1" max="100" value={100} ></HeaderSlideTimer>
-      </Wrapper>
+      </SliderTimerBox>
     </>
   )
 }
