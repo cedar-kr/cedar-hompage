@@ -1,30 +1,57 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { historyData } from "../utils/data";
+import SwiperCore, { Virtual, Navigation,Scrollbar } from 'swiper';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import React, { useState } from "react";
 
-const HistoryWrapper = styled.div`
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
+SwiperCore.use([Virtual, Navigation, Scrollbar]);
+
+const HistorySection = styled.section`
   ${props=> props.bg && `
       background-image:url(${props.bg});
       background-size: cover;
       background-repeat: no-repeat;
-    `
-  }
-  height:710px;
+  `}
+  height: 65.472vh;
+`
+
+const HistoryWrapper = styled(Swiper)`
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items:center;
-  overflow:hidden;
-`;
+  margin:0px auto;
+  height: 63vh;
 
-const HistoryCards = styled.div`
-  display:flex;
-  flex-direction: row;
-  margin-top:94px;
-  /* margin-left:${props=> props.scrollVal ? 4500-props.scrollVal : 4500 }px; */
-  margin-left:4500px;
+  .swiper-slide {
+    margin-top:134px;
+    height: 413px;
+    max-width:496px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+  }
 
-  
+  .swiper-scrollbar{
+    background:white;
+    width: 752px;
+    height: 5px;
+    margin-left:30%;
+    cursor: pointer;
+    margin-top:88px;
+  }
+  .swiper-scrollbar-drag{
+    background: #2FCFBE;
+    width: 200px;
+    height: 5px;
+    cursor: pointer;
+  }
 `;
 
 const HistoryCard = styled.div`
@@ -37,14 +64,17 @@ const HistoryCard = styled.div`
   align-items:center;
   text-align:center;
   padding: 20px;
-  margin-right:16px;
-  margin-top:${props=> props.t ? -30 :0}px;
+  margin-top:${props=> props.t ? 0 :30}px;
   background:${props=> props.point ?  `url('/imgs/historys/background.png')`:'#fff'};
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
   backdrop-filter: blur(6px);
+  cursor: pointer;
 `;
 
 const HistoryYear = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSansKR-Black', sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 9rem;
@@ -57,60 +87,44 @@ const HistoryYear = styled.div`
 `;
 
 const HistorySubs = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSansKR-Regular', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 22px;
   line-height: 33px;
+  text-align:center;
   color: ${props => props.point ? '#FFFFFF' : '#000000' };
 `;
 
-const HistoryScroll = styled.input`
-  margin-top:88px;
-  -webkit-appearance: none;
-  width: 752px;
-  height: 5px;
-  background: #F6F6F6;
-  outline: none;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-  ::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 200px;
-    height: 5px;
-    background: #2FCFBE;
-    cursor: pointer;
-  }
-    ::-moz-range-thumb {
-    width: 200px;
-    height: 5px;
-    background: #2FCFBE;
-    cursor: pointer;
-  }
-`;
 
 export default function History(params) {
-  const [ scrollVal, setScrollVal ] = useState(30);
-  const [ current, setCurrent ] = useState(0);
-
-  const Test = ( ) => {
-
-  }
+  const [swiper, setSwiper] = useState(null);
+  const [ activeIndex, setActiveIndex ] = useState(0);
 
   return (
-    <HistoryWrapper bg={'/imgs/historys/2022.jpg'}>
-      <HistoryCards scrollVal={scrollVal*historyData.length*9.5}>
-      { historyData.map((data,idx)=>{
-        return <HistoryCard key={data.year} point={historyData[0].year === data.year} t={idx%2==0}>
-          <HistoryYear point={historyData[0].year === data.year}>{data.year}</HistoryYear>
-          {data.content.map((content,idx)=>{
-            return <HistorySubs point={historyData[0].year === data.year} key={idx}>{content}</HistorySubs>
-          })}
-        </HistoryCard>
-      })}
-      </HistoryCards>
-      <HistoryScroll type="range" min="1" max="100" value={scrollVal} onChange={(e)=>setScrollVal(e.target.value)}/>
-    </HistoryWrapper>
+    <HistorySection bg={historyData[activeIndex].img}>
+     <HistoryWrapper 
+        slidesPerView={3.8}
+        spaceBetween={16}
+        centeredSlides={true}
+        virtual
+        onSwiper={(s) => setSwiper(s)}
+        scrollbar={{ draggable: true, dragSize: 200 }}
+        modules={[Scrollbar]}
+        onSlideChange={(e)=> setActiveIndex(e.activeIndex)}
+        onClick={(e) => swiper.slideTo(e.clickedIndex, 500, false)}
+      >
+        {historyData.map((slideContent, index) => (
+          <SwiperSlide key={slideContent} virtualIndex={index} >
+            <HistoryCard point={historyData[0].year === slideContent.year} t={index%2==0} >
+              <HistoryYear point={historyData[0].year === slideContent.year}>{slideContent.year}</HistoryYear>
+              {slideContent.content.map((content,idx)=>{
+                return <HistorySubs point={historyData[0].year === slideContent.year} key={idx}>{content}</HistorySubs>
+              })}
+            </HistoryCard>
+          </SwiperSlide>
+        ))}
+        </HistoryWrapper>
+    </HistorySection>
   )
 }
