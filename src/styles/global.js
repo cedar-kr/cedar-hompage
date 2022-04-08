@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import reset from 'styled-reset'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -24,12 +25,20 @@ const GlobalStyle = createGlobalStyle`
   }
 
   @font-face { 
+    font-family: 'NotoSansKR-Bold'; 
+    src: url("/fonts/NotoSansKR-Bold.otf"); 
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face { 
     font-family: 'NotoSansKR-Regular'; 
     src: url("/fonts/NotoSansKR-Regular.otf"); 
     font-weight: normal;
     font-style: normal;
   }
 
+  ${reset}
 
   html,
   body {

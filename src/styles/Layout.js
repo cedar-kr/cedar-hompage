@@ -1,25 +1,14 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  margin: 0 auto;
-  width: 79.17%;
-
-  /* ${({ theme }) => theme.fk` 
-
+  /* margin: 0 auto;
+  width: 79.17%; */
+  ${({ theme }) => theme.pc` 
   `};
-  ${({ theme }) => theme.tv` 
-
-  `};
-  ${({ theme }) => theme.desktop` 
-  
-  `};
-  ${({ theme }) => theme.laptop` 
-
+  ${({ theme }) => theme.pnt` 
   `};
   ${({ theme }) => theme.tablet` 
-
   `};
-  ${({ theme }) => theme.mobile` 
-
-  `}; */
+  ${({ theme }) => theme.tnm` 
+  `};
 `;

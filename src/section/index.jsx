@@ -7,6 +7,7 @@ import Video from './Video'
 import History from './History';
 import Footer from './Footer';
 import SolutionPackage from './SolutionPackage';
+import CompanyBanner from './CompanyBanner';
 
 export const Section = () => {
   return (
@@ -17,6 +18,7 @@ export const Section = () => {
       <Solution />
       <SolutionBanner />
       <History />
+      <CompanyBanner />
       <SolutionPackage />
       <Video />
       <Footer />

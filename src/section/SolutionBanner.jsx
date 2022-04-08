@@ -1,18 +1,19 @@
 import styled from "styled-components";
-import { Wrapper } from "../styles/PublicStyles";
 import React, { useState } from 'react';
 import Image from "next/image";
 
-const SolutionWrapper = styled(Wrapper)`
+const SolutionWrapper = styled.div`
   height:300px;
   display:flex;
   flex-direction:row;
   justify-content:space-between;
   align-items:center;
+  width:80%;
+  margin: 0 auto;
 `;
 
 const SolutionBannerInfo = styled.div`
-   font-family: 'Noto Sans KR', sans-serif;
+   font-family: 'NotoSansKR-Regular', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
@@ -21,7 +22,7 @@ const SolutionBannerInfo = styled.div`
 `;
 
 const SolutionBannerTitle= styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSansKR-Regular', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
@@ -31,7 +32,7 @@ const SolutionBannerTitle= styled.div`
 `;
 
 const SolutionBannerSubs= styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSansKR-Regular', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -44,7 +45,7 @@ const SolutionBannerImage = styled.div``;
 export default function Solution(params) {
 
   return (
-    <SolutionWrapper width={80}>
+    <SolutionWrapper>
       <SolutionBannerInfo>
         <SolutionBannerTitle>New Digital Signage Solution</SolutionBannerTitle>
         <SolutionBannerSubs>자사는 다양한 모듈 연동과 기술 확대로 신개념 디지털 사이니지 생태계를 구축합니다.</SolutionBannerSubs>

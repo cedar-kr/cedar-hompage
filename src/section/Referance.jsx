@@ -1,21 +1,35 @@
-import styled from "styled-components";
-import { Wrapper } from "../styles/PublicStyles";
+import styled, { keyframes } from "styled-components";
 import React, { useState } from 'react';
 import { referanceData } from "../utils/data";
 import Image from "next/image";
 
-const ReferanceWrapper = styled(Wrapper)`
+const ReferanceWrapper = styled.div`
   height:1000px;
   display:flex;
   flex-direction:row;
   overflow:hidden;
 `;
 
+const testst = keyframes`
+  to{
+    opacity:0;
+  }from{opacity:1}
+`;
+
 const ReferImage = styled.div`
   height:100%;
-  background-image:url('/imgs/referances/길찾기.jpg');
-  background-repeat: no-repeat;
-  background-size:cover;
+  ${props=> props.bg && `
+    background-image:url(${props.bg});
+    background-repeat: no-repeat;
+    background-size:cover;
+  `}
+  width:49.58%;
+  z-index:1;
+  animation:${testst} 0.5s ease-in-out;
+`;
+
+const ReferVideo = styled.video`
+  height:100%;
   width:49.58%;
   z-index:1;
 `;
@@ -42,7 +56,7 @@ const ReferSubs = styled.div`
   font-weight: 400;
   font-size: 2rem;
   line-height: 30px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSansKR-Regular', sans-serif;
   color: #222222;
   padding: 0px 200px 0px 147px;
 `;
@@ -74,12 +88,21 @@ const SlideItem = styled.div`
   flex-direction:column;
   justify-content:space-between;
   padding:40px 0px;
-  margin-right:16px;
   z-index:101;
+  margin-right:16px;
+
+${props=> props.select &&`
+    transform: translateX(-${(100 * (props.select-1) )}%);
+    transition: transform 0.5s ease-in-out;
+  `}
+${props=> props.scrollVal &&`
+    transform: translateX(-${props.scrollVal}px);
+    transition: transform 0.5s ease-in-out;
+`}
 `;
 
 const ItemTitle = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSansKR-Regular', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 2rem;
@@ -95,7 +118,7 @@ const ItemImage = styled.div`
 `;
 
 const ItemSubs = styled.div`
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSansKR-Regular', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 2rem;
@@ -139,26 +162,47 @@ const SlideScroll = styled.input`
 export default function Referance(params) {
   const [ scrollVal, setScrollVal ] = useState(0);
   const [ data, setData ] = useState(referanceData?referanceData:[]);
+  const [ select, setSelect ] = useState(referanceData?referanceData[0]:{});
+  const [ length, setLength] = useState(referanceData.length);
 
   const ClickItems = () => {
+    if(length==0){
+      setScrollVal(0);
+      setLength(referanceData.length);
+    }else{
+      setScrollVal(100/(length-1));
+      setLength(length-1);
+    }
     const test = data.shift();
     let dta = data.filter(data=> data.id!=test.id);
+    // dta.push(test);
     setData(dta);
-    setScrollVal(100/data.length);
+    setSelect(dta[0]);
   }
 
+
   return (
-    <ReferanceWrapper width={100}>
-      <ReferImage />
+    <ReferanceWrapper>
+      {
+        select.bg ? <ReferImage bg={select.bg}/> : 
+      <ReferVideo 
+        onClick={(e)=> e.stopPropagation()} 
+        autoPlay muted playsInline loop preload="auto">            
+          <source
+          src={select.video}
+          type="video/mp4"
+          />
+      </ReferVideo>
+      }
       <ReferContent>
         <ReferTitle>주요 레퍼런스</ReferTitle>
         <ReferSubs>다양한 디스플레이 통합 솔루션을 기반으로 여러 분야에서 차별화된 레퍼런스를 보유합니다.</ReferSubs>
           <Slide>
             <SlideAbsolute>
-              <SlideItems>
+              <SlideItems >
                 {
                   data.map((data,idx)=>{
-                    return <SlideItem key={idx} onClick={ClickItems}>
+                    return <SlideItem select={data.id == select.id} key={idx} onClick={ClickItems}>
                     <ItemTitle>{data.title}</ItemTitle>
                     <ItemImage width={data.imgSize.width} height={data.imgSize.height}>
                       <Image src={data.src} width={data.imgSize.width} height={data.imgSize.height}/>
