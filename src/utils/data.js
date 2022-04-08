@@ -40,14 +40,17 @@ export const headerData = [
 export const businessData = [
   {
     icon: "/icons/kiosk.svg",
+    icon_m: "/icons/display_m.svg",
     title: "Display & Kiosk Production",
     content: "강한 내구성과 긴 수명의 디스플레이와 키오스크 제품으로 고객 요구사항에 부흥"
   },{
     icon: "/icons/time.svg",
+    icon_m: "/icons/management_m.svg",
     title: "Management System",
     content: "모니터링 대시보드, 원격 관리, 방송 예약 편성 등 디지털 사이니지 관리 시스템 제공"
   },{
     icon: "/icons/touch.svg",
+    icon_m: "/icons/experience_m.svg",
     title: "Experience Optimization",
     content: "전용 A/S고객센터 운영으로 문제 해결을 위한 안내 및 안정적 사용을 위한 최적화 가이드 제공 "
   }
@@ -63,7 +66,7 @@ export const referanceData = [
     imgSize:{
       width:277,
       height:273,
-    }
+    },
   },
   {
     id:2,
@@ -107,6 +110,66 @@ export const referanceData = [
     imgSize:{
       width:263,
       height:298,
+    }
+  },
+];
+
+export const referanceMobileData = [
+  {
+    id:1,
+    title:"길찾기 키오스크",
+    src:'/imgs/referances/kiosk.png',
+    bg:'/imgs/referances/길찾기.jpg',
+    subs:'판교 알파돔시티<br/> 테크원빌딩',
+    imgSize:{
+      width:121,
+      height:119,
+    },
+  },
+  {
+    id:2,
+    title:'유심 키오스크',
+    src:'/imgs/referances/usim.png',
+    bg:'/imgs/referances/유심키오스크.jpg',
+    subs:'LG U+ 무인 매장',
+    imgSize:{
+      width:120,
+      height:137,
+    }
+  },
+
+  {
+    id:3,
+    title:'멀티비젼',
+    src:'/imgs/referances/multi.png',
+    bg:'/imgs/referances/멀티비젼.jpg',
+    subs:'하나은행',
+    imgSize:{
+      width:130,
+      height:41,
+    }
+  },
+  {
+    id:4,
+    title:'터치 키오스크',
+    src:'/imgs/referances/kimpo.png',
+    bg:'/imgs/referances/터치키오스크.jpg',
+    subs:'김포국제공항,<br/> 청주국제공항',
+    imgSize:{
+      width:69,
+      height:108,
+    }
+  },
+
+  {
+    id:5,
+    title:'LED',
+    src:'/imgs/referances/led.png',
+    video:'/videos/LED.mp4',
+    subs:'현대백화점',
+    imgSize:{
+      width:120,
+      height:75.824,
     }
   },
 ];
@@ -249,6 +312,143 @@ export const solutionData = [
   }
 ];
 
+export const solutionMobileData = [
+  {
+    id:1,
+    title:'솔루션',
+    contents:[
+      {
+        type:'defualt',
+        src:'/imgs/solutions/01_theme.png',
+        name:'디자인<br/>템플릿',
+        grid:2,
+        imgWidth:368,
+        imgHeight:167,
+        left:0,
+        top:85,
+      },
+      {
+        type:'defualt',
+        src:'/imgs/solutions/01_multi.png',
+        name:'원격 멀티<br/>디바이스<br/>관리',
+        grid:2,
+        imgWidth:516,
+        imgHeight:151,
+        left:0,
+        top:90,
+      },
+      {
+        type:'defualt',
+        src:'/imgs/solutions/01_sensor.png',
+        name:'다양한 센서 연동',
+        grid:4,
+        imgWidth:450,
+        imgHeight:280,
+        left:15,
+        top:20,
+      },
+      
+      {
+        type:'defualt',
+        src:'/imgs/solutions/01_group.png',
+        name:'그룹관리',
+        grid:4,
+        imgWidth:227,
+        imgHeight:207,
+        left:7,
+        top:93,
+      },
+    ]
+  },
+  {
+    id:2,
+    title:'하드웨어',
+    contents:[
+      {
+        type:'image',
+        src:'/imgs/solutions/02_led.png',
+        name:'LED',
+        grid:4,
+      },
+
+      {
+        type:'image',
+        src:'/imgs/solutions/02_kiosk.png',
+        name:'키오스크',
+        grid:2,
+      },
+      {
+        type:'defualt',
+        src:'/imgs/solutions/02_oled.png',
+        name:'투명OLED<br/>터치 디스플레이',
+        grid:2,
+        imgWidth:214,
+        imgHeight:186,
+        left:100,
+        top:65,
+      },
+      {
+        type:'image',
+        src:'/imgs/solutions/02_multi.png',
+        name:'멀티비전',
+        grid:4,
+      },
+      {
+        type:'image',
+        src:'/imgs/solutions/02_sinage.png',
+        name:'일반<br/>디지털 사이니지',
+        grid:4,
+        left:100,
+        top:65,
+      },
+    ]
+  },
+  {
+    id:3,
+    title:'관리페이지',
+    contents:[
+      {
+        type:'defualt',
+        src:'/imgs/solutions/03_si.png',
+        name:'통계관리',
+        grid:5,
+        imgWidth:283,
+        imgHeight:183,
+        left:120,
+        top:80,
+      },
+      {
+        type:'defualt',
+        src:'/imgs/solutions/03_monitor.png',
+        name:'원격<br/>모니터링',
+        grid:2,
+        imgWidth:200,
+        imgHeight:152,
+        left:0,
+        top:110,
+      },
+      {
+        type:'defualt',
+        src:'/imgs/solutions/03_error.png',
+        name:'오류 감지',
+        grid:2,
+        imgWidth:332,
+        imgHeight:182,
+        left:0,
+        top:100,
+      },
+      {
+        type:'image',
+        src:'/imgs/solutions/03_otp.png',
+        name:'OTP 로그인',
+        grid:5,
+        left:0,
+        top:0,
+      },
+    ]
+  }
+];
+
 export const historyData = [
   {
     year:2022,
@@ -361,4 +561,130 @@ export const historyData = [
     ],
     img:'/imgs/historys/2013.jpg',
   },
+]
+
+export const solutionPkData = [
+  {
+    name: 'MODI Local',
+    details:[
+      {
+        icon:{
+          src:'/icons/usb.svg',
+          width: 82.36,
+          height:70.71,
+        },
+        type:'USB',
+        subs:[
+          {
+            text:'비 인터넷 환경 사용 가능',
+          }
+        ]
+      },
+      {
+        icon:{
+          src:'/icons/intra.svg',
+          width:51.11,
+          height:60
+        },
+        type:'Intra',
+        subs:[
+          {
+            text:'내부 인터넷 사용가능',
+          },
+          {
+            text:'기업 보안 특화 솔루션',
+          }
+        ]
+      },
+    ]
+  },{
+    name: 'MODI Cloud',
+    details:[
+      {
+        icon:{
+          src:'/icons/Star1.svg',
+          width:100,
+          height:100
+        },
+        type:'Standard',
+        subs:[
+          {
+            text:'콘텐츠 클라우드 저장',
+          },
+          {
+            text:'실시간 원격 모니터링',
+          },
+          {
+            text:'안드로이드 STB',
+            point:true,
+          }
+        ]
+      },
+      {
+        icon:{
+          src:'/icons/Star2.svg',
+          width:100,
+          height:100
+        },
+        type:'Professional',
+        subs:[
+          {
+            text:'콘텐츠 클라우드 저장',
+          },
+          {
+            text:'실시간 원격 모니터링',
+          },
+          {
+            text:'Window, Linux 호환 가능',
+            point:true,
+          },
+          {
+            text:'디자인 템플릿 사용',
+            point:true,
+          },
+          {
+            text:'그룹편성',
+            point:true,
+          },
+          {
+            text:'스마트폰 제어',
+            point:true,
+          }
+        ]
+      },
+      {
+        icon:{
+          src:'/icons/Star3.svg',
+          width:100,
+          height:100
+        },
+        type:'Enterprise',
+        subs:[
+          {
+            text:'콘텐츠 클라우드 저장',
+          },
+          {
+            text:'실시간 원격 모니터링',
+          },
+          {
+            text:'모든 OS 호환 가능',
+            point:true,
+          },
+          {
+            text:'디자인 템플릿 사용',
+          },
+          {
+            text:'그룹편성',
+          },
+          {
+            text:'스마트폰 제어',
+          },
+          {
+            text:'생방송 지원',
+            point:true,
+          }
+        ]
+      },
+    ]
+  }
 ]

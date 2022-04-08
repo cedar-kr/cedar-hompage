@@ -1,5 +1,7 @@
 import Head from 'next/head'
+import { MobileSection } from '../mobileSection'
 import { Section } from '../section'
+import { Default, Mobile, Pc, Pnt, Tablet, Tnm } from '../utils/media'
 
 export default function Home() {
   return (
@@ -12,7 +14,6 @@ export default function Home() {
         />
         <meta charset="UTF-8"/>
         <link rel="icon" href="/favicon.png" type="image/x-icon" sizes="16x16" />
-        <meta name="viewport" content="width=device-width, initial-scale=0.1" />
         {/* 기본 태그 미리보기 */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="http://cedar.kr" />
@@ -60,7 +61,13 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@700&display=swap" rel="stylesheet" />
       </Head>
       <div>
-        <Section />
+        <Default>
+          <Section/>
+        </Default>
+        <Mobile>
+          <MobileSection/>
+        </Mobile>
+
       </div>
     </div>
   )
