@@ -46,12 +46,12 @@ const ReferTitle = styled.div`
 
 const BgSlide = styled(Swiper)`
   height:290px;
-  width:100%;
+  width:100vw;
 `;
 
 const Slide = styled(Swiper)`
   height:290px;
-  width:100%;
+  width:100vw;
   margin-top:-50px;
 
   .swiper-pagination-bullet {
@@ -59,9 +59,11 @@ const Slide = styled(Swiper)`
     height:5px;
     background: #C4C4C4;
     opacity:1;
+    cursor: pointer;
   }
   .swiper-pagination-bullet-active{
     background: #2FCFBE;
+    cursor: pointer;
   }
   .swiper-button-prev{
     position:absolute;
@@ -71,6 +73,7 @@ const Slide = styled(Swiper)`
     top:0;
     left:0;
     opacity:0;
+    cursor: pointer;
   }
   .swiper-button-next{
     position:absolute;
@@ -80,6 +83,7 @@ const Slide = styled(Swiper)`
     top:0;
     right:0;
     opacity:0;
+    cursor: pointer;
   }
 `;
 
@@ -88,11 +92,12 @@ const SlideItem = styled(SwiperSlide)`
   border-radius: 20px;
   height: 250px;
   width: 160px;
-  margin-right:12px;
+  margin-right:1.2vmin;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
   padding:15px;
+  cursor: pointer;
 `;
 
 const ItemTitle = styled.div`
@@ -137,19 +142,20 @@ export default function Referance(params) {
           autoplay={{
             delay: 3000,
           }}
+          spaceBetween={16}
           slidesPerGroup={1}
           loopFillGroupWithBlank={true}
           loop={true}
           modules={[ Autoplay,EffectFade]}
           onSwiper={(s) => setBgSwiper(s)}
         >
-        {referanceMobileData.map((data, index) => {
-          return (<SwiperSlide key={data} virtualIndex={activeIndex}>
-           {data.bg ?<ReferImage bg={data.bg}/>:<ReferVideo 
+        {referanceMobileData.map((bg,idx) => {
+          return (<SwiperSlide key={idx} virtualIndex={activeIndex}>
+           {bg.bg ?<ReferImage bg={bg.bg}/>:<ReferVideo 
             onClick={(e)=> e.stopPropagation()} 
             autoPlay muted playsInline loop preload="auto">            
               <source
-              src={referanceMobileData[activeIndex].video}
+              src={bg.video}
               type="video/mp4"
               />
           </ReferVideo> }
@@ -174,9 +180,36 @@ export default function Referance(params) {
         modules={[Pagination,Autoplay,Navigation]}
         className="mySwiper"
         onSwiper={(s) => setSwiper(s)}
+        onSlideChange={(e)=> setActiveIndex(e.activeIndex)}
+        breakpoints={{
+          380:{
+            slidesPerView:2.2
+          },
+          400:{
+            slidesPerView:2.3
+          },
+          420:{
+            slidesPerView:2.4
+          },
+          450:{
+            slidesPerView:2.5
+          },
+          470:{
+            slidesPerView:2.6
+          },
+          500:{
+            slidesPerView:2.7
+          },
+          520:{
+            slidesPerView:2.8
+          },
+          550:{
+            slidesPerView:2.9
+          },
+        }}
       >
         {referanceMobileData.map((data, index) => {
-          return (<SwiperSlide key={data} virtualIndex={index}>
+          return (<SwiperSlide key={index} virtualIndex={index}>
             <SlideItem >
               <ItemTitle>{data.title}</ItemTitle>
               <Image src={data.src} width={data.imgSize.width} height={data.imgSize.height}/>

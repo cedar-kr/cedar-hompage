@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 import { Progress } from "../styles/Keyframes";
 import { headerData } from "../utils/data";
 import { useEffect, useState } from "react";
-import { useInterval } from "../utils/func";
+import { useInterval } from '../utils/func';
 
 const HeaderLogo = styled(Wrapper)`
   height: 40px;
@@ -16,7 +16,6 @@ const HeaderLogo = styled(Wrapper)`
 const HeaderSlide = styled.div`
   display:flex;
   background-image:url('/imgs/headers/header_bg_mobile.png');
-  /* height: 84.355vmax; */
   width:100%;
   height: 640px;
   flex-direction:column;
@@ -24,6 +23,7 @@ const HeaderSlide = styled.div`
   background-size: cover;
   background-position: center center;
   padding: 0px 12.62px;
+  overflow: hidden;
 `;
 const HeaderIntro = styled.div`
   display:flex;
@@ -85,8 +85,8 @@ const FrameRight = keyframes`
 
 const Frame = styled.div`
   display:flex;
-  justify-content:${props=> props.left ?"left":"right"};
-  animation: ${props=> props.left?FrameLeft:FrameRight} 2s infinite;
+  justify-content:${props=> props.left ? "left" : "right"};
+  animation: ${props=> props.left ? FrameLeft : FrameRight} 2s infinite;
 `;
 
 const ImageInfo = styled.div`
@@ -97,7 +97,7 @@ const ImageInfo = styled.div`
   line-height: 17.76px;
   text-align: left;
   color: #8D8D8D;
-  margin-top:38px;
+  margin-top: 38px;
 `;
 const SliderTimerBox = styled.div`
   width:100%;
@@ -120,19 +120,47 @@ const HeaderSlideTimer = styled.progress`
   animation: ${Progress} 7s infinite;
 `;
 
+const first = keyframes`
+  0%{
+    transform:translateX(120px);
+  }
+  100%{
+    transform:translateX(0px);
+  }
+`;
+
+const last = keyframes`
+  0%{
+    transform:translate3d(200px, 70px, 0px);
+  }
+  100%{
+    transform:translate3d(100px, 70px,0px);
+  }
+`;
+
+const HeaderFirstImg = styled.div` 
+  animation: ${first} 0.5s ease-in;
+`;
+
+const HeaderLastImg = styled.div`
+  animation: ${last} 1s ease-in;
+  position:absolute;
+  transform:translate3d(100px, 70px,0px);
+`;
+
 export default function Header(params) {
   const [ slide, setSlide ] = useState(1);
 
-  // useInterval(()=>{
-  //   if(slide === headerData.length){
-  //     setSlide(1);
-  //   }else{
-  //     setSlide(slide+1);
-  //   }
-  // },7000)
+  useInterval(()=>{
+    if(slide === headerData.length){
+      setSlide(1);
+    }else{
+      setSlide(slide+1);
+    }
+  },7000)
 
   return (
-    <>
+    <div>
       <HeaderLogo>
         <Image src={'/icons/logo.png'} width={67.2} height={18}/>
       </HeaderLogo>
@@ -144,15 +172,19 @@ export default function Header(params) {
                   <HeaderText point>{data.text}</HeaderText>
                   <HeaderText>더 쉽고 편리하게.</HeaderText>
                   <HeaderEngText>
-                    Digital Signage
+                    {data.engText}
                   </HeaderEngText>
                 </HeaderIntro>
                 <HeaderFrame>
                   <Frame left>
                     <Image src={'/imgs/headers/header_frame_left.svg'} height={33.27} width={33.71}/></Frame>
                   <HeaderFrameImg>
-                    <Image src={data.imgs[0].src} width={33.71} height={33.27}/>
-                    <Image src={data.imgs[1].src} width={33.71} height={33.27}/>
+                    <HeaderFirstImg>
+                      <Image src={data.mobileImg[0].src} width={data.mobileImg[0].width} height={data.mobileImg[0].height}/>
+                    </HeaderFirstImg>
+                    <HeaderLastImg>
+                      <Image src={data.mobileImg[1].src} width={data.mobileImg[1].width} height={data.mobileImg[1].height}/>
+                    </HeaderLastImg>
                   </HeaderFrameImg>
                   <Frame>
                     <Image src={'/imgs/headers/header_frame_right.svg'} height={33.27} width={33.71}/>
@@ -166,6 +198,6 @@ export default function Header(params) {
       <SliderTimerBox>
         <HeaderSlideTimer min="1" max="100" value={100} ></HeaderSlideTimer>
       </SliderTimerBox>
-    </>
+    </div>
   )
 }

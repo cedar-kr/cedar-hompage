@@ -4,6 +4,10 @@ import Referance from './Referance';
 import Solution from './Solutions';
 import History from './History';
 import CompanyBanner from './CompanyBanner';
+import SolutionPackage from './SolutionPackage';
+import Video from './Video';
+import Footer from './Footer';
+
 export const MobileSection = () => {
   return (
     <> 
@@ -13,9 +17,9 @@ export const MobileSection = () => {
       <Solution />
       <History />
       <CompanyBanner />
-      {/*<SolutionPackage />
+      <SolutionPackage />
       <Video />
-      <Footer /> */}
+      <Footer />
     </>
   )
 }

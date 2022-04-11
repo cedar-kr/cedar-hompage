@@ -5,12 +5,16 @@ import Image from "next/image";
 
 const SolutionWrapper = styled.div`
   height:${props => props.admin ? 711 : 841}px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
   width:100%;
   background:#F6F6F6;
   padding-top:40px;
+  padding-left:16px;
+  padding-right:16px;
+`;
+
+const SolutionBox = styled.div`
+  display:flex;
+  flex-direction:column;
 `;
 
 const SolutionNumber = styled.div`
@@ -37,8 +41,8 @@ const SolutionTitle = styled.div`
 
 const SolutionContents = styled.div`
   display: grid;
-	grid-template-columns: repeat(4, 76px);
-  grid-template-rows: 140px 140px;
+	grid-template-columns: repeat(4,minmax(76px, 1fr));
+  grid-template-rows: ${props=> props.rowHeight};
   gap:8px;
 `;
 
@@ -51,7 +55,7 @@ const ContentBlock = styled.div`
   ${props => props.bg&&`
     background-image:url(${props.bg});
     background-repeat:no-repeat;
-    background-size:cover;
+    background-size:100%;
   `};
 `;
 
@@ -64,12 +68,11 @@ const ContentBlockTitle = styled.div`
   letter-spacing: -0.04em;
   color: #232324;
   margin:30px;
-  color: ${props=>props.color?'#fff':'#232324'};
+  color: ${props=>props.color=="true"?'#fff':'#232324'};
   text-align:${props=> props.center ? 'center':'left'};
 `;
 
 const ContentBlockImg = styled.div`
-  width:100%;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -81,25 +84,27 @@ const ContentBlockImg = styled.div`
 export default function Solution(params) {
 
   return (
-    solutionMobileData.map((data)=>{
+    solutionMobileData.map((data, id)=>{
       return (
-        <SolutionWrapper admin={data.id==3}>
-          <SolutionNumber>0{data.id}.</SolutionNumber>
-          <SolutionTitle dangerouslySetInnerHTML={{__html:data.title}}></SolutionTitle>
-          <SolutionContents>
-              {
-                data.contents.map((content,idx)=>{
-                  return <ContentBlock key={idx} bg={content.type === 'image' ? content.src : null} grid={content.grid}>
-                  <ContentBlockTitle color={content.type === 'image' && content.name!=="키오스크" && content.name!=="OTP 로그인"} center={content.name=="키오스크"} dangerouslySetInnerHTML={{__html:content.name}}></ContentBlockTitle>
-                  {/* {content.type==='defualt' && 
-                    <ContentBlockImg top={content.top} left={content.left}>
-                      <Image src={content.src} width={content.imgWidth} height={content.imgHeight} />
-                    </ContentBlockImg>
-                  } */}
-                </ContentBlock>
-                })
-              }
-          </SolutionContents>
+        <SolutionWrapper admin={data.id==3} key={id}>
+          <SolutionBox>
+            <SolutionNumber>0{data.id}.</SolutionNumber>
+            <SolutionTitle dangerouslySetInnerHTML={{__html:data.title}}></SolutionTitle>
+            <SolutionContents rowHeight={data.rowHeight} >
+                {
+                  data.contents.map((content,idx)=>{
+                    return <ContentBlock key={idx} bg={content.type === 'image' ? content.src : null} grid={content.grid}>
+                    <ContentBlockTitle color={content.type === 'image' || content.name!=="키오스크" || content.name!=="OTP 로그인"?"true":"false" } center={content.name=="키오스크"} dangerouslySetInnerHTML={{__html:content.name}}></ContentBlockTitle>
+                    {content.type==='defualt' && 
+                      <ContentBlockImg top={content.top} left={content.left}>
+                        <Image src={content.src} width={content.imgWidth} height={content.imgHeight} />
+                      </ContentBlockImg>
+                    }
+                  </ContentBlock>
+                  })
+                }
+            </SolutionContents>
+          </SolutionBox>
         </SolutionWrapper>
       )
     })

@@ -82,8 +82,8 @@ export default function Business(props) {
       <BusinessContents>
         {businessData.map((data,idx) => {
           return (
-            <>
-              <Box key={idx}> 
+            <div key={idx}>
+              <Box > 
                 <BoxItemIcon
                   src={data.icon_m}
                   height={70}
@@ -96,7 +96,7 @@ export default function Business(props) {
                 </BoxItemText>
               </Box>
               {businessData.length !== idx+1 && <BoxBorder/>}
-            </>
+            </div>
           )
         })}
       </BusinessContents>

@@ -2,6 +2,7 @@ export const headerData = [
   {
     id: 1,
     text: '디지털 사이니지',
+    engText:'Digital Signage',
     src: '/imgs/headers/engText_digital.png',
     subs: '현대백화점 디지털 사이니지',
     imgs: [
@@ -16,12 +17,25 @@ export const headerData = [
         height:430,
       }
     ],
+    mobileImg: [
+      {
+        src:'/imgs/headers/display_mobile.png',
+        width:165,
+        height:283,
+      },
+      {
+        src:'/imgs/headers/plant_mobile.png',
+        width:182,
+        height:182,
+      }
+    ],
   },
   {
     id:2,
     text:'키오스크',
     src: '/imgs/headers/engText_digital.png',
     subs: 'LG U+ 키오스크',
+    engText:'Kiosk',
     imgs: [
       {
         src:'/imgs/headers/kiosk.png',
@@ -32,6 +46,18 @@ export const headerData = [
         src:'/imgs/headers/usim.png',
         width:250,
         height:430,
+      }
+    ],
+    mobileImg: [
+      {
+        src:'/imgs/headers/kiosk_mobile.png',
+        width:247.95,
+        height:326,
+      },
+      {
+        src:'/imgs/headers/usim_mobile.png',
+        width:110,
+        height:76.49,
       }
     ],
   }
@@ -319,46 +345,43 @@ export const solutionMobileData = [
     contents:[
       {
         type:'defualt',
-        src:'/imgs/solutions/01_theme.png',
+        src:'/imgs/solutions/01_theme_mobile.png',
         name:'디자인<br/>템플릿',
         grid:2,
-        imgWidth:368,
-        imgHeight:167,
-        left:0,
-        top:85,
+        imgWidth:128,
+        imgHeight:134,
+        left:16,
+        top:100,
       },
       {
         type:'defualt',
-        src:'/imgs/solutions/01_multi.png',
+        src:'/imgs/solutions/01_multi_mobile.png',
         name:'원격 멀티<br/>디바이스<br/>관리',
         grid:2,
-        imgWidth:516,
-        imgHeight:151,
-        left:0,
-        top:90,
+        imgWidth:127.09,
+        imgHeight:89.09,
+        left:14,
+        top:141,
       },
       {
         type:'defualt',
-        src:'/imgs/solutions/01_sensor.png',
+        src:'/imgs/solutions/01_sensor_mobile.png',
         name:'다양한 센서 연동',
         grid:4,
-        imgWidth:450,
-        imgHeight:280,
-        left:15,
-        top:20,
+        imgWidth:250.55,
+        imgHeight:142,
+        left:39,
+        top:77,
       },
       
       {
-        type:'defualt',
-        src:'/imgs/solutions/01_group.png',
+        type:'image',
+        src:'/imgs/solutions/01_group_mobile.png',
         name:'그룹관리',
         grid:4,
-        imgWidth:227,
-        imgHeight:207,
-        left:7,
-        top:93,
       },
-    ]
+    ],
+    rowHeight:'250px 250px 160px'
   },
   {
     id:2,
@@ -366,42 +389,47 @@ export const solutionMobileData = [
     contents:[
       {
         type:'image',
-        src:'/imgs/solutions/02_led.png',
+        src:'/imgs/solutions/02_led_mobile.png',
         name:'LED',
         grid:4,
       },
 
       {
-        type:'image',
-        src:'/imgs/solutions/02_kiosk.png',
+        type:'defualt',
+        src:'/imgs/solutions/02_kiosk_mobile.png',
         name:'키오스크',
         grid:2,
+        imgWidth:159,
+        imgHeight:180,
+        left:17,
+        top:70,
       },
       {
         type:'defualt',
         src:'/imgs/solutions/02_oled.png',
         name:'투명OLED<br/>터치 디스플레이',
         grid:2,
-        imgWidth:214,
-        imgHeight:186,
-        left:100,
-        top:65,
+        imgWidth:111,
+        imgHeight:96,
+        left:25,
+        top:130,
       },
       {
         type:'image',
-        src:'/imgs/solutions/02_multi.png',
+        src:'/imgs/solutions/02_multi_mobile.png',
         name:'멀티비전',
         grid:4,
       },
       {
         type:'image',
-        src:'/imgs/solutions/02_sinage.png',
+        src:'/imgs/solutions/02_sinage_mobile.png',
         name:'일반<br/>디지털 사이니지',
         grid:4,
         left:100,
         top:65,
       },
-    ]
+    ],
+    rowHeight:'140px 250px 140px 140px'
   },
   {
     id:3,
@@ -409,43 +437,44 @@ export const solutionMobileData = [
     contents:[
       {
         type:'defualt',
-        src:'/imgs/solutions/03_si.png',
+        src:'/imgs/solutions/03_si_mobile.png',
         name:'통계관리',
         grid:5,
-        imgWidth:283,
-        imgHeight:183,
-        left:120,
-        top:80,
+        imgWidth:149,
+        imgHeight:97,
+        left:159,
+        top:25,
       },
       {
         type:'defualt',
         src:'/imgs/solutions/03_monitor.png',
         name:'원격<br/>모니터링',
         grid:2,
-        imgWidth:200,
-        imgHeight:152,
-        left:0,
+        imgWidth:117,
+        imgHeight:88,
+        left:21,
         top:110,
       },
       {
         type:'defualt',
-        src:'/imgs/solutions/03_error.png',
+        src:'/imgs/solutions/03_error_mobile.png',
         name:'오류 감지',
         grid:2,
-        imgWidth:332,
-        imgHeight:182,
-        left:0,
-        top:100,
+        imgWidth:144,
+        imgHeight:171.71,
+        left:5,
+        top:75,
       },
       {
         type:'image',
-        src:'/imgs/solutions/03_otp.png',
+        src:'/imgs/solutions/03_otp_mobile.png',
         name:'OTP 로그인',
         grid:5,
         left:0,
         top:0,
       },
-    ]
+    ],
+    rowHeight:'140px 250px 140px'
   }
 ];
 
@@ -459,6 +488,7 @@ export const historyData = [
       '센텀포인트 강남 계약 체결',
     ],
     img:'/imgs/historys/2022.jpg',
+    bg:'/imgs/historys/2022.png',
   },
   {
     year:2021,
@@ -471,6 +501,7 @@ export const historyData = [
       'MODI GS인증 1등급 획득'
     ],
     img:'/imgs/historys/2021.jpg',
+    bg:'/imgs/historys/2021.png',
   },
   {
     year:2020,
@@ -483,6 +514,7 @@ export const historyData = [
       '판교알파돔 빌딩안내 설비공사 계약'
     ],
     img:'/imgs/historys/2020.jpg',
+    bg:'/imgs/historys/2020.png',
   },
   {
     year:2019,
@@ -491,6 +523,7 @@ export const historyData = [
       '경찰청 키오스크 계약',
     ],
     img:'/imgs/historys/2019.jpg',
+    bg:'/imgs/historys/2019.png',
   },
   {
     year:2018,
@@ -504,6 +537,7 @@ export const historyData = [
       '디지털 뱅크 dsj 박람회',
     ],
     img:'/imgs/historys/2018.jpg',
+    bg:'/imgs/historys/2018.png',
   },
   {
     year:2017,
@@ -514,6 +548,7 @@ export const historyData = [
       '현대백화점 천호점 계약'
     ],
     img:'/imgs/historys/2017.jpg',
+    bg:'/imgs/historys/2017.png',
   },
   {
     year:2016,
@@ -524,9 +559,9 @@ export const historyData = [
       '	안양창조산업진흥원 협약 체결',
       '	스마트미디어 X캠프 디지털 사이니지 분야 우수상 수상',
       '	글로벌 유망 컨텐츠 성과 보고회',
-
     ],
     img:'/imgs/historys/2016.jpg',
+    bg:'/imgs/historys/2016.png',
   },
   {
     year:2015,
@@ -541,6 +576,7 @@ export const historyData = [
       '	미래부 ICT분야 유망기업(K-Global) 선정',
     ],
     img:'/imgs/historys/2015.jpg',
+    bg:'/imgs/historys/2015.png',
   },
   {
     year:2014,
@@ -550,6 +586,7 @@ export const historyData = [
       '수협은행 계약 체결',
     ],
     img:'/imgs/historys/2014.jpg',
+    bg:'/imgs/historys/2014.png',
   },
   {
     year:2013,
@@ -560,6 +597,7 @@ export const historyData = [
       '	스마트 챌린지 휴맥스분야 최우수상 수상',
     ],
     img:'/imgs/historys/2013.jpg',
+    bg:'/imgs/historys/2013.png'
   },
 ]
 
@@ -684,6 +722,63 @@ export const solutionPkData = [
             point:true,
           }
         ]
+      },
+    ]
+  }
+]
+
+export const solutionPkMobileData = [
+  {
+    name: 'MODI Local',
+    details:[
+      {
+        icon:{
+          src:'/icons/usb.svg',
+          width: 59,
+          height:50.65,
+        },
+        type:'USB',
+        subs:'비 인터넷 환경 사용 가능',
+      },
+      {
+        icon:{
+          src:'/icons/intra.svg',
+          width:43.59,
+          height:50
+        },
+        type:'Intra',
+        subs:'내부망 인터넷 사용 가능',
+      },
+    ]
+  },{
+    name: 'MODI Cloud',
+    details:[
+      {
+        icon:{
+          src:'/icons/Star1.svg',
+          width:60,
+          height:60
+        },
+        type:'Standard',
+        subs:'안드로이드 STB를 활용한 간편 편성'
+      },
+      {
+        icon:{
+          src:'/icons/Star2.svg',
+          width:60,
+          height:60
+        },
+        type:'Professional',
+        subs:'운영체제를 가리지 않는 웹 기반 크로스 플랫폼'
+      },
+      {
+        icon:{
+          src:'/icons/Star3.svg',
+          width:60,
+          height:60
+        },
+        type:'Enterprise',
+        subs:'대규모 방송에 적합한 방송 전문 솔루션'
       },
     ]
   }
