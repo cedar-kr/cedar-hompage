@@ -29,7 +29,6 @@ const FooterTexts = styled.div`
   flex-direction:row;
   justify-content:center;
   align-items:center;
-  margin-right:${props => props.last ?0:38}px;
 `;
 
 const FooterText = styled.div`
@@ -70,7 +69,7 @@ export default function Footer(params) {
           <FooterText>070.4901.6150</FooterText>
         </FooterTexts>
         <FooterTexts>
-          <Image src={'/icons/mail.svg' } width={20} height={16} last/>
+          <Image src={'/icons/mail.svg' } width={20} height={16}/>
           <FooterText>info@cedar.kr</FooterText>
         </FooterTexts>
       </FooterInfo>

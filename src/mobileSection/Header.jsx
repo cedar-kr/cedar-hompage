@@ -139,11 +139,11 @@ const last = keyframes`
 `;
 
 const HeaderFirstImg = styled.div` 
-  animation: ${first} 0.5s ease-in;
+  /* animation: ${first} 0.5s ease-in; */
 `;
 
 const HeaderLastImg = styled.div`
-  animation: ${last} 1s ease-in;
+  /* animation: ${last} 1s ease-in; */
   position:absolute;
   transform:translate3d(100px, 70px,0px);
 `;

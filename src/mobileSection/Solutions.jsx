@@ -68,7 +68,7 @@ const ContentBlockTitle = styled.div`
   letter-spacing: -0.04em;
   color: #232324;
   margin:30px;
-  color: ${props=>props.color=="true"?'#fff':'#232324'};
+  color: ${props=>props.color?'#fff':'#232324'};
   text-align:${props=> props.center ? 'center':'left'};
 `;
 
@@ -94,7 +94,7 @@ export default function Solution(params) {
                 {
                   data.contents.map((content,idx)=>{
                     return <ContentBlock key={idx} bg={content.type === 'image' ? content.src : null} grid={content.grid}>
-                    <ContentBlockTitle color={content.type === 'image' || content.name!=="키오스크" || content.name!=="OTP 로그인"?"true":"false" } center={content.name=="키오스크"} dangerouslySetInnerHTML={{__html:content.name}}></ContentBlockTitle>
+                    <ContentBlockTitle color={content.type === 'image' && content.name!=="키오스크" && content.name!=="OTP 로그인" && true} center={content.name=="키오스크"} dangerouslySetInnerHTML={{__html:content.name}}></ContentBlockTitle>
                     {content.type==='defualt' && 
                       <ContentBlockImg top={content.top} left={content.left}>
                         <Image src={content.src} width={content.imgWidth} height={content.imgHeight} />

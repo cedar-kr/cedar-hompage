@@ -11,6 +11,7 @@ const SolutionWrapper = styled(Wrapper)`
   flex-direction:column;
   justify-content:center;
   align-items:center;
+  margin: 0px auto;
 `;
 
 const SolutionPkTitle = styled.div`
