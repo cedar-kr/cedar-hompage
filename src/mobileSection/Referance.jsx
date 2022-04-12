@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { referanceData, referanceMobileData } from "../utils/data";
 import SwiperCore, { Virtual,Scrollbar, Pagination, Autoplay, Navigation, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
@@ -17,18 +17,19 @@ const ReferanceWrapper = styled.div`
 `;
 
 const ReferImage = styled.div`
-  height:310px;
+  min-height:310px;
   ${props=> props.bg && `
     background-image: url(${props.bg});
     background-repeat: no-repeat;
     background-size: cover;
+    background-position:center;
   `}
   width:100%;
 `;
 
 const ReferVideo = styled.video`
-  height:310px;
-  width:100%;
+  min-height:310px;
+  width:100vw;
 `;
 
 const ReferTitle = styled.div`
@@ -127,8 +128,7 @@ const ItemSubs = styled.div`
 
 
 export default function Referance(params) {
-  const [ swiper, setSwiper ] = useState(null);
-  const [ bgSwiper, setBgSwiper ] = useState(null);
+  const swiperRef = useRef();
   const [ activeIndex, setActiveIndex ] = useState(0);
 
   return (
@@ -139,15 +139,11 @@ export default function Referance(params) {
           centeredSlides={true}
           initialSlide={0}
           effect={"fade"}
-          autoplay={{
-            delay: 3000,
-          }}
           spaceBetween={16}
-          slidesPerGroup={1}
           loopFillGroupWithBlank={true}
           loop={true}
           modules={[ Autoplay,EffectFade]}
-          onSwiper={(s) => setBgSwiper(s)}
+          ref={swiperRef}
         >
         {referanceMobileData.map((bg,idx) => {
           return (<SwiperSlide key={idx} virtualIndex={activeIndex}>
@@ -179,8 +175,9 @@ export default function Referance(params) {
         loop={true}
         modules={[Pagination,Autoplay,Navigation]}
         className="mySwiper"
-        onSwiper={(s) => setSwiper(s)}
-        onSlideChange={(e)=> setActiveIndex(e.activeIndex)}
+        onSlideChange={(e)=> {
+          swiperRef.current.swiper.slideTo(e.activeIndex-2);
+        }}
         breakpoints={{
           380:{
             slidesPerView:2.2
