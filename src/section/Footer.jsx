@@ -33,7 +33,8 @@ const FooterTexts = styled.div`
 
 const FooterText = styled.div`
   color:#fff;
-  margin-left:19px;
+  margin-left: 19px;
+  margin-right:38px;
 
   font-family: 'NotoSansKR-Regular';
   font-style: normal;
