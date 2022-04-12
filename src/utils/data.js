@@ -204,7 +204,7 @@ export const solutionData = [
   {
     id:1,
     title:'솔루션',
-    subs:'하드웨어를 가리지 않고 확장이 용이한</br>웹 기반 디지털 사이니지 솔루션.',
+    subs:'하드웨어를 가리지 않고 확장이 용이한 웹 기반 디지털 사이니지 솔루션.',
     contents:[
       {
         type:'defualt',
@@ -251,7 +251,7 @@ export const solutionData = [
   {
     id:2,
     title:'하드웨어',
-    subs:'디바이스의 종류에 구애받지 않고</br>어디서든 관리 가능.',
+    subs:'디바이스의 종류에 구애받지 않고 어디서든 관리 가능.',
     contents:[
       {
         type:'image',
@@ -294,7 +294,7 @@ export const solutionData = [
   {
     id:3,
     title:'관리페이지',
-    subs:'그룹 편성부터 원격 모니터링, 오류 상황 감지</br>기능을 통해 효율성 극대화',
+    subs:'그룹 편성부터 원격 모니터링, 오류 상황 감지 기능을 통해 효율성 극대화',
     contents:[
       {
         type:'defualt',

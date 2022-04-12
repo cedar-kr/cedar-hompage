@@ -4,11 +4,21 @@ import { solutionData } from "../utils/data";
 import Image from "next/image";
 
 const SolutionWrapper = styled.div`
-  height:800px;
   display:flex;
   flex-direction:row;
   width:100%;
-  
+
+  ${({theme})=>theme.pnt`
+  `}
+  ${({theme})=>theme.tablet`
+      width:92.81%;
+     margin:0px auto;
+  `}
+
+  ${({theme})=>theme.tnm`
+    flex-direction:column;
+    background-color:#F6F6F6;
+  `}
 `;
 
 const SolutionInfo = styled.div`
@@ -16,6 +26,17 @@ const SolutionInfo = styled.div`
   width: 30.416%;
   position:relative;
   left:10.417%;
+
+  ${({theme})=>theme.pnt`
+    left:10.417%;
+  `}
+  ${({theme})=>theme.tablet`
+    left:34px;
+  `}
+  ${({theme})=>theme.tnm`
+    width:100%;
+    left:32px;
+  `}
 `;
 
 const SolutionNumber = styled.div`
@@ -26,6 +47,18 @@ const SolutionNumber = styled.div`
   margin-top:80px;
   color: #2FCFBE;
   margin-bottom:33px;
+  ${({theme})=>theme.pnt`
+    font-size: 30px;
+    line-height: 44px;
+  `}
+  ${({theme})=>theme.tablet`
+    font-size: 30px;
+    line-height: 44px;
+  `}
+  ${({theme})=>theme.tnm`
+    font-size: 20px;
+    line-height: 30px;
+  `}
 `;
 
 const SolutionTitle = styled.div`
@@ -36,6 +69,18 @@ const SolutionTitle = styled.div`
   line-height: 60px;
   color:#222222;
   margin-bottom:30px;
+  ${({theme})=>theme.pnt`
+    font-size: 40px;
+    line-height: 48px;
+  `}
+  ${({theme})=>theme.tablet`
+    font-size: 40px;
+    line-height: 48px;
+  `}
+  ${({theme})=>theme.tnm`
+    font-size: 30px;
+    line-height: 36px;
+  `}
 `;
 
 const SolutionSubs = styled.div`
@@ -45,23 +90,75 @@ const SolutionSubs = styled.div`
   font-size: 2rem;
   line-height: 30px;
   color: #222222;
+  max-width:384px;
+  width:60%;
+  ${({theme})=>theme.pnt`
+    font-size: 17px;
+    line-height: 25px;
+    width:201px;
+  `}
+  ${({theme})=>theme.tablet`
+    font-size: 17px;
+    line-height: 25px;
+    width:201px;
+  `}
+  ${({theme})=>theme.tnm`
+    font-size: 15px;
+    line-height: 22px;
+    width:100%;
+  `}
 `;
 
 const SolutionContents = styled.div`
   background-color:#F6F6F6;
   width: 69.5%;
-  padding-right:200px;
   display:flex;
   align-items:center;
+  padding: 92px 0px;
+
+  ${({theme})=>theme.pnt`
+    width:66.69%;
+    gap:12px;
+    grid-template-rows: 200px 200px;
+    padding: 92.8px 0px;
+  `}
+  ${({theme})=>theme.tablet`
+    width:66.69%;
+    gap:12px;
+    grid-template-rows: 200px 200px;
+    padding: 94px 0px;
+  `}
+  ${({theme})=>theme.tnm`
+    width:100%;
+    gap:8px;
+    padding-right:0px;
+    grid-template-rows: 150px 150px;
+  `}
 `;
 
 const ContentBox = styled.div`
   margin-left:128px;
   height:616px;
   display: grid;
-	grid-template-columns: repeat(8, 112px);
+	grid-template-columns: repeat(8, minmax(60px,112px));
   grid-template-rows: 300px 300px;
   gap:16px;
+
+  ${({theme})=>theme.pnt`
+    margin-left:71px;
+    gap:12px;
+    grid-template-rows: 200px 200px;
+  `}
+  ${({theme})=>theme.tablet`
+    margin-left:71px;
+    gap:12px;
+    grid-template-rows: 200px 200px;
+  `}
+    ${({theme})=>theme.tnm`
+    margin: 0px 32px;
+    gap:8px;
+    grid-template-rows: 150px 150px;
+  `}
 `;
 
 const ContentBlock = styled.div`
@@ -87,6 +184,18 @@ const ContentBlockTitle = styled.div`
   margin:50px;
   color: ${props=>props.color?'#fff':'#232324'};
   text-align:${props=> props.center ? 'center':'left'};
+  ${({theme})=>theme.pnt`
+    font-size: 24px;
+    line-height: 36px;
+  `}
+  ${({theme})=>theme.tablet`
+    font-size: 24px;
+    line-height: 36px;
+  `}
+  ${({theme})=>theme.tnm`
+    font-size: 21px;
+    line-height: 31px;
+  `}
 `;
 
 const ContentBlockImg = styled.div`
@@ -108,7 +217,7 @@ export default function Solution(params) {
           <SolutionInfo>
             <SolutionNumber>0{data.id}.</SolutionNumber>
             <SolutionTitle>{data.title}</SolutionTitle>
-            <SolutionSubs dangerouslySetInnerHTML={{__html:data.subs}}></SolutionSubs>
+            <SolutionSubs>{data.subs}</SolutionSubs>
           </SolutionInfo>
           <SolutionContents>
             <ContentBox>

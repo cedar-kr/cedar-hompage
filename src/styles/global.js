@@ -38,6 +38,13 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
+  @font-face { 
+    font-family: 'NotoSansKR-Medium'; 
+    src: url("/fonts/NotoSansKR-Medium.otf"); 
+    font-weight: normal;
+    font-style: normal;
+  }
+
   ${reset}
 
   html,

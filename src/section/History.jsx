@@ -16,17 +16,14 @@ const HistorySection = styled.section`
       background-image:url(${props.bg});
       background-size: cover;
       background-repeat: no-repeat;
+      background-position:center center;
   `}
   height: 65.472vh;
 `
 
 const HistoryWrapper = styled(Swiper)`
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items:center;
-  margin:0px auto;
   height: 63vh;
+  display:flex;
 
   .swiper-slide {
     margin-top:134px;
@@ -104,6 +101,7 @@ export default function History(params) {
   return (
     <HistorySection bg={historyData[activeIndex].img}>
      <HistoryWrapper 
+        initialSlide={0}
         slidesPerView={3.8}
         spaceBetween={16}
         centeredSlides={true}
@@ -114,8 +112,9 @@ export default function History(params) {
         onSlideChange={(e)=> setActiveIndex(e.activeIndex)}
         onClick={(e) => swiper.slideTo(e.clickedIndex, 500, false)}
       >
-        {historyData.map((slideContent, index) => (
-          <SwiperSlide key={slideContent} virtualIndex={index} >
+        {historyData.map((slideContent, index) => {
+          return(
+          <SwiperSlide key={index} virtualIndex={index} >
             <HistoryCard point={historyData[0].year === slideContent.year} t={index%2==0} >
               <HistoryYear point={historyData[0].year === slideContent.year}>{slideContent.year}</HistoryYear>
               {slideContent.content.map((content,idx)=>{
@@ -123,7 +122,7 @@ export default function History(params) {
               })}
             </HistoryCard>
           </SwiperSlide>
-        ))}
+        )} )}
         </HistoryWrapper>
     </HistorySection>
   )

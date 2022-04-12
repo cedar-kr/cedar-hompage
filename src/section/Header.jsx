@@ -3,13 +3,23 @@ import { Wrapper } from "../styles/Layout";
 import styled, { keyframes } from "styled-components";
 import { Progress } from "../styles/Keyframes";
 import { headerData } from "../utils/data";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useInterval } from "../utils/func";
 
 const HeaderLogo = styled(Wrapper)`
   height: 80px;
   display: flex;
   align-items :center;
+
+  ${({theme})=> theme.pnt`
+    height:70px;
+  `}
+  ${({theme})=> theme.pnt`
+    height:70px;
+  `}
+    ${({theme})=> theme.pnt`
+    height:60px;
+  `}
 `;
 
 const HeaderSlide = styled.div`
@@ -19,14 +29,29 @@ const HeaderSlide = styled.div`
   justify-content:center;
   align-items:center;
   background-repeat: no-repeat;
-  background-size: 97%;
+  background-size: 100%;
   background-position: center center;
+
+  ${({theme})=> theme.pc`
+    background-size: 97%;
+  `}
+  ${({theme})=> theme.pnt`
+    height:630.31px;
+  `}
+  ${({theme})=> theme.tablet`
+    height:630.31px;
+  `}
+  ${({theme})=> theme.tnm`
+    height:560px;
+  `}
 `;
 const HeaderIntro = styled.div`
   display:flex;
   flex-direction:column;
   justify-content:center;
   width: 33%;
+
+
 `;
 
 const HeaderText = styled.div`
@@ -36,12 +61,42 @@ const HeaderText = styled.div`
   color:${props=> props.point ?'#2FCFBE':'#000'};
   line-height:103.6px;
   margin-bottom:${props=> props.point ?10:0}px;
+  ${({theme})=> theme.pnt`
+    font-size: 50px;
+    line-height: 74px;
+  `}
+  ${({theme})=> theme.tablet`
+    font-size: 50px;
+    line-height: 74px;
+  `}
+  ${({theme})=> theme.tnm`
+    font-size: 35px;
+    line-height: 52px;
+  `}
 `;
 
 const HeaderEngText = styled.div`
-  height: 100px;
-  width: 710px;
+  font-family: 'Quentin';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 100px;
+  line-height: 147px;
+  color: #2FCFBE;
+  opacity: 0.2;
   margin-top:15px;
+  width:100%;
+  ${({theme})=> theme.pnt`
+    font-size: 64.6258px;
+    line-height: 95px;
+  `}
+  ${({theme})=> theme.tablet`
+    font-size: 64.6258px;
+    line-height: 95px;
+  `}
+  ${({theme})=> theme.tnm`
+    font-size: 50px;
+    line-height: 73px;
+  `}
 `;
 
 const HeaderFrame = styled.div`
@@ -92,9 +147,13 @@ const ImageInfo = styled.div`
   color: #8D8D8D;
   margin-top:20px;
 `;
+
 const SliderTimerBox = styled.div`
-  width:97%;
-  margin: 0 auto;
+  width:100%;
+  ${({theme})=> theme.pc`
+    width 97%;
+    margin: 0 auto;
+  `}
 `
 
 const HeaderSlideTimer = styled.progress`
@@ -136,9 +195,7 @@ export default function Header(params) {
                 <HeaderIntro>
                   <HeaderText point>{data.text}</HeaderText>
                   <HeaderText>더 쉽고 편리하게.</HeaderText>
-                  <HeaderEngText>
-                    <Image src={data.src} width={710} height={107}/>
-                  </HeaderEngText>
+                  <HeaderEngText>{data.engText}</HeaderEngText>
                 </HeaderIntro>
                 <HeaderFrame>
                   <Frame left>

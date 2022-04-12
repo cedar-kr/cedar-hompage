@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  /* margin: 0 auto;
-  width: 79.17%; */
+  margin: 0 auto;
+  width: 79.17%;
   ${({ theme }) => theme.pc` 
   `};
   ${({ theme }) => theme.pnt` 
