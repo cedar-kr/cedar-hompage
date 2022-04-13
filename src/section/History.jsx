@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { historyData } from "../utils/data";
 import SwiperCore, { Virtual, Navigation,Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
@@ -18,17 +18,29 @@ const HistorySection = styled.section`
       background-repeat: no-repeat;
       background-position:center center;
   `}
-  height: 65.472vh;
+  height: 710px;
+  transition: all 0.5s ease-in;
+
+  ${({theme})=> theme.pnt`
+    height: 610px;
+  `}
+  ${({theme})=> theme.tablet`
+    height: 610px;
+  `}
+  ${({theme})=> theme.tnm`
+    height: 600px;
+  `}
 `
 
 const HistoryWrapper = styled(Swiper)`
-  height: 63vh;
-  display:flex;
+  height: 660px;
+  width:100%;
 
   .swiper-slide {
     margin-top:134px;
     height: 413px;
     max-width:496px;
+    width:496px;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -39,7 +51,6 @@ const HistoryWrapper = styled(Swiper)`
     background:white;
     width: 752px;
     height: 5px;
-    margin-left:30%;
     cursor: pointer;
     margin-top:88px;
   }
@@ -49,25 +60,97 @@ const HistoryWrapper = styled(Swiper)`
     height: 5px;
     cursor: pointer;
   }
+
+
+  ${({theme})=> theme.pnt`
+    height: 560px;
+    .swiper-slide {
+      margin-top:84px;
+      width: 414px;
+      height: 413.2px;
+    }
+    .swiper-scrollbar{
+      width: 414px;
+      margin-top:48px;
+    }
+    .swiper-scrollbar-drag{
+      width: 109px;
+    }
+  `}
+  ${({theme})=> theme.tablet`
+      height: 560px;
+     .swiper-slide {
+      margin-top:84px;
+      width: 414px;
+      height: 413.2px;
+    }
+    .swiper-scrollbar{
+      width: 414px;
+      margin-top:48px;
+    }
+    .swiper-scrollbar-drag{
+      width: 109px;
+    }
+  `}
+  ${({theme})=> theme.tnm`
+    height: 550px;
+    .swiper-slide {
+      margin-top:80px;
+      width: 400px;
+      height: 350px;
+    }
+    .swiper-scrollbar{
+      width: 400px;
+      margin-top:60px;
+    }
+    .swiper-scrollbar-drag{
+      width: 105px;
+    }
+  `}
 `;
 
 const HistoryCard = styled.div`
   border-radius: 30px;
-  height: 413px;
-  width: 496px;
+  min-height: 443px;
+  min-width: 496px;
+  width:496px;
+  height:443px;
   display:flex;
   flex-direction:column;
   justify-content:top;
   align-items:center;
   text-align:center;
   padding: 20px;
-  margin-top:${props=> props.t ? 0 :30}px;
-  background:${props=> props.point ?  `url('/imgs/historys/background.png')`:'#fff'};
+  padding-top: ${props=> props.point ?  20 : 168 }px;
+  margin-top:${props=> props.hj ? 0 :35}px;
+  background:${props=> props.cardBg ? `url(${props.cardBg})`:'#fff'};
   background-repeat:no-repeat;
   background-position:center center;
   background-size:cover;
-  backdrop-filter: blur(6px);
+  backdrop-filter: ${props=> props.point && `blur(6px)`};
   cursor: pointer;
+  transition: margin 0.3s;
+
+  ${({theme})=> theme.pnt`
+    min-height: 414px;
+    min-width: 413.2px;
+    width: 414px;
+    height: 413.2px;
+  `}
+  ${({theme})=> theme.tablet`
+    min-height: 414px;
+    min-width: 413.2px;
+    width: 414px;
+    height: 413.2px;
+  `}
+  ${({theme})=> theme.tnm`
+    min-height: 400px;
+    min-width: 350px;
+    width: 400px;
+    height: 350px;
+    padding-top: ${props=> props.point ?  20 : 124 }px;
+    margin-top:${props=> props.hj ? 0 :30}px;
+  `}
 `;
 
 const HistoryYear = styled.div`
@@ -77,9 +160,8 @@ const HistoryYear = styled.div`
   font-size: 9rem;
   line-height: 133px;
   opacity:1;
-  color: ${props => props.point ? '#FFFFFF' : '#000000' };
+  color: #FFFFFF;
   margin-bottom:25px;
-  /* mix-blend-mode: screen; */
   z-index:1;
 `;
 
@@ -91,32 +173,72 @@ const HistorySubs = styled.div`
   line-height: 33px;
   text-align:center;
   color: ${props => props.point ? '#FFFFFF' : '#000000' };
+
+  ${({theme})=> theme.pnt`
+    font-size: calc(2.2rem + (100vw - 1240px) * ((22 - 18) / (1439 - 1240)));
+    line-height: 27px;
+  `}
+  ${({theme})=> theme.tablet`
+    font-size: 1.8rem;
+    line-height: 27px;
+  `}
+  ${({theme})=> theme.tnm`
+    font-size: calc(1.8rem + (100vw - 600px) * ((18 - 16) / (904 - 600)));
+    line-height: 24px;
+  `}
 `;
 
 
 export default function History(params) {
   const [swiper, setSwiper] = useState(null);
   const [ activeIndex, setActiveIndex ] = useState(0);
+  const [hj, setHj] = useState('h');
+  const [ clickIndex, setClickIndex ] = useState(0);
 
   return (
     <HistorySection bg={historyData[activeIndex].img}>
      <HistoryWrapper 
         initialSlide={0}
-        slidesPerView={3.8}
+        slidesPerView={'auto'}
         spaceBetween={16}
         centeredSlides={true}
-        virtual
         onSwiper={(s) => setSwiper(s)}
         scrollbar={{ draggable: true, dragSize: 200 }}
         modules={[Scrollbar]}
         onSlideChange={(e)=> setActiveIndex(e.activeIndex)}
-        onClick={(e) => swiper.slideTo(e.clickedIndex, 500, false)}
+        centeredSlidesBounds={true}
+        onClick={(e) => {
+          if(clickIndex ==e.clickedIndex){
+            return;
+          }else{
+            swiper.slideTo(e.clickedIndex, 500, false);
+            setClickIndex(e.clickedIndex);
+            if(hj=='h'){setHj('j')};
+            if(hj=='j'){setHj('h')};
+          }
+        }}
+        breakpoints={{
+          1440:{
+            spaceBetween:16
+          },
+          1240:{
+            spaceBetween:12
+          },
+          905:{
+            spaceBetween:12
+          },
+          600:{
+            spaceBetween:8
+          },
+        }}
       >
         {historyData.map((slideContent, index) => {
           return(
           <SwiperSlide key={index} virtualIndex={index} >
-            <HistoryCard point={historyData[0].year === slideContent.year} t={index%2==0} >
-              <HistoryYear point={historyData[0].year === slideContent.year}>{slideContent.year}</HistoryYear>
+            <HistoryCard hj={hj =='h' && index % 2 ==0 || hj=='j' && index%2 !=0} cardBg={slideContent.cardBg} point={historyData[0].year === slideContent.year}>
+              {historyData[0].year === slideContent.year &&
+                <HistoryYear >{slideContent.year}</HistoryYear>
+              }
               {slideContent.content.map((content,idx)=>{
                 return <HistorySubs point={historyData[0].year === slideContent.year} key={idx}>{content}</HistorySubs>
               })}
