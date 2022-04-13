@@ -55,6 +55,11 @@ const Slide = styled(Swiper)`
   width:100vw;
   margin-top:-50px;
 
+  .swiper-slide {
+    height: 250px;
+    width: 160px;
+  }
+
   .swiper-pagination-bullet {
     width:5px;
     height:5px;
@@ -135,11 +140,10 @@ export default function Referance(params) {
     <ReferanceWrapper>
       <ReferTitle>주요 레퍼런스</ReferTitle>
         <BgSlide 
-          slidesPerView={1}
+          slidesPerView={'auto'}
           centeredSlides={true}
           initialSlide={0}
           effect={"fade"}
-          spaceBetween={16}
           loopFillGroupWithBlank={true}
           loop={true}
           modules={[ Autoplay,EffectFade]}
@@ -160,7 +164,7 @@ export default function Referance(params) {
         }
       </BgSlide>
       <Slide 
-        slidesPerView={2.1}
+        slidesPerView={'auto'}
         pagination={{
           clickable: true,
         }}
@@ -169,6 +173,7 @@ export default function Referance(params) {
         autoplay={{
           delay: 3000,
         }}
+        spaceBetween={8}
         loopFillGroupWithBlank={true}
         slidesPerGroup={1}
         navigation={true}
@@ -176,33 +181,7 @@ export default function Referance(params) {
         modules={[Pagination,Autoplay,Navigation]}
         className="mySwiper"
         onSlideChange={(e)=> {
-          swiperRef.current.swiper.slideTo(e.activeIndex-2);
-        }}
-        breakpoints={{
-          380:{
-            slidesPerView:2.2
-          },
-          400:{
-            slidesPerView:2.3
-          },
-          420:{
-            slidesPerView:2.4
-          },
-          450:{
-            slidesPerView:2.5
-          },
-          470:{
-            slidesPerView:2.6
-          },
-          500:{
-            slidesPerView:2.7
-          },
-          520:{
-            slidesPerView:2.8
-          },
-          550:{
-            slidesPerView:2.9
-          },
+          swiperRef.current.swiper.slideTo(e.activeIndex);
         }}
       >
         {referanceMobileData.map((data, index) => {

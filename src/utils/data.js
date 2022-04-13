@@ -489,6 +489,7 @@ export const historyData = [
     ],
     img:'/imgs/historys/2022.jpg',
     bg:'/imgs/historys/2022.png',
+    cardBg:'/imgs/historys/2022_bg.png'
   },
   {
     year:2021,
@@ -502,6 +503,7 @@ export const historyData = [
     ],
     img:'/imgs/historys/2021.jpg',
     bg:'/imgs/historys/2021.png',
+    cardBg:'/imgs/historys/2021_bg.png'
   },
   {
     year:2020,

@@ -9,6 +9,8 @@ const FooterWrapper = styled.div`
   padding-bottom:60px;
   padding-left: 16px;
   padding-right:16px;
+  justify-content:left;
+  align-items:flex-start;
 `;
 
 const FooterMap = styled.iframe`
@@ -56,12 +58,12 @@ export default function Footer(params) {
           <Image src={'/icons/adress.svg' } width={10} height={14}/>
           <FooterText>서울특별시 서초구 강남대로 18길 5 (양재동) 3층</FooterText>
         </FooterTexts>
-        <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', width:'83%'}}>
+        <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
           <FooterTexts>
             <Image src={'/icons/call.svg' } width={10} height={10}/>
             <FooterText>070.4901.6150</FooterText>
           </FooterTexts>
-          <FooterTexts>
+          <FooterTexts style={{marginLeft:'20px'}}>
             <Image src={'/icons/mail.svg' } width={10} height={8}/>
             <FooterText>info@cedar.kr</FooterText>
           </FooterTexts>
