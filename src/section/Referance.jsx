@@ -1,7 +1,11 @@
 import styled, { keyframes } from "styled-components";
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { referanceData } from "../utils/data";
 import Image from "next/image";
+import SwiperCore, { Scrollbar, EffectFade } from 'swiper';
+import { SwiperSlide, Swiper } from "swiper/react";
+
+SwiperCore.use([ Scrollbar,EffectFade]);
 
 const ReferanceWrapper = styled.div`
   height:1000px;
@@ -10,27 +14,24 @@ const ReferanceWrapper = styled.div`
   overflow:hidden;
 `;
 
-const testst = keyframes`
-  to{
-    opacity:0;
-  }from{opacity:1}
+const BgSlide = styled(Swiper)`
+  height:1000px;
+  width:49.58%;
+  z-index:1;
 `;
 
 const ReferImage = styled.div`
-  height:100%;
+  height:1000px;
   ${props=> props.bg && `
     background-image:url(${props.bg});
     background-repeat: no-repeat;
     background-size:cover;
   `}
-  width:49.58%;
   z-index:1;
-  animation:${testst} 0.5s ease-in-out;
 `;
 
 const ReferVideo = styled.video`
-  height:100%;
-  width:49.58%;
+  height:1000px;
   z-index:1;
 `;
 
@@ -49,6 +50,19 @@ const ReferTitle = styled.div`
   line-height: 60px;
   margin-bottom:30px;
   padding: 0px 200px 0px 147px;
+
+  ${({theme})=> theme.pnt`
+    font-size: calc(5rem + (100vw - 1240px) * ((50 - 40) / (1439 - 1240)));
+    line-height: 48px;
+  `}
+  ${({theme})=> theme.tablet`
+    font-size: 4rem;
+    line-height: 48px;
+  `}
+  ${({theme})=> theme.tnm`
+    font-size: calc(4rem + (100vw - 600px) * ((40 - 30) / (904 - 600)));
+    line-height: 36px;
+  `}
 `;
 
 const ReferSubs = styled.div`
@@ -59,23 +73,70 @@ const ReferSubs = styled.div`
   font-family: 'NotoSansKR-Regular', sans-serif;
   color: #222222;
   padding: 0px 200px 0px 147px;
+
+  ${({theme})=> theme.pnt`
+    font-size: calc(2rem + (100vw - 1240px) * ((20 - 17) / (1439 - 1240)));
+    line-height: 25px;
+    padding: 0px 83px 0px 200px;
+  `}
+  ${({theme})=> theme.tablet`
+    font-size: 1.7rem;
+    line-height: 25px;
+    padding: 0px 83px 0px 83px;
+  `}
+  ${({theme})=> theme.tnm`
+    font-size: calc(1.7rem + (100vw - 600px) * ((17 - 15) / (904 - 600)));
+    line-height: 22px;
+    padding: 0px 77px 0px 32px;
+  `}
 `;
 
 const Slide = styled.div`
   margin-top:54px;
+
+  ${({theme})=> theme.pnt`
+    margin-top:57px;
+  `}
+  ${({theme})=> theme.tablet`
+    margin-top:57px;
+  `}
+  ${({theme})=> theme.tnm`
+    margin-top:28px;
+  `}
 `;
 
 const SlideAbsolute = styled.div`
   position:absolute;
-  width:56.5%;
+  width:58%;
   overflow:hidden;
   right:0px;
 `;
 
-const SlideItems = styled.div`
+const SlideItems = styled(Swiper)`
   display:flex;
   flex-direction:row;
-  width:${368*5}px;
+  .swiper-slide{
+    max-height: 600px;
+    max-width: 368px;
+    margin-bottom:65px;
+    cursor: pointer;
+  }
+  .swiper-scrollbar{
+    background:white;
+    width: 752px;
+    height: 5px;
+    margin-left:30%;
+    cursor: pointer;
+    background:#F6F6F6;
+    cursor: pointer;
+
+  }
+  .swiper-scrollbar-drag{
+    background: #2FCFBE;
+    width: 200px;
+    height: 5px;
+    cursor: pointer;
+  }
 `;
 
 const SlideItem = styled.div`
@@ -89,16 +150,6 @@ const SlideItem = styled.div`
   justify-content:space-between;
   padding:40px 0px;
   z-index:101;
-  margin-right:16px;
-
-${props=> props.select &&`
-    transform: translateX(-${(100 * (props.select-1) )}%);
-    transition: transform 0.5s ease-in-out;
-  `}
-${props=> props.scrollVal &&`
-    transform: translateX(-${props.scrollVal}px);
-    transition: transform 0.5s ease-in-out;
-`}
 `;
 
 const ItemTitle = styled.div`
@@ -128,95 +179,95 @@ const ItemSubs = styled.div`
   padding:0px 40px;
 `;
 
-const SlideScrollBox = styled.div`
-  position:relative;
-  top:60%;
-  padding: 0px 200px 0px 147px;
-`;
-
-const SlideScroll = styled.input`
-  margin-top:60px;
-  -webkit-appearance: none;
-  width: 100%;
-  height: 5px;
-  background: #F6F6F6;
-  outline: none;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-  ::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 200px;
-    height: 5px;
-    background: #2FCFBE;
-    cursor: pointer;
-  }
-    ::-moz-range-thumb {
-    width: 200px;
-    height: 5px;
-    background: #2FCFBE;
-    cursor: pointer;
-  }
-`;
 
 export default function Referance(params) {
-  const [ scrollVal, setScrollVal ] = useState(0);
-  const [ data, setData ] = useState(referanceData?referanceData:[]);
-  const [ select, setSelect ] = useState(referanceData?referanceData[0]:{});
-  const [ length, setLength] = useState(referanceData.length);
-
-  const ClickItems = () => {
-    if(length==0){
-      setScrollVal(0);
-      setLength(referanceData.length);
-    }else{
-      setScrollVal(100/(length-1));
-      setLength(length-1);
-    }
-    const test = data.shift();
-    let dta = data.filter(data=> data.id!=test.id);
-    // dta.push(test);
-    setData(dta);
-    setSelect(dta[0]);
-  }
-
+  const [swiper, setSwiper] = useState(null);
+  const [ activeIndex, setActiveIndex ] = useState(0);
+  const swiperRef = useRef();
 
   return (
     <ReferanceWrapper>
-      {
-        select.bg ? <ReferImage bg={select.bg}/> : 
-      <ReferVideo 
-        onClick={(e)=> e.stopPropagation()} 
-        autoPlay muted playsInline loop preload="auto">            
-          <source
-          src={select.video}
-          type="video/mp4"
-          />
-      </ReferVideo>
-      }
+        <BgSlide 
+          slidesPerView={1}
+          centeredSlides={true}
+          initialSlide={0}
+          effect={"fade"}
+          spaceBetween={16}
+          loopFillGroupWithBlank={true}
+          loop={true}
+          modules={[ EffectFade]}
+          ref={swiperRef}
+        >
+        {referanceData.map((bg,idx) => {
+          return (<SwiperSlide key={idx} virtualIndex={activeIndex}>
+           {bg.bg ?<ReferImage bg={bg.bg}/>:<ReferVideo 
+            onClick={(e)=> e.stopPropagation()} 
+            autoPlay muted playsInline loop preload="auto">            
+              <source
+              src={bg.video}
+              type="video/mp4"
+              />
+          </ReferVideo> }
+          </SwiperSlide>
+          )})
+        }
+      </BgSlide>
       <ReferContent>
         <ReferTitle>주요 레퍼런스</ReferTitle>
         <ReferSubs>다양한 디스플레이 통합 솔루션을 기반으로 여러 분야에서 차별화된 레퍼런스를 보유합니다.</ReferSubs>
           <Slide>
             <SlideAbsolute>
-              <SlideItems >
+              <SlideItems 
+                slidesPerView={3} 
+                spaceBetween={16} 
+                initialSlide={0}
+                scrollbar={{ draggable: true, dragSize: 200 }}
+                onSwiper={(s) => setSwiper(s)}
+                onSlideChange={(e)=> {
+                  setActiveIndex(e.activeIndex); 
+                  swiperRef.current.swiper.slideTo(e.activeIndex+1,300,false);
+                }}
+                modules={[EffectFade,Scrollbar]}
+                onClick={(e) => {
+                  swiper.slideTo(e.clickedIndex, 300, false);
+                  swiperRef.current.swiper.slideTo(e.clickedIndex+1,300,false);
+                }}
+                allowTouchMove={false}
+                breakpoints={{
+                  1440:{
+                    spaceBetween:16,
+                  },
+                  1240:{
+                    spaceBetween:12,
+                    slidesPerView:'auto'
+                  },
+                  905:{
+                    spaceBetween:12,
+                    slidesPerView:'auto'
+                  },
+                  600:{
+                    spaceBetween:8,
+                    slidesPerView:'auto'
+
+                  },
+                }}
+              >
                 {
-                  data.map((data,idx)=>{
-                    return <SlideItem select={data.id == select.id} key={idx} onClick={ClickItems}>
+                  referanceData.map((data,idx)=>{
+                    return (<SwiperSlide key={idx}>
+                       <SlideItem key={idx}>
                     <ItemTitle>{data.title}</ItemTitle>
                     <ItemImage width={data.imgSize.width} height={data.imgSize.height}>
                       <Image src={data.src} width={data.imgSize.width} height={data.imgSize.height}/>
                     </ItemImage>
                     <ItemSubs>{data.subs}</ItemSubs>
                   </SlideItem>
+                  </SwiperSlide>)
                   })
                 }
               </SlideItems>
             </SlideAbsolute>
           </Slide>
-          <SlideScrollBox>
-            <SlideScroll type="range" min="1" max="100" value={scrollVal} onChange={(e)=>setScrollVal(e.target.value)}/>
-          </SlideScrollBox>
       </ReferContent>
     </ReferanceWrapper>
   )
