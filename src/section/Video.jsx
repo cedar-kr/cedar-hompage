@@ -9,7 +9,7 @@ const VideoContainer = styled.section`
 `;
 
 const VideoWrapper = styled.div`
-  width:80%;
+  width: 80%;
   margin: 0 auto;
 `;
 const VideoTextArea = styled.div`
@@ -19,16 +19,48 @@ const VideoTextArea = styled.div`
 `;
 
 const VideoTitle = styled.p`
-  font-size: 30px;
+  font-family: 'Noto Sans KR';
+  font-weight: 700;
+  font-size: 3rem;
   line-height: 44px;
   display: flex;
   align-items: center;
   margin-bottom: 23px;
+
+  ${({theme})=> theme.pnt`
+    font-size: calc(2.4rem + (100vw - 1240px) * ((30 - 24) / (1439 - 1240)));
+    line-height: 36px;
+    letter-spacing: -0.04em;
+  `}
+  ${({theme})=> theme.tablet`
+    font-size: 2.4rem;
+    line-height: 31px;
+    letter-spacing: -0.04em;
+  `}
+  ${({theme})=> theme.tnm`
+    font-size: calc(2.1rem + (100vw - 600px) * ((24 - 21) / (904 - 600)));
+    line-height: 31px;
+  `}
 `;
 
 const VideoText = styled.p`
-  font-size: 18px;
+  font-family: 'Noto Sans KR';
+  font-weight: 400;
+  font-size: 1.8rem;
   line-height: 27px;
+
+  ${({theme})=> theme.pnt`
+    font-size: calc(1.7rem + (100vw - 1240px) * ((18 - 17) / (1439 - 1240)));
+    line-height: 25px;
+  `}
+  ${({theme})=> theme.tablet`
+    font-size: 1.7rem;
+    line-height: 25px;
+  `}
+  ${({theme})=> theme.tnm`
+    font-size: calc(1.5rem + (100vw - 600px) * ((17 - 15) / (904 - 600)));
+    line-height: 22px;
+  `}
 `;
 
 const VideoContents = styled.div`
