@@ -2,44 +2,56 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { businessData } from '../utils/data'
 import { Wrapper } from '../styles/Layout';
+import { Title } from '../styles/fontStyles';
 
 const BusinessContainer = styled.section`
   padding-top: 80px;
   padding-bottom: 140px;
 `;
 
-const BusinessTitle = styled.div`
+const BusinessTitle = styled(Title)`
   margin-bottom: 80px;
-  font-family:'SCDream6';
-  font-size: 5rem;
-  font-weight: 600;
-  line-height: 60px;
   text-align: center;
   color: #222222;
 
   ${({theme})=> theme.pnt`
-    font-size:4.5rem;
+    font-size: 4.5rem;
   `}
 `;
 
 const BusinessContents = styled.div`
   display: flex;
   justify-content: center;
+
+  ${({theme})=> theme.tnm`
+    flex-wrap: wrap;
+  `}
 `;
 
 const Box = styled.div`
-  width:100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0px 50px;
-  border-right: 1px solid #E0E0E0;
-  word-break: keep-all;
   
-  &:last-child {
+  ${({theme})=> theme.pc`
+    border-right: 1px solid #E0E0E0;
+
+    &:last-child {
     border-right: none;
-  }
+    }
+  `}
+  ${({theme})=> theme.pnt`
+    padding: 0px 21px;
+  `}
+  ${({theme})=> theme.tablet`
+    padding: 0px 21px;
+  `}
+  ${({theme})=> theme.tnm`
+    width: 50%;
+  `}
 `;
 
 const BoxItemIcon = styled(Image)`
@@ -55,7 +67,20 @@ const BoxItemTitle = styled.p`
   line-height: 44px;
   color: #000;
   text-align: center;
-  width:100%;
+  width: 100%;
+
+  ${({theme})=> theme.pnt`
+    font-size: calc(2.7rem + (100vw - 1240px) * ((30 - 27) / (1439 - 1240)));
+    line-height: 40px;
+  `}
+  ${({theme})=> theme.tablet`
+    font-size: 2.7rem;
+    line-height: 40px;
+  `}
+  ${({theme})=> theme.tnm`
+    font-size: calc(2rem + (100vw - 600px) * ((27 - 20) / (904 - 600)));
+    line-height: 30px;
+  `}
 `;
 
 const BoxItemText = styled.p`
@@ -65,10 +90,23 @@ const BoxItemText = styled.p`
   line-height: 30px;
   color: #222;
   padding-bottom: 36px;
-  width:${props=> 
+  width:${props => 
     props.idx==2 && 95 ||
     props.idx==1 && 86.8||
     props.idx==0 && 86 }%;
+
+  ${({theme})=> theme.pnt`
+    font-size: calc(1.7rem + (100vw - 1240px) * ((20 - 17) / (1439 - 1240)));
+    line-height: 25px;
+  `}
+  ${({theme})=> theme.tablet`
+    font-size: 1.7rem;
+    line-height: 25px;
+  `}
+  ${({theme})=> theme.tnm`
+    font-size: calc(1.5rem + (100vw - 600px) * ((17 - 15) / (904 - 600)));
+    line-height: 22px;
+  `}
 `;
 
 
