@@ -7,139 +7,129 @@ import { useState } from "react";
 import { useInterval } from "../utils/func";
 
 const HeaderLogo = styled(Wrapper)`
-  height: 80px;
   display: flex;
-  align-items :center;
+  align-items: center;
+  height: 80px;
 
   ${({theme})=> theme.pnt`
-    height:70px;
+    height: 70px;
   `}
-  ${({theme})=> theme.pnt`
-    height:70px;
+  ${({theme})=> theme.tablet`
+    height: 70px;
   `}
-    ${({theme})=> theme.pnt`
-    height:60px;
+  ${({theme})=> theme.tnm`
+    height: 60px;
   `}
 `;
 
 const HeaderSlide = styled.div`
-  display:flex;
-  background-image:url('/imgs/headers/header_bg.jpg');
-  height: 65.472vh;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  background-image: url('/imgs/headers/header_bg.jpg');
+  justify-content: center;
+  align-items: center;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: auto 100%;
   background-position: center center;
+  padding-top: 80px;
+  padding-bottom: 34px;
 
   ${({theme})=> theme.pc`
-    background-size: 97%;
-  `}
-  ${({theme})=> theme.pnt`
-    height:630.31px;
-  `}
-  ${({theme})=> theme.tablet`
-    height:630.31px;
-  `}
-  ${({theme})=> theme.tnm`
-    height:560px;
+    margin: 0px 30px;
   `}
 `;
+
 const HeaderIntro = styled.div`
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  width: 33%;
-
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const HeaderText = styled.div`
   font-family: 'NotoSansKR-Regular', sans-serif;
-  font-weight:700;
-  font-size:7rem;
-  color:${props=> props.point ?'#2FCFBE':'#000'};
-  line-height:103.6px;
-  margin-bottom:${props=> props.point ?10:0}px;
+  font-weight: 700;
+  font-size: 7rem;
+  color: ${props=> props.point ?'#2FCFBE':'#000'};
+  line-height: 104px;
+  margin-bottom: ${props => props.point ? 10 : 0}px;
+
   ${({theme})=> theme.pnt`
-    font-size: 50px;
+    font-size: calc(5rem + (100vw - 1240px) * ((70 - 50) / (1439 - 1240)));
     line-height: 74px;
   `}
   ${({theme})=> theme.tablet`
-    font-size: 50px;
+    font-size: 5rem;
     line-height: 74px;
   `}
   ${({theme})=> theme.tnm`
-    font-size: 35px;
+    font-size: calc(3.5rem + (100vw - 600px) * ((50 - 35) / (904 - 600)));
     line-height: 52px;
   `}
 `;
 
 const HeaderEngText = styled.div`
   font-family: 'Quentin';
-  font-style: normal;
   font-weight: 400;
-  font-size: 100px;
+  font-size: 10rem;
   line-height: 147px;
   color: #2FCFBE;
   opacity: 0.2;
-  margin-top:15px;
-  width:100%;
+  margin-top: 15px;
+  width: 100%;
+
   ${({theme})=> theme.pnt`
-    font-size: 64.6258px;
+    font-size: calc(6.5rem + (100vw - 1240px) * ((100 - 65) / (1439 - 1240)));
     line-height: 95px;
   `}
   ${({theme})=> theme.tablet`
-    font-size: 64.6258px;
+    font-size: 6.5rem;
     line-height: 95px;
   `}
   ${({theme})=> theme.tnm`
-    font-size: 50px;
+    font-size: calc(5rem + (100vw - 600px) * ((65 - 50) / (904 - 600)));
     line-height: 73px;
   `}
 `;
 
 const HeaderFrame = styled.div`
   width: 40%;
-  margin-left:-4%;
+  margin-left: -4%;
 `;
 
 const HeaderFrameImg = styled.div`
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
 const FrameLeft = keyframes`
-  0%{
-    transform:translate3d(0px, 0px,0px);
-  }50%{
-    transform:translate3d(-15px, -15px,0px);
-  }100%{
-    transform:translate3d(0px, 0px,0px);
+  0% {
+    transform:translate3d(0px, 0px, 0px);
+  } 50% {
+    transform:translate3d(-15px, -15px, 0px);
+  } 100% {
+    transform:translate3d(0px, 0px, 0px);
   }
 `;
 
 const FrameRight = keyframes`
-  0%{
-    transform:translate3d(0px, 0px,0px);
-  }50%{
-    transform:translate3d(15px, 15px,0px);
-  }100%{
-    transform:translate3d(0px, 0px,0px);
+  0% {
+    transform:translate3d(0px, 0px, 0px);
+  } 50% {
+    transform:translate3d(15px, 15px, 0px);
+  } 100% {
+    transform:translate3d(0px, 0px, 0px);
   }
 `;
 
 const Frame = styled.div`
-  display:flex;
-  justify-content:${props=> props.left ?"left":"right"};
-  animation: ${props=> props.left?FrameLeft:FrameRight} 2s infinite;
+  display: flex;
+  justify-content: ${props => props.left ? "left" : "right"};
+  animation: ${props => props.left ? FrameLeft : FrameRight} 2s infinite;
 `;
 
 const ImageInfo = styled.div`
   font-family: 'NotoSansKR-Regular', sans-serif;
-  font-style: normal;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 22px;
@@ -149,21 +139,23 @@ const ImageInfo = styled.div`
 `;
 
 const SliderTimerBox = styled.div`
-  width:100%;
-  ${({theme})=> theme.pc`
-    width 97%;
+  width: 100%;
+
+  ${({theme}) => theme.pc`
+    width: 96.5%;
+    max-width: 1930px;
     margin: 0 auto;
   `}
 `
 
 const HeaderSlideTimer = styled.progress`
  appearance: none;
- width:100%;
- border:0;
- position:relative;
- top:-5px;
- height:5px;
-  ::-webkit-progress-bar{
+ width: 100%;
+ border: 0;
+ position: relative;
+ top: -5px;
+ height: 5px;
+  ::-webkit-progress-bar {
     background:white;
   }
   ::-webkit-progress-value {
@@ -191,7 +183,7 @@ export default function Header(params) {
         {
           headerData.map((data,idx)=>{
             return slide == data.id && (
-              <HeaderSlide width={97} key={idx}>
+              <HeaderSlide width={100} key={idx}>
                 <HeaderIntro>
                   <HeaderText point>{data.text}</HeaderText>
                   <HeaderText>더 쉽고 편리하게.</HeaderText>
