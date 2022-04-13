@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  width: calc(100vw - 200px);
+  width: calc(100vw - 400px);
   margin: 0 auto;
 
   ${({ theme }) => theme.pnt` 
-    width: calc(100vw - 200px);
+    width: calc(100vw - 400px);
   `};
   ${({ theme }) => theme.tablet` 
     width: calc(100vw - 66px);

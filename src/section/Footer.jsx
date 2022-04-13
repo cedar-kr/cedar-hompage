@@ -2,48 +2,63 @@ import styled from "styled-components";
 import Image from "next/image";
 
 const FooterWrapper = styled.div`
-  width:100%;
+  width: 100%;
   background:#000000;
-  height:665px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:75px;
+  height: 665px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 75px;
 `
 
 const FooterMap = styled.iframe`
-  margin-top:75px;
-  margin-bottom:30px;
+  margin-top: 75px;
+  margin-bottom: 30px;
 `;
 
 const FooterInfo = styled.div`
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 `;
 
 const FooterTexts = styled.div`
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
 const FooterText = styled.div`
   color:#fff;
   margin-left: 19px;
-  margin-right:38px;
-
+  margin-right: 38px;
   font-family: 'NotoSansKR-Regular';
-  font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 35px;
   display: flex;
   align-items: flex-end;
   color: #FFFFFF;
+
+  ${({ theme }) => theme.pnt` 
+    margin-left: 9px;
+    margin-right: 30px;
+    font-size: calc(1.5rem + (100vw - 1240px) * ((18 - 15) / (1439 - 1240)));
+  `};
+  ${({ theme }) => theme.tablet` 
+    margin-left: 9px;
+    margin-right: 30px;
+    font-size: 1.5rem;
+  `};
+  ${({ theme }) => theme.tnm` 
+    margin-left: 5px;
+    margin-right: 10px;
+    font-size: calc(1.2rem + (100vw - 600px) * ((15 - 12) / (904 - 600)));
+  `};
 `;
 
 
@@ -62,15 +77,15 @@ export default function Footer(params) {
         loading="lazy" /> 
       <FooterInfo>
         <FooterTexts>
-          <Image src={'/icons/adress.svg' } width={16} height={22}/>
+          <Image src={'/icons/adress.svg'} width={16} height={22}/>
           <FooterText>서울특별시 서초구 강남대로 18길 5 (양재동) 3층</FooterText>
         </FooterTexts>
         <FooterTexts>
-          <Image src={'/icons/call.svg' } width={20} height={20}/>
+          <Image src={'/icons/call.svg'} width={20} height={20}/>
           <FooterText>070.4901.6150</FooterText>
         </FooterTexts>
         <FooterTexts>
-          <Image src={'/icons/mail.svg' } width={20} height={16}/>
+          <Image src={'/icons/mail.svg'} width={20} height={16}/>
           <FooterText>info@cedar.kr</FooterText>
         </FooterTexts>
       </FooterInfo>
