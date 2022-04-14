@@ -785,3 +785,48 @@ export const solutionPkMobileData = [
     ]
   }
 ]
+
+export const solutionPkModalData = [
+  {
+    title: '콘텐츠 클라우드 저장',
+    standard:true,
+    professional:true,
+    enterprise:true,
+  },
+  {
+    title: '실시간 원격 모니터링',
+    standard:true,
+    professional:true,
+    enterprise:true,
+  },
+  {
+    title: '지원 OS',
+    standard:'안드로이드STB',
+    professional:'Window,Linux<br/>호환 가능',
+    enterprise:'모든 OS 호환<br/>가능',
+  },
+  {
+    title: '디자인 템플릿 사용',
+    standard:'',
+    professional:true,
+    enterprise:true,
+  },
+  {
+    title: '그룹편성',
+    standard:'',
+    professional:true,
+    enterprise:true,
+  },
+  {
+    title: '스마트폰 제어',
+    standard:'',
+    professional:true,
+    enterprise:true,
+  },
+  {
+    title: '생방송지원',
+    standard:'',
+    professional:'',
+    enterprise:true,
+  }
+]
