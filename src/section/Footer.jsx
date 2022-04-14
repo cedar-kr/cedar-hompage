@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import Link from "next/link";
 import { Wrapper } from "../styles/Layout";
 
 const FooterContainer = styled.div`
@@ -85,10 +86,12 @@ export default function Footer(params) {
             <Image src={'/icons/adress.svg'} width={16} height={22}/>
             <FooterText>서울특별시 서초구 강남대로 18길 5 (양재동) 3층</FooterText>
           </FooterTexts>
-          <FooterTexts>
-            <Image src={'/icons/call.svg'} width={20} height={20}/>
-            <FooterText>070.4901.6150</FooterText>
-          </FooterTexts>
+          <Link href="tel:070-4901-6150">
+            <FooterTexts>
+              <Image src={'/icons/call.svg'} width={20} height={20}/>
+              <FooterText>070.4901.6150</FooterText>
+            </FooterTexts>
+          </Link>
           <FooterTexts>
             <Image src={'/icons/mail.svg'} width={20} height={16}/>
             <FooterText>info@cedar.kr</FooterText>
