@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import Link from "next/link";
 
 const FooterWrapper = styled.div`
   background:#000000;
@@ -59,10 +60,12 @@ export default function Footer(params) {
           <FooterText>서울특별시 서초구 강남대로 18길 5 (양재동) 3층</FooterText>
         </FooterTexts>
         <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
-          <FooterTexts>
-            <Image src={'/icons/call.svg' } width={10} height={10}/>
-            <FooterText>070.4901.6150</FooterText>
-          </FooterTexts>
+          <Link href="tel:070-4901-6150">
+            <FooterTexts>
+              <Image src={'/icons/call.svg' } width={10} height={10}/>
+              <FooterText>070.4901.6150</FooterText>
+            </FooterTexts>
+          </Link>
           <FooterTexts style={{marginLeft:'20px'}}>
             <Image src={'/icons/mail.svg' } width={10} height={8}/>
             <FooterText>info@cedar.kr</FooterText>
