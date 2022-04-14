@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components'
 import Image from 'next/image'
 import Link from 'next/link'
 import * as ga from '../utils/ga';
+import { Wrapper } from "../styles/Layout"
 
 const VideoContainer = styled.section`
   background-color: #19B4A2;
@@ -9,14 +10,11 @@ const VideoContainer = styled.section`
   padding-bottom: 67px;
 `;
 
-const VideoWrapper = styled.div`
-  width: 80%;
-  margin: 0 auto;
-`;
 const VideoTextArea = styled.div`
   font-family: 'NotoSansKR-Regular';
   font-weight: 400;
   color: #FFFFFF;
+  margin-right: 10px;
 `;
 
 const VideoTitle = styled.p`
@@ -124,7 +122,7 @@ const TextCircle = styled.div`
 export default function Video() {
   return(
     <VideoContainer>
-      <VideoWrapper width={80}>
+      <Wrapper>
         <VideoContents>
           <VideoTextArea>
             <VideoTitle>더 자세한 정보가 필요하신가요?</VideoTitle>
@@ -146,13 +144,13 @@ export default function Video() {
             </Link>
             <Image
               src="/imgs/video_banner.png"
-              width={621}
+              width={624}
               height={150}
               alt="Video Banner"
             />
           </VideoImgArea>
         </VideoContents>
-      </VideoWrapper>
+      </Wrapper>
     </VideoContainer>
   )
 }

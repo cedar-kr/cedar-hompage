@@ -4,77 +4,55 @@ import { solutionPkData } from "../utils/data";
 import Image from "next/image";
 import { Wrapper } from '../styles/Layout';
 import { useMediaQuery } from "react-responsive";
+import { Title } from "../styles/fontStyles";
 
 const SolutionWrapper = styled(Wrapper)`
-  height:1017px;
-  width:80%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0px;
 
-  ${({theme})=> theme.pnt`
-    height: 802px;
-    width:80%;
-  `}
   ${({theme})=> theme.tablet`
-    height: 802px;
-    width:92.81%;
+    padding: 40px 0px;
   `}
   ${({theme})=> theme.tnm`
-    height: 607px;
-    width:92.81%;
+    padding: 40px 0px;
   `}
 `;
 
-const SolutionPkTitle = styled.div`
-  font-family:'SCDream6';
-  font-size:5rem;
-  font-weight:bold;
-  color:#222222;
-  text-align:center;
-  line-height: 60px;
-  ${({theme})=> theme.pnt`
-    font-size: 40px;
-    line-height: 48px;
-  `}
-  ${({theme})=> theme.tablet`
-    font-size: 40px;
-    line-height: 48px;
-  `}
-  ${({theme})=> theme.tnm`
-    font-size: 30px;
-    line-height: 36px;
-  `}
+const SolutionPkTitle = styled(Title)`
+  font-weight: bold;
+  color: #222222;
+  text-align: center;
 `;
 
 const SolutionPkSubs = styled.div`
   font-family: 'NotoSansKR-Regular';
-  font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 2rem;
   line-height: 30px;
   text-align: center;
   color: #222222;
   margin-top: 30px;
   margin-bottom: 54px;
+
   ${({theme})=> theme.pnt`
     margin-top: 20px;
     margin-bottom: 30px;
-    font-size: 17px;
+    font-size: calc(1.7rem + (100vw - 1240px) * ((20 - 17) / (1439 - 1240)));
     line-height: 25px;
   `}
   ${({theme})=> theme.tablet`
     margin-top: 20px;
     margin-bottom: 30px;
-    font-size: 17px;
+    font-size: 1.7rem;
     line-height: 25px;
   `}
   ${({theme})=> theme.tnm`
     margin-top: 10px;
     margin-bottom: 40px;
-    font-size: 15px;
+    font-size: calc(1.5rem + (100vw - 600px) * ((17 - 15) / (904 - 600)));
     line-height: 22px;
   `}
 `;
@@ -82,53 +60,62 @@ const SolutionPkSubs = styled.div`
 const SolutionPkSubsBox = styled.div`
   background: #F6F6F6;
   height:${ props => props.name ? '350px' : '100%'};
+
+  ${({theme})=> theme.tnm`
+    padding: 10px 2px;
+  `}
 `;
 
 const SolutionPkTable = styled.div`
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
+  word-break: keep-all;
 `;
 
-const SolutionPkLocal = styled.div``;
+const SolutionPkLocal = styled.div`
+  width: 100%;
+`;
 
 const SolutionPkName = styled.div`
   background: #19B4A2;
   mix-blend-mode: normal;
   border-radius: 30px 30px 0px 0px;
-  width: ${props=> props.width ? 368 : 1136}px;
   height: 79px;
   color:#fff;
   font-family: 'NotoSansKR-Bold'; 
-  font-size:3rem;
-  margin-bottom:5px;
-  margin-right:16px;
-  display:flex;
-  text-align:center;
-  align-items:center;
-  span{
+  font-size: 3rem;
+  margin: 0px 8px;
+  margin-bottom: 5px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  span {
     width:100%;
   }
 
   ${({theme})=> theme.pnt`
-    width: ${props=> props.width ? 201 : 627}px;
     height: 60px;
-    font-size: 22px;
+    font-size: calc(2.2rem + (100vw - 1240px) * ((30 - 22) / (1439 - 1240)));
     line-height: 33px;
     letter-spacing: -0.04em;
+    margin: 0px 6px;
+    margin-bottom: 5px;
   `}
   ${({theme})=> theme.tablet`
-    width: ${props=> props.width ? 201 : 627}px;
     height: 60px;
-    font-size: 22px;
+    font-size: 2.2rem;
     line-height: 33px;
     letter-spacing: -0.04em;
+    margin: 0px 6px;
+    margin-bottom: 5px;
   `}
   ${({theme})=> theme.tnm`
-    width: ${props=> props.width ? 128 : 399}px;
     height: 50px;
-    font-size: 21px;
+    font-size: 2.1rem;
     line-height: 31px;
     letter-spacing: -0.04em;
+    margin: 0px 4px;
+    margin-bottom: 5px;
   `}
 `;
 
@@ -136,68 +123,70 @@ const SolutionPkInfo = styled.div`
   background: #FFFFFF;
   mix-blend-mode: normal;
   border: 1px solid #E0E0E0;
+  margin: 0px 8px;
   margin-bottom: 17px;
-  margin-right:16px;
-  display:flex;
-  flex-direction:column;
-  width: 368px;
+  display: flex;
+  flex-direction: column;
+  width: 245px;
 
   ${({theme})=> theme.pnt`
-    width: 201px;
-    margin-right:12px;
+    margin: 0px 6px;
+    margin-bottom: 17px;
   `}
   ${({theme})=> theme.tablet`
-    width: 201px;
-    margin-right:12px;
+    width: 194px;
+    margin: 0px 6px;
+    margin-bottom: 17px;
   `}
   ${({theme})=> theme.tnm`
-    width: 128px;
-    margin-right:8px;
+    width: 138px;
+    margin: 0px 4px;
+    margin-bottom: 8px;
   `}
 `;
 
 const SolutionPkIcon = styled.div`
-  display:flex;
+  display: flex;
   height:${props => props.type ? 181 : 210 }px;
-  width:100%;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  padding:30px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
 
   ${({theme})=> theme.pnt`
-
+    padding: 20px;
   `}
   ${({theme})=> theme.tablet`
-
+    padding: 20px;
   `}
   ${({theme})=> theme.tnm`
-    height:116px;
+    height: 116px;
+    padding: 10px;
   `}
 `;
 
 const SolutionPkType = styled.div`
   font-family: 'NotoSansKR-Bold';
-  font-style: normal;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 3rem;
   line-height: 44px;
   text-align: center;
   color: #222222;
-  margin-top:10px;
+  margin-top: 10px;
 
   ${({theme})=> theme.pnt`
-    font-size: 24px;
+    font-size: font-size: calc(2.4rem + (100vw - 1240px) * ((30 - 24) / (1439 - 1240)))
     line-height: 36px;
     letter-spacing: -0.04em;
   `}
   ${({theme})=> theme.tablet`
-    font-size: 24px;
+    font-size: 2.4rem;
     line-height: 36px;
     letter-spacing: -0.04em;
   `}
   ${({theme})=> theme.tnm`
-    font-size: 21px;
+    font-size: calc(2.1rem + (100vw - 600px) * ((24 - 21) / (904 - 600)));
     line-height: 31px;
     letter-spacing: -0.04em;
   `}
@@ -213,7 +202,7 @@ const SolutionPkInfoSubs= styled.div`
   font-family: ${props=> props.point ? 'NotoSansKR-Medium;':'NotoSansKR-Regular'};
   font-style: normal;
   font-weight: ${props=> props.point ? 'medium' :400};
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 27px;
   display: flex;
   align-items: center;
@@ -221,18 +210,18 @@ const SolutionPkInfoSubs= styled.div`
   color: ${props=> props.point ? '#19B4A2;':'#222222'};
 
   ${({theme})=> theme.pnt`
-    font-size: 15px;
+    font-size: calc(1.5rem + (100vw - 1240px) * ((18 - 15) / (1439 - 1240)));
     line-height: 22px;
   `}
   ${({theme})=> theme.tablet`
-    font-size: 15px;
+    font-size: 1.5rem;
     line-height: 22px;
   `}
   ${({theme})=> theme.tnm`
-    font-size: 12px;
+    font-size: calc(1.2rem + (100vw - 600px) * ((15 - 12) / (904 - 600)));
     line-height: 18px;
+    height: 36px;
   `}
-
 `;
 
 const SolutionPkDatas = styled.div`

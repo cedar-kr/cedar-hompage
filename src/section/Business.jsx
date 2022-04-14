@@ -7,6 +7,19 @@ import { Title } from '../styles/fontStyles';
 const BusinessContainer = styled.section`
   padding-top: 80px;
   padding-bottom: 140px;
+
+  ${({theme})=> theme.pnt`
+    padding-top: 50px;
+    padding-bottom: 85px;
+  `}
+  ${({theme})=> theme.tablet`
+    padding-top: 50px;
+    padding-bottom: 85px;
+  `}
+  ${({theme})=> theme.tnm`
+    padding-top: 40px;
+    padding-bottom: 40px;
+  `}
 `;
 
 const BusinessTitle = styled(Title)`
