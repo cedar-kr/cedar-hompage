@@ -123,9 +123,7 @@ const ItemSubs = styled.div`
   font-weight: 400;
   font-size: 15px;
   line-height: 22px;
-  display: flex;
-  align-items: flex-end;
-  justify-content:right;
+  position:relative;
   text-align: right;
   color: #222222;
   width:100%;
@@ -189,7 +187,7 @@ export default function Referance(params) {
             <SlideItem >
               <ItemTitle>{data.title}</ItemTitle>
               <Image src={data.src} width={data.imgSize.width} height={data.imgSize.height}/>
-              <ItemSubs><div dangerouslySetInnerHTML={{__html:data.subs}}></div></ItemSubs>
+              <ItemSubs dangerouslySetInnerHTML={{__html:data.subs}}></ItemSubs>
             </SlideItem>
           </SwiperSlide>)
         })}
