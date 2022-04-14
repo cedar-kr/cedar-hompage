@@ -75,7 +75,6 @@ const VideoImgArea = styled.div`
 `;
 
 const BtnWrapper = styled.div`
-  position: relative; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,6 +82,7 @@ const BtnWrapper = styled.div`
   height: 115px;
   margin-right: 13px;
   cursor: pointer;
+
 `;
 
 const PlayBtn = styled.div`
@@ -112,10 +112,8 @@ const Rotate = keyframes`
 `;
 
 const TextCircle = styled.div`
-position: absolute;
+  position: absolute;
   background: url(../icons/video_circle.svg) no-repeat;
-  left: 0;
-  top: 0;
   width: 115px; 
   height: 115px;
   animation: ${Rotate} 12s infinite linear;
