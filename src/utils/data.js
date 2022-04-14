@@ -629,7 +629,7 @@ export const solutionPkData = [
         type:'Intra',
         subs:[
           {
-            text:'내부 인터넷 사용가능',
+            text:'내부망 인터넷 사용 가능',
           },
           {
             text:'기업 보안 특화 솔루션',
