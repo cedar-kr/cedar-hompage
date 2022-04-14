@@ -6,7 +6,7 @@ export const pageview = url => {
 };
 
 export const event = ({ action, category, label, value }) => {
-  console.log(`GA - ${category,label,action}`);
+  console.log(`GA - ${category}-${label}-${action}`);
   // window.gtag("event", action, {
   //   event_category: category,
   //   event_label: label,
