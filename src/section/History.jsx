@@ -1,8 +1,9 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { historyData } from "../utils/data";
 import SwiperCore, { Virtual, Navigation,Scrollbar } from 'swiper';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import React, { useState } from "react";
+import * as ga from '../utils/ga';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -206,15 +207,19 @@ export default function History(params) {
         scrollbar={{ draggable: true, dragSize: 200 }}
         modules={[Scrollbar]}
         onSlideChange={(e)=> setActiveIndex(e.activeIndex)}
-        centeredSlidesBounds={true}
         onClick={(e) => {
-          if(clickIndex ==e.clickedIndex){
+          if(clickIndex == e.clickedIndex){
             return;
           }else{
             swiper.slideTo(e.clickedIndex, 500, false);
             setClickIndex(e.clickedIndex);
             if(hj=='h'){setHj('j')};
             if(hj=='j'){setHj('h')};
+            ga.event({
+              action:'Click',
+              category:'History',
+              label:'Slide',
+            })
           }
         }}
         breakpoints={{

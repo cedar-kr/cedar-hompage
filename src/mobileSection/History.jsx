@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { historyData } from "../utils/data";
 import SwiperCore, { Virtual, Navigation,Scrollbar } from 'swiper';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import React, { useState } from "react";
 import Image from 'next/image';
+import * as ga from '../utils/ga';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -54,13 +54,14 @@ const HistoryYear = styled.div`
   opacity:1;
   z-index:1;  
   color:#fff;
-  margin: 40px 0px;
+  margin: 44px 0px;
+  
 `;
 
 const YearLine = styled.div`
   border: 1px solid #FFFFFF;
   transform: rotate(90deg);
-  width:70.5px;
+  width:${props=> props.long ? 70.5 :70.5}px;
 `;
 
 const HistorySubs = styled.div`
@@ -105,7 +106,7 @@ const LayerImg = styled.div`
   z-index:99;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
   height:47px;
-  margin-top:-47px;
+  margin-top:-46px;
 `;
 
 
@@ -134,9 +135,9 @@ export default function History(params) {
             </div>)
            :<HistoryCard bg={slideContent.bg} key={idx}>
               <div>
-                {idx !== 0 && <YearLine />}
+                {idx !== 0 && <YearLine long={slideContent.year == '2015'}/>}
                   <HistoryYear>{slideContent.year}</HistoryYear>
-                {idx !== historyData.length-1 &&  <YearLine />}
+                {idx !== historyData.length-1 &&  <YearLine long={slideContent.year == '2016'}/>}
               </div>
               <div style={{padding:'30px 16px'}}>
                 {slideContent.content.map((content,idx)=>{
@@ -149,7 +150,14 @@ export default function History(params) {
       }
       </HistoryCards>
       {!open && <LayerImg></LayerImg>}
-      <HistoryOpen onClick={()=>setOpen(!open)}>
+      <HistoryOpen onClick={()=>{
+        ga.event({
+          action:'Click',
+          category:'History',
+          label:`Slide`,
+        })
+        setOpen(!open)
+      }}>
         <span>{open?'접기':'더보기'}</span>
         <Image src={open?'/icons/white_top_arrow.png':'/icons/white_bottom_arrow.png'} width={8.33} height={5}/>
       </HistoryOpen>

@@ -1,11 +1,13 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import React, { useRef, useState } from 'react';
-import { referanceData, referanceMobileData } from "../utils/data";
+import { referanceMobileData } from "../utils/data";
 import SwiperCore, { Virtual,Scrollbar, Pagination, Autoplay, Navigation, EffectFade } from 'swiper';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from "next/image";
+import * as ga from '../utils/ga';
 
 SwiperCore.use([Virtual, Scrollbar, Autoplay,Navigation, EffectFade]);
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
@@ -93,7 +95,7 @@ const Slide = styled(Swiper)`
   }
 `;
 
-const SlideItem = styled(SwiperSlide)`
+const SlideItem = styled.div`
   background: #F6F6F6;
   border-radius: 20px;
   height: 250px;
@@ -132,7 +134,7 @@ const ItemSubs = styled.div`
 
 export default function Referance(params) {
   const swiperRef = useRef();
-  const [ activeIndex, setActiveIndex ] = useState(0);
+  const [ swiper, setSwiper ] = useState(null);
 
   return (
     <ReferanceWrapper>
@@ -148,7 +150,7 @@ export default function Referance(params) {
           ref={swiperRef}
         >
         {referanceMobileData.map((bg,idx) => {
-          return (<SwiperSlide key={idx} virtualIndex={activeIndex}>
+          return (<SwiperSlide key={idx} virtualIndex={idx}>
            {bg.bg ?<ReferImage bg={bg.bg}/>:<ReferVideo 
             onClick={(e)=> e.stopPropagation()} 
             autoPlay muted playsInline loop preload="auto">            
@@ -174,12 +176,21 @@ export default function Referance(params) {
         spaceBetween={8}
         loopFillGroupWithBlank={true}
         slidesPerGroup={1}
-        navigation={true}
         loop={true}
-        modules={[Pagination,Autoplay,Navigation]}
+        modules={[Pagination,Autoplay]}
         className="mySwiper"
-        onSlideChange={(e)=> {
-          swiperRef.current.swiper.slideTo(e.activeIndex);
+        onSwiper={(s)=>setSwiper(s)}
+        onSlideChange={(e)=>
+          swiperRef.current.swiper.slideTo(e.activeIndex,300,false)
+        }
+        onClick={(e)=>{
+          swiperRef.current.swiper.slideTo(e.clickedIndex,300,false);
+          swiper.slideTo(e.clickedIndex,300,false);
+          ga.event({
+            action:'Click',
+            category:'Referance',
+            label:`Slide`,
+          })
         }}
       >
         {referanceMobileData.map((data, index) => {

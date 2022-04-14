@@ -4,6 +4,7 @@ import { referanceData } from "../utils/data";
 import Image from "next/image";
 import SwiperCore, { Scrollbar, EffectFade } from 'swiper';
 import { SwiperSlide, Swiper } from "swiper/react";
+import * as ga from '../utils/ga';
 
 SwiperCore.use([ Scrollbar,EffectFade]);
 
@@ -231,6 +232,11 @@ export default function Referance(params) {
                 onClick={(e) => {
                   swiper.slideTo(e.clickedIndex, 300, false);
                   swiperRef.current.swiper.slideTo(e.clickedIndex+1,300,false);
+                  ga.event({
+                    action:'Click',
+                    category:'Referance',
+                    label:'Slide',
+                  })
                 }}
                 allowTouchMove={false}
                 breakpoints={{

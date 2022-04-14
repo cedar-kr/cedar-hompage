@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 import Image from 'next/image'
 import Link from 'next/link'
+import * as ga from '../utils/ga';
 
 const VideoContainer = styled.section`
   background-color: #19B4A2;
@@ -122,7 +123,12 @@ export default function Video() {
           </VideoTextArea>
           <VideoImgArea>
             <Link href={'https://www.youtube.com/channel/UCivb3IzyMclwLiXcKOKKTtw'}>
-            <BtnWrapper>
+            <BtnWrapper onClick={()=> {
+               ga.event({
+                action:'Click',
+                category:'YoutubeVideo',
+                label:`Link`,
+              })}}>
               <PlayBtn>
                 <PlayBtnArrow />
               </PlayBtn>

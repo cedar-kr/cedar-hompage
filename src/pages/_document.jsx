@@ -32,7 +32,7 @@ class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
-           <script
+           {/* <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
           />
@@ -48,7 +48,7 @@ class MyDocument extends Document {
 							});
 						`,
             }} 
-					/>
+					/> */}
         </Head>
         <body>
           <Main />
