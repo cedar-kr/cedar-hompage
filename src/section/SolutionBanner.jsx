@@ -51,7 +51,7 @@ export default function Solution(params) {
         <SolutionBannerSubs>자사는 다양한 모듈 연동과 기술 확대로 신개념 디지털 사이니지 생태계를 구축합니다.</SolutionBannerSubs>
       </SolutionBannerInfo>
       <SolutionBannerImage>
-        <Image src={'/imgs/solutions/Banner.jpg'} height={150} width={624}/>
+        <Image src={'/imgs/solutions/Banner.png'} height={150} width={624}/>
       </SolutionBannerImage>
     </SolutionWrapper>
   )
