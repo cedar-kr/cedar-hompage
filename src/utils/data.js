@@ -208,43 +208,35 @@ export const solutionData = [
     contents:[
       {
         type:'defualt',
-        src:'/imgs/solutions/01_theme.png',
+        src:'/imgs/solutions/01_theme_group.png',
         name:'디자인 템플릿',
         grid:4,
-        imgWidth:368,
-        imgHeight:167,
-        left:0,
-        top:85,
+        imgWidth:496,
+        imgHeight:300
       },
       {
         type:'defualt',
-        src:'/imgs/solutions/01_sensor.png',
+        src:'/imgs/solutions/01_sensor_group.png',
         name:'다양한 센서 연동',
         grid:4,
-        imgWidth:450,
-        imgHeight:280,
-        left:15,
-        top:20,
+        imgWidth:496,
+        imgHeight:300
       },
       {
         type:'defualt',
-        src:'/imgs/solutions/01_multi.png',
+        src:'/imgs/solutions/01_multi_group.png',
         name:'원격 멀티 디바이스 관리',
         grid:6,
-        imgWidth:516,
-        imgHeight:151,
-        left:0,
-        top:90,
+        imgWidth:752,
+        imgHeight:300
       },
       {
         type:'defualt',
-        src:'/imgs/solutions/01_group.png',
+        src:'/imgs/solutions/01_group_group.png',
         name:'그룹관리',
         grid:2,
-        imgWidth:227,
-        imgHeight:207,
-        left:7,
-        top:93,
+        imgWidth:240,
+        imgHeight:300
       },
     ]
   },
@@ -258,36 +250,40 @@ export const solutionData = [
         src:'/imgs/solutions/02_led.png',
         name:'LED',
         grid:3,
+        imgWidth:368,
+        imgHeight:300
       },
       {
         type:'image',
         src:'/imgs/solutions/02_multi.png',
         name:'멀티비전',
         grid:3,
-      },
-      {
-        type:'image',
-        src:'/imgs/solutions/02_kiosk.png',
-        name:'키오스크',
-        grid:2,
+        imgWidth:368,
+        imgHeight:300
       },
       {
         type:'defualt',
-        src:'/imgs/solutions/02_oled.png',
+        src:'/imgs/solutions/02_kiosk.png',
+        name:'키오스크',
+        grid:2,
+        imgWidth:240,
+        imgHeight:300
+      },
+      {
+        type:'defualt',
+        src:'/imgs/solutions/02_oled_group.png',
         name:'투명OLED<br/>터치 디스플레이',
         grid:4,
-        imgWidth:214,
-        imgHeight:186,
-        left:100,
-        top:65,
+        imgWidth:496,
+        imgHeight:300
       },
       {
         type:'image',
         src:'/imgs/solutions/02_sinage.png',
         name:'일반<br/>디지털 사이니지',
         grid:4,
-        left:100,
-        top:65,
+        imgWidth:496,
+        imgHeight:300
       },
     ]
   },
@@ -298,23 +294,19 @@ export const solutionData = [
     contents:[
       {
         type:'defualt',
-        src:'/imgs/solutions/03_si.png',
+        src:'/imgs/solutions/03_si_group.png',
         name:'통계관리',
         grid:5,
-        imgWidth:283,
-        imgHeight:183,
-        left:120,
-        top:80,
+        imgWidth:624,
+        imgHeight:300
       },
       {
         type:'defualt',
-        src:'/imgs/solutions/03_monitor.png',
+        src:'/imgs/solutions/03_monitor_group.png',
         name:'원격 모니터링',
         grid:3,
-        imgWidth:200,
-        imgHeight:152,
-        left:0,
-        top:110,
+        imgWidth:328,
+        imgHeight:300
       },
       {
         type:'defualt',
