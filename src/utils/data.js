@@ -89,6 +89,11 @@ export const referanceData = [
     src:'/imgs/referances/kiosk.png',
     bg:'/imgs/referances/길찾기.jpg',
     subs:'판교 알파돔시티 테크원빌딩',
+    subsEnter:'판교 알파돔시티 <br/> 테크원빌딩',
+    imgSize:{
+      width:277,
+      height:273,
+    },
     imgSize:{
       width:277,
       height:273,
@@ -133,6 +138,7 @@ export const referanceData = [
     src:'/imgs/referances/kimpo.png',
     bg:'/imgs/referances/터치키오스크.jpg',
     subs:'김포국제공항, 청주국제공항',
+    subsEnter:'김포국제공항,<br/> 청주국제공항',
     imgSize:{
       width:263,
       height:298,

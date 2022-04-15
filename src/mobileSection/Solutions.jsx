@@ -55,7 +55,7 @@ const ContentBlock = styled.div`
   ${props => props.bg&&`
     background-image:url(${props.bg});
     background-repeat:no-repeat;
-    background-size:100%;
+    background-size: 100% auto ;
   `};
 `;
 
@@ -94,7 +94,7 @@ export default function Solution(params) {
                 {
                   data.contents.map((content,idx)=>{
                     return <ContentBlock key={idx} bg={content.type === 'image' ? content.src : null} grid={content.grid}>
-                    <ContentBlockTitle color={content.type === 'image' && content.name!=="키오스크" && content.name!=="OTP 로그인" && true} center={content.name=="키오스크"} dangerouslySetInnerHTML={{__html:content.name}}></ContentBlockTitle>
+                    <ContentBlockTitle color={content.type === 'image' && content.name!=="키오스크" && content.name!=="OTP 로그인" && content.name!=="그룹관리" } center={content.name=="키오스크"} dangerouslySetInnerHTML={{__html:content.name}}></ContentBlockTitle>
                     {content.type==='defualt' && 
                       <ContentBlockImg top={content.top} left={content.left}>
                         <Image src={content.src} width={content.imgWidth} height={content.imgHeight} />

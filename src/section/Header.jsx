@@ -3,7 +3,7 @@ import { Wrapper } from "../styles/Layout";
 import styled, { keyframes } from "styled-components";
 import { Progress } from "../styles/Keyframes";
 import { headerData } from "../utils/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useInterval } from "../utils/func";
 
 const HeaderLogo = styled(Wrapper)`
@@ -174,6 +174,7 @@ export default function Header(params) {
       setSlide(slide+1);
     }
   },7000)
+
 
   return (
     <>

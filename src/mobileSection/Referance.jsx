@@ -140,7 +140,7 @@ export default function Referance(params) {
     <ReferanceWrapper>
       <ReferTitle>주요 레퍼런스</ReferTitle>
         <BgSlide 
-          slidesPerView={'auto'}
+          slidesPerView={1}
           centeredSlides={true}
           initialSlide={0}
           effect={"fade"}

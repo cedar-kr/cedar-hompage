@@ -5,6 +5,7 @@ import Image from "next/image";
 import SwiperCore, { Scrollbar, EffectFade } from 'swiper';
 import { SwiperSlide, Swiper } from "swiper/react";
 import * as ga from '../utils/ga';
+import { useMediaQuery } from "react-responsive";
 
 SwiperCore.use([ Scrollbar,EffectFade]);
 
@@ -13,6 +14,17 @@ const ReferanceWrapper = styled.div`
   display:flex;
   flex-direction:row;
   overflow:hidden;
+  width:100%;
+
+  ${({theme})=> theme.pnt`
+      height:645px;
+  `}
+  ${({theme})=> theme.tablet`
+      height:645px;
+  `}
+  ${({theme})=> theme.tnm`
+      height:580px;
+  `}
 `;
 
 const BgSlide = styled(Swiper)`
@@ -22,27 +34,51 @@ const BgSlide = styled(Swiper)`
 `;
 
 const ReferImage = styled.div`
-  height:1000px;
+  height:100%;
+  width:100%;
+  z-index:1;
   ${props=> props.bg && `
     background-image:url(${props.bg});
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: 100% 100%;
   `}
   z-index:1;
+  ${({theme})=> theme.pnt`
+      height:614px;
+  `}
+  ${({theme})=> theme.tablet`
+      height:614px;
+  `}
+  ${({theme})=> theme.tnm`
+      height:100vmin;
+  `}
 `;
 
 const ReferVideo = styled.video`
-  height:1000px;
+  height:100%;
+  width:100%;
   z-index:1;
+  ${({theme})=> theme.pnt`
+      height:614px;
+  `}
+  ${({theme})=> theme.tablet`
+      height:614px;
+  `}
+  ${({theme})=> theme.tnm`
+      height:100vmin;
+  `}
 `;
 
 const ReferContent = styled.div`
   z-index:1;
   width:50.4%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 `;
 
 const ReferTitle = styled.div`
-  margin-top:80px;
+  margin-top:81px;
   text-align:left;
   font-family:'SCDream6';
   font-size:5rem;
@@ -50,19 +86,27 @@ const ReferTitle = styled.div`
   color: #222222;
   line-height: 60px;
   margin-bottom:30px;
-  padding: 0px 200px 0px 147px;
-
+  width:70%;
+  text-align:left;
   ${({theme})=> theme.pnt`
-    font-size: calc(5rem + (100vw - 1240px) * ((50 - 40) / (1439 - 1240)));
+    margin-top:49px;
+    margin-bottom:20px;
+    font-size: calc(5rem + (100vw - 1240px) * ((40 - 40) / (1439 - 1240)));
     line-height: 48px;
+ 
   `}
   ${({theme})=> theme.tablet`
+    margin-top:50px;
+    margin-bottom:20px;
     font-size: 4rem;
     line-height: 48px;
   `}
   ${({theme})=> theme.tnm`
-    font-size: calc(4rem + (100vw - 600px) * ((40 - 30) / (904 - 600)));
+    margin-top:40px;
+    margin-bottom:15px;
+    font-size: 30px;
     line-height: 36px;
+    width:80%;
   `}
 `;
 
@@ -73,22 +117,26 @@ const ReferSubs = styled.div`
   line-height: 30px;
   font-family: 'NotoSansKR-Regular', sans-serif;
   color: #222222;
-  padding: 0px 200px 0px 147px;
+  width:70%;
+  text-align:left;
 
   ${({theme})=> theme.pnt`
-    font-size: calc(2rem + (100vw - 1240px) * ((20 - 17) / (1439 - 1240)));
+    font-size: calc(2rem + (100vw - 1240px) * ((17 - 17) / (1439 - 1240)));
     line-height: 25px;
-    padding: 0px 83px 0px 200px;
+    width:70%;
+    text-align:left;
   `}
   ${({theme})=> theme.tablet`
     font-size: 1.7rem;
     line-height: 25px;
-    padding: 0px 83px 0px 83px;
+    width:70%;
+    text-align:left;
   `}
   ${({theme})=> theme.tnm`
     font-size: calc(1.7rem + (100vw - 600px) * ((17 - 15) / (904 - 600)));
     line-height: 22px;
-    padding: 0px 77px 0px 32px;
+    width:75%;
+    text-align:left;
   `}
 `;
 
@@ -124,12 +172,11 @@ const SlideItems = styled(Swiper)`
   }
   .swiper-scrollbar{
     background:white;
-    width: 752px;
+    width: 70%;
     height: 5px;
-    margin-left:30%;
+    margin-left:23%;
     cursor: pointer;
     background:#F6F6F6;
-    cursor: pointer;
 
   }
   .swiper-scrollbar-drag{
@@ -138,19 +185,85 @@ const SlideItems = styled(Swiper)`
     height: 5px;
     cursor: pointer;
   }
+
+  ${({theme})=> theme.pnt`
+    .swiper-slide{
+      max-height: 340.17px;
+      max-width: 201px;
+      margin-bottom:40px;
+    }
+    .swiper-scrollbar{
+      width: 70%;
+      height: 5px;
+      margin-left:20%;
+    }
+    .swiper-scrollbar-drag{
+      width: 109.94px;
+      height: 5px;
+    }
+  `}
+  ${({theme})=> theme.tablet`
+    .swiper-slide{
+      max-height: 340.17px;
+      max-width: 201px;
+      margin-bottom:40px;
+    }
+    .swiper-scrollbar{
+      width: 70%;
+      height: 5px;
+      margin-left:23%;
+    }
+    .swiper-scrollbar-drag{
+      width: 109.94px;
+      height: 5px;
+    }
+  `}
+  ${({theme})=> theme.tnm`
+    .swiper-slide{
+      max-height: 320px;
+      max-width: 196px;
+      margin-bottom:65px;
+    }
+    .swiper-scrollbar{
+      width: 70%;
+      height: 5px;
+      margin-left:23%;
+
+    }
+    .swiper-scrollbar-drag{
+      width: 62.82px;
+      height: 5px;
+    }
+  `}
 `;
 
 const SlideItem = styled.div`
   background:#F6F6F6;
   border-radius: 30px;
-  height: 600px;
+  height:600px;
   width: 368px;
   display:flex;
   align-items:center;
   flex-direction:column;
   justify-content:space-between;
-  padding:40px 0px;
+  padding:40px;
   z-index:101;
+
+  ${({theme})=> theme.pnt`
+      height: 340.17px;
+      width: 201px;
+      padding:20px;
+  `}
+  ${({theme})=> theme.tablet`
+      height: 340.17px;
+      width: 201px;
+      padding:20px;
+  `}
+  ${({theme})=> theme.tnm`
+      height: 320px;
+      width: 196px;
+      padding: 15px;
+  `}
 `;
 
 const ItemTitle = styled.div`
@@ -161,12 +274,36 @@ const ItemTitle = styled.div`
   line-height: 30px;
   text-align: left;
   width:100%;
-  padding:0px 40px;
+
+  ${({theme})=> theme.pnt`
+   font-size: 1.7rem;
+    line-height: 25px;
+
+  `}
+  ${({theme})=> theme.tablet`
+    font-size: 1.7rem;
+    line-height: 25px;
+  `}
+  ${({theme})=> theme.tnm`
+    font-size: 1.5rem
+    line-height: 22px;
+  `}
 `;
 
 const ItemImage = styled.div`
-  width:${props=> props.width}px;
-  height:${props=> props.height}px;
+    width: 80%;
+    height: 100%;
+    position: relative;
+
+  ${({theme})=> theme.pnt`
+    width: 80%;
+  `}
+  ${({theme})=> theme.tablet`
+    width: 80%;
+  `}
+  ${({theme})=> theme.tnm`
+    width: 70%;
+  `}
 `;
 
 const ItemSubs = styled.div`
@@ -177,7 +314,19 @@ const ItemSubs = styled.div`
   text-align: right;
   width:100%;
   line-height:29.6px;
-  padding:0px 40px;
+
+  ${({theme})=> theme.pnt`
+    font-size: 1.7rem;
+    line-height: 25px;
+  `}
+  ${({theme})=> theme.tablet`
+    font-size: 1.7rem;
+    line-height: 25px;
+  `}
+  ${({theme})=> theme.tnm`
+    font-size: 1.5rem
+    line-height: 22px;
+  `}
 `;
 
 
@@ -185,6 +334,7 @@ export default function Referance(params) {
   const [swiper, setSwiper] = useState(null);
   const [ activeIndex, setActiveIndex ] = useState(0);
   const swiperRef = useRef();
+  const isDesktop = useMediaQuery({ minWidth: 1440 })
 
   return (
     <ReferanceWrapper>
@@ -193,7 +343,6 @@ export default function Referance(params) {
           centeredSlides={true}
           initialSlide={0}
           effect={"fade"}
-          spaceBetween={16}
           loopFillGroupWithBlank={true}
           loop={true}
           modules={[ EffectFade]}
@@ -219,9 +368,11 @@ export default function Referance(params) {
           <Slide>
             <SlideAbsolute>
               <SlideItems 
-                slidesPerView={3} 
+                slidesPerView={'auto'} 
                 spaceBetween={16} 
                 initialSlide={0}
+                loop
+                loopedSlides={5}
                 scrollbar={{ draggable: true, dragSize: 200 }}
                 onSwiper={(s) => setSwiper(s)}
                 onSlideChange={(e)=> {
@@ -230,6 +381,7 @@ export default function Referance(params) {
                 }}
                 modules={[EffectFade,Scrollbar]}
                 onClick={(e) => {
+                  console.log(e);
                   swiper.slideTo(e.clickedIndex, 300, false);
                   swiperRef.current.swiper.slideTo(e.clickedIndex+1,300,false);
                   ga.event({
@@ -245,28 +397,26 @@ export default function Referance(params) {
                   },
                   1240:{
                     spaceBetween:12,
-                    slidesPerView:'auto'
                   },
                   905:{
                     spaceBetween:12,
-                    slidesPerView:'auto'
                   },
                   600:{
                     spaceBetween:8,
-                    slidesPerView:'auto'
-
                   },
                 }}
               >
                 {
                   referanceData.map((data,idx)=>{
-                    return (<SwiperSlide key={idx}>
+                    return (<SwiperSlide key={idx} >
                        <SlideItem key={idx}>
                     <ItemTitle>{data.title}</ItemTitle>
-                    <ItemImage width={data.imgSize.width} height={data.imgSize.height}>
-                      <Image src={data.src} width={data.imgSize.width} height={data.imgSize.height}/>
-                    </ItemImage>
-                    <ItemSubs>{data.subs}</ItemSubs>
+                    {/* <ItemImgBox> */}
+                      <ItemImage width={data.imgSize.width} height={data.imgSize.height}>
+                        <Image src={data.src} layout='fill' objectFit="contain"/>
+                      </ItemImage>
+                    {/* </ItemImgBox> */}
+                    {!isDesktop && data.subsEnter ? <ItemSubs dangerouslySetInnerHTML={{__html:data.subsEnter}}></ItemSubs> : <ItemSubs>{data.subs}</ItemSubs>}
                   </SlideItem>
                   </SwiperSlide>)
                   })

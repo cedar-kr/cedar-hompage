@@ -120,7 +120,7 @@ export default function History(params) {
       {
         historyData.map((slideContent, idx) => {
           return  (
-            !open ? ( idx <3 &&<div key={idx}> <HistoryCard bg={slideContent.bg}>
+            !open ? ( idx <3 && <div key={idx}> <HistoryCard bg={slideContent.bg}>
               <div>
                 {idx !== 0 && <YearLine />}
                   <HistoryYear>{slideContent.year}</HistoryYear>

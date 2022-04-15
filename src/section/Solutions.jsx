@@ -19,6 +19,9 @@ const SolutionInfo = styled.div`
   height: 100%;
   position: relative;
   margin-left: 200px;
+  ${({theme})=>theme.pnt`
+    width:25%;
+  `}
 
   ${({theme})=>theme.tablet`
     margin-left: 34px;
@@ -63,7 +66,7 @@ const SolutionSubs = styled.div`
   line-height: 30px;
   color: #222222;
   max-width: 384px;
-  width: 60%;
+  width: 85%;
 
   ${({theme})=>theme.pnt`
     font-size: calc(1.7rem + (100vw - 1240px) * ((20 - 17) / (1439 - 1240)));

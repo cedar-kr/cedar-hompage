@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { historyData } from "../utils/data";
 import SwiperCore, { Virtual, Navigation,Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -31,7 +31,33 @@ const HistorySection = styled.section`
   ${({theme})=> theme.tnm`
     height: 600px;
   `}
-`
+`;
+
+const HistoryBg = styled.div`
+  position:relative;
+  ${props=> props.bg && `
+      background-image:url(${props.bg});
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position:center center;
+  `}
+  height: 710px;
+  z-index:100;
+  /* background:red; */
+  top:-93%;
+  z-index:1;
+  opacity:0.5;
+  
+   ${({theme})=> theme.pnt`
+    height: 610px;
+  `}
+  ${({theme})=> theme.tablet`
+    height: 610px;
+  `}
+  ${({theme})=> theme.tnm`
+    height: 600px;
+  `}
+`;
 
 const HistoryWrapper = styled(Swiper)`
   height: 660px;
@@ -54,6 +80,9 @@ const HistoryWrapper = styled(Swiper)`
     height: 5px;
     cursor: pointer;
     margin-top:88px;
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
   }
   .swiper-scrollbar-drag{
     background: #2FCFBE;
@@ -122,15 +151,11 @@ const HistoryCard = styled.div`
   align-items:center;
   text-align:center;
   padding: 20px;
-  padding-top: ${props=> props.point ?  20 : 168 }px;
-  margin-top:${props=> props.hj ? 0 :35}px;
-  background:${props=> props.cardBg ? `url(${props.cardBg})`:'#fff'};
-  background-repeat:no-repeat;
-  background-position:center center;
-  background-size:cover;
-  backdrop-filter: ${props=> props.point && `blur(6px)`};
+  margin-top:${props=> props.hj ? 0 : 35}px;
+  background:${props=> props.point?"rgba(47, 207, 190, 0.4)":'#fff'};
+  backdrop-filter:blur(20px);
+  transition: all ease-in-out 0.5s;
   cursor: pointer;
-  transition: margin 0.3s;
 
   ${({theme})=> theme.pnt`
     min-height: 414px;
@@ -149,21 +174,29 @@ const HistoryCard = styled.div`
     min-width: 350px;
     width: 400px;
     height: 350px;
-    padding-top: ${props=> props.point ?  20 : 124 }px;
     margin-top:${props=> props.hj ? 0 :30}px;
   `}
 `;
 
-const HistoryYear = styled.div`
+
+const HistoryYear = styled.span`
   font-family: 'NotoSansKR-Black', sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 9rem;
   line-height: 133px;
-  opacity:1;
-  color: #FFFFFF;
+  color: ${props=> props.point ?'#FFFFFF':'transparent'};
   margin-bottom:25px;
-  z-index:1;
+  z-index:5;
+
+  ${props=> !props.point && `
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: url(${props.bg});
+    overflow:hidden;
+    background-repeat: no-repeat;
+  `};
 `;
 
 const HistorySubs = styled.div`
@@ -176,7 +209,7 @@ const HistorySubs = styled.div`
   color: ${props => props.point ? '#FFFFFF' : '#000000' };
 
   ${({theme})=> theme.pnt`
-    font-size: calc(2.2rem + (100vw - 1240px) * ((22 - 18) / (1439 - 1240)));
+    font-size: 1.8rem;
     line-height: 27px;
   `}
   ${({theme})=> theme.tablet`
@@ -184,7 +217,7 @@ const HistorySubs = styled.div`
     line-height: 27px;
   `}
   ${({theme})=> theme.tnm`
-    font-size: calc(1.8rem + (100vw - 600px) * ((18 - 16) / (904 - 600)));
+    font-size: 16px;
     line-height: 24px;
   `}
 `;
@@ -240,10 +273,8 @@ export default function History(params) {
         {historyData.map((slideContent, index) => {
           return(
           <SwiperSlide key={index} virtualIndex={index} >
-            <HistoryCard hj={hj =='h' && index % 2 ==0 || hj=='j' && index%2 !=0} cardBg={slideContent.cardBg} point={historyData[0].year === slideContent.year}>
-              {historyData[0].year === slideContent.year &&
-                <HistoryYear >{slideContent.year}</HistoryYear>
-              }
+            <HistoryCard hj={hj =='h' && index % 2 ==0 || hj=='j' && index%2 !=0} point={historyData[0].year === slideContent.year}>
+              <HistoryYear bg={historyData[activeIndex].bg} point={historyData[0].year === slideContent.year}>{slideContent.year}</HistoryYear>
               {slideContent.content.map((content,idx)=>{
                 return <HistorySubs point={historyData[0].year === slideContent.year} key={idx}>{content}</HistorySubs>
               })}
