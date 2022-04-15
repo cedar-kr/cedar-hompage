@@ -130,17 +130,19 @@ export default function Video() {
           </VideoTextArea>
           <VideoImgArea>
             <Link href={'https://www.youtube.com/channel/UCivb3IzyMclwLiXcKOKKTtw'}>
-            <BtnWrapper onClick={()=>           
-              ga.event({
-                action:'Click',
-                category:'YoutubeVideo',
-                label:'Link',
-              })}>
-              <PlayBtn>
-                <PlayBtnArrow />
-              </PlayBtn>
-              <TextCircle />
-            </BtnWrapper>
+              <a target="_blank">
+                <BtnWrapper onClick={()=>           
+                  ga.event({
+                    action:'Click',
+                    category:'YoutubeVideo',
+                    label:'Link'
+                  })}>
+                  <PlayBtn>
+                    <PlayBtnArrow />
+                  </PlayBtn>
+                  <TextCircle />
+                </BtnWrapper>
+              </a>
             </Link>
             <Image
               src="/imgs/video_banner.png"
