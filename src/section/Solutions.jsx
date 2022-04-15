@@ -2,108 +2,81 @@ import styled from "styled-components";
 import React from 'react';
 import { solutionData } from "../utils/data";
 import Image from "next/image";
+import { Title } from '../styles/fontStyles';
 
 const SolutionWrapper = styled.div`
-  display:flex;
-  flex-direction:row;
-  width:100%;
-
-  ${({theme})=>theme.pnt`
-  `}
-  ${({theme})=>theme.tablet`
-      width:92.81%;
-     margin:0px auto;
-  `}
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 
   ${({theme})=>theme.tnm`
-    flex-direction:column;
-    background-color:#F6F6F6;
+    flex-direction: column;
+    background-color: #F6F6F6;
   `}
 `;
 
 const SolutionInfo = styled.div`
   height: 100%;
-  width: 30.416%;
-  position:relative;
-  left:10.417%;
+  position: relative;
+  margin-left: 200px;
 
-  ${({theme})=>theme.pnt`
-    left:10.417%;
-  `}
   ${({theme})=>theme.tablet`
-    left:34px;
+    margin-left: 34px;
   `}
   ${({theme})=>theme.tnm`
-    width:100%;
-    left:32px;
+    margin-left: 32px;
   `}
 `;
 
 const SolutionNumber = styled.div`
   font-family: 'NotoSansKR-Regular', sans-serif;
-  font-weight:700;
-  font-size:4rem;
-  line-height:59.2px;
-  margin-top:80px;
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 60px;
+  margin-top: 80px;
   color: #2FCFBE;
-  margin-bottom:33px;
+  margin-bottom: 33px;
+
   ${({theme})=>theme.pnt`
-    font-size: 30px;
+    font-size: calc(3rem + (100vw - 1240px) * ((40 - 30) / (1439 - 1240)));
     line-height: 44px;
   `}
   ${({theme})=>theme.tablet`
-    font-size: 30px;
+    font-size: 3rem;
     line-height: 44px;
   `}
   ${({theme})=>theme.tnm`
-    font-size: 20px;
+    font-size: calc(2rem + (100vw - 600px) * ((30 - 20) / (904 - 600)));
     line-height: 30px;
   `}
 `;
 
-const SolutionTitle = styled.div`
-  font-family:'SCDream6';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 50px;
-  line-height: 60px;
+const SolutionTitle = styled(Title)`
   color:#222222;
-  margin-bottom:30px;
-  ${({theme})=>theme.pnt`
-    font-size: 40px;
-    line-height: 48px;
-  `}
-  ${({theme})=>theme.tablet`
-    font-size: 40px;
-    line-height: 48px;
-  `}
-  ${({theme})=>theme.tnm`
-    font-size: 30px;
-    line-height: 36px;
-  `}
+  margin-bottom: 30px;
 `;
 
 const SolutionSubs = styled.div`
   font-family: 'NotoSansKR-Regular', sans-serif;
-  font-style: normal;
   font-weight: 400;
   font-size: 2rem;
   line-height: 30px;
   color: #222222;
-  max-width:384px;
-  width:60%;
+  max-width: 384px;
+  width: 60%;
+
   ${({theme})=>theme.pnt`
-    font-size: 17px;
+    font-size: calc(1.7rem + (100vw - 1240px) * ((20 - 17) / (1439 - 1240)));
     line-height: 25px;
-    width:201px;
+    width: 201px;
   `}
   ${({theme})=>theme.tablet`
-    font-size: 17px;
+    font-size: 1.7rem;
     line-height: 25px;
-    width:201px;
+    width: 201px;
   `}
   ${({theme})=>theme.tnm`
-    font-size: 15px;
+    font-size: calc(1.5rem + (100vw - 600px) * ((17 - 15) / (904 - 600)));
     line-height: 22px;
     width:100%;
   `}
@@ -111,60 +84,49 @@ const SolutionSubs = styled.div`
 
 const SolutionContents = styled.div`
   background-color:#F6F6F6;
-  width: 69.5%;
+  width: 100%;
   display:flex;
   align-items:center;
   padding: 92px 0px;
 
   ${({theme})=>theme.pnt`
-    width:66.69%;
     gap:12px;
-    grid-template-rows: 200px 200px;
-    padding: 92.8px 0px;
+    padding: 93px 0px;
   `}
   ${({theme})=>theme.tablet`
-    width:66.69%;
     gap:12px;
-    grid-template-rows: 200px 200px;
     padding: 94px 0px;
   `}
   ${({theme})=>theme.tnm`
-    width:100%;
     gap:8px;
-    padding-right:0px;
-    grid-template-rows: 150px 150px;
+    padding: 50px 0px;
   `}
 `;
 
 const ContentBox = styled.div`
-  margin-left:128px;
-  height:616px;
+  width: calc(100% - 200px);
+  margin: 0 auto;
   display: grid;
-	grid-template-columns: repeat(8, minmax(60px,112px));
-  grid-template-rows: 300px 300px;
-  gap:16px;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 16px;
 
   ${({theme})=>theme.pnt`
-    margin-left:71px;
-    gap:12px;
-    grid-template-rows: 200px 200px;
+    gap: 12px;
   `}
   ${({theme})=>theme.tablet`
-    margin-left:71px;
-    gap:12px;
-    grid-template-rows: 200px 200px;
+    gap: 12px;
   `}
     ${({theme})=>theme.tnm`
     margin: 0px 32px;
-    gap:8px;
-    grid-template-rows: 150px 150px;
+    width: 100%;
+    gap: 8px;
   `}
 `;
 
 const ContentBlock = styled.div`
   position:relative;
-  background: #ffffff;
   border-radius: 30px;
+  background: ${props=> props.type === 'image' ? content.src : '#ffffff'};
   grid-column-end: span ${props=> props.grid};
   
   ${props => props.bg&&`
@@ -175,35 +137,40 @@ const ContentBlock = styled.div`
 `;
 
 const ContentBlockTitle = styled.div`
-  font-family: 'NotoSansKR-Regular', sans-serif;
-  font-style: normal;
+  font-family: 'NotoSansKR', sans-serif;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 3rem;
   line-height: 44px;
   letter-spacing: -0.04em;
-  margin:50px;
+  margin: 50px;
   color: ${props=>props.color?'#fff':'#232324'};
   text-align:${props=> props.center ? 'center':'left'};
+  position: absolute;
+  top: 0;
+  left: 0;
+
   ${({theme})=>theme.pnt`
-    font-size: 24px;
+    font-size: calc(2.4rem + (100vw - 1240px) * ((30 - 24) / (1439 - 1240)));
     line-height: 36px;
+    margin: 30px;
   `}
   ${({theme})=>theme.tablet`
-    font-size: 24px;
+    font-size: 2.4rem;
     line-height: 36px;
+    margin: 30px;
   `}
   ${({theme})=>theme.tnm`
-    font-size: 21px;
+    font-size: calc(2.1rem + (100vw - 600px) * ((24 - 21) / (904 - 600)));
     line-height: 31px;
+    margin: 20px;
   `}
 `;
 
 const ContentBlockImg = styled.div`
-  width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  position:absolute;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: ${props=> props.top}px;
   left: ${props=> props.left}px;
 `;
@@ -224,12 +191,12 @@ export default function Solution(params) {
               {
                 data.contents.map((content,idx)=>{
                   return <ContentBlock key={idx} bg={content.type === 'image' ? content.src : null} grid={content.grid}>
-                  <ContentBlockTitle color={content.type === 'image' && content.name!=="키오스크" && content.name!=="OTP 로그인"} center={content.name=="키오스크"} dangerouslySetInnerHTML={{__html:content.name}}></ContentBlockTitle>
                   {content.type==='defualt' && 
                     <ContentBlockImg top={content.top} left={content.left}>
                       <Image src={content.src} width={content.imgWidth} height={content.imgHeight} />
                     </ContentBlockImg>
                   }
+                   <ContentBlockTitle color={content.type === 'image' && content.name!=="키오스크" && content.name!=="OTP 로그인"} center={content.name=="키오스크"} dangerouslySetInnerHTML={{__html:content.name}}></ContentBlockTitle>
                 </ContentBlock>
                 })
               }

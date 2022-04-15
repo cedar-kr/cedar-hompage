@@ -310,21 +310,19 @@ export const solutionData = [
       },
       {
         type:'defualt',
-        src:'/imgs/solutions/03_error.png',
+        src:'/imgs/solutions/03_error_group.png',
         name:'오류 감지',
         grid:3,
-        imgWidth:332,
-        imgHeight:182,
-        left:0,
-        top:100,
+        imgWidth:368,
+        imgHeight:300
       },
       {
-        type:'image',
+        type:'defualt',
         src:'/imgs/solutions/03_otp.png',
         name:'OTP 로그인',
         grid:5,
-        left:0,
-        top:0,
+        imgWidth:622,
+        imgHeight:300
       },
     ]
   }
