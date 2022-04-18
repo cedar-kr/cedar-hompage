@@ -2,10 +2,11 @@ import styled, { keyframes } from "styled-components";
 import React, { useRef, useState } from 'react';
 import { referanceData } from "../utils/data";
 import Image from "next/image";
-import SwiperCore, { Scrollbar, EffectFade } from 'swiper';
+import SwiperCore, { Scrollbar, EffectFade, } from 'swiper';
 import { SwiperSlide, Swiper } from "swiper/react";
 import * as ga from '../utils/ga';
 import { useMediaQuery } from "react-responsive";
+import { useEffect } from "react/cjs/react.development";
 
 SwiperCore.use([ Scrollbar,EffectFade]);
 
@@ -335,6 +336,7 @@ export default function Referance(params) {
   const [ activeIndex, setActiveIndex ] = useState(0);
   const swiperRef = useRef();
   const isDesktop = useMediaQuery({ minWidth: 1440 })
+  console.log(swiper?.activeIndex);
 
   return (
     <ReferanceWrapper>
@@ -343,7 +345,6 @@ export default function Referance(params) {
           centeredSlides={true}
           initialSlide={0}
           effect={"fade"}
-          loopFillGroupWithBlank={true}
           loop={true}
           modules={[ EffectFade]}
           ref={swiperRef}
@@ -370,20 +371,20 @@ export default function Referance(params) {
               <SlideItems 
                 slidesPerView={'auto'} 
                 spaceBetween={16} 
-                initialSlide={0}
+                initialSlide={6}
                 loop
-                loopedSlides={5}
-                scrollbar={{ draggable: true, dragSize: 200 }}
+                // loopedSlides={1}
+                scrollbar={{ draggable: true }}
                 onSwiper={(s) => setSwiper(s)}
                 onSlideChange={(e)=> {
                   setActiveIndex(e.activeIndex); 
-                  swiperRef.current.swiper.slideTo(e.activeIndex+1,300,false);
+                  swiperRef.current.swiper.slideTo(e.realIndex+1,300,false);
                 }}
                 modules={[EffectFade,Scrollbar]}
+                slideToClickedSlide
                 onClick={(e) => {
-                  console.log(e);
-                  swiper.slideTo(e.clickedIndex, 300, false);
-                  swiperRef.current.swiper.slideTo(e.clickedIndex+1,300,false);
+                  swiper.scrollbar.setTranslate(0)
+                  swiperRef.current.swiper.slideTo(e.realIndex+1,300,false);
                   ga.event({
                     action:'Click',
                     category:'Referance',
@@ -411,11 +412,9 @@ export default function Referance(params) {
                     return (<SwiperSlide key={idx} >
                        <SlideItem key={idx}>
                     <ItemTitle>{data.title}</ItemTitle>
-                    {/* <ItemImgBox> */}
                       <ItemImage width={data.imgSize.width} height={data.imgSize.height}>
                         <Image src={data.src} layout='fill' objectFit="contain"/>
                       </ItemImage>
-                    {/* </ItemImgBox> */}
                     {!isDesktop && data.subsEnter ? <ItemSubs dangerouslySetInnerHTML={{__html:data.subsEnter}}></ItemSubs> : <ItemSubs>{data.subs}</ItemSubs>}
                   </SlideItem>
                   </SwiperSlide>)
