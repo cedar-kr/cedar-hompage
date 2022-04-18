@@ -40,7 +40,6 @@ const HeaderSlide = styled.div`
   ${({theme})=> theme.pnt`
     padding-top: 70px;
     padding-bottom: 84px;
-
   `}
   ${({theme})=> theme.tablet`
 
@@ -108,24 +107,6 @@ const HeaderFrame = styled.div`
   width: 45%;
   margin-left: -4%;
   position: relative;
-  /* height: 100%; */
-  height: calc(710px - 90px);
-
-  ${({theme})=> theme.pnt`
-    padding-top: 70px;
-    padding-bottom: 84px;
-    height: calc(630px - 75px);
-  `}
-  ${({theme})=> theme.tablet`
-    padding-top: 70px;
-    padding-bottom: 84px;
-    height: calc(630px - 75px);
-  `}
-  ${({theme})=> theme.tnm`
-    padding-top: 20px;
-    padding-bottom: 36px;
-    height: calc(560px - 25px);
-  `}
 `;
 
 const HeaderFrameImg = styled.div`
@@ -138,8 +119,8 @@ const HeaderFrameImg = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center; */
-  position: absolute;
-  top: 0;
+  /* position: absolute;
+  top: 0; */
 `;
 
 const FrameLeft = keyframes`
@@ -213,23 +194,38 @@ const HeaderSlideTimer = styled.progress`
 
 const SubImage = styled.div`
   position: absolute;
-  /* width: ${props=> props.width}px;
-  height: ${props=> props.height}px; */
-  /* width: 100%; */
-  /* height:100%; */
-  bottom: ${props => props.id === 1 ? '-216px': '150px'};
-  right: ${props => props.id === 1 ? '-130px': '20px'};
+  width: 100%;
+  height: 100%;
+  bottom: ${props => props.id === 1 ? '-200px': '-290px'};
+  right: ${props => props.id === 1 ? '-170px': '-170px'};
 
   ${({theme})=> theme.pnt`
-    bottom: ${props => props.id === 1 ? '-154px': '150px'};
-    right: ${props => props.id === 1 ? '-130px': '-10px'};
+    bottom: ${props => props.id === 1 ? '-190px': '-290px'};
+    right: ${props => props.id === 1 ? '-160px': '-170px'};
   `}
   ${({theme})=> theme.tablet`
-    bottom: ${props => props.id === 1 ? '-154px': '130px'};
-    right: ${props => props.id === 1 ? '-130px': '-70px'};
+    bottom: ${props => props.id === 1 ? '-160px': '-240px'};
+    right: ${props => props.id === 1 ? '-130px': '-160px'};
   `}
   ${({theme})=> theme.tnm`
-    bottom: ${props => props.id === 1 ? '-136px': '90px'};
+    bottom: ${props => props.id === 1 ? '-127px': '-150px'};
+    right: ${props => props.id === 1 ? '-70px': '-130px'};
+  `}
+`;
+
+const MainImage = styled.div`
+  width: 100%;
+  height: 100%;
+  margin-bottom: ${props => props.id === 1 ? '118px': '0px'};
+
+  ${({theme})=> theme.tablet`
+    margin-bottom: ${props => props.id === 1 ? '45px': '0px'};
+  `}
+  ${({theme})=> theme.tnm`
+    width: ${props => props.id === 1 ? '60': '100'}%;
+    height: ${props => props.id === 1 ? '60': '100'}%;
+    margin: 0 auto;
+    margin-bottom: ${props => props.id === 1 ? '50px': '0px'};
   `}
 `;
 
@@ -263,7 +259,9 @@ export default function Header(params) {
                   <Frame left>
                     <Image src={'/imgs/headers/header_frame_left.svg'} height={76} width={77}/></Frame>
                   <HeaderFrameImg>
-                    <Image src={data.imgs[0].src} width={data.imgs[0].width} height={data.imgs[0].height}/>
+                    <MainImage id={data.id}> 
+                      <Image src={data.imgs[0].src} width={data.imgs[0].width} height={data.imgs[0].height}/>
+                    </MainImage>
                     <SubImage id={data.id} bottom={data.bottom} right={data.right}> 
                       <Image src={data.imgs[1].src} width={data.imgs[1].width} height={data.imgs[1].height}/>
                     </SubImage>

@@ -44,8 +44,8 @@ export const headerData = [
       },
       {
         src:'/imgs/headers/usim.png',
-        width:181,
-        height:126
+        width:131,
+        height:96
       }
     ],
     mobileImg: [
