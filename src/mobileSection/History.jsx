@@ -40,7 +40,9 @@ const HistoryCard = styled.div`
   position:relative;
   ${props=> props.bg &&`
     background:url(${props.bg});
-    background-size:contain;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
   `};
   width:100%;
   height:${props=> props.height}px;
@@ -115,10 +117,13 @@ const YearText = styled.div`
   flex-direction:column;
   justify-content:center;
   align-items:center;
+  text-align:center;
   padding: 0px 16px;
   height: 100%;
   overflow:hidden;
-  min-width:106px;
+  max-width:110px;
+  width:110px;
+  min-width:110px;
 `;
 
 
