@@ -135,6 +135,7 @@ const ItemSubs = styled.div`
 export default function Referance(params) {
   const swiperRef = useRef();
   const [ swiper, setSwiper ] = useState(null);
+  const [ activeIndex, setActiveIndex] = useState(0);
 
   return (
     <ReferanceWrapper>
@@ -150,7 +151,7 @@ export default function Referance(params) {
           ref={swiperRef}
         >
         {referanceMobileData.map((bg,idx) => {
-          return (<SwiperSlide key={idx} virtualIndex={idx}>
+          return (<SwiperSlide key={idx}>
            {bg.bg ?<ReferImage bg={bg.bg}/>:<ReferVideo 
             onClick={(e)=> e.stopPropagation()} 
             autoPlay muted playsInline loop preload="auto">            
@@ -180,12 +181,16 @@ export default function Referance(params) {
         modules={[Pagination,Autoplay]}
         className="mySwiper"
         onSwiper={(s)=>setSwiper(s)}
-        onSlideChange={(e)=>
-          swiperRef.current.swiper.slideTo(e.activeIndex,300,false)
-        }
+        onSlideChange={(e)=> {
+          // console.log(e.activeIndex);
+          // console.log();/
+          swiperRef.current.swiper.slideTo(e.realIndex+1);
+        }}
+        slideToClickedSlide
         onClick={(e)=>{
-          swiperRef.current.swiper.slideTo(e.clickedIndex,300,false);
-          swiper.slideTo(e.clickedIndex,300,false);
+          // swiperRef.current.swiper.slideTo(e.clickedIndex+1,300,false);
+          // swiper.slideTo(e.clickedIndex,300,false);
+          // setActiveIndex(e.clickedIndex);
           ga.event({
             action:'Click',
             category:'Referance',
@@ -194,7 +199,7 @@ export default function Referance(params) {
         }}
       >
         {referanceMobileData.map((data, index) => {
-          return (<SwiperSlide key={index} virtualIndex={index}>
+          return (<SwiperSlide key={index}>
             <SlideItem >
               <ItemTitle>{data.title}</ItemTitle>
               <Image src={data.src} width={data.imgSize.width} height={data.imgSize.height}/>

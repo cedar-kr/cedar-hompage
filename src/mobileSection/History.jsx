@@ -30,18 +30,21 @@ const HistoryTitle = styled.div`
 const HistoryCards = styled.div`
   margin-top:20px;
   z-index:1;
+  height: 100%;
 `;
 
 const HistoryCard = styled.div`
   display:flex;
   flex-direction:row;
-  justify-contents:space-between;
   align-items:center;
-  padding:0px 16px;
+  position:relative;
   ${props=> props.bg &&`
     background:url(${props.bg});
-    background-size:cover;
+    background-size:contain;
   `};
+  width:100%;
+  height:${props=> props.height}px;
+  overflow:hidden;
 `;
 
 const HistoryYear = styled.div`
@@ -50,18 +53,16 @@ const HistoryYear = styled.div`
   font-weight: 900;
   font-size: 30px;
   line-height: 44px;
-  width:33%;
   opacity:1;
   z-index:1;  
   color:#fff;
-  margin: 44px 0px;
-  
+  margin:10px 0px;
 `;
 
 const YearLine = styled.div`
-  border: 1px solid #FFFFFF;
-  transform: rotate(90deg);
-  width:${props=> props.long ? 70.5 :70.5}px;
+  width:1px;
+  background-color:${props=> props.color?'white':''};
+  height:100%;
 `;
 
 const HistorySubs = styled.div`
@@ -109,6 +110,17 @@ const LayerImg = styled.div`
   margin-top:-46px;
 `;
 
+const YearText = styled.div`
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding: 0px 16px;
+  height: 100%;
+  overflow:hidden;
+  min-width:106px;
+`;
+
 
 export default function History(params) {
   const [ open, setOpen ] = useState(false);
@@ -119,35 +131,35 @@ export default function History(params) {
       <HistoryCards>
       {
         historyData.map((slideContent, idx) => {
-          return  (
-            !open ? ( idx <3 && <div key={idx}> <HistoryCard bg={slideContent.bg}>
-              <div>
-                {idx !== 0 && <YearLine />}
+          return !open ? ( idx <3 && (
+            <HistoryCard bg={slideContent.bg} key={idx} height={slideContent.height}>
+              <YearText>
+                <YearLine color={idx !== 0}/>
                   <HistoryYear>{slideContent.year}</HistoryYear>
-                {idx !== 2 &&  <YearLine />}
-              </div>
+                <YearLine color={idx !== 2 }/>
+              </YearText>
               <div style={{padding:'30px 0px', marginLeft:'16px', width:'100%'}}>
                 {slideContent.content.map((content,idx)=>{
                   return <HistorySubs point={historyData[0].year === slideContent.year} key={idx}>- {content}</HistorySubs>
                 })}
               </div>
             </HistoryCard>
-            </div>)
-           :<HistoryCard bg={slideContent.bg} key={idx}>
-              <div>
-                {idx !== 0 && <YearLine long={slideContent.year == '2015'}/>}
+          ))
+           :
+           <HistoryCard bg={slideContent.bg} key={idx} height={slideContent.height}>
+              <YearText>
+                <YearLine color={idx !== 0}/>
                   <HistoryYear>{slideContent.year}</HistoryYear>
-                {idx !== historyData.length-1 &&  <YearLine long={slideContent.year == '2016'}/>}
-              </div>
+                <YearLine color={idx !== historyData.length-1}/>
+              </YearText>
               <div style={{padding:'30px 16px'}}>
                 {slideContent.content.map((content,idx)=>{
                   return <HistorySubs point={historyData[0].year === slideContent.year} key={idx}>- {content}</HistorySubs>
                 })}
               </div>
             </HistoryCard>
-          )}
-        )
-      }
+            }
+        )}
       </HistoryCards>
       {!open && <LayerImg></LayerImg>}
       <HistoryOpen onClick={()=>{

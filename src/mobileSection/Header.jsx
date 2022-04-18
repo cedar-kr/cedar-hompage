@@ -16,15 +16,18 @@ const HeaderLogo = styled(Wrapper)`
 const HeaderSlide = styled.div`
   display:flex;
   background-image:url('/imgs/headers/header_bg_mobile.png');
-  width:100%;
-  height: 640px;
   flex-direction:column;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center center;
   padding: 0px 12.62px;
-  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  height:640px;
+  width:100%;
+  overflow:hidden;
 `;
+
 const HeaderIntro = styled.div`
   display:flex;
   flex-direction:column;
@@ -53,6 +56,9 @@ const HeaderEngText = styled.div`
 
 const HeaderFrame = styled.div`
   width: 100%;
+  height:100%;
+  margin-top:10px;
+  overflow:hidden;
 `;
 
 const HeaderFrameImg = styled.div`
@@ -97,7 +103,7 @@ const ImageInfo = styled.div`
   line-height: 17.76px;
   text-align: left;
   color: #8D8D8D;
-  margin-top: 38px;
+  margin-top:14px;
 `;
 const SliderTimerBox = styled.div`
   width:100%;
@@ -120,32 +126,21 @@ const HeaderSlideTimer = styled.progress`
   animation: ${Progress} 7s infinite;
 `;
 
-const first = keyframes`
-  0%{
-    transform:translateX(120px);
-  }
-  100%{
-    transform:translateX(0px);
-  }
-`;
-
-const last = keyframes`
-  0%{
-    transform:translate3d(200px, 70px, 0px);
-  }
-  100%{
-    transform:translate3d(100px, 70px,0px);
-  }
-`;
-
 const HeaderFirstImg = styled.div` 
-  /* animation: ${first} 0.5s ease-in; */
+  ${props=> props.id==2 &&`
+    transform:translate3d(10%,40px,0px);
+  `}
 `;
 
 const HeaderLastImg = styled.div`
-  /* animation: ${last} 1s ease-in; */
   position:absolute;
-  transform:translate3d(100px, 70px,0px);
+  overflow:hidden;
+  ${props=> props.id==1 &&`
+    transform:translate3d(48%, 70%,0px);
+    overflow:hidden;
+  `|| props.id ==2 && `
+    transform:translate3d(120px, 80px,0px);
+  `}
 `;
 
 export default function Header(params) {
@@ -179,10 +174,10 @@ export default function Header(params) {
                   <Frame left>
                     <Image src={'/imgs/headers/header_frame_left.svg'} height={33.27} width={33.71}/></Frame>
                   <HeaderFrameImg>
-                    <HeaderFirstImg>
+                    <HeaderFirstImg id={data.id}>
                       <Image src={data.mobileImg[0].src} width={data.mobileImg[0].width} height={data.mobileImg[0].height}/>
                     </HeaderFirstImg>
-                    <HeaderLastImg>
+                    <HeaderLastImg id={data.id}>
                       <Image src={data.mobileImg[1].src} width={data.mobileImg[1].width} height={data.mobileImg[1].height}/>
                     </HeaderLastImg>
                   </HeaderFrameImg>
