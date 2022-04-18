@@ -601,6 +601,7 @@ export const historyData = [
 
 export const solutionPkData = [
   {
+    id: 1,
     name: 'MODI Local',
     details:[
       {
@@ -634,6 +635,7 @@ export const solutionPkData = [
       },
     ]
   },{
+    id: 2,
     name: 'MODI Cloud',
     details:[
       {

@@ -70,10 +70,22 @@ const SolutionPkTable = styled.div`
   display: flex;
   flex-direction: row;
   word-break: keep-all;
+  width: 100%;
 `;
 
 const SolutionPkLocal = styled.div`
-  width: 100%;
+  width: ${props=> props.id === 1 ? 25 : 75}%;
+  margin: 0px 8px;
+
+  ${({theme})=> theme.pnt`
+    margin: 0px 6px;
+  `}
+  ${({theme})=> theme.tablet`
+    margin: 0px 6px;
+  `}
+  ${({theme})=> theme.tnm`
+    margin: 0px 4px;
+  `}
 `;
 
 const SolutionPkName = styled.div`
@@ -84,7 +96,6 @@ const SolutionPkName = styled.div`
   color:#fff;
   font-family: 'NotoSansKR-Bold'; 
   font-size: 3rem;
-  margin: 0px 8px;
   margin-bottom: 5px;
   display: flex;
   text-align: center;
@@ -98,7 +109,6 @@ const SolutionPkName = styled.div`
     font-size: calc(2.2rem + (100vw - 1240px) * ((30 - 22) / (1439 - 1240)));
     line-height: 33px;
     letter-spacing: -0.04em;
-    margin: 0px 6px;
     margin-bottom: 5px;
   `}
   ${({theme})=> theme.tablet`
@@ -106,7 +116,6 @@ const SolutionPkName = styled.div`
     font-size: 2.2rem;
     line-height: 33px;
     letter-spacing: -0.04em;
-    margin: 0px 6px;
     margin-bottom: 5px;
   `}
   ${({theme})=> theme.tnm`
@@ -114,7 +123,6 @@ const SolutionPkName = styled.div`
     font-size: 2.1rem;
     line-height: 31px;
     letter-spacing: -0.04em;
-    margin: 0px 4px;
     margin-bottom: 5px;
   `}
 `;
@@ -123,24 +131,25 @@ const SolutionPkInfo = styled.div`
   background: #FFFFFF;
   mix-blend-mode: normal;
   border: 1px solid #E0E0E0;
-  margin: 0px 8px;
   margin-bottom: 17px;
   display: flex;
   flex-direction: column;
-  width: 245px;
+  width: 100%;
+  margin-right: ${props=> props.id === 1 ? 0 : 16}px;
+  &:last-child {
+    margin-right: 0px;
+  }
 
   ${({theme})=> theme.pnt`
-    margin: 0px 6px;
+    margin-right: ${props=> props.id === 1 ? 0 : 12}px;
     margin-bottom: 17px;
   `}
   ${({theme})=> theme.tablet`
-    width: 194px;
-    margin: 0px 6px;
+    margin-right: ${props=> props.id === 1 ? 0 : 12}px;
     margin-bottom: 17px;
   `}
   ${({theme})=> theme.tnm`
-    width: 138px;
-    margin: 0px 4px;
+    margin-right: ${props=> props.id === 1 ? 0 : 8}px;
     margin-bottom: 8px;
   `}
 `;
@@ -244,7 +253,7 @@ export default function SolutionPackage(params) {
       <SolutionPkTable>
         { solutionPkData.map((data,index)=>{
           return (
-            <SolutionPkLocal key={index}>
+            <SolutionPkLocal key={index} id={data.id}>
               <SolutionPkName width={data.name=='MODI Local'}><span>{data.name}</span></SolutionPkName>
               <SolutionPkDatas direction={data.name=='MODI Local'?'column':'row'}>
                 {
