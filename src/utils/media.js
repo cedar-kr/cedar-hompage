@@ -15,7 +15,7 @@ export const Tablet = ({ children }) => {
   return isTablet ? children : null
 }
 
-export const Tnm= ({ children }) => {
+export const Tnm = ({ children }) => {
   const isTnm = useMediaQuery({ minWidth: 600, maxWidth: 904 })
   return isTnm ? children : null
 }
@@ -23,6 +23,11 @@ export const Tnm= ({ children }) => {
 export const Mobile = ({ children }) => {
   const isMobile = useMediaQuery({ minWidth: 0, maxWidth: 599 })
   return isMobile ? children : null
+}
+
+export const DefaultPlus = ({ children }) => {
+  const isPcTablet = useMediaQuery({ minWidth: 905 })
+  return isPcTablet ? children : null
 }
 
 export const Default = ({ children }) => {

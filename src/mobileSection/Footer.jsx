@@ -28,6 +28,7 @@ const FooterTexts = styled.div`
   display:flex;
   flex-direction:row;
   margin-top:10px;
+  cursor: ${props=> props.call? 'pointer':''};
 `;
 
 const FooterText = styled.div`
@@ -61,7 +62,7 @@ export default function Footer(params) {
         </FooterTexts>
         <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
           <Link href="tel:070-4901-6150">
-            <FooterTexts>
+            <FooterTexts call>
               <Image src={'/icons/call.svg' } width={10} height={10}/>
               <FooterText>070.4901.6150</FooterText>
             </FooterTexts>
