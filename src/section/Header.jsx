@@ -119,8 +119,6 @@ const HeaderFrameImg = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center; */
-  /* position: absolute;
-  top: 0; */
 `;
 
 const FrameLeft = keyframes`
@@ -230,15 +228,15 @@ const MainImage = styled.div`
 `;
 
 export default function Header(params) {
-  const [ slide, setSlide ] = useState(2);
+  const [ slide, setSlide ] = useState(1);
 
-  // useInterval(()=>{
-  //   if(slide === headerData.length){
-  //     setSlide(1);
-  //   }else{
-  //     setSlide(slide+1);
-  //   }
-  // },7000)
+  useInterval(()=>{
+    if(slide === headerData.length){
+      setSlide(1);
+    }else{
+      setSlide(slide+1);
+    }
+  },7000)
 
 
   return (
