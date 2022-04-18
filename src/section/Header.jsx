@@ -31,10 +31,22 @@ const HeaderSlide = styled.div`
   background-size: auto 100%;
   background-position: center center;
   padding-top: 80px;
-  padding-bottom: 34px;
+  padding-bottom: 99px;
+  overflow: hidden;
 
   ${({theme})=> theme.pc`
     margin: 0px 30px;
+  `}
+  ${({theme})=> theme.pnt`
+    padding-top: 70px;
+    padding-bottom: 84px;
+
+  `}
+  ${({theme})=> theme.tablet`
+
+  `}
+  ${({theme})=> theme.tnm`
+
   `}
 `;
 
@@ -42,10 +54,12 @@ const HeaderIntro = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  white-space: nowrap;
+  width: 44%;
 `;
 
 const HeaderText = styled.div`
-  font-family: 'NotoSansKR-Regular', sans-serif;
+  font-family: 'NotoSansKR', sans-serif;
   font-weight: 700;
   font-size: 7rem;
   color: ${props=> props.point ?'#2FCFBE':'#000'};
@@ -91,15 +105,41 @@ const HeaderEngText = styled.div`
 `;
 
 const HeaderFrame = styled.div`
-  width: 40%;
+  width: 45%;
   margin-left: -4%;
+  position: relative;
+  /* height: 100%; */
+  height: calc(710px - 90px);
+
+  ${({theme})=> theme.pnt`
+    padding-top: 70px;
+    padding-bottom: 84px;
+    height: calc(630px - 75px);
+  `}
+  ${({theme})=> theme.tablet`
+    padding-top: 70px;
+    padding-bottom: 84px;
+    height: calc(630px - 75px);
+  `}
+  ${({theme})=> theme.tnm`
+    padding-top: 20px;
+    padding-bottom: 36px;
+    height: calc(560px - 25px);
+  `}
 `;
 
 const HeaderFrameImg = styled.div`
-  display: flex;
+  width: 100%;
+  min-width: 100%;
+
+  text-align: center;
+  position: relative;
+  /* display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  position: absolute;
+  top: 0;
 `;
 
 const FrameLeft = keyframes`
@@ -126,16 +166,23 @@ const Frame = styled.div`
   display: flex;
   justify-content: ${props => props.left ? "left" : "right"};
   animation: ${props => props.left ? FrameLeft : FrameRight} 2s infinite;
+  position: absolute;
+  right: ${props => props.left ? "" : "0"};
+  bottom: ${props => props.left ? "" : "0"};
+  top: ${props => props.left ? "0" : ""};
 `;
 
 const ImageInfo = styled.div`
-  font-family: 'NotoSansKR-Regular', sans-serif;
+  font-family: 'NotoSansKR', sans-serif;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 22px;
   text-align: right;
   color: #8D8D8D;
+  position: absolute;
   margin-top:20px;
+  bottom: -50px;
+  right: 0;
 `;
 
 const SliderTimerBox = styled.div`
@@ -164,16 +211,38 @@ const HeaderSlideTimer = styled.progress`
   animation: ${Progress} 7s infinite;
 `;
 
-export default function Header(params) {
-  const [ slide, setSlide ] = useState(1);
+const SubImage = styled.div`
+  position: absolute;
+  /* width: ${props=> props.width}px;
+  height: ${props=> props.height}px; */
+  /* width: 100%; */
+  /* height:100%; */
+  bottom: ${props => props.id === 1 ? '-216px': '150px'};
+  right: ${props => props.id === 1 ? '-130px': '20px'};
 
-  useInterval(()=>{
-    if(slide === headerData.length){
-      setSlide(1);
-    }else{
-      setSlide(slide+1);
-    }
-  },7000)
+  ${({theme})=> theme.pnt`
+    bottom: ${props => props.id === 1 ? '-154px': '150px'};
+    right: ${props => props.id === 1 ? '-130px': '-10px'};
+  `}
+  ${({theme})=> theme.tablet`
+    bottom: ${props => props.id === 1 ? '-154px': '130px'};
+    right: ${props => props.id === 1 ? '-130px': '-70px'};
+  `}
+  ${({theme})=> theme.tnm`
+    bottom: ${props => props.id === 1 ? '-136px': '90px'};
+  `}
+`;
+
+export default function Header(params) {
+  const [ slide, setSlide ] = useState(2);
+
+  // useInterval(()=>{
+  //   if(slide === headerData.length){
+  //     setSlide(1);
+  //   }else{
+  //     setSlide(slide+1);
+  //   }
+  // },7000)
 
 
   return (
@@ -195,7 +264,9 @@ export default function Header(params) {
                     <Image src={'/imgs/headers/header_frame_left.svg'} height={76} width={77}/></Frame>
                   <HeaderFrameImg>
                     <Image src={data.imgs[0].src} width={data.imgs[0].width} height={data.imgs[0].height}/>
-                    <Image src={data.imgs[1].src} width={data.imgs[1].width} height={data.imgs[1].height}/>
+                    <SubImage id={data.id} bottom={data.bottom} right={data.right}> 
+                      <Image src={data.imgs[1].src} width={data.imgs[1].width} height={data.imgs[1].height}/>
+                    </SubImage>
                   </HeaderFrameImg>
                   <Frame>
                     <Image src={'/imgs/headers/header_frame_right.svg'} height={76} width={77}/>

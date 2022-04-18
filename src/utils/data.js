@@ -8,13 +8,13 @@ export const headerData = [
     imgs: [
       {
         src:'/imgs/headers/display.png',
-        width:250,
-        height:430,
+        width:260,
+        height:440,
       },
       {
         src:'/imgs/headers/plant.png',
-        width:250,
-        height:430,
+        width:433,
+        height:397
       }
     ],
     mobileImg: [
@@ -39,13 +39,13 @@ export const headerData = [
     imgs: [
       {
         src:'/imgs/headers/kiosk.png',
-        width:250,
-        height:430,
+        width:468,
+        height:557,
       },
       {
         src:'/imgs/headers/usim.png',
-        width:250,
-        height:430,
+        width:181,
+        height:126
       }
     ],
     mobileImg: [
