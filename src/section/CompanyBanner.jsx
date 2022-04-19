@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from "swiper";
-import styled, { keyframes } from 'styled-components'
+import SwiperCore,{ Autoplay, EffectFade } from "swiper";
+import styled from 'styled-components'
 import { DefaultPlus, Tnm } from "../utils/media";
 import { chunk } from "../utils/func";
+
+SwiperCore.use([Autoplay, EffectFade]);
 
 const CompanyBannerContainer = styled.section`
   width: 100%;
@@ -12,6 +14,11 @@ const CompanyBannerContainer = styled.section`
     display:flex;
     justify-content:center;
     align-items:center;
+    .swiper-slide{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
   }
 `;
 
@@ -67,10 +74,11 @@ export default function CompanyBanner(params) {
         slidesPerView={1}
         centeredSlides={true}
         autoplay={{
-          delay: 3000,
+          delay: 10000,
         }}
+        effect={'fade'}
         loop={true}
-        modules={[Autoplay]}
+        modules={[Autoplay,EffectFade]}
         className="mySwiper"
       >
           <SwiperSlide>
@@ -98,7 +106,7 @@ export default function CompanyBanner(params) {
           {
             datas.map((data,index)=>{
               return (
-                <SwiperSlide key={index} >
+                <SwiperSlide key={index}  >
                   <BannerAlign>
                   {
                     data.map((img,idx)=>{
