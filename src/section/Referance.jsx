@@ -6,7 +6,6 @@ import SwiperCore, { Scrollbar, EffectFade, Pagination} from 'swiper';
 import { SwiperSlide, Swiper } from "swiper/react";
 import * as ga from '../utils/ga';
 import { useMediaQuery } from "react-responsive";
-import { useEffect } from "react/cjs/react.development";
 
 SwiperCore.use([ Scrollbar,EffectFade]);
 
@@ -295,7 +294,7 @@ const ItemTitle = styled.div`
     line-height: 25px;
   `}
   ${({theme})=> theme.tnm`
-    font-size: 1.5rem
+    font-size: 1.5rem;
     line-height: 22px;
   `}
 `;
@@ -334,7 +333,7 @@ const ItemSubs = styled.div`
     line-height: 25px;
   `}
   ${({theme})=> theme.tnm`
-    font-size: 1.5rem
+    font-size: 1.5rem;
     line-height: 22px;
   `}
 `;
