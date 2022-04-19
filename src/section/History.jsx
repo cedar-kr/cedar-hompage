@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import Image from "next/image";
 
 SwiperCore.use([Virtual, Navigation, Scrollbar]);
 
@@ -33,35 +34,12 @@ const HistorySection = styled.section`
   `}
 `;
 
-const HistoryBg = styled.div`
-  position:relative;
-  ${props=> props.bg && `
-      background-image:url(${props.bg});
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position:center center;
-  `}
-  height: 710px;
-  z-index:100;
-  /* background:red; */
-  top:-93%;
-  z-index:1;
-  opacity:0.5;
-  
-   ${({theme})=> theme.pnt`
-    height: 610px;
-  `}
-  ${({theme})=> theme.tablet`
-    height: 610px;
-  `}
-  ${({theme})=> theme.tnm`
-    height: 600px;
-  `}
-`;
-
 const HistoryWrapper = styled(Swiper)`
   height: 660px;
   width:100%;
+  
+  .swiper-wrapper{
+  }
 
   .swiper-slide {
     margin-top:134px;
@@ -152,10 +130,17 @@ const HistoryCard = styled.div`
   text-align:center;
   padding: 20px;
   margin-top:${props=> props.hj ? 0 : 35}px;
-  background:${props=> props.point?"rgba(47, 207, 190, 0.4)":'#fff'};
-  backdrop-filter:blur(20px);
+  backdrop-filter:${props=> props.point && `blur(20px)`};
   transition: all ease-in-out 0.5s;
   cursor: pointer;
+  padding-top:150px;
+
+  ${props=> props.cardBg && `
+      background-image:url(${props.cardBg});
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position:center center;
+  `}
 
   ${({theme})=> theme.pnt`
     min-height: 414px;
@@ -176,27 +161,6 @@ const HistoryCard = styled.div`
     height: 350px;
     margin-top:${props=> props.hj ? 0 :30}px;
   `}
-`;
-
-
-const HistoryYear = styled.span`
-  font-family: 'NotoSansKR-Black', sans-serif;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 9rem;
-  line-height: 133px;
-  color: ${props=> props.point ?'#FFFFFF':'transparent'};
-  margin-bottom:25px;
-  z-index:5;
-
-  ${props=> !props.point && `
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-image: url(${props.bg});
-    overflow:hidden;
-    background-repeat: no-repeat;
-  `};
 `;
 
 const HistorySubs = styled.div`
@@ -230,16 +194,19 @@ export default function History(params) {
   const [ clickIndex, setClickIndex ] = useState(0);
   
   return (
-    <HistorySection bg={historyData[activeIndex].img}>
+    <div style={{position:'relative'}}>
+    <Image src={historyData[activeIndex].img} layout="fill" priority/>
+    <HistorySection >
      <HistoryWrapper 
         initialSlide={0}
         slidesPerView={'auto'}
         spaceBetween={16}
         centeredSlides={true}
         onSwiper={(s) => setSwiper(s)}
-        scrollbar={{ draggable: true }}
+        scrollbar={{ draggable: true, dragSize: 200 }}
         modules={[Scrollbar]}
         onSlideChange={(e)=> setActiveIndex(e.activeIndex)}
+        style={{position:'absolute', top:0}}
         onClick={(e) => {
           if(clickIndex == e.clickedIndex){
             return;
@@ -273,8 +240,7 @@ export default function History(params) {
         {historyData.map((slideContent, index) => {
           return(
           <SwiperSlide key={index} virtualIndex={index} >
-            <HistoryCard hj={hj =='h' && index % 2 ==0 || hj=='j' && index%2 !=0} point={historyData[0].year === slideContent.year}>
-              <HistoryYear bg={historyData[activeIndex].bg} point={historyData[0].year === slideContent.year}>{slideContent.year}</HistoryYear>
+            <HistoryCard hj={hj =='h' && index % 2 ==0 || hj=='j' && index%2 !=0} point={historyData[0].year === slideContent.year} cardBg={slideContent.cardBg}>
               {slideContent.content.map((content,idx)=>{
                 return <HistorySubs point={historyData[0].year === slideContent.year} key={idx}>{content}</HistorySubs>
               })}
@@ -282,6 +248,7 @@ export default function History(params) {
           </SwiperSlide>
         )} )}
         </HistoryWrapper>
-    </HistorySection>
+      </HistorySection>
+    </div>
   )
 }
