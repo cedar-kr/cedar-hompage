@@ -34,11 +34,18 @@ const HeaderSlide = styled.div`
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: 100% 100%;
   background-position: center center;
   padding-top: 80px;
   padding-bottom: 99px;
   overflow: hidden;
+
+  ${({theme})=> theme.fnp`
+    margin: 0px 30px;
+  `}
+  ${({theme})=> theme.pc`
+    margin: 0px 30px;
+  `}
   ${({theme})=> theme.pnt`
     padding-top: 70px;
     padding-bottom: 84px;
@@ -177,7 +184,17 @@ const ImageInfo = styled.div`
 `;
 
 const SliderTimerBox = styled.div`
-  position:relative;
+  width: 100%;
+
+  ${({theme})=> theme.fnp`
+    margin: 0px 30px;
+    width: 97.7%;
+  `}
+  ${({theme}) => theme.pc`
+    width: 96.5%;
+    max-width: 1930px;
+    margin: 0 auto;
+  `}
 `
 
 const HeaderSlideTimer = styled.progress`

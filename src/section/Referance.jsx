@@ -32,6 +32,10 @@ const ReferanceWrapper = styled.div`
 const BgSlide = styled(Swiper)`
   width:49.58%;
   z-index:1;
+
+  ${({theme})=> theme.fnp`
+    width:37.58%;
+  `}
 `;
 
 const ReferImage = styled.div`
@@ -78,6 +82,10 @@ const ReferContent = styled.div`
   display:flex;
   flex-direction:column;
   align-items:center;
+
+  ${({theme})=> theme.fnp`
+    width:62.4%;
+  `}
 `;
 
 const ReferTitle = styled.div`
@@ -162,6 +170,10 @@ const SlideAbsolute = styled.div`
   width:58%;
   overflow:hidden;
   right:0px;
+
+  ${({theme})=> theme.fnp`
+    width: 66%;
+  `}
 `;
 
 const SlideItems = styled(Swiper)`
@@ -307,9 +319,9 @@ const ItemTitle = styled.div`
 `;
 
 const ItemImage = styled.div`
-    width: 80%;
-    height: 100%;
-    position: relative;
+  width: 80%;
+  height: 100%;
+  position: relative;
 
   ${({theme})=> theme.pnt`
     width: 80%;

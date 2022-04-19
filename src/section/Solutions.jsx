@@ -19,10 +19,15 @@ const SolutionInfo = styled.div`
   height: 100%;
   position: relative;
   margin-left: 200px;
-  ${({theme})=>theme.pnt`
-    width:25%;
-  `}
 
+  ${({theme})=>theme.fnp`
+    width: 34%;
+    margin: 0px;
+    padding-left: 17%;
+  `}
+  ${({theme})=>theme.pnt`
+    width:30%;
+  `}
   ${({theme})=>theme.tablet`
     margin-left: 34px;
   `}
@@ -107,17 +112,24 @@ const SolutionContents = styled.div`
 `;
 
 const ContentBox = styled.div`
-  width: calc(100% - 200px);
-  margin: 0 auto;
+  width: calc(100% - 328px);
+  margin-left: 128px;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: 16px;
 
+  ${({theme})=>theme.fnp`
+    width: 1105px;
+  `}
   ${({theme})=>theme.pnt`
+    width: calc(100% - 270px);
     gap: 12px;
+    margin-left: 70px;
   `}
   ${({theme})=>theme.tablet`
     gap: 12px;
+    margin-left: 70px;
+    width: calc(100% - 116px);
   `}
     ${({theme})=>theme.tnm`
     margin: 0px 32px;

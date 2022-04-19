@@ -1,7 +1,8 @@
 import { css } from 'styled-components'
 
 const mediaQuery = {
-  pc: `(min-width: 1440px)`,
+  fnp: `(min-width: 1921px)`,
+  pc: `(min-width: 1440px) and (max-width: 1920px)`,
   pnt: `(min-width: 1240px) and (max-width: 1439px)`,
   tablet: `(min-width: 905px) and (max-width: 1239px)`,
   tnm: `(min-width: 600px) and (max-width: 904px)`,

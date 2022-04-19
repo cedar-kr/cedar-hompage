@@ -4,6 +4,9 @@ export const Wrapper = styled.div`
   width: calc(100vw - 400px);
   margin: 0 auto;
 
+  ${({ theme }) => theme.fnp` 
+    width: 1520px;
+  `};
   ${({ theme }) => theme.pnt` 
     width: calc(100vw - 400px);
   `};
