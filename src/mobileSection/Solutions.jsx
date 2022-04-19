@@ -55,7 +55,8 @@ const ContentBlock = styled.div`
   ${props => props.bg&&`
     background-image:url(${props.bg});
     background-repeat:no-repeat;
-    background-size: 100% auto ;
+    background-size: cover;
+    background-position: center center;
   `};
 `;
 
