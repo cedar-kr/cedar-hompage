@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 import React, { useRef, useState } from 'react';
 import { referanceData } from "../utils/data";
 import Image from "next/image";
-import SwiperCore, { Scrollbar, EffectFade, } from 'swiper';
+import SwiperCore, { Scrollbar, EffectFade, Pagination} from 'swiper';
 import { SwiperSlide, Swiper } from "swiper/react";
 import * as ga from '../utils/ga';
 import { useMediaQuery } from "react-responsive";
@@ -165,26 +165,33 @@ const SlideAbsolute = styled.div`
 const SlideItems = styled(Swiper)`
   display:flex;
   flex-direction:row;
+
   .swiper-slide{
     max-height: 600px;
     max-width: 368px;
     margin-bottom:65px;
     cursor: pointer;
   }
-  .swiper-scrollbar{
-    background:white;
+
+  .swiper-pagination {
     width: 70%;
-    height: 5px;
     margin-left:23%;
     cursor: pointer;
-    background:#F6F6F6;
-
+    position: absolute;
+    bottom: 0;
   }
-  .swiper-scrollbar-drag{
-    background: #2FCFBE;
-    width: 200px;
-    height: 5px;
-    cursor: pointer;
+
+  .swiper-pagination-bullet {
+    margin: 0px !important;
+	  border-radius: 0;
+	  width: 20%;
+	  height: 5px;
+    background:#F6F6F6;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+	  background: #2FCFBE;
   }
 
   ${({theme})=> theme.pnt`
@@ -333,10 +340,9 @@ const ItemSubs = styled.div`
 
 export default function Referance(params) {
   const [swiper, setSwiper] = useState(null);
-  const [ activeIndex, setActiveIndex ] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef();
   const isDesktop = useMediaQuery({ minWidth: 1440 })
-  console.log(swiper?.activeIndex);
 
   return (
     <ReferanceWrapper>
@@ -346,14 +352,14 @@ export default function Referance(params) {
           initialSlide={0}
           effect={"fade"}
           loop={true}
-          modules={[ EffectFade]}
+          modules={[EffectFade]}
           ref={swiperRef}
         >
         {referanceData.map((bg,idx) => {
           return (<SwiperSlide key={idx} virtualIndex={activeIndex}>
            {bg.bg ?<ReferImage bg={bg.bg}/>:<ReferVideo 
-            onClick={(e)=> e.stopPropagation()} 
-            autoPlay muted playsInline loop preload="auto">            
+            onClick={(e)=> e.stopPropagation()}
+            autoPlay muted playsInline loop preload="auto">         
               <source
               src={bg.video}
               type="video/mp4"
@@ -371,19 +377,19 @@ export default function Referance(params) {
               <SlideItems 
                 slidesPerView={'auto'} 
                 spaceBetween={16} 
-                initialSlide={6}
-                loop
-                // loopedSlides={1}
-                scrollbar={{ draggable: true }}
+                initialSlide={5}
+                loop={true}
+                pagination={{
+                  clickable: true
+                }}
                 onSwiper={(s) => setSwiper(s)}
                 onSlideChange={(e)=> {
                   setActiveIndex(e.activeIndex); 
                   swiperRef.current.swiper.slideTo(e.realIndex+1,300,false);
                 }}
-                modules={[EffectFade,Scrollbar]}
+                modules={[EffectFade, Pagination]}
                 slideToClickedSlide
                 onClick={(e) => {
-                  swiper.scrollbar.setTranslate(0)
                   swiperRef.current.swiper.slideTo(e.realIndex+1,300,false);
                   ga.event({
                     action:'Click',
