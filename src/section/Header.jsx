@@ -22,6 +22,12 @@ const HeaderLogo = styled(Wrapper)`
   `}
 `;
 
+const HeaderWrapper = styled.div`
+   ${({theme})=> theme.pc`
+    margin: 0px 30px;
+  `}
+`;
+
 const HeaderSlide = styled.div`
   display: flex;
   background-image: url('/imgs/headers/header_bg.jpg');
@@ -33,19 +39,12 @@ const HeaderSlide = styled.div`
   padding-top: 80px;
   padding-bottom: 99px;
   overflow: hidden;
-
-  ${({theme})=> theme.pc`
-    margin: 0px 30px;
-  `}
   ${({theme})=> theme.pnt`
     padding-top: 70px;
     padding-bottom: 84px;
   `}
-  ${({theme})=> theme.tablet`
-
-  `}
   ${({theme})=> theme.tnm`
-
+    max-height: 560px;
   `}
 `;
 
@@ -54,7 +53,18 @@ const HeaderIntro = styled.div`
   flex-direction: column;
   justify-content: center;
   white-space: nowrap;
-  width: 44%;
+  width: 30%;
+  margin-right:50px;
+
+  ${({theme})=> theme.pnt`
+    width: 29%;
+  `}
+  ${({theme})=> theme.tablet`
+    width: 45%;
+  `}
+  ${({theme})=> theme.tnm`
+    width: 45%;
+  `}
 `;
 
 const HeaderText = styled.div`
@@ -107,6 +117,7 @@ const HeaderFrame = styled.div`
   width: 45%;
   margin-left: -4%;
   position: relative;
+
 `;
 
 const HeaderFrameImg = styled.div`
@@ -165,18 +176,11 @@ const ImageInfo = styled.div`
 `;
 
 const SliderTimerBox = styled.div`
-  width: 100%;
-
-  ${({theme}) => theme.pc`
-    width: 96.5%;
-    max-width: 1930px;
-    margin: 0 auto;
-  `}
+  position:relative;
 `
 
 const HeaderSlideTimer = styled.progress`
  appearance: none;
- width: 100%;
  border: 0;
  position: relative;
  top: -5px;
@@ -190,12 +194,35 @@ const HeaderSlideTimer = styled.progress`
   animation: ${Progress} 7s infinite;
 `;
 
+const test = keyframes`
+  0%{
+    transform:translateX(100%);
+  }
+  100%{
+    transform:translateX(0);
+  }
+`;
+
+const test2 = keyframes`
+  0%{
+    transform:translateX(100%);
+  }
+  50%{
+    transform:translateX(100%);
+  }
+  100%{
+    transform:translateX(0);
+  }
+`;
+
 const SubImage = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
   bottom: ${props => props.id === 1 ? '-200px': '-290px'};
   right: ${props => props.id === 1 ? '-170px': '-170px'};
+
+  animation:${test2} 1s ease-in;
 
   ${({theme})=> theme.pnt`
     bottom: ${props => props.id === 1 ? '-190px': '-290px'};
@@ -211,6 +238,8 @@ const SubImage = styled.div`
   `}
 `;
 
+
+
 const MainImage = styled.div`
   width: 100%;
   height: 100%;
@@ -225,6 +254,7 @@ const MainImage = styled.div`
     margin: 0 auto;
     margin-bottom: ${props => props.id === 1 ? '50px': '0px'};
   `}
+  animation:${test} 0.5s ease-in;
 `;
 
 export default function Header(params) {
@@ -236,11 +266,11 @@ export default function Header(params) {
     }else{
       setSlide(slide+1);
     }
-  },7000)
+  },6800)
 
 
   return (
-    <>
+    <HeaderWrapper>
       <HeaderLogo>
         <Image src={'/icons/logo.png'} width={112} height={30}/>
       </HeaderLogo>
@@ -276,6 +306,6 @@ export default function Header(params) {
       <SliderTimerBox>
         <HeaderSlideTimer min="1" max="100" value={100} ></HeaderSlideTimer>
       </SliderTimerBox>
-    </>
+    </HeaderWrapper>
   )
 }

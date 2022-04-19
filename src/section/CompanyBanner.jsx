@@ -19,39 +19,42 @@ const BannerAlign = styled.div`
   display:flex;
   flex-direction:row;
   justify-content:space-between;
+  padding:0px 32px;
 `;
 
 const BannerItem = styled.div`
   margin:20px 0px;
-  /* background: gray; */
-  width:200px;
-  height:80px;
+  width: 95.9px;
+  height: 60px;
   display:flex;
   justify-content:center;
   align-items:center;
 `;
 
 const CompanyBannerDatas = [
-  {id:1, src:'/imgs/companyBanner/companys/1.png'},
-  {id:2, src:'/imgs/companyBanner/companys/2.png'},
-  {id:3, src:'/imgs/companyBanner/companys/3.png'},
-  {id:4, src:'/imgs/companyBanner/companys/4.png'},
-  {id:5, src:'/imgs/companyBanner/companys/5.png'},
-  {id:6, src:'/imgs/companyBanner/companys/6.png'},
-  {id:7, src:'/imgs/companyBanner/companys/7.png'},
-  {id:8, src:'/imgs/companyBanner/companys/8.png'},
-  {id:9, src:'/imgs/companyBanner/companys/9.png'},
-  {id:10, src:'/imgs/companyBanner/companys/10.png'},
-  {id:11, src:'/imgs/companyBanner/companys/11.png'},
-  {id:12, src:'/imgs/companyBanner/companys/12.png'},
-  {id:13, src:'/imgs/companyBanner/companys/13.png'},
-  {id:14, src:'/imgs/companyBanner/companys/14.png'},
-  {id:15, src:'/imgs/companyBanner/companys/15.png'},
-  {id:16, src:'/imgs/companyBanner/companys/16.png'},
-  {id:17, src:'/imgs/companyBanner/companys/17.png'},
-  {id:18, src:'/imgs/companyBanner/companys/18.png'},
-  {id:19, src:'/imgs/companyBanner/companys/'},
-  {id:20, src:'/imgs/companyBanner/companys/'},
+  {id:1, src:'/imgs/companyBanner/companys/1.png',width:120,height:40},
+  {id:2, src:'/imgs/companyBanner/companys/2.png',width:150,height:50},
+  {id:3, src:'/imgs/companyBanner/companys/3.png',width:150,height:50},
+  {id:4, src:'/imgs/companyBanner/companys/4.png',width:150,height:50},
+  {id:5, src:'/imgs/companyBanner/companys/5.png',width:150,height:50},
+  {id:6, src:'/imgs/companyBanner/companys/6.png',width:150,height:50},
+
+  {id:7, src:'/imgs/companyBanner/companys/7.png',width:120,height:40},
+  {id:8, src:'/imgs/companyBanner/companys/8.png',width:150,height:50},
+  {id:9, src:'/imgs/companyBanner/companys/9.png',width:150,height:50},
+  {id:10, src:'/imgs/companyBanner/companys/10.png',width:150,height:50},
+  {id:11, src:'/imgs/companyBanner/companys/11.png',width:150,height:50},
+  {id:12, src:'/imgs/companyBanner/companys/12.png',width:150,height:50},
+
+  {id:13, src:'/imgs/companyBanner/companys/13.png',width:120,height:40},
+  {id:14, src:'/imgs/companyBanner/companys/14.png',width:150,height:50},
+  {id:15, src:'/imgs/companyBanner/companys/15.png',width:150,height:50},
+  {id:16, src:'/imgs/companyBanner/companys/16.png',width:150,height:50},
+  {id:17, src:'/imgs/companyBanner/companys/17.png',width:150,height:50},
+  {id:18, src:'/imgs/companyBanner/companys/18.png',width:150,height:50},
+
+  {id:19, src:'/imgs/companyBanner/companys/',width:150,height:50},
+  {id:20, src:'/imgs/companyBanner/companys/',width:150,height:50},
 ]
 
 export default function CompanyBanner(params) {
@@ -101,7 +104,10 @@ export default function CompanyBanner(params) {
                     data.map((img,idx)=>{
                       return(
                         <BannerItem key={idx} align={data.length-1 === idx}>
-                          <Image src={img.src} height={50} width={120}/>
+                          {
+                            img.id <= 18 &&
+                            <Image src={img.src} height={img.height} width={img.width}/>
+                          }
                         </BannerItem>
                       )
                     })
