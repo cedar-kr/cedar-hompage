@@ -11,25 +11,26 @@ import { useEffect } from "react/cjs/react.development";
 SwiperCore.use([ Scrollbar,EffectFade]);
 
 const ReferanceWrapper = styled.div`
-  height:1000px;
   display:flex;
   flex-direction:row;
   overflow:hidden;
   width:100%;
 
+  ${({theme})=> theme.pc`
+    height:1000px;
+  `}
   ${({theme})=> theme.pnt`
-      height:645px;
+    height:645px;
   `}
   ${({theme})=> theme.tablet`
-      height:645px;
+    height:645px;
   `}
   ${({theme})=> theme.tnm`
-      height:580px;
+    height:600px;
   `}
 `;
 
 const BgSlide = styled(Swiper)`
-  height:1000px;
   width:49.58%;
   z-index:1;
 `;
@@ -44,26 +45,27 @@ const ReferImage = styled.div`
     background-size: 100% 100%;
   `}
   z-index:1;
+
   ${({theme})=> theme.pnt`
-      height:614px;
+    height:645px;
   `}
   ${({theme})=> theme.tablet`
-      height:614px;
+    height:645px;
   `}
   ${({theme})=> theme.tnm`
-      height:100vmin;
+    height:600px;
   `}
 `;
 
 const ReferVideo = styled.video`
   height:100%;
-  width:100%;
+  /* width:100%; */
   z-index:1;
   ${({theme})=> theme.pnt`
-      height:614px;
+    height:645px;
   `}
   ${({theme})=> theme.tablet`
-      height:614px;
+      height:645px;
   `}
   ${({theme})=> theme.tnm`
       height:100vmin;
