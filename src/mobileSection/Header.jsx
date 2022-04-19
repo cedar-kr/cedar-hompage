@@ -67,6 +67,7 @@ const HeaderFrameImg = styled.div`
   justify-content:center;
   align-items:center;
   height:280px;
+  transition:all 0.5s ease-in-out;
 `;
 
 const FrameLeft = keyframes`
@@ -123,7 +124,7 @@ const HeaderSlideTimer = styled.progress`
   ::-webkit-progress-value {
     background:#2FCFBE;
   }
-  animation: ${Progress} 7s infinite;
+  animation: ${Progress} 5s infinite;
 `;
 
 const HeaderFirstImg = styled.div` 
@@ -152,7 +153,7 @@ export default function Header(params) {
     }else{
       setSlide(slide+1);
     }
-  },7000)
+  },5000)
 
   return (
     <div>
@@ -175,10 +176,10 @@ export default function Header(params) {
                     <Image src={'/imgs/headers/header_frame_left.svg'} height={33.27} width={33.71}/></Frame>
                   <HeaderFrameImg>
                     <HeaderFirstImg id={data.id}>
-                      <Image src={data.mobileImg[0].src} width={data.mobileImg[0].width} height={data.mobileImg[0].height}/>
+                      <Image src={data.mobileImg[0].src} width={data.mobileImg[0].width} height={data.mobileImg[0].height} priority/>
                     </HeaderFirstImg>
                     <HeaderLastImg id={data.id}>
-                      <Image src={data.mobileImg[1].src} width={data.mobileImg[1].width} height={data.mobileImg[1].height}/>
+                      <Image src={data.mobileImg[1].src} width={data.mobileImg[1].width} height={data.mobileImg[1].height} priority/>
                     </HeaderLastImg>
                   </HeaderFrameImg>
                   <Frame>

@@ -59,8 +59,7 @@ const SolutionPkSubs = styled.div`
 
 const SolutionPkSubsBox = styled.div`
   background: #F6F6F6;
-  height:${ props => props.name ? '350px' : '100%'};
-
+  height:${ props => props.name =="true" ? '350px' : '100%'};
   ${({theme})=> theme.tnm`
     padding: 10px 2px;
   `}
@@ -156,7 +155,7 @@ const SolutionPkInfo = styled.div`
 
 const SolutionPkIcon = styled.div`
   display: flex;
-  height:${props => props.type ? 181 : 210 }px;
+  height:${props => props.type=="true" ? 181 : 210 }px;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -254,18 +253,18 @@ export default function SolutionPackage(params) {
         { solutionPkData.map((data,index)=>{
           return (
             <SolutionPkLocal key={index} id={data.id}>
-              <SolutionPkName width={data.name=='MODI Local'}><span>{data.name}</span></SolutionPkName>
+              <SolutionPkName ><span>{data.name}</span></SolutionPkName>
               <SolutionPkDatas direction={data.name=='MODI Local'?'column':'row'}>
                 {
                   data.details.map((detail,idx)=>{
                    return <SolutionPkInfo key={idx}>
-                      <SolutionPkIcon type={detail.type == 'Intra'}>
+                      <SolutionPkIcon type={detail.type == 'Intra'?"true":"false"}>
                         <Image src={detail.icon.src} height={detail.icon.height} width={detail.icon.width}/>
                         <SolutionPkType>
                           {detail.type}
                         </SolutionPkType>
                       </SolutionPkIcon>
-                      <SolutionPkSubsBox height={data.name=='MODI Local'}>
+                      <SolutionPkSubsBox height={data.name=='MODI Local'?"true":"false"}>
                         {
                           detail.subs.map((subs,id)=>{
                             return (

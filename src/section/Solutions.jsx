@@ -146,7 +146,7 @@ const ContentBlockTitle = styled.div`
   line-height: 44px;
   letter-spacing: -0.04em;
   margin: 50px;
-  color: ${props=>props.color?'#fff':'#232324'};
+  color: ${props=>props.color=="true"?'#fff':'#232324'};
   text-align:${props=> props.center ? 'center':'left'};
   position: absolute;
   top: 0;
@@ -181,9 +181,9 @@ const ContentBlockImg = styled.div`
 export default function Solution(params) {
 
   return (
-    solutionData.map((data)=>{
+    solutionData.map((data, index)=>{
       return (
-        <SolutionWrapper>
+        <SolutionWrapper key={index}>
           <SolutionInfo>
             <SolutionNumber>0{data.id}.</SolutionNumber>
             <SolutionTitle>{data.title}</SolutionTitle>
@@ -199,7 +199,7 @@ export default function Solution(params) {
                       <Image src={content.src} width={content.imgWidth} height={content.imgHeight} />
                     </ContentBlockImg>
                   }
-                   <ContentBlockTitle color={content.type === 'image' && content.name!=="키오스크" && content.name!=="OTP 로그인"} center={content.name=="키오스크"} dangerouslySetInnerHTML={{__html:content.name}}></ContentBlockTitle>
+                   <ContentBlockTitle color={(content.type === 'image') && (content.name!=="키오스크") && (content.name!=="OTP 로그인")?"true":"false"} center={content.name=="키오스크"} dangerouslySetInnerHTML={{__html:content.name}}></ContentBlockTitle>
                 </ContentBlock>
                 })
               }

@@ -14,7 +14,7 @@ export const headerData = [
       {
         src:'/imgs/headers/plant.png',
         width:433,
-        height:397
+        height:433
       }
     ],
     mobileImg: [
@@ -485,7 +485,8 @@ export const historyData = [
     ],
     img:'/imgs/historys/2022.jpg',
     bg:'/imgs/historys/2022.png',
-    cardBg:'/imgs/historys/2022_bg.png'
+    cardBg:'/imgs/historys/card/22.png',
+    height:144
   },
   {
     year:2021,
@@ -499,7 +500,8 @@ export const historyData = [
     ],
     img:'/imgs/historys/2021.jpg',
     bg:'/imgs/historys/2021.png',
-    cardBg:'/imgs/historys/2021_bg.png'
+    cardBg:'/imgs/historys/card/21.png',
+    height:186
   },
   {
     year:2020,
@@ -513,6 +515,8 @@ export const historyData = [
     ],
     img:'/imgs/historys/2020.jpg',
     bg:'/imgs/historys/2020.png',
+    cardBg:'/imgs/historys/card/20.png',
+    height:223
   },
   {
     year:2019,
@@ -522,6 +526,8 @@ export const historyData = [
     ],
     img:'/imgs/historys/2019.jpg',
     bg:'/imgs/historys/2019.png',
+    cardBg:'/imgs/historys/card/19.png',
+    height:102
   },
   {
     year:2018,
@@ -536,6 +542,8 @@ export const historyData = [
     ],
     img:'/imgs/historys/2018.jpg',
     bg:'/imgs/historys/2018.png',
+    cardBg:'/imgs/historys/card/18.png',
+    height:207
   },
   {
     year:2017,
@@ -547,6 +555,8 @@ export const historyData = [
     ],
     img:'/imgs/historys/2017.jpg',
     bg:'/imgs/historys/2017.png',
+    cardBg:'/imgs/historys/card/17.png',
+    height:144
   },
   {
     year:2016,
@@ -560,6 +570,8 @@ export const historyData = [
     ],
     img:'/imgs/historys/2016.jpg',
     bg:'/imgs/historys/2016.png',
+    cardBg:'/imgs/historys/card/16.png',
+    height:228
   },
   {
     year:2015,
@@ -575,6 +587,8 @@ export const historyData = [
     ],
     img:'/imgs/historys/2015.jpg',
     bg:'/imgs/historys/2015.png',
+    cardBg:'/imgs/historys/card/15.png',
+    height:270
   },
   {
     year:2014,
@@ -585,6 +599,8 @@ export const historyData = [
     ],
     img:'/imgs/historys/2014.jpg',
     bg:'/imgs/historys/2014.png',
+    cardBg:'/imgs/historys/card/14.png',
+    height:123
   },
   {
     year:2013,
@@ -595,7 +611,9 @@ export const historyData = [
       '	스마트 챌린지 휴맥스분야 최우수상 수상',
     ],
     img:'/imgs/historys/2013.jpg',
-    bg:'/imgs/historys/2013.png'
+    bg:'/imgs/historys/2013.png',
+    cardBg:'/imgs/historys/card/13.png',
+    height:186
   },
 ]
 

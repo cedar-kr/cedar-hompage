@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from "next/image";
 import * as ga from '../utils/ga';
 
-SwiperCore.use([Virtual, Scrollbar, Autoplay,Navigation, EffectFade]);
+SwiperCore.use([Virtual, Scrollbar, Autoplay, Navigation, EffectFade]);
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -147,7 +147,7 @@ export default function Referance(params) {
           effect={"fade"}
           loopFillGroupWithBlank={true}
           loop={true}
-          modules={[ Autoplay,EffectFade]}
+          modules={[EffectFade]}
           ref={swiperRef}
         >
         {referanceMobileData.map((bg,idx) => {

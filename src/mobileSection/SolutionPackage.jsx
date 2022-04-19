@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import React, { useEffect, useState } from 'react';
-import { solutionPkData, solutionPkMobileData } from "../utils/data";
+import { solutionPkMobileData } from "../utils/data";
 import Image from "next/image";
-import { Wrapper } from '../styles/Layout';
 import SolutionModal from "../components/modal";
 import * as ga from '../utils/ga';
 

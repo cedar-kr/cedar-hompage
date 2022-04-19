@@ -2,12 +2,12 @@ import styled, { keyframes } from "styled-components";
 import React, { useRef, useState } from 'react';
 import { referanceData } from "../utils/data";
 import Image from "next/image";
-import SwiperCore, { Scrollbar, EffectFade, Pagination} from 'swiper';
+import SwiperCore, { Scrollbar, EffectFade, Pagination } from 'swiper';
 import { SwiperSlide, Swiper } from "swiper/react";
 import * as ga from '../utils/ga';
 import { useMediaQuery } from "react-responsive";
 
-SwiperCore.use([ Scrollbar,EffectFade]);
+SwiperCore.use([ Scrollbar,EffectFade ]);
 
 const ReferanceWrapper = styled.div`
   display:flex;
@@ -58,7 +58,8 @@ const ReferImage = styled.div`
 
 const ReferVideo = styled.video`
   height:100%;
-  /* width:100%; */
+  min-width:100%;
+  width:100%;
   z-index:1;
   ${({theme})=> theme.pnt`
     height:645px;
@@ -173,6 +174,11 @@ const SlideItems = styled(Swiper)`
     margin-bottom:65px;
     cursor: pointer;
   }
+  .swiper-slide-prev{
+    opacity:0;
+  }
+  .swiper-wrapper{
+  }
 
   .swiper-pagination {
     width: 70%;
@@ -190,6 +196,7 @@ const SlideItems = styled(Swiper)`
     background:#F6F6F6;
     opacity: 1;
   }
+  
 
   .swiper-pagination-bullet-active {
 	  background: #2FCFBE;

@@ -46,6 +46,7 @@ const HeaderSlide = styled.div`
   ${({theme})=> theme.tnm`
     max-height: 560px;
   `}
+  transition:all ease-in-out;
 `;
 
 const HeaderIntro = styled.div`
@@ -191,10 +192,10 @@ const HeaderSlideTimer = styled.progress`
   ::-webkit-progress-value {
     background:#2FCFBE;
   }
-  animation: ${Progress} 7s infinite;
+  animation: ${Progress} 5s infinite;
 `;
 
-const test = keyframes`
+const MainImageAni = keyframes`
   0%{
     transform:translateX(100%);
   }
@@ -203,11 +204,11 @@ const test = keyframes`
   }
 `;
 
-const test2 = keyframes`
+const SubImageAni = keyframes`
   0%{
     transform:translateX(100%);
   }
-  50%{
+  30%{
     transform:translateX(100%);
   }
   100%{
@@ -221,8 +222,8 @@ const SubImage = styled.div`
   height: 100%;
   bottom: ${props => props.id === 1 ? '-200px': '-290px'};
   right: ${props => props.id === 1 ? '-170px': '-170px'};
-
-  animation:${test2} 1s ease-in;
+  animation:${SubImageAni} 1s ease-in-out;
+  transition: animation 1s ease-in-out; 
 
   ${({theme})=> theme.pnt`
     bottom: ${props => props.id === 1 ? '-190px': '-290px'};
@@ -238,8 +239,6 @@ const SubImage = styled.div`
   `}
 `;
 
-
-
 const MainImage = styled.div`
   width: 100%;
   height: 100%;
@@ -254,10 +253,10 @@ const MainImage = styled.div`
     margin: 0 auto;
     margin-bottom: ${props => props.id === 1 ? '50px': '0px'};
   `}
-  animation:${test} 0.5s ease-in;
+  animation:${MainImageAni} 1s ease-in-out;
 `;
 
-export default function Header(params) {
+export default function Header(props) {
   const [ slide, setSlide ] = useState(1);
 
   useInterval(()=>{
@@ -266,13 +265,12 @@ export default function Header(params) {
     }else{
       setSlide(slide+1);
     }
-  },6800)
-
+  },4800)
 
   return (
     <HeaderWrapper>
       <HeaderLogo>
-        <Image src={'/icons/logo.png'} width={112} height={30}/>
+        <Image src={'/icons/logo.png'} width={112} height={30} priority/>
       </HeaderLogo>
         {
           headerData.map((data,idx)=>{
@@ -288,10 +286,10 @@ export default function Header(params) {
                     <Image src={'/imgs/headers/header_frame_left.svg'} height={76} width={77}/></Frame>
                   <HeaderFrameImg>
                     <MainImage id={data.id}> 
-                      <Image src={data.imgs[0].src} width={data.imgs[0].width} height={data.imgs[0].height}/>
+                      <Image src={data.imgs[0].src} width={data.imgs[0].width} height={data.imgs[0].height} priority/>
                     </MainImage>
                     <SubImage id={data.id} bottom={data.bottom} right={data.right}> 
-                      <Image src={data.imgs[1].src} width={data.imgs[1].width} height={data.imgs[1].height}/>
+                      <Image src={data.imgs[1].src} width={data.imgs[1].width} height={data.imgs[1].height} priority/>
                     </SubImage>
                   </HeaderFrameImg>
                   <Frame>
