@@ -117,13 +117,14 @@ const YearText = styled.div`
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  text-align:center;
   padding: 0px 16px;
   height: 100%;
   overflow:hidden;
   max-width:110px;
   width:110px;
   min-width:110px;
+  text-align:center;
+
 `;
 
 
