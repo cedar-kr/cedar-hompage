@@ -274,7 +274,7 @@ export default function Header(props) {
     }else{
       setSlide(slide+1);
     }
-  },4800)
+  },5000)
 
   return (
     <HeaderWrapper>
