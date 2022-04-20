@@ -1,11 +1,9 @@
 import Image from "next/image";
+import { Autoplay, EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore,{ Autoplay, EffectFade } from "swiper";
 import styled from 'styled-components'
 import { DefaultPlus, Tnm } from "../utils/media";
 import { chunk } from "../utils/func";
-
-SwiperCore.use([Autoplay, EffectFade]);
 
 const CompanyBannerContainer = styled.section`
   width: 100%;
@@ -74,7 +72,7 @@ export default function CompanyBanner(params) {
         slidesPerView={1}
         centeredSlides={true}
         autoplay={{
-          delay: 10000,
+          delay: 5000,
         }}
         effect={'fade'}
         loop={true}
@@ -100,8 +98,9 @@ export default function CompanyBanner(params) {
           delay: 3000,
         }}
         loop={true}
-        modules={[Autoplay]}
         className="mySwiper"
+        modules={[Autoplay]}
+
       >
           {
             datas.map((data,index)=>{

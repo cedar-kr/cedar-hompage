@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useState } from 'react';
+import React from 'react';
 import Image from "next/image";
 import { Wrapper } from "../styles/Layout";
 
@@ -75,15 +75,6 @@ const SolutionBannerSubs= styled.div`
 `;
 
 const SolutionBannerImage = styled.div`
-  ${({theme})=> theme.pnt`
-    // width: 50%
-  `}
-  ${({theme})=> theme.tablet`
-    
-  `}
-  ${({theme})=> theme.tnm`
-    
-  `}
 `;
 
 export default function Solution(params) {

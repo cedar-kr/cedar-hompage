@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { historyData } from "../utils/data";
-import SwiperCore, { Virtual, Navigation,Scrollbar } from 'swiper';
+import SwiperCore, { Virtual, Navigation, Scrollbar } from 'swiper';
 import React, { useState } from "react";
 import Image from 'next/image';
 import * as ga from '../utils/ga';

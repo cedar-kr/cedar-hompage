@@ -15,6 +15,9 @@ const ReferanceWrapper = styled.div`
   overflow:hidden;
   width:100%;
 
+  ${({theme})=> theme.fnp`
+    height:1000px;
+  `}
   ${({theme})=> theme.pc`
     height:1000px;
   `}
@@ -34,7 +37,7 @@ const BgSlide = styled(Swiper)`
   z-index:1;
 
   ${({theme})=> theme.fnp`
-    width:37.58%;
+    width:49.58%;
   `}
 `;
 
@@ -45,10 +48,10 @@ const ReferImage = styled.div`
   ${props=> props.bg && `
     background-image:url(${props.bg});
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position:center center;
   `}
   z-index:1;
-
   ${({theme})=> theme.pnt`
     height:645px;
   `}
@@ -65,6 +68,8 @@ const ReferVideo = styled.video`
   min-width:100%;
   width:100%;
   z-index:1;
+  object-fit:cover;
+
   ${({theme})=> theme.pnt`
     height:645px;
   `}
@@ -84,7 +89,7 @@ const ReferContent = styled.div`
   align-items:center;
 
   ${({theme})=> theme.fnp`
-    width:62.4%;
+     width:50%;
   `}
 `;
 
@@ -99,12 +104,12 @@ const ReferTitle = styled.div`
   margin-bottom:30px;
   width:70%;
   text-align:left;
+
   ${({theme})=> theme.pnt`
     margin-top:49px;
     margin-bottom:20px;
     font-size: calc(5rem + (100vw - 1240px) * ((40 - 40) / (1439 - 1240)));
     line-height: 48px;
- 
   `}
   ${({theme})=> theme.tablet`
     margin-top:50px;
@@ -172,7 +177,7 @@ const SlideAbsolute = styled.div`
   right:0px;
 
   ${({theme})=> theme.fnp`
-    width: 66%;
+    width: 60%;
   `}
 `;
 
@@ -208,7 +213,6 @@ const SlideItems = styled(Swiper)`
     background:#F6F6F6;
     opacity: 1;
   }
-  
 
   .swiper-pagination-bullet-active {
 	  background: #2FCFBE;
@@ -378,6 +382,7 @@ export default function Referance(params) {
         {referanceData.map((bg,idx) => {
           return (<SwiperSlide key={idx} virtualIndex={activeIndex}>
            {bg.bg ?<ReferImage bg={bg.bg}/>:<ReferVideo 
+           width={1000}
             onClick={(e)=> e.stopPropagation()}
             autoPlay muted playsInline loop preload="auto">         
               <source

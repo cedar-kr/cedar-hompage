@@ -203,7 +203,7 @@ export default function History(params) {
         spaceBetween={16}
         centeredSlides={true}
         onSwiper={(s) => setSwiper(s)}
-        scrollbar={{ draggable: true, dragSize: 200 }}
+        scrollbar={{ draggable: true }}
         modules={[Scrollbar]}
         onSlideChange={(e)=> setActiveIndex(e.activeIndex)}
         style={{position:'absolute', top:0}}

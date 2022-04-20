@@ -3,7 +3,7 @@ import { Wrapper } from "../styles/Layout";
 import styled, { keyframes } from "styled-components";
 import { Progress } from "../styles/Keyframes";
 import { headerData } from "../utils/data";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useInterval } from "../utils/func";
 
 const HeaderLogo = styled(Wrapper)`
@@ -23,9 +23,6 @@ const HeaderLogo = styled(Wrapper)`
 `;
 
 const HeaderWrapper = styled.div`
-   ${({theme})=> theme.pc`
-    margin: 0px 30px;
-  `}
 `;
 
 const HeaderSlide = styled.div`
@@ -40,13 +37,7 @@ const HeaderSlide = styled.div`
   padding-bottom: 99px;
   overflow: hidden;
 
-  ${({theme})=> theme.fnp`
-    margin: 0px 30px;
-  `}
-  ${({theme})=> theme.pc`
-    margin: 0px 30px;
-  `}
-  ${({theme})=> theme.pnt`
+${({theme})=> theme.pnt`
     padding-top: 70px;
     padding-bottom: 84px;
   `}
@@ -63,6 +54,9 @@ const HeaderIntro = styled.div`
   white-space: nowrap;
   width: 30%;
   margin-right:50px;
+  ${({theme})=> theme.fnp`
+    width: 22%;
+  `}
 
   ${({theme})=> theme.pnt`
     width: 29%;
@@ -125,19 +119,16 @@ const HeaderFrame = styled.div`
   width: 45%;
   margin-left: -4%;
   position: relative;
-
+  ${({theme})=> theme.fnp`
+    width: 25%;
+  `}
 `;
 
 const HeaderFrameImg = styled.div`
   width: 100%;
   min-width: 100%;
-
   text-align: center;
   position: relative;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center; */
 `;
 
 const FrameLeft = keyframes`
@@ -186,15 +177,6 @@ const ImageInfo = styled.div`
 const SliderTimerBox = styled.div`
   width: 100%;
 
-  ${({theme})=> theme.fnp`
-    margin: 0px 30px;
-    width: 97.7%;
-  `}
-  ${({theme}) => theme.pc`
-    width: 96.5%;
-    max-width: 1930px;
-    margin: 0 auto;
-  `}
 `
 
 const HeaderSlideTimer = styled.progress`
@@ -223,6 +205,7 @@ const MainImageAni = keyframes`
 
 const SubImageAni = keyframes`
   0%{
+    
     transform:translateX(100%);
   }
   30%{
@@ -273,6 +256,15 @@ const MainImage = styled.div`
   animation:${MainImageAni} 1s ease-in-out;
 `;
 
+const HeaderSlideBox = styled.div`
+  ${({theme})=> theme.fnp`
+    padding: 0px 30px;
+  `}
+  ${({theme}) => theme.pc`
+    padding: 0px 30px;
+  `}
+`;
+
 export default function Header(props) {
   const [ slide, setSlide ] = useState(1);
 
@@ -289,6 +281,7 @@ export default function Header(props) {
       <HeaderLogo>
         <Image src={'/icons/logo.png'} width={112} height={30} priority/>
       </HeaderLogo>
+      <HeaderSlideBox>
         {
           headerData.map((data,idx)=>{
             return slide == data.id && (
@@ -321,6 +314,7 @@ export default function Header(props) {
       <SliderTimerBox>
         <HeaderSlideTimer min="1" max="100" value={100} ></HeaderSlideTimer>
       </SliderTimerBox>
+      </HeaderSlideBox>
     </HeaderWrapper>
   )
 }

@@ -7,7 +7,11 @@ import { Title } from '../styles/fontStyles';
 const SolutionWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  
   width: 100%;
+  ${({theme})=>theme.fnp`
+    justify-content:center;
+  `}
 
   ${({theme})=>theme.tnm`
     flex-direction: column;
@@ -19,11 +23,18 @@ const SolutionInfo = styled.div`
   height: 100%;
   position: relative;
   margin-left: 200px;
+  ${({theme})=>theme.pc`
+    padding-right:10px;
+
+  `}
 
   ${({theme})=>theme.fnp`
-    width: 34%;
+    width: 60%;
     margin: 0px;
-    padding-left: 17%;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    padding-right:10px;
   `}
   ${({theme})=>theme.pnt`
     width:30%;
@@ -44,6 +55,9 @@ const SolutionNumber = styled.div`
   margin-top: 80px;
   color: #2FCFBE;
   margin-bottom: 33px;
+  ${({theme})=>theme.fnp`
+   width: 384px;
+  `}
 
   ${({theme})=>theme.pnt`
     font-size: calc(3rem + (100vw - 1240px) * ((40 - 30) / (1439 - 1240)));
@@ -62,6 +76,10 @@ const SolutionNumber = styled.div`
 const SolutionTitle = styled(Title)`
   color:#222222;
   margin-bottom: 30px;
+  text-align:left;
+  ${({theme})=>theme.fnp`
+    width: 384px;
+  `}
 `;
 
 const SolutionSubs = styled.div`
@@ -71,7 +89,10 @@ const SolutionSubs = styled.div`
   line-height: 30px;
   color: #222222;
   max-width: 384px;
-  width: 85%;
+
+  ${({theme})=>theme.fnp`
+    width: 384px;
+  `}
 
   ${({theme})=>theme.pnt`
     font-size: calc(1.7rem + (100vw - 1240px) * ((20 - 17) / (1439 - 1240)));

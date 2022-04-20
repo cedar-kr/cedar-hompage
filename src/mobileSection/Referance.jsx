@@ -1,12 +1,10 @@
 import styled from "styled-components";
 import React, { useRef, useState } from 'react';
 import { referanceMobileData } from "../utils/data";
-import SwiperCore, { Virtual,Scrollbar, Pagination, Autoplay, Navigation, EffectFade } from 'swiper';
+import {Pagination, Autoplay, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from "next/image";
 import * as ga from '../utils/ga';
-
-SwiperCore.use([Virtual, Scrollbar, Autoplay, Navigation, EffectFade]);
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -134,8 +132,6 @@ const ItemSubs = styled.div`
 
 export default function Referance(params) {
   const swiperRef = useRef();
-  const [ swiper, setSwiper ] = useState(null);
-  const [ activeIndex, setActiveIndex] = useState(0);
 
   return (
     <ReferanceWrapper>
@@ -171,6 +167,7 @@ export default function Referance(params) {
         }}
         centeredSlides={true}
         initialSlide={0}
+        modules={[Autoplay,Pagination]}
         autoplay={{
           delay: 3000,
         }}
@@ -178,19 +175,12 @@ export default function Referance(params) {
         loopFillGroupWithBlank={true}
         slidesPerGroup={1}
         loop={true}
-        modules={[Pagination,Autoplay]}
         className="mySwiper"
-        onSwiper={(s)=>setSwiper(s)}
         onSlideChange={(e)=> {
-          // console.log(e.activeIndex);
-          // console.log();/
           swiperRef.current.swiper.slideTo(e.realIndex+1);
         }}
         slideToClickedSlide
         onClick={(e)=>{
-          // swiperRef.current.swiper.slideTo(e.clickedIndex+1,300,false);
-          // swiper.slideTo(e.clickedIndex,300,false);
-          // setActiveIndex(e.clickedIndex);
           ga.event({
             action:'Click',
             category:'Referance',
