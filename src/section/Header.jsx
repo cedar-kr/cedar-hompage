@@ -23,6 +23,10 @@ const HeaderLogo = styled(Wrapper)`
 `;
 
 const HeaderWrapper = styled.div`
+  ${({theme})=> theme.tnm`
+    height: 630px;
+    overflow:hidden;
+  `}
 `;
 
 const HeaderSlide = styled.div`
@@ -36,15 +40,15 @@ const HeaderSlide = styled.div`
   padding-top: 80px;
   padding-bottom: 99px;
   overflow: hidden;
+  transition:all ease-in-out;
 
-${({theme})=> theme.pnt`
+  ${({theme})=> theme.pnt`
     padding-top: 70px;
     padding-bottom: 84px;
   `}
   ${({theme})=> theme.tnm`
     max-height: 560px;
   `}
-  transition:all ease-in-out;
 `;
 
 const HeaderIntro = styled.div`
