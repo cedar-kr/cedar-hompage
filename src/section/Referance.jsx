@@ -65,7 +65,6 @@ const ReferImage = styled.div`
 
 const ReferVideo = styled.video`
   height:100%;
-  min-width:100%;
   width:100%;
   z-index:1;
   object-fit:cover;
@@ -384,7 +383,7 @@ export default function Referance(params) {
            {bg.bg ?<ReferImage bg={bg.bg}/>:<ReferVideo 
            width={1000}
             onClick={(e)=> e.stopPropagation()}
-            autoPlay muted playsInline loop preload="auto">         
+            autoPlay muted playsInline loop preload="metadata">         
               <source
               src={bg.video}
               type="video/mp4"
