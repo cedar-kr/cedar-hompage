@@ -1,8 +1,8 @@
 import styled, { keyframes } from "styled-components";
 import { historyData } from "../utils/data";
-import SwiperCore, { Virtual, Navigation,Scrollbar } from 'swiper';
+import SwiperCore, { Virtual,Scrollbar, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import * as ga from '../utils/ga';
 
 import 'swiper/css';
@@ -11,17 +11,12 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Image from "next/image";
 
-SwiperCore.use([Virtual, Navigation, Scrollbar]);
+SwiperCore.use([Virtual, Scrollbar]);
 
 const HistorySection = styled.section`
-  ${props=> props.bg && `
-      background-image:url(${props.bg});
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position:center center;
-  `}
   height: 710px;
   transition: all 0.5s ease-in;
+  position:relative;
 
   ${({theme})=> theme.pnt`
     height: 610px;
@@ -34,12 +29,31 @@ const HistorySection = styled.section`
   `}
 `;
 
+const HistoryBgWrapper = styled(Swiper)`
+  height: 710px;
+  width:100%;
+  position:absolute;
+
+  ${({theme})=> theme.pnt`
+    height: 610px;
+  `}
+  ${({theme})=> theme.tablet`
+    height: 610px;
+  `}
+  ${({theme})=> theme.tnm`
+    height: 600px;
+  `}
+`;
+
+const HistoryBackground = styled(Image)`
+  object-fit:cover;
+  height: 100%;
+  width:100%;
+`;
+
 const HistoryWrapper = styled(Swiper)`
   height: 660px;
   width:100%;
-  
-  .swiper-wrapper{
-  }
 
   .swiper-slide {
     margin-top:134px;
@@ -57,7 +71,7 @@ const HistoryWrapper = styled(Swiper)`
     width: 752px;
     height: 5px;
     cursor: pointer;
-    margin-top:88px;
+    margin-top: 88px;
     position:absolute;
     left:50%;
     transform:translateX(-50%);
@@ -68,7 +82,6 @@ const HistoryWrapper = styled(Swiper)`
     height: 5px;
     cursor: pointer;
   }
-
 
   ${({theme})=> theme.pnt`
     height: 560px;
@@ -130,16 +143,15 @@ const HistoryCard = styled.div`
   text-align:center;
   padding: 20px;
   margin-top:${props=> props.hj ? 0 : 35}px;
-  transition: all ease-in-out 0.5s;
   cursor: pointer;
-  padding-top:150px;
+  padding-top:160px;
   backdrop-filter:${props=> props.point && `blur(20px)`};
   
   ${props=> props.cardBg && `
-      background-image:url(${props.cardBg});
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position:center center;
+    background-image:url(${props.cardBg});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center center;
   `}
 
   ${({theme})=> theme.pnt`
@@ -164,7 +176,7 @@ const HistoryCard = styled.div`
 `;
 
 const HistorySubs = styled.div`
-  font-family: 'NotoSansKR-Regular', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 22px;
@@ -186,17 +198,32 @@ const HistorySubs = styled.div`
   `}
 `;
 
-
 export default function History(params) {
   const [swiper, setSwiper] = useState(null);
   const [ activeIndex, setActiveIndex ] = useState(0);
   const [hj, setHj] = useState('h');
   const [ clickIndex, setClickIndex ] = useState(0);
+  const swiperRef = useRef();
   
   return (
-    <div style={{position:'relative'}}>
-    <Image src={historyData[activeIndex].img} layout="fill" alt={'History Background'} priority/>
-    <HistorySection >
+    <HistorySection onClick={(e)=> e.stopPropagation()}>
+    <HistoryBgWrapper
+      initialSlide={0}
+      effect={"fade"}
+      slidesPerView={1}
+      modules={[EffectFade]}
+      ref={swiperRef}
+      centeredSlides
+    >
+    {
+      historyData.map((data,idx)=>{
+        return (<SwiperSlide key={idx} virtualIndex={activeIndex}>
+          <HistoryBackground src={data.img} layout="fill" alt={'History Background'} priority/> 
+          </SwiperSlide>
+        )
+      })
+    }
+    </HistoryBgWrapper>
      <HistoryWrapper 
         initialSlide={0}
         slidesPerView={'auto'}
@@ -206,16 +233,25 @@ export default function History(params) {
         onSwiper={(s) => setSwiper(s)}
         scrollbar={{ draggable: true }}
         modules={[Scrollbar]}
-        onSlideChange={(e)=> setActiveIndex(e.activeIndex)}
+        onSlideChange={(e)=> {
+          setActiveIndex(e.activeIndex);
+          swiperRef.current.swiper.slideTo(e.realIndex,300,false);
+        }}
         style={{position:'absolute', top:0}}
+        slideToClickedSlide
         onClick={(e) => {
           if(clickIndex == e.clickedIndex){
             return;
           }else{
-            swiper.slideTo(e.clickedIndex, 500, false);
+            if(hj=='h'){
+              setHj('j')
+            };
+            if(hj=='j'){
+              setHj('h')
+            };
             setClickIndex(e.clickedIndex);
-            if(hj=='h'){setHj('j')};
-            if(hj=='j'){setHj('h')};
+            swiperRef.current.swiper.slideTo(e.realIndex,300,false);
+           
             ga.event({
               action:'Click',
               category:'History',
@@ -247,9 +283,9 @@ export default function History(params) {
               })}
             </HistoryCard>
           </SwiperSlide>
-        )} )}
+          )}
+        )}
         </HistoryWrapper>
       </HistorySection>
-    </div>
   )
 }
