@@ -28,7 +28,7 @@ const SolutionPkTitle = styled(Title)`
 `;
 
 const SolutionPkSubs = styled.div`
-  font-family: 'NotoSansKR-Regular';
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 2rem;
   line-height: 30px;
@@ -93,7 +93,7 @@ const SolutionPkName = styled.div`
   border-radius: 30px 30px 0px 0px;
   height: 79px;
   color:#fff;
-  font-family: 'NotoSansKR-Bold'; 
+  font-family: 'Noto Sans KR', sans-serif;
   font-size: 3rem;
   margin-bottom: 5px;
   display: flex;
@@ -175,7 +175,7 @@ const SolutionPkIcon = styled.div`
 `;
 
 const SolutionPkType = styled.div`
-  font-family: 'NotoSansKR-Bold';
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 700;
   font-size: 3rem;
   line-height: 44px;
@@ -202,12 +202,11 @@ const SolutionPkType = styled.div`
 
 const SolutionPkInfoSubs= styled.div`
   height: 50px; 
-  mix-blend-mode: normal;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items:center;
-  font-family:'Noto Sans KR', sans-serif;;
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: ${props=> props.point ? 'medium' :400};
   font-size: 1.8rem;
