@@ -24,7 +24,9 @@ const BannerAlign = styled.div`
   display:flex;
   flex-direction:row;
   justify-content:space-between;
-  padding:0px 32px;
+  padding:0px 50px;
+  width:100%;
+  background:white;
 `;
 
 const BannerItem = styled.div`
@@ -77,7 +79,6 @@ export default function CompanyBanner(params) {
         effect={'fade'}
         loop={true}
         modules={[Autoplay,EffectFade]}
-        className="mySwiper"
       >
           <SwiperSlide>
             <Image src={`/imgs/companyBanner/1.png`} height={200} width={1920} alt={'Comapny Banner'} />
@@ -93,14 +94,12 @@ export default function CompanyBanner(params) {
       <Tnm>
       <Swiper
         slidesPerView={1}
-        centeredSlides={true}
         autoplay={{
-          delay: 3000,
+          delay: 5000,
         }}
+        effect={'fade'}
         loop={true}
-        className="mySwiper"
-        modules={[Autoplay]}
-
+        modules={[Autoplay,EffectFade]}
       >
           {
             datas.map((data,index)=>{
