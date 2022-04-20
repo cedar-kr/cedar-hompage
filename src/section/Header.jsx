@@ -279,7 +279,7 @@ export default function Header(props) {
   return (
     <HeaderWrapper>
       <HeaderLogo>
-        <Image src={'/icons/logo.png'} width={112} height={30} priority/>
+        <Image src={'/icons/logo.png'} width={112} height={30} alt={'Cedar Logo'} priority />
       </HeaderLogo>
       <HeaderSlideBox>
         {
@@ -293,17 +293,17 @@ export default function Header(props) {
                 </HeaderIntro>
                 <HeaderFrame>
                   <Frame left>
-                    <Image src={'/imgs/headers/header_frame_left.svg'} height={76} width={77}/></Frame>
+                    <Image src={'/imgs/headers/header_frame_left.svg'} height={76} width={77} alt={'Left Frame'} /></Frame>
                   <HeaderFrameImg>
                     <MainImage id={data.id}> 
-                      <Image src={data.imgs[0].src} width={data.imgs[0].width} height={data.imgs[0].height} priority/>
+                      <Image src={data.imgs[0].src} width={data.imgs[0].width} height={data.imgs[0].height} alt={'Header Main Image'} priority/>
                     </MainImage>
                     <SubImage id={data.id} bottom={data.bottom} right={data.right}> 
-                      <Image src={data.imgs[1].src} width={data.imgs[1].width} height={data.imgs[1].height} priority/>
+                      <Image src={data.imgs[1].src} width={data.imgs[1].width} height={data.imgs[1].height} priority alt={'Header Sub Image'} />
                     </SubImage>
                   </HeaderFrameImg>
                   <Frame>
-                    <Image src={'/imgs/headers/header_frame_right.svg'} height={76} width={77}/>
+                    <Image src={'/imgs/headers/header_frame_right.svg'} height={76} width={77} alt={'Right Frame'} />
                   </Frame>
                   <ImageInfo>{data.subs}</ImageInfo>
                 </HeaderFrame>
@@ -311,9 +311,9 @@ export default function Header(props) {
             )
           })
         }
-      <SliderTimerBox>
-        <HeaderSlideTimer min="1" max="100" value={100} ></HeaderSlideTimer>
-      </SliderTimerBox>
+        <SliderTimerBox>
+          <HeaderSlideTimer min="1" max="100" value={100} ></HeaderSlideTimer>
+        </SliderTimerBox>
       </HeaderSlideBox>
     </HeaderWrapper>
   )

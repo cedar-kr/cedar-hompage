@@ -259,7 +259,7 @@ export default function SolutionPackage(params) {
                   data.details.map((detail,idx)=>{
                    return <SolutionPkInfo key={idx}>
                       <SolutionPkIcon type={detail.type == 'Intra'?"true":"false"}>
-                        <Image src={detail.icon.src} height={detail.icon.height} width={detail.icon.width}/>
+                        <Image src={detail.icon.src} height={detail.icon.height} width={detail.icon.width} alt={'Solution Package Icon'}/>
                         <SolutionPkType>
                           {detail.type}
                         </SolutionPkType>
@@ -271,7 +271,7 @@ export default function SolutionPackage(params) {
                               <SolutionPkInfoSubs key={id} point={subs.point}>
                                 {subs.text}
                                 { !isTnm && <CheckIcon>
-                                    <Image src={'/icons/check.svg'} width={15} height={14.72}/>
+                                    <Image src={'/icons/check.svg'} width={15} height={14.72} alt={'Check Icon'} />
                                   </CheckIcon>
                                 }
                               </SolutionPkInfoSubs>
