@@ -16,7 +16,7 @@ const VideoWrapper = styled.div`
 `;
 
 const VideoTextArea = styled.div`
-  font-family: 'NotoSansKR-Regular';
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   color: #FFFFFF;
   margin-bottom:40px;

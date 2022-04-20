@@ -11,14 +11,14 @@ const VideoContainer = styled.section`
 `;
 
 const VideoTextArea = styled.div`
-  font-family: 'NotoSansKR-Regular';
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   color: #FFFFFF;
   margin-right: 10px;
 `;
 
 const VideoTitle = styled.p`
-  font-family: 'Noto Sans KR';
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 700;
   font-size: 3rem;
   line-height: 44px;
@@ -43,7 +43,7 @@ const VideoTitle = styled.p`
 `;
 
 const VideoText = styled.p`
-  font-family: 'Noto Sans KR';
+  font-family: 'Noto Sans KR', sans-serif;  
   font-weight: 400;
   font-size: 1.8rem;
   line-height: 27px;

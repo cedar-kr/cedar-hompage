@@ -22,7 +22,7 @@ const SolutionWrapper = styled(Wrapper)`
 `;
 
 const SolutionBannerInfo = styled.div`
-  font-family: 'NotoSansKR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 3rem;
   line-height: 44px;
@@ -31,7 +31,7 @@ const SolutionBannerInfo = styled.div`
 `;
 
 const SolutionBannerTitle= styled.div`
-  font-family: 'NotoSansKR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 3rem;
   line-height: 44px;
@@ -53,7 +53,7 @@ const SolutionBannerTitle= styled.div`
 `;
 
 const SolutionBannerSubs= styled.div`
-  font-family: 'NotoSansKR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 2rem;
   line-height: 30px;

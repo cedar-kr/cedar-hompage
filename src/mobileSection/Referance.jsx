@@ -107,7 +107,7 @@ const SlideItem = styled.div`
 `;
 
 const ItemTitle = styled.div`
-  font-family: 'NotoSansKR-Regular', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -118,7 +118,7 @@ const ItemTitle = styled.div`
 
 
 const ItemSubs = styled.div`
-  font-family: 'NotoSansKR-Regular', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;

@@ -17,34 +17,6 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
-  @font-face { 
-    font-family: 'NotoSansKR-Black'; 
-    src: url("/fonts/NotoSansKR-Black.otf"); 
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face { 
-    font-family: 'NotoSansKR-Bold'; 
-    src: url("/fonts/NotoSansKR-Bold.otf"); 
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face { 
-    font-family: 'NotoSansKR-Regular'; 
-    src: url("/fonts/NotoSansKR-Regular.otf"); 
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face { 
-    font-family: 'NotoSansKR-Medium'; 
-    src: url("/fonts/NotoSansKR-Medium.otf"); 
-    font-weight: normal;
-    font-style: normal;
-  }
-
   ${reset}
 
   html,

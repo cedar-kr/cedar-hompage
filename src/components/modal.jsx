@@ -24,7 +24,7 @@ const SolutionModalBox = styled.div`
 `;
 
 const ModalTitle = styled.div`
-  font-family: 'NotoSansKR-Bold';
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -59,10 +59,9 @@ const Thead = styled.thead`
 `;
 
 const Th = styled.th`
-  font-weight:${props=> props.bold?'bold':400};
-  font-family: 'NotoSansKR-Bold';
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
-  font-weight: 700;
+  font-weight:${props=> props.bold?700:400};
   font-size: 12px;
   line-height: 18px;
   text-align: center;

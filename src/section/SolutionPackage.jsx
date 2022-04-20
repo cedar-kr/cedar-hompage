@@ -207,7 +207,7 @@ const SolutionPkInfoSubs= styled.div`
   display: flex;
   justify-content: center;
   align-items:center;
-  font-family: ${props=> props.point ? 'NotoSansKR-Medium;':'NotoSansKR-Regular'};
+  font-family:'Noto Sans KR', sans-serif;;
   font-style: normal;
   font-weight: ${props=> props.point ? 'medium' :400};
   font-size: 1.8rem;

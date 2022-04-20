@@ -37,7 +37,7 @@ const HeaderIntro = styled.div`
 `;
 
 const HeaderText = styled.div`
-  font-family: 'NotoSansKR-Bold', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   color:${props=> props.point ?'#2FCFBE':'#000'};
   font-weight: 700;
   font-size: 35px;
@@ -97,7 +97,7 @@ const Frame = styled.div`
 `;
 
 const ImageInfo = styled.div`
-  font-family: 'NotoSansKR-Regular', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;

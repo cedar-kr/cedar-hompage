@@ -18,7 +18,7 @@ const SolutionBox = styled.div`
 `;
 
 const SolutionNumber = styled.div`
-  font-family: 'NotoSansKR-Regular', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -61,7 +61,7 @@ const ContentBlock = styled.div`
 `;
 
 const ContentBlockTitle = styled.div`
-  font-family: 'NotoSansKR-Regular', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 20px;

@@ -74,7 +74,7 @@ const BoxItemIcon = styled(Image)`
 
 const BoxItemTitle = styled.p`
   margin: 30px 0px;
-  font-family: 'NotoSansKR-Regular';
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 3rem;
   line-height: 44px;
@@ -97,7 +97,7 @@ const BoxItemTitle = styled.p`
 `;
 
 const BoxItemText = styled.p`
-  font-family: 'NotoSansKR-Regular';
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 2rem;
   line-height: 30px;

@@ -48,7 +48,7 @@ const SolutionInfo = styled.div`
 `;
 
 const SolutionNumber = styled.div`
-  font-family: 'NotoSansKR-Regular', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 700;
   font-size: 4rem;
   line-height: 60px;
@@ -83,7 +83,7 @@ const SolutionTitle = styled(Title)`
 `;
 
 const SolutionSubs = styled.div`
-  font-family: 'NotoSansKR-Regular', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 2rem;
   line-height: 30px;
@@ -173,7 +173,7 @@ const ContentBlock = styled.div`
 `;
 
 const ContentBlockTitle = styled.div`
-  font-family: 'NotoSansKR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 700;
   font-size: 3rem;
   line-height: 44px;

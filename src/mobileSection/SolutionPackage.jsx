@@ -41,7 +41,7 @@ const SolutionPkName = styled.div`
   background: #19B4A2;
   mix-blend-mode: normal;
   border-radius: 30px 30px 0px 0px;
-  font-family: 'NotoSansKR-Bold'; 
+  font-family: 'Noto Sans KR', sans-serif; 
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -83,7 +83,7 @@ const SolutionPkIcon = styled.div`
 `;
 
 const SolutionPkType = styled.div`
-  font-family: 'NotoSansKR-Bold';
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 700;
   text-align: center;
@@ -126,7 +126,7 @@ const SolutionPkDetailButton = styled.div`
 `;
 
 const DetailText = styled.div`
-  font-family: 'NotoSansKR-Bold';
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 15px;

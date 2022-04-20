@@ -130,7 +130,7 @@ const ReferSubs = styled.div`
   font-weight: 400;
   font-size: 2rem;
   line-height: 30px;
-  font-family: 'NotoSansKR-Regular', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   color: #222222;
   width:70%;
   text-align:left;
@@ -298,7 +298,7 @@ const SlideItem = styled.div`
 `;
 
 const ItemTitle = styled.div`
-  font-family: 'NotoSansKR-Regular', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 2rem;
@@ -338,7 +338,7 @@ const ItemImage = styled.div`
 `;
 
 const ItemSubs = styled.div`
-  font-family: 'NotoSansKR-Regular', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 2rem;

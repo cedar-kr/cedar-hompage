@@ -40,7 +40,7 @@ const FooterText = styled.div`
   color:#fff;
   margin-left: 19px;
   margin-right: 38px;
-  font-family: 'NotoSansKR-Regular';
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 1.8rem;
   line-height: 35px;

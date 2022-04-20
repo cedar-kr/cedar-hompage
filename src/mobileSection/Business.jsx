@@ -54,7 +54,7 @@ const BoxItemIcon = styled(Image)`
 
 const BoxItemTitle = styled.p`
   margin: 10px 0px;
-  font-family: 'NotoSansKR-Regular';
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -64,7 +64,7 @@ const BoxItemTitle = styled.p`
 `;
 
 const BoxItemText = styled.p`
-  font-family: 'NotoSansKR-Regular';
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;

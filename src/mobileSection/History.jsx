@@ -50,7 +50,7 @@ const HistoryCard = styled.div`
 `;
 
 const HistoryYear = styled.div`
-  font-family: 'NotoSansKR-Black', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 30px;
@@ -68,7 +68,7 @@ const YearLine = styled.div`
 `;
 
 const HistorySubs = styled.div`
-  font-family: 'NotoSansKR-Regular', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -92,7 +92,7 @@ const HistoryOpen = styled.div`
 
   span{
     color:#fff;
-    font-family: 'NotoSansKR-Regular';
+    font-family: 'Noto Sans KR', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 15px;

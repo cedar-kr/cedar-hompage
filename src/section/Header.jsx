@@ -70,7 +70,7 @@ const HeaderIntro = styled.div`
 `;
 
 const HeaderText = styled.div`
-  font-family: 'NotoSansKR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 700;
   font-size: 7rem;
   color: ${props=> props.point ?'#2FCFBE':'#000'};
@@ -162,7 +162,7 @@ const Frame = styled.div`
 `;
 
 const ImageInfo = styled.div`
-  font-family: 'NotoSansKR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 22px;
@@ -176,7 +176,6 @@ const ImageInfo = styled.div`
 
 const SliderTimerBox = styled.div`
   width: 100%;
-
 `
 
 const HeaderSlideTimer = styled.progress`
