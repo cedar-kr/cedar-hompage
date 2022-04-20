@@ -130,11 +130,11 @@ const HistoryCard = styled.div`
   text-align:center;
   padding: 20px;
   margin-top:${props=> props.hj ? 0 : 35}px;
-  backdrop-filter:${props=> props.point && `blur(20px)`};
   transition: all ease-in-out 0.5s;
   cursor: pointer;
   padding-top:150px;
-
+  backdrop-filter:${props=> props.point && `blur(20px)`};
+  
   ${props=> props.cardBg && `
       background-image:url(${props.cardBg});
       background-size: cover;
@@ -202,6 +202,7 @@ export default function History(params) {
         slidesPerView={'auto'}
         spaceBetween={16}
         centeredSlides={true}
+        cssMode={true}
         onSwiper={(s) => setSwiper(s)}
         scrollbar={{ draggable: true }}
         modules={[Scrollbar]}
