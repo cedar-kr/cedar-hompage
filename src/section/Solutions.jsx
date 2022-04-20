@@ -229,7 +229,7 @@ export default function Solution(params) {
                   return <ContentBlock key={idx} bg={content.type === 'image' ? content.src : null} grid={content.grid}>
                   {content.type==='defualt' && 
                     <ContentBlockImg top={content.top} left={content.left}>
-                      <Image src={content.src} width={content.imgWidth} height={content.imgHeight} />
+                      <Image src={content.src} width={content.imgWidth} height={content.imgHeight} alt={'Solution Type'} />
                     </ContentBlockImg>
                   }
                    <ContentBlockTitle color={(content.type === 'image') && (content.name!=="키오스크") && (content.name!=="OTP 로그인")?"true":"false"} center={content.name=="키오스크"} dangerouslySetInnerHTML={{__html:content.name}}></ContentBlockTitle>

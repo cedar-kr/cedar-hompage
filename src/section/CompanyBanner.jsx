@@ -80,13 +80,13 @@ export default function CompanyBanner(params) {
         className="mySwiper"
       >
           <SwiperSlide>
-            <Image src={`/imgs/companyBanner/1.png`} height={200} width={1920}/>
+            <Image src={`/imgs/companyBanner/1.png`} height={200} width={1920} alt={'Comapny Banner'} />
           </SwiperSlide>
           <SwiperSlide>
-            <Image src={`/imgs/companyBanner/2.png`} height={200} width={1920}/>
+            <Image src={`/imgs/companyBanner/2.png`} height={200} width={1920} alt={'Comapny Banner'} />
           </SwiperSlide>
           <SwiperSlide>
-            <Image src={`/imgs/companyBanner/3.png`} height={200} width={1920}/>
+            <Image src={`/imgs/companyBanner/3.png`} height={200} width={1920} alt={'Comapny Banner'} />
           </SwiperSlide>
         </Swiper>
       </DefaultPlus>

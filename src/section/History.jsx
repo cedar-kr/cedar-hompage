@@ -195,7 +195,7 @@ export default function History(params) {
   
   return (
     <div style={{position:'relative'}}>
-    <Image src={historyData[activeIndex].img} layout="fill" priority/>
+    <Image src={historyData[activeIndex].img} layout="fill" alt={'History Background'} priority/>
     <HistorySection >
      <HistoryWrapper 
         initialSlide={0}
