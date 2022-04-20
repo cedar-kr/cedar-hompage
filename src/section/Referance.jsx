@@ -190,12 +190,13 @@ const SlideItems = styled(Swiper)`
     margin-bottom:65px;
     cursor: pointer;
   }
+  .swiper-slide-active{
+    opacity:1;
+    transition: opacity 0.5s ease-in-out;
+  }
   .swiper-slide-prev{
     opacity:0;
   }
-  .swiper-wrapper{
-  }
-
   .swiper-pagination {
     width: 70%;
     margin-left:23%;
@@ -421,7 +422,7 @@ export default function Referance(params) {
                     label:'Slide',
                   })
                 }}
-                allowTouchMove={false}
+                touchRatio={0.05}
                 breakpoints={{
                   1440:{
                     spaceBetween:16,
