@@ -15,7 +15,6 @@ SwiperCore.use([Virtual, Scrollbar]);
 
 const HistorySection = styled.section`
   height: 710px;
-  transition: all 0.5s ease-in;
   position:relative;
 
   ${({theme})=> theme.pnt`
@@ -146,6 +145,7 @@ const HistoryCard = styled.div`
   cursor: pointer;
   padding-top:160px;
   backdrop-filter:${props=> props.point && `blur(20px)`};
+  transition: all 0.3s ease-in;
   
   ${props=> props.cardBg && `
     background-image:url(${props.cardBg});
