@@ -29,7 +29,7 @@ const SolutionNumber = styled.div`
 `;
 
 const SolutionTitle = styled.div`
-  font-family:'SCDream6';
+  font-family:'S-CoreDream-6Bold';
   font-style: normal;
   font-weight: 600;
   font-size: 30px;

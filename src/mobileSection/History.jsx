@@ -25,7 +25,7 @@ const HistoryTitle = styled.div`
   line-height: 36px;
   text-align: center;
   color: #222222;
-  font-family:'SCDream6';
+  font-family:'S-CoreDream-6Bold';
 `
 const HistoryCards = styled.div`
   margin-top:20px;

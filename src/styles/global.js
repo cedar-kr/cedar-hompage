@@ -10,13 +10,6 @@ const GlobalStyle = createGlobalStyle`
     font-display: swap;
   }
 
-  @font-face { 
-    font-family: 'SCDream6'; 
-    src: url("/fonts/SCDream6.otf"); 
-    font-weight: normal;
-    font-style: normal;
-  }
-
   ${reset}
 
   html,

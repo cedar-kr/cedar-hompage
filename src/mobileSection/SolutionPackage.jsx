@@ -14,7 +14,7 @@ const SolutionWrapper = styled.section`
 `;
 
 const SolutionPkTitle = styled.div`
-  font-family:'SCDream6';
+  font-family:'S-CoreDream-6Bold';
   font-weight:bold;
   text-align:center;
   font-style: normal;

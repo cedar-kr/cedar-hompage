@@ -11,7 +11,7 @@ const BusinessContainer = styled.section`
 
 const BusinessTitle = styled.div`
   margin-bottom: 34px;
-  font-family:'SCDream6';
+  font-family:'S-CoreDream-6Bold';
   font-style: normal;
   font-weight: 600;
   font-size: 30px;

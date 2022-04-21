@@ -95,7 +95,7 @@ const ReferContent = styled.div`
 const ReferTitle = styled.div`
   margin-top:81px;
   text-align:left;
-  font-family:'SCDream6';
+  font-family:'S-CoreDream-6Bold';
   font-size:5rem;
   font-weight:bold;
   color: #222222;
