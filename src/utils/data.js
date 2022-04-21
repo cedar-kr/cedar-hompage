@@ -20,13 +20,13 @@ export const headerData = [
     mobileImg: [
       {
         src:'/imgs/headers/display_mobile.png',
-        width:165,
-        height:283,
+        width:171,
+        height:289,
       },
       {
         src:'/imgs/headers/plant_mobile.png',
-        width:182,
-        height:182,
+        width:213,
+        height:194,
       }
     ],
   },

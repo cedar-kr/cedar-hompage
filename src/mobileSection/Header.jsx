@@ -172,7 +172,7 @@ export default function Header(params) {
   return (
     <div>
       <HeaderLogo>
-        <Image src={'/icons/logo.png'} width={67.2} height={18} alt={'Cedar Logo'} />
+        <Image src={'/icons/mobile_logo.png'} width={67.2} height={18} alt={'Cedar Logo'} />
       </HeaderLogo>
         {
           headerData.map((data,idx)=>{
