@@ -89,14 +89,14 @@ const Td = styled.td`
 `;
 
 const PointText = styled.span`
-  color:${props=> props.color?'#19B4A2':'#222222'};
+  color:${props=> props.color=="true"?'#19B4A2':'#222222'};
 `;
 
 
 const Check = (props)=>{
   return (
     <Td width={props.width}>
-      {typeof(props.type)== 'boolean' ? <Image src={props.color?'/icons/check_color.png':'/icons/check_gray.png'} height={14.72} width={15}/> : <PointText color={props.color} dangerouslySetInnerHTML={{__html:props.type}}></PointText>}
+      {typeof(props.type)== 'boolean' ? <Image src={props.color=="true"?'/icons/check_color.png':'/icons/check_gray.png'} height={14.72} width={15}/> : <PointText color={props.color} dangerouslySetInnerHTML={{__html:props.type}}></PointText>}
     </Td>
   )
 }
@@ -113,19 +113,23 @@ export default function SolutionModal(props) {
         </ModalTitle>
         <Table >
           <Thead>
-            <Th width={100}>기능</Th>
-            <Th width={80} bold>Standard</Th>
-            <Th width={90} bold>Professional</Th>
-            <Th width={80} bold>Enterprise</Th>
+            <tr>
+              <Th width={100}>기능</Th>
+              <Th width={80} bold>Standard</Th>
+              <Th width={90} bold>Professional</Th>
+              <Th width={80} bold>Enterprise</Th>
+            </tr>
           </Thead>
           {
             solutionPkModalData.map((data,idx)=>{
               return (
                 <TBody key={idx}>
-                  <Td width={100}>{data.title}</Td>
-                  <Check width={80} color={'Standard' === name} type={data.standard}/>
-                  <Check width={90} color={'Professional' === name} type={data.professional}/>
-                  <Check width={80} color={'Enterprise' === name} type={data.enterprise}/>
+                  <tr>
+                    <Td width={100}>{data.title}</Td>
+                    <Check width={80} color={'Standard' === name?"true":"false"} type={data.standard}/>
+                    <Check width={90} color={'Professional' === name?"true":"false"} type={data.professional}/>
+                    <Check width={80} color={'Enterprise' === name?"true":"false"} type={data.enterprise}/>
+                  </tr>
                 </TBody>
               )
             })

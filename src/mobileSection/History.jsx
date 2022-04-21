@@ -63,7 +63,7 @@ const HistoryYear = styled.div`
 
 const YearLine = styled.div`
   width:1px;
-  background-color:${props=> props.color?'white':''};
+  background-color:${props=> props.color=="true"?'white':''};
   height:100%;
 `;
 
@@ -140,9 +140,9 @@ export default function History(params) {
           return !open ? ( idx <3 && (
             <HistoryCard bg={slideContent.bg} key={idx} height={slideContent.height}>
               <YearText>
-                <YearLine color={idx !== 0}/>
+                <YearLine color={idx !== 0?"true":"false"}/>
                   <HistoryYear>{slideContent.year}</HistoryYear>
-                <YearLine color={idx !== 2 }/>
+                <YearLine color={idx !== 2?"true":"false" }/>
               </YearText>
               <div style={{padding:'30px 0px', marginLeft:'16px', width:'100%'}}>
                 {slideContent.content.map((content,idx)=>{
@@ -154,9 +154,9 @@ export default function History(params) {
            :
            <HistoryCard bg={slideContent.bg} key={idx} height={slideContent.height}>
               <YearText>
-                <YearLine color={idx !== 0}/>
+                <YearLine color={idx !== 0?"true":"false"}/>
                   <HistoryYear>{slideContent.year}</HistoryYear>
-                <YearLine color={idx !== historyData.length-1}/>
+                <YearLine color={idx !== historyData.length-1?"true":"false"}/>
               </YearText>
               <div style={{padding:'30px 16px'}}>
                 {slideContent.content.map((content,idx)=>{
