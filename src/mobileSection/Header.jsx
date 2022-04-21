@@ -172,7 +172,7 @@ export default function Header(params) {
   return (
     <div>
       <HeaderLogo>
-        <Image src={'/icons/logo.png'} width={67.2} height={18}/>
+        <Image src={'/icons/logo.png'} width={67.2} height={18} alt={'Cedar Logo'} />
       </HeaderLogo>
         {
           headerData.map((data,idx)=>{
@@ -187,17 +187,17 @@ export default function Header(params) {
                 </HeaderIntro>
                 <HeaderFrame>
                   <Frame left>
-                    <Image src={'/imgs/headers/header_frame_left.svg'} height={33.27} width={33.71}/></Frame>
+                    <Image src={'/imgs/headers/header_frame_left.svg'} height={33.27} width={33.71} alt={'Left Frame'} /></Frame>
                   <HeaderFrameImg>
                     <HeaderFirstImg id={data.id}>
-                      <Image src={data.mobileImg[0].src} width={data.mobileImg[0].width} height={data.mobileImg[0].height} priority/>
+                      <Image src={data.mobileImg[0].src} width={data.mobileImg[0].width} height={data.mobileImg[0].height} alt={'Header Main Image'} priority/>
                     </HeaderFirstImg>
                     <HeaderLastImg id={data.id}>
-                      <Image src={data.mobileImg[1].src} width={data.mobileImg[1].width} height={data.mobileImg[1].height} priority/>
+                      <Image src={data.mobileImg[1].src} width={data.mobileImg[1].width} height={data.mobileImg[1].height} alt={'Header Sub Image'} priority/>
                     </HeaderLastImg>
                   </HeaderFrameImg>
                   <Frame>
-                    <Image src={'/imgs/headers/header_frame_right.svg'} height={33.27} width={33.71}/>
+                    <Image src={'/imgs/headers/header_frame_right.svg'} height={33.27} width={33.71} alt={'Right Frame'} />
                   </Frame>
                   <ImageInfo>{data.subs}</ImageInfo>
                 </HeaderFrame>

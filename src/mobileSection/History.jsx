@@ -177,7 +177,7 @@ export default function History(params) {
         setOpen(!open)
       }}>
         <span>{open?'접기':'더보기'}</span>
-        <Image src={open?'/icons/white_top_arrow.png':'/icons/white_bottom_arrow.png'} width={8.33} height={5}/>
+        <Image src={open?'/icons/white_top_arrow.png':'/icons/white_bottom_arrow.png'} width={8.33} height={5} alt={'Read More Icon'} />
       </HistoryOpen>
     </HistorySection>
   )
