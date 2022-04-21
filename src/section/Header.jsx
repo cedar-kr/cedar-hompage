@@ -126,6 +126,10 @@ const HeaderFrame = styled.div`
   ${({theme})=> theme.fnp`
     width: 25%;
   `}
+
+${({theme})=> theme.tablet`
+    height:559px;
+  `}
 `;
 
 const HeaderFrameImg = styled.div`
