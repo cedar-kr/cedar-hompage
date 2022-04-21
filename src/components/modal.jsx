@@ -65,7 +65,7 @@ const Th = styled.th`
   font-size: 12px;
   line-height: 18px;
   text-align: center;
-  color: #19B4A2;
+  color: ${props=> props.color=="true"?'#19B4A2':'#222222'};
 `;
 
 const TBody = styled.tbody`
@@ -115,9 +115,9 @@ export default function SolutionModal(props) {
           <Thead>
             <tr>
               <Th width={100}>기능</Th>
-              <Th width={80} bold>Standard</Th>
-              <Th width={90} bold>Professional</Th>
-              <Th width={80} bold>Enterprise</Th>
+              <Th width={80} bold color={'Standard' === name?"true":"false"} >Standard</Th>
+              <Th width={90} bold color={'Professional' === name?"true":"false"} >Professional</Th>
+              <Th width={80} bold color={'Enterprise' === name?"true":"false"} >Enterprise</Th>
             </tr>
           </Thead>
           {
