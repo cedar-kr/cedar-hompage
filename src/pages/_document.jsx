@@ -32,7 +32,7 @@ class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
-           {/* <script
+           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
           />
@@ -48,7 +48,7 @@ class MyDocument extends Document {
 							});
 						`,
             }} 
-					/> */}
+					/>
           <link rel="preconnect" href="https://fonts.googleapis.com"/>
           <link rel="preconnect" href="https://fonts.gstatic.com"/>
           <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet"/>

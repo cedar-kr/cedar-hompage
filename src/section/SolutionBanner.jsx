@@ -77,7 +77,7 @@ const SolutionBannerSubs= styled.div`
 const SolutionBannerImage = styled.div`
 `;
 
-export default function Solution(params) {
+export default function Solution() {
 
   return (
     <SolutionWrapper>

@@ -42,7 +42,7 @@ const FooterText = styled.div`
 `;
 
 
-export default function Footer(params) {
+export default function Footer() {
 
   return (
     <FooterWrapper>

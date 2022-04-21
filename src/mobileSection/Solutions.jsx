@@ -82,7 +82,7 @@ const ContentBlockImg = styled.div`
   left: ${props=> props.left}px;
 `;
 
-export default function Solution(params) {
+export default function Solution() {
 
   return (
     solutionMobileData.map((data, id)=>{

@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { historyData } from "../utils/data";
 import SwiperCore, { Virtual,Scrollbar, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,7 +11,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Image from "next/image";
 
-SwiperCore.use([Virtual, Scrollbar]);
+SwiperCore.use([ Scrollbar]);
 
 const HistorySection = styled.section`
   height: 710px;
@@ -198,9 +198,8 @@ const HistorySubs = styled.div`
   `}
 `;
 
-export default function History(params) {
+export default function History() {
   const [swiper, setSwiper] = useState(null);
-  const [ activeIndex, setActiveIndex ] = useState(0);
   const [hj, setHj] = useState('h');
   const [ clickIndex, setClickIndex ] = useState(0);
   const swiperRef = useRef();
@@ -217,7 +216,7 @@ export default function History(params) {
     >
     {
       historyData.map((data,idx)=>{
-        return (<SwiperSlide key={idx} virtualIndex={activeIndex}>
+        return (<SwiperSlide key={idx}>
           <HistoryBackground src={data.img} layout="fill" alt={'History Background'} priority/> 
           </SwiperSlide>
         )
@@ -234,11 +233,10 @@ export default function History(params) {
         scrollbar={{ draggable: true }}
         modules={[Scrollbar]}
         onSlideChange={(e)=> {
-          setActiveIndex(e.activeIndex);
           swiperRef.current.swiper.slideTo(e.realIndex,300,false);
         }}
         style={{position:'absolute', top:0}}
-        slideToClickedSlide
+        // slideToClickedSlide
         onClick={(e) => {
           if(clickIndex == e.clickedIndex){
             return;
@@ -249,13 +247,14 @@ export default function History(params) {
             if(hj=='j'){
               setHj('h')
             };
+            swiper.slideTo(e.clickedIndex,300,false);
             setClickIndex(e.clickedIndex);
-            swiperRef.current.swiper.slideTo(e.realIndex,300,false);
+            swiperRef.current.swiper.slideTo(e.clickedIndex,300,false);
            
             ga.event({
-              action:'Click',
+              action:'click',
               category:'History',
-              label:'Slide',
+              label:'slide',
             })
           }
         }}
@@ -276,7 +275,7 @@ export default function History(params) {
       >
         {historyData.map((slideContent, index) => {
           return(
-          <SwiperSlide key={index} virtualIndex={index} >
+          <SwiperSlide key={index} >
             <HistoryCard hj={hj =='h' && index % 2 ==0 || hj=='j' && index%2 !=0} point={historyData[0].year === slideContent.year} cardBg={slideContent.cardBg}>
               {slideContent.content.map((content,idx)=>{
                 return <HistorySubs point={historyData[0].year === slideContent.year} key={idx}>{content}</HistorySubs>

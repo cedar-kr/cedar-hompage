@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import React, { useRef, useState } from 'react';
 import { referanceData } from "../utils/data";
 import Image from "next/image";
@@ -362,8 +362,7 @@ const ItemSubs = styled.div`
 `;
 
 
-export default function Referance(params) {
-  const [swiper, setSwiper] = useState(null);
+export default function Referance() {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef();
   const isDesktop = useMediaQuery({ minWidth: 1440 })
@@ -407,7 +406,6 @@ export default function Referance(params) {
                 pagination={{
                   clickable: true
                 }}
-                onSwiper={(s) => setSwiper(s)}
                 onSlideChange={(e)=> {
                   setActiveIndex(e.activeIndex); 
                   swiperRef.current.swiper.slideTo(e.realIndex+1,300,false);
@@ -417,9 +415,9 @@ export default function Referance(params) {
                 onClick={(e) => {
                   swiperRef.current.swiper.slideTo(e.realIndex+1,300,false);
                   ga.event({
-                    action:'Click',
+                    action:'click',
                     category:'Referance',
-                    label:'Slide',
+                    label:'slide',
                   })
                 }}
                 touchRatio={0.05}

@@ -123,7 +123,7 @@ const BoxItemText = styled.p`
 `;
 
 
-export default function Business(props) {
+export default function Business() {
   return (
     <BusinessContainer>
       <Wrapper>

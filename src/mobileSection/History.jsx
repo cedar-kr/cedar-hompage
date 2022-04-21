@@ -128,7 +128,7 @@ const YearText = styled.div`
 `;
 
 
-export default function History(params) {
+export default function History() {
   const [ open, setOpen ] = useState(false);
 
   return (
@@ -170,9 +170,9 @@ export default function History(params) {
       {!open && <LayerImg></LayerImg>}
       <HistoryOpen onClick={()=>{
         ga.event({
-          action:'Click',
+          action:'click',
           category:'History',
-          label:`Slide`,
+          label:`slide`,
         })
         setOpen(!open)
       }}>

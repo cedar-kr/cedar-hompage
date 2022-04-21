@@ -125,9 +125,9 @@ export default function Video() {
             <Link href={'https://www.youtube.com/channel/UCivb3IzyMclwLiXcKOKKTtw'}>
             <BtnWrapper onClick={()=> {
                ga.event({
-                action:'Click',
+                action:'click',
                 category:'YoutubeVideo',
-                label:`Link`,
+                label:`link`,
               })}}>
               <PlayBtn>
                 <PlayBtnArrow />

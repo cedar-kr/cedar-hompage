@@ -64,7 +64,7 @@ const CompanyBannerDatas = [
   {id:20, src:'/imgs/companyBanner/companys/',width:150,height:50},
 ]
 
-export default function CompanyBanner(params) {
+export default function CompanyBanner() {
   const datas = chunk(CompanyBannerDatas,CompanyBannerDatas.length/5);
 
   return (

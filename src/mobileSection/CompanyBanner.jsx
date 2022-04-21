@@ -11,7 +11,7 @@ const CompanyBannerWrapper = styled.div`
   padding-right:16px;
 `;
 
-export default function CompanyBanner(params) {
+export default function CompanyBanner() {
 
   return (
     <CompanyBannerWrapper>

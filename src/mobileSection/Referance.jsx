@@ -130,7 +130,7 @@ const ItemSubs = styled.div`
 `;
 
 
-export default function Referance(params) {
+export default function Referance() {
   const swiperRef = useRef();
 
   return (
@@ -182,9 +182,9 @@ export default function Referance(params) {
         slideToClickedSlide
         onClick={(e)=>{
           ga.event({
-            action:'Click',
+            action:'click',
             category:'Referance',
-            label:`Slide`,
+            label:`slide`,
           })
         }}
       >

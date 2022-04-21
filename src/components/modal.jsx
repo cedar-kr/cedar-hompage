@@ -134,48 +134,6 @@ export default function SolutionModal(props) {
               )
             })
           }
-          {/* <TBody>
-            <Td>콘텐츠 클라우드 저장</Td>
-            <Check/>
-            <Check/>
-            <Check/>
-          </TBody>
-          <TBody>
-            <Td>실시간 원격 모니터링</Td>
-            <Td></Td>
-            <Td></Td>
-            <Td></Td>
-          </TBody>
-          <TBody>
-            <Td>지원 OS</Td>
-            <Td>안드로이드STB</Td>
-            <Td dangerouslySetInnerHTML={{__html:'Window,Linux<br/>호환가능'}}></Td>
-            <Td  dangerouslySetInnerHTML={{__html:'모든 OS 호환<br/> 가능'}}></Td>
-          </TBody>
-          <TBody>
-            <Td>디자인 템플릿 사용</Td>
-            <Td>ㅋㅋ</Td>
-            <Td>ㅋㅌㅋㅋ</Td>
-            <Td></Td>
-          </TBody>
-          <TBody>
-            <Td>그룹편성</Td>
-            <Td></Td>
-            <Td></Td>
-            <Td></Td>
-          </TBody>
-          <TBody>
-            <Td>스마트폰 제어</Td>
-            <Td></Td>
-            <Td></Td>
-            <Td></Td>
-          </TBody>
-          <TBody>
-            <Td>생방송 지원</Td>
-            <Td></Td>
-            <Td></Td>
-            <Td></Td>
-          </TBody> */}
         </Table>
       </SolutionModalBox>
     </SolutionModalWrapper>

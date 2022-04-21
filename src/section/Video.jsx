@@ -133,9 +133,9 @@ export default function Video() {
               <a target="_blank">
                 <BtnWrapper onClick={()=>           
                   ga.event({
-                    action:'Click',
+                    action:'click',
                     category:'YoutubeVideo',
-                    label:'Link'
+                    label:'link'
                   })}>
                   <PlayBtn>
                     <PlayBtnArrow />

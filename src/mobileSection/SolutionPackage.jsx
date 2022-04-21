@@ -141,7 +141,6 @@ export default function SolutionPackage(params) {
   });
 
   const modalOpen = (name) =>{
-    ga.event({ action: `M-SolutionPk-${name}-Modal` })
     ga.event({
       action:'Click',
       category:'SolutionPk',

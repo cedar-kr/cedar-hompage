@@ -1,10 +1,10 @@
+import { useState } from "react";
+import { useInterval } from "../utils/func";
 import Image from "next/image";
 import { Wrapper } from "../styles/Layout";
 import styled, { keyframes } from "styled-components";
 import { Progress } from "../styles/Keyframes";
 import { headerData } from "../utils/data";
-import { useState } from "react";
-import { useInterval } from "../utils/func";
 
 const HeaderLogo = styled(Wrapper)`
   display: flex;
@@ -164,8 +164,8 @@ const Frame = styled.div`
   justify-content: ${props => props.left ? "left" : "right"};
   animation: ${props => props.left ? FrameLeft : FrameRight} 2s infinite;
   position: absolute;
-  right: ${props => props.left ? "" : "0"};
-  bottom: ${props => props.left ? "" : "0"};
+  right: ${props => !props.left && 0};
+  bottom: ${props => !props.left && 0};
   top: ${props => props.left ? "0" : ""};
 `;
 
@@ -272,9 +272,9 @@ const HeaderSlideBox = styled.div`
   `}
 `;
 
-export default function Header(props) {
+export default function Header() {
   const [ slide, setSlide ] = useState(1);
-
+  
   useInterval(()=>{
     if(slide === headerData.length){
       setSlide(1);
@@ -300,7 +300,8 @@ export default function Header(props) {
                 </HeaderIntro>
                 <HeaderFrame>
                   <Frame left>
-                    <Image src={'/imgs/headers/header_frame_left.svg'} height={76} width={77} alt={'Left Frame'} /></Frame>
+                    <Image src={'/imgs/headers/header_frame_left.svg'} height={76} width={77} alt={'Left Frame'} />
+                  </Frame>
                   <HeaderFrameImg>
                     <MainImage id={data.id}> 
                       <Image src={data.imgs[0].src} width={data.imgs[0].width} height={data.imgs[0].height} alt={'Header Main Image'} priority/>

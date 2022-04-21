@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const handleRouteChange = () => {
-      // ga.pageview(url)
+      ga.pageview(url)
     }
     router.events.on('routeChangeComplete', handleRouteChange)
     return () => {

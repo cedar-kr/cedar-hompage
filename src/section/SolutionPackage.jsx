@@ -240,7 +240,7 @@ const CheckIcon = styled.div`
   margin-left:10px;
 `;
 
-export default function SolutionPackage(params) {
+export default function SolutionPackage() {
   const isTnm = useMediaQuery({ minWidth: 600, maxWidth: 904 })
 
   return (
