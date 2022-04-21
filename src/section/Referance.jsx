@@ -192,7 +192,7 @@ const SlideItems = styled(Swiper)`
   }
   .swiper-slide-active{
     opacity:1;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
   }
   .swiper-slide-prev{
     opacity:0;
