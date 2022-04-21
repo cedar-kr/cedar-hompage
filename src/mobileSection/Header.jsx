@@ -64,6 +64,9 @@ const HeaderFrame = styled.div`
   height:100%;
   margin-top:10px;
   overflow:hidden;
+  @media screen and (max-width: 344px) {
+    position:relative;
+  }
 `;
 
 const HeaderFrameImg = styled.div`
@@ -96,9 +99,18 @@ const FrameRight = keyframes`
 `;
 
 const Frame = styled.div`
-  display:flex;
-  justify-content:${props=> props.left ? "left" : "right"};
-  animation: ${props=> props.left ? FrameLeft : FrameRight} 2s infinite;
+  display: flex;
+  justify-content: ${props => props.left ? "left" : "right"};
+  animation: ${props => props.left ? FrameLeft : FrameRight} 2s infinite;
+  position: relative;
+  right: ${props => !props.left && 0};
+  bottom: ${props => !props.left && 0};
+  top: ${props => props.left ? "0" : ""};
+
+  @media screen and (max-width: 344px) {
+    position: absolute;
+    bottom: ${props => !props.left && 40}px;
+  }
 `;
 
 const ImageInfo = styled.div`
@@ -110,11 +122,14 @@ const ImageInfo = styled.div`
   text-align: left;
   color: #8D8D8D;
   margin-top:14px;
+  @media screen and (max-width: 344px) {
+    margin-top:85px;
+  }
 `;
 const SliderTimerBox = styled.div`
   width:100%;
   height:5px;
-`
+`;
 
 const HeaderSlideTimer = styled.progress`
  appearance: none;
@@ -136,6 +151,14 @@ const HeaderFirstImg = styled.div`
   ${props=> props.id==2 &&`
     transform:translate3d(10%,40px,0px);
   `}
+  @media screen and (max-width: 344px) {
+    ${props=> props.id==1 &&`
+        transform:translate3d(0%,40px, 0px);
+        overflow:hidden;
+      `|| props.id ==2 && `
+        transform:translate3d(10%,70px, 0px);
+    `}
+  }
 `;
 
 const HeaderLastImg = styled.div`
@@ -150,7 +173,7 @@ const HeaderLastImg = styled.div`
 
   @media screen and (max-width: 344px) {
     ${props=> props.id==1 &&`
-        transform:translate3d(37%, 70%, 0px);
+        transform:translate3d(37%, 80%, 0px);
         overflow:hidden;
       `|| props.id ==2 && `
         transform:translate3d(104px, 80px, 0px);
@@ -158,7 +181,7 @@ const HeaderLastImg = styled.div`
   }
 `;
 
-export default function Header(params) {
+export default function Header() {
   const [ slide, setSlide ] = useState(1);
 
   useInterval(()=>{
@@ -187,7 +210,8 @@ export default function Header(params) {
                 </HeaderIntro>
                 <HeaderFrame>
                   <Frame left>
-                    <Image src={'/imgs/headers/header_frame_left.svg'} height={33.27} width={33.71} alt={'Left Frame'} /></Frame>
+                    <Image src={'/imgs/headers/header_frame_left.svg'} height={33.27} width={33.71} alt={'Left Frame'} />
+                  </Frame>
                   <HeaderFrameImg>
                     <HeaderFirstImg id={data.id}>
                       <Image src={data.mobileImg[0].src} width={data.mobileImg[0].width} height={data.mobileImg[0].height} alt={'Header Main Image'} priority/>
@@ -196,7 +220,7 @@ export default function Header(params) {
                       <Image src={data.mobileImg[1].src} width={data.mobileImg[1].width} height={data.mobileImg[1].height} alt={'Header Sub Image'} priority/>
                     </HeaderLastImg>
                   </HeaderFrameImg>
-                  <Frame>
+                  <Frame right>
                     <Image src={'/imgs/headers/header_frame_right.svg'} height={33.27} width={33.71} alt={'Right Frame'} />
                   </Frame>
                   <ImageInfo>{data.subs}</ImageInfo>
