@@ -64,9 +64,8 @@ const HeaderFrame = styled.div`
   height:100%;
   margin-top:10px;
   overflow:hidden;
-  @media screen and (max-width: 344px) {
-    position:relative;
-  }
+  position:relative;
+
 `;
 
 const HeaderFrameImg = styled.div`
@@ -102,15 +101,10 @@ const Frame = styled.div`
   display: flex;
   justify-content: ${props => props.left ? "left" : "right"};
   animation: ${props => props.left ? FrameLeft : FrameRight} 2s infinite;
-  position: relative;
-  right: ${props => !props.left && 0};
-  bottom: ${props => !props.left && 0};
+  position: absolute;
+  right: ${props => !props.left && 0}px;
+  bottom: ${props => !props.left &&  40}px;
   top: ${props => props.left ? "0" : ""};
-
-  @media screen and (max-width: 344px) {
-    position: absolute;
-    bottom: ${props => !props.left && 40}px;
-  }
 `;
 
 const ImageInfo = styled.div`
@@ -121,11 +115,9 @@ const ImageInfo = styled.div`
   line-height: 17.76px;
   text-align: left;
   color: #8D8D8D;
-  margin-top:14px;
-  @media screen and (max-width: 344px) {
-    margin-top:85px;
-  }
+  margin-top:85px;
 `;
+
 const SliderTimerBox = styled.div`
   width:100%;
   height:5px;
@@ -148,37 +140,23 @@ const HeaderSlideTimer = styled.progress`
 `;
 
 const HeaderFirstImg = styled.div` 
-  ${props=> props.id==2 &&`
-    transform:translate3d(10%,40px,0px);
+  ${props=> props.id==1 &&`
+      transform:translate3d(0%,40px, 0px);
+      overflow:hidden;
+    `|| props.id ==2 && `
+      transform:translate3d(10%,70px, 0px);
   `}
-  @media screen and (max-width: 344px) {
-    ${props=> props.id==1 &&`
-        transform:translate3d(0%,40px, 0px);
-        overflow:hidden;
-      `|| props.id ==2 && `
-        transform:translate3d(10%,70px, 0px);
-    `}
-  }
 `;
 
 const HeaderLastImg = styled.div`
   position:absolute;
   overflow:hidden;
   ${props=> props.id==1 &&`
-    transform:translate3d(48%, 70%,0px);
-    overflow:hidden;
-  `|| props.id ==2 && `
-    transform:translate3d(120px, 80px,0px);
+      transform:translate3d(37%, 80%, 0px);
+      overflow:hidden;
+    `|| props.id ==2 && `
+      transform:translate3d(104px, 80px, 0px);
   `}
-
-  @media screen and (max-width: 344px) {
-    ${props=> props.id==1 &&`
-        transform:translate3d(37%, 80%, 0px);
-        overflow:hidden;
-      `|| props.id ==2 && `
-        transform:translate3d(104px, 80px, 0px);
-    `}
-  }
 `;
 
 export default function Header() {
