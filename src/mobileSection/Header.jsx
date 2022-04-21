@@ -48,10 +48,15 @@ const HeaderEngText = styled.div`
   font-family: 'Quentin';
   font-style: normal;
   font-weight: 400;
-  font-size: 45px;
+  font-size: 4.5rem;
   line-height: 66px;
   color: #2FCFBE;
   opacity: 0.2;
+  white-space: nowrap;
+
+  @media screen and (max-width: 344px) {
+    font-size: 4rem;
+  }
 `;
 
 const HeaderFrame = styled.div`
@@ -142,6 +147,15 @@ const HeaderLastImg = styled.div`
   `|| props.id ==2 && `
     transform:translate3d(120px, 80px,0px);
   `}
+
+  @media screen and (max-width: 344px) {
+    ${props=> props.id==1 &&`
+        transform:translate3d(37%, 70%, 0px);
+        overflow:hidden;
+      `|| props.id ==2 && `
+        transform:translate3d(104px, 80px, 0px);
+    `}
+  }
 `;
 
 export default function Header(params) {

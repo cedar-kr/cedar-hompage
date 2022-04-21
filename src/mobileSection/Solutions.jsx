@@ -41,7 +41,7 @@ const SolutionTitle = styled.div`
 
 const SolutionContents = styled.div`
   display: grid;
-	grid-template-columns: repeat(4,minmax(76px, 1fr));
+	grid-template-columns: repeat(4,minmax(66px, 1fr));
   grid-template-rows: ${props=> props.rowHeight};
   gap:8px;
 `;
