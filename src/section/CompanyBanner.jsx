@@ -112,7 +112,7 @@ export default function CompanyBanner() {
                         <BannerItem key={idx} align={data.length-1 === idx}>
                           {
                             img.id <= 18 &&
-                            <Image src={img.src} height={img.height} width={img.width}/>
+                            <Image src={img.src} height={img.height} width={img.width}  alt={'Comapny Banner'}/>
                           }
                         </BannerItem>
                       )
