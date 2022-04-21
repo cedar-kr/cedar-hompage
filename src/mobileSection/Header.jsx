@@ -150,7 +150,7 @@ const HeaderLastImg = styled.div`
 
   @media screen and (max-width: 344px) {
     ${props=> props.id==1 &&`
-        transform:translate3d(37%, 70%, 0px);
+        transform:translate3d(25%, 65%, 0px);
         overflow:hidden;
       `|| props.id ==2 && `
         transform:translate3d(104px, 80px, 0px);
