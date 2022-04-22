@@ -495,7 +495,6 @@ export const historyData = [
       '삼양식품 밀양공장 계약',
       '하나은행 계약',
       '세종큐비즈 중고폰 매입 키오스크 솔루션 계약',
-      '현대백화점 파크원 사이니지 설치',
       'MODI GS인증 1등급 획득'
     ],
     img:'/imgs/historys/2021.jpg',
