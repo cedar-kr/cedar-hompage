@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import { useRouter } from 'next/router'
 import GlobalStyle from '../styles/global'
 import { media } from '../styles/media'
+import * as ga from '../utils/ga';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
