@@ -3,7 +3,7 @@ module.exports = {
   optimizeFonts: true,
   images: {
     loader: 'imgix',
-    path: 'https://cedar.kr/public',
+    path: 'https://cedar.kr',
   },
 
 }
