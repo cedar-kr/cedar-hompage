@@ -262,13 +262,13 @@ const HeaderSlideBox = styled.div`
 export default function Header() {
   const [ slide, setSlide ] = useState(1);
   
-  // useInterval(()=>{
-  //   if(slide === headerData.length){
-  //     setSlide(1);
-  //   }else{
-  //     setSlide(slide+1);
-  //   }
-  // },5000)
+  useInterval(()=>{
+    if(slide === headerData.length){
+      setSlide(1);
+    }else{
+      setSlide(slide+1);
+    }
+  },5000)
 
   return (
     <HeaderWrapper>
