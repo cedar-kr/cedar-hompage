@@ -30,10 +30,7 @@ const HeaderWrapper = styled.div`
 `;
 
 const HeaderSlide = styled.div`
-  display: flex;
   background-image: url('/imgs/headers/header_bg.jpg');
-  justify-content: center;
-  align-items: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center center;
@@ -51,26 +48,19 @@ const HeaderSlide = styled.div`
   `}
 `;
 
+const HeaderSlideWrapper = styled(Wrapper)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const HeaderIntro = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   white-space: nowrap;
-  width: 30%;
+  width: 48%;
   margin-right:50px;
-  ${({theme})=> theme.fnp`
-    width: 22%;
-  `}
-
-  ${({theme})=> theme.pnt`
-    width: 29%;
-  `}
-  ${({theme})=> theme.tablet`
-    width: 45%;
-  `}
-  ${({theme})=> theme.tnm`
-    width: 45%;
-  `}
 `;
 
 const HeaderText = styled.div`
@@ -123,11 +113,8 @@ const HeaderFrame = styled.div`
   width: 45%;
   margin-left: -4%;
   position: relative;
-  ${({theme})=> theme.fnp`
-    width: 25%;
-  `}
 
-${({theme})=> theme.tablet`
+  ${({theme})=> theme.tablet`
     height:559px;
   `}
 `;
@@ -275,13 +262,13 @@ const HeaderSlideBox = styled.div`
 export default function Header() {
   const [ slide, setSlide ] = useState(1);
   
-  useInterval(()=>{
-    if(slide === headerData.length){
-      setSlide(1);
-    }else{
-      setSlide(slide+1);
-    }
-  },5000)
+  // useInterval(()=>{
+  //   if(slide === headerData.length){
+  //     setSlide(1);
+  //   }else{
+  //     setSlide(slide+1);
+  //   }
+  // },5000)
 
   return (
     <HeaderWrapper>
@@ -293,6 +280,7 @@ export default function Header() {
           headerData.map((data,idx)=>{
             return slide == data.id && (
               <HeaderSlide width={100} key={idx}>
+                <HeaderSlideWrapper>
                 <HeaderIntro>
                   <HeaderText point>{data.text}</HeaderText>
                   <HeaderText>더 쉽고 편리하게.</HeaderText>
@@ -315,6 +303,7 @@ export default function Header() {
                   </Frame>
                   <ImageInfo>{data.subs}</ImageInfo>
                 </HeaderFrame>
+                </HeaderSlideWrapper>
               </HeaderSlide>
             )
           })
