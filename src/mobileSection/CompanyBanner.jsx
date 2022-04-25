@@ -11,15 +11,21 @@ const CompanyBannerWrapper = styled.div`
   padding-right:16px;
 `;
 
+const NewBannerWrapper = styled.div`
+  width: 100%;
+`;
+
 export default function CompanyBanner() {
 
   return (
     <CompanyBannerWrapper>
-      <Image src={'/imgs/companyBanner/1_mobile.png'} height={33.33} width={360} alt={'Comapny Banner'} />
-      <Image src={'/imgs/companyBanner/2_mobile.png'} height={33.33} width={360} alt={'Comapny Banner'} />
-      <Image src={'/imgs/companyBanner/3_mobile.png'} height={33.33} width={360} alt={'Comapny Banner'} />
-      <Image src={'/imgs/companyBanner/4_mobile.png'} height={33.33} width={360} alt={'Comapny Banner'} />
-      <Image src={'/imgs/companyBanner/5_mobile.png'} height={33.33} width={160} alt={'Comapny Banner'} />
+      <Image src={'/imgs/companyBanner/1_mobile.png'} height={33.33} width={360} alt={'Company Banner'} />
+      <Image src={'/imgs/companyBanner/2_mobile.png'} height={33.33} width={360} alt={'Company Banner'} />
+      <Image src={'/imgs/companyBanner/3_mobile.png'} height={33.33} width={360} alt={'Company Banner'} />
+      <Image src={'/imgs/companyBanner/4_mobile.png'} height={33.33} width={360} alt={'Company Banner'} />
+      <NewBannerWrapper>
+        <Image src={'/imgs/companyBanner/5_mobile.png'} height={33.33} width={192} alt={'Company Banner'} />
+      </NewBannerWrapper>
     </CompanyBannerWrapper>
   )
 }
