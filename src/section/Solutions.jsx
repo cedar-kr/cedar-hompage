@@ -89,6 +89,7 @@ const SolutionSubs = styled.div`
   line-height: 30px;
   color: #222222;
   max-width: 384px;
+  word-break: keep-all;
 
   ${({theme})=>theme.fnp`
     width: 384px;
@@ -184,9 +185,13 @@ const ContentBlockTitle = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-
+  
+  ${({theme})=>theme.pc`
+    margin: 40px;
+    font-size: calc(2.4rem + (100vw - 1240px) * ((30 - 24) / (1920 - 1240)));
+  `}
   ${({theme})=>theme.pnt`
-    font-size: calc(2.4rem + (100vw - 1240px) * ((30 - 24) / (1439 - 1240)));
+    font-size: calc(2.4rem + (100vw - 1240px) * ((30 - 24) / (1920 - 1240)));
     line-height: 36px;
     margin: 30px;
   `}
