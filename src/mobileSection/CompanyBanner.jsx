@@ -19,6 +19,7 @@ export default function CompanyBanner() {
       <Image src={'/imgs/companyBanner/2_mobile.png'} height={33.33} width={360} alt={'Comapny Banner'} />
       <Image src={'/imgs/companyBanner/3_mobile.png'} height={33.33} width={360} alt={'Comapny Banner'} />
       <Image src={'/imgs/companyBanner/4_mobile.png'} height={33.33} width={360} alt={'Comapny Banner'} />
+      <Image src={'/imgs/companyBanner/5_mobile.png'} height={33.33} width={160} alt={'Comapny Banner'} />
     </CompanyBannerWrapper>
   )
 }
