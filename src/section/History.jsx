@@ -233,6 +233,7 @@ export default function History() {
         scrollbar={{ draggable: true }}
         modules={[Scrollbar]}
         onSlideChange={(e)=> {
+          swiperRef.current.swiper.init(e.realIndex);
           swiperRef.current.swiper.slideTo(e.realIndex,300,false);
         }}
         style={{position:'absolute', top:0}}
@@ -249,7 +250,7 @@ export default function History() {
             };
             swiper.slideTo(e.clickedIndex,300,false);
             setClickIndex(e.clickedIndex);
-            swiperRef.current.swiper.slideTo(e.clickedIndex,300,false);
+            // swiperRef.current.swiper.slideTo(e.clickedIndex,300,false);
            
             ga.event({
               action:'click',
