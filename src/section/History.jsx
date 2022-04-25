@@ -204,11 +204,11 @@ export default function History() {
   const [clickIndex, setClickIndex ] = useState(0);
   const swiperRef = useRef();
 
-  useLayoutEffect(()=>{
-    if(swiper?.slideTo){
-      swiper.slideTo(0,0,false);
-    }
-  },[swiper])
+  // useLayoutEffect(()=>{
+  //   if(swiper.update()?.slideTo){
+  //     swiper.slideTo(0);
+  //   }
+  // },[swiper])
   
   return (
     <HistorySection onClick={(e)=> e.stopPropagation()}>
@@ -238,8 +238,13 @@ export default function History() {
         onSwiper={(s) => setSwiper(s)}
         scrollbar={{ draggable: true }}
         modules={[Scrollbar]}
+        onInit ={(e)=> {
+          swiperRef.current.swiper.slideTo(0);
+        }}
         onSlideChange={(e)=> {
           swiperRef.current.swiper.slideTo(e.realIndex,300,false);
+          console.log('now index :::', e.realIndex);
+          console.log('now index :::', e.activeIndex);
         }}
         style={{position:'absolute', top:0}}
         onClick={(e) => {
