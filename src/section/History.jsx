@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { historyData } from "../utils/data";
 import SwiperCore, { Virtual,Scrollbar, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import React, { useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import * as ga from '../utils/ga';
 
 import 'swiper/css';
@@ -202,8 +202,13 @@ export default function History() {
   const [swiper, setSwiper] = useState(null);
   const [hj, setHj] = useState('h');
   const [clickIndex, setClickIndex ] = useState(0);
-  const [initIndex, setInitIndex] = useState(0);
   const swiperRef = useRef();
+
+  useLayoutEffect(()=>{
+    if(swiper?.slideTo){
+      swiper.slideTo(0,0,false);
+    }
+  },[swiper])
   
   return (
     <HistorySection onClick={(e)=> e.stopPropagation()}>
@@ -234,11 +239,9 @@ export default function History() {
         scrollbar={{ draggable: true }}
         modules={[Scrollbar]}
         onSlideChange={(e)=> {
-          setInitIndex(0);
           swiperRef.current.swiper.slideTo(e.realIndex,300,false);
         }}
         style={{position:'absolute', top:0}}
-        // slideToClickedSlide
         onClick={(e) => {
           if(clickIndex == e.clickedIndex){
             return;
