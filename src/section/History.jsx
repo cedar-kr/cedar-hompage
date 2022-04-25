@@ -201,7 +201,8 @@ const HistorySubs = styled.div`
 export default function History() {
   const [swiper, setSwiper] = useState(null);
   const [hj, setHj] = useState('h');
-  const [ clickIndex, setClickIndex ] = useState(0);
+  const [clickIndex, setClickIndex ] = useState(0);
+  const [initIndex, setInitIndex] = useState(0);
   const swiperRef = useRef();
   
   return (
@@ -233,7 +234,7 @@ export default function History() {
         scrollbar={{ draggable: true }}
         modules={[Scrollbar]}
         onSlideChange={(e)=> {
-          swiperRef.current.swiper.init(e.realIndex);
+          setInitIndex(0);
           swiperRef.current.swiper.slideTo(e.realIndex,300,false);
         }}
         style={{position:'absolute', top:0}}
@@ -250,7 +251,6 @@ export default function History() {
             };
             swiper.slideTo(e.clickedIndex,300,false);
             setClickIndex(e.clickedIndex);
-            // swiperRef.current.swiper.slideTo(e.clickedIndex,300,false);
            
             ga.event({
               action:'click',
