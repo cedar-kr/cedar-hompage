@@ -90,8 +90,8 @@ export default function CompanyBanner() {
 
   return (
     <CompanyBannerContainer>
-      <CompanyTitle>주요 레퍼런스</CompanyTitle>
-      <CompanySubs>다양한 디스플레이 통합 솔루션을 기반으로 여러 분야에서 차별화된 레퍼런스를 보유합니다.</CompanySubs>
+      <CompanyTitle>주요 고객 및 파트너</CompanyTitle>
+      <CompanySubs>자사는 고객에게 최상의 디지털사이니지 경험을 제공합니다.</CompanySubs>
         {
           datas.map((data,index)=>{
             return (
