@@ -5,10 +5,6 @@ const CompanyBannerWrapper = styled.div`
   display:flex;
   justify-content:space-between;
   flex-direction:column;
-  /* height:206px; */
-  /* padding-top: 23.57px; */
-  /* padding-left: 16px; */
-  /* padding-right:16px; */
 `;
 
 export default function CompanyBanner() {
