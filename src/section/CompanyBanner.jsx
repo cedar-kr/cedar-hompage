@@ -78,7 +78,7 @@ const CompanyBannerDatas = [
   { id: 15, src: '/imgs/companyBanner/companys/9.png', width: 150, height: 50 },
   { id: 16, src: '/imgs/companyBanner/companys/10.png', width: 150, height: 50 },
   { id: 17, src: '/imgs/companyBanner/companys/11.png', width: 150, height: 50 },
-  { id: 18, src: '/imgs/companyBanner/companys/12.png', width: 150, height: 50 },
+  { id: 18, src: '/imgs/companyBanner/companys/12.png', width: 150, height: 50 }
 ];
 
 export default function CompanyBanner() {

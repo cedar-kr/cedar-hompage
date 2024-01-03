@@ -138,18 +138,18 @@ const DetailText = styled.div`
 export default function SolutionPackage(params) {
   const [modal, setModal] = useState({
     isOpen: false,
-    name: '',
+    name: ''
   });
 
   const modalOpen = (name) => {
     ga.event({
       action: 'Click',
       category: 'SolutionPk',
-      label: `${name}-Modal`,
+      label: `${name}-Modal`
     });
     setModal({
       isOpen: true,
-      name,
+      name
     });
   };
 

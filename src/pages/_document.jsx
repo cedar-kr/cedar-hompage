@@ -9,7 +9,7 @@ class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />)
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -20,7 +20,7 @@ class MyDocument extends Document {
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
-        ),
+        )
       };
     } finally {
       sheet.seal();
@@ -42,7 +42,7 @@ class MyDocument extends Document {
 							gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
 								page_path: window.location.pathname,
 							});
-						`,
+						`
             }}
           />
           <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -395,7 +395,7 @@ export default function Referance() {
               initialSlide={5}
               loop={true}
               pagination={{
-                clickable: true,
+                clickable: true
               }}
               onSlideChange={(e) => {
                 setActiveIndex(e.activeIndex);
@@ -408,23 +408,23 @@ export default function Referance() {
                 ga.event({
                   action: 'click',
                   category: 'Referance',
-                  label: 'slide',
+                  label: 'slide'
                 });
               }}
               touchRatio={0.05}
               breakpoints={{
                 1440: {
-                  spaceBetween: 16,
+                  spaceBetween: 16
                 },
                 1240: {
-                  spaceBetween: 12,
+                  spaceBetween: 12
                 },
                 905: {
-                  spaceBetween: 12,
+                  spaceBetween: 12
                 },
                 600: {
-                  spaceBetween: 8,
-                },
+                  spaceBetween: 8
+                }
               }}
             >
               {referanceData.map((data, idx) => {

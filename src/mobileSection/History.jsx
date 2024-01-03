@@ -181,7 +181,7 @@ export default function History() {
           ga.event({
             action: 'click',
             category: 'History',
-            label: `slide`,
+            label: `slide`
           });
           setOpen(!open);
         }}

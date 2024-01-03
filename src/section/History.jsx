@@ -249,23 +249,23 @@ export default function History() {
             ga.event({
               action: 'click',
               category: 'History',
-              label: 'slide',
+              label: 'slide'
             });
           }
         }}
         breakpoints={{
           1440: {
-            spaceBetween: 16,
+            spaceBetween: 16
           },
           1240: {
-            spaceBetween: 12,
+            spaceBetween: 12
           },
           905: {
-            spaceBetween: 12,
+            spaceBetween: 12
           },
           600: {
-            spaceBetween: 8,
-          },
+            spaceBetween: 8
+          }
         }}
       >
         {historyData.map((slideContent, index) => {

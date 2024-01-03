@@ -9,26 +9,26 @@ export const headerData = [
       {
         src: '/imgs/headers/display.png',
         width: 260,
-        height: 440,
+        height: 440
       },
       {
         src: '/imgs/headers/plant.png',
         width: 433,
-        height: 433,
-      },
+        height: 433
+      }
     ],
     mobileImg: [
       {
         src: '/imgs/headers/display_mobile.png',
         width: 171,
-        height: 289,
+        height: 289
       },
       {
         src: '/imgs/headers/plant_mobile.png',
         width: 213,
-        height: 194,
-      },
-    ],
+        height: 194
+      }
+    ]
   },
   {
     id: 2,
@@ -40,27 +40,27 @@ export const headerData = [
       {
         src: '/imgs/headers/kiosk.png',
         width: 468,
-        height: 557,
+        height: 557
       },
       {
         src: '/imgs/headers/usim.png',
         width: 131,
-        height: 96,
-      },
+        height: 96
+      }
     ],
     mobileImg: [
       {
         src: '/imgs/headers/kiosk_mobile.png',
         width: 247.95,
-        height: 326,
+        height: 326
       },
       {
         src: '/imgs/headers/usim_mobile.png',
         width: 110,
-        height: 76.49,
-      },
-    ],
-  },
+        height: 76.49
+      }
+    ]
+  }
 ];
 
 export const businessData = [
@@ -68,20 +68,20 @@ export const businessData = [
     icon: '/icons/kiosk.svg',
     icon_m: '/icons/display_m.svg',
     title: 'Display & Kiosk Production',
-    content: '강한 내구성과 긴 수명의 디스플레이와 키오스크 제품으로 고객 요구사항에 부흥',
+    content: '강한 내구성과 긴 수명의 디스플레이와 키오스크 제품으로 고객 요구사항에 부흥'
   },
   {
     icon: '/icons/time.svg',
     icon_m: '/icons/management_m.svg',
     title: 'Management System',
-    content: '모니터링 대시보드, 원격 관리, 방송 예약 편성 등 디지털 사이니지 관리 시스템 제공',
+    content: '모니터링 대시보드, 원격 관리, 방송 예약 편성 등 디지털 사이니지 관리 시스템 제공'
   },
   {
     icon: '/icons/touch.svg',
     icon_m: '/icons/experience_m.svg',
     title: 'Experience Optimization',
-    content: '전용 A/S고객센터 운영으로 문제 해결을 위한 안내 및 안정적 사용을 위한 최적화 가이드 제공 ',
-  },
+    content: '전용 A/S고객센터 운영으로 문제 해결을 위한 안내 및 안정적 사용을 위한 최적화 가이드 제공 '
+  }
 ];
 
 export const referanceData = [
@@ -94,8 +94,8 @@ export const referanceData = [
     subsEnter: '판교 알파돔시티 <br/> 테크원빌딩',
     imgSize: {
       width: 277,
-      height: 273,
-    },
+      height: 273
+    }
   },
   {
     id: 2,
@@ -105,8 +105,8 @@ export const referanceData = [
     subs: 'LG U+ 무인 매장',
     imgSize: {
       width: 277,
-      height: 313,
-    },
+      height: 313
+    }
   },
   {
     id: 3,
@@ -116,8 +116,8 @@ export const referanceData = [
     subs: '현대백화점',
     imgSize: {
       width: 364,
-      height: 230,
-    },
+      height: 230
+    }
   },
   {
     id: 4,
@@ -127,8 +127,8 @@ export const referanceData = [
     subs: '하나은행',
     imgSize: {
       width: 306,
-      height: 103,
-    },
+      height: 103
+    }
   },
   {
     id: 5,
@@ -139,9 +139,9 @@ export const referanceData = [
     subsEnter: '김포국제공항,<br/> 청주국제공항',
     imgSize: {
       width: 263,
-      height: 298,
-    },
-  },
+      height: 298
+    }
+  }
 ];
 
 export const referanceMobileData = [
@@ -153,8 +153,8 @@ export const referanceMobileData = [
     subs: '판교 알파돔시티<br/> 테크원빌딩',
     imgSize: {
       width: 121,
-      height: 119,
-    },
+      height: 119
+    }
   },
   {
     id: 2,
@@ -164,8 +164,8 @@ export const referanceMobileData = [
     subs: 'LG U+ 무인 매장',
     imgSize: {
       width: 120,
-      height: 137,
-    },
+      height: 137
+    }
   },
 
   {
@@ -176,8 +176,8 @@ export const referanceMobileData = [
     subs: '하나은행',
     imgSize: {
       width: 130,
-      height: 41,
-    },
+      height: 41
+    }
   },
   {
     id: 4,
@@ -187,8 +187,8 @@ export const referanceMobileData = [
     subs: '김포국제공항,<br/> 청주국제공항',
     imgSize: {
       width: 69,
-      height: 108,
-    },
+      height: 108
+    }
   },
 
   {
@@ -199,9 +199,9 @@ export const referanceMobileData = [
     subs: '현대백화점',
     imgSize: {
       width: 120,
-      height: 75.824,
-    },
-  },
+      height: 75.824
+    }
+  }
 ];
 
 export const solutionData = [
@@ -216,7 +216,7 @@ export const solutionData = [
         name: '디자인 템플릿',
         grid: 4,
         imgWidth: 496,
-        imgHeight: 300,
+        imgHeight: 300
       },
       {
         type: 'defualt',
@@ -224,7 +224,7 @@ export const solutionData = [
         name: '다양한 센서 연동',
         grid: 4,
         imgWidth: 496,
-        imgHeight: 300,
+        imgHeight: 300
       },
       {
         type: 'defualt',
@@ -232,7 +232,7 @@ export const solutionData = [
         name: '원격 멀티 디바이스 관리',
         grid: 6,
         imgWidth: 752,
-        imgHeight: 300,
+        imgHeight: 300
       },
       {
         type: 'defualt',
@@ -240,9 +240,9 @@ export const solutionData = [
         name: '그룹관리',
         grid: 2,
         imgWidth: 240,
-        imgHeight: 300,
-      },
-    ],
+        imgHeight: 300
+      }
+    ]
   },
   {
     id: 2,
@@ -255,7 +255,7 @@ export const solutionData = [
         name: 'LED',
         grid: 3,
         imgWidth: 368,
-        imgHeight: 300,
+        imgHeight: 300
       },
       {
         type: 'image',
@@ -263,7 +263,7 @@ export const solutionData = [
         name: '멀티비전',
         grid: 3,
         imgWidth: 368,
-        imgHeight: 300,
+        imgHeight: 300
       },
       {
         type: 'defualt',
@@ -271,7 +271,7 @@ export const solutionData = [
         name: '키오스크',
         grid: 2,
         imgWidth: 240,
-        imgHeight: 300,
+        imgHeight: 300
       },
       {
         type: 'defualt',
@@ -279,7 +279,7 @@ export const solutionData = [
         name: '투명OLED<br/>터치 디스플레이',
         grid: 4,
         imgWidth: 496,
-        imgHeight: 300,
+        imgHeight: 300
       },
       {
         type: 'image',
@@ -287,9 +287,9 @@ export const solutionData = [
         name: '일반<br/>디지털 사이니지',
         grid: 4,
         imgWidth: 496,
-        imgHeight: 300,
-      },
-    ],
+        imgHeight: 300
+      }
+    ]
   },
   {
     id: 3,
@@ -302,7 +302,7 @@ export const solutionData = [
         name: '통계관리',
         grid: 5,
         imgWidth: 624,
-        imgHeight: 300,
+        imgHeight: 300
       },
       {
         type: 'defualt',
@@ -310,7 +310,7 @@ export const solutionData = [
         name: '원격 모니터링',
         grid: 3,
         imgWidth: 328,
-        imgHeight: 300,
+        imgHeight: 300
       },
       {
         type: 'defualt',
@@ -318,7 +318,7 @@ export const solutionData = [
         name: '오류 감지',
         grid: 3,
         imgWidth: 368,
-        imgHeight: 300,
+        imgHeight: 300
       },
       {
         type: 'defualt',
@@ -326,10 +326,10 @@ export const solutionData = [
         name: 'OTP 로그인',
         grid: 5,
         imgWidth: 622,
-        imgHeight: 300,
-      },
-    ],
-  },
+        imgHeight: 300
+      }
+    ]
+  }
 ];
 
 export const solutionMobileData = [
@@ -345,7 +345,7 @@ export const solutionMobileData = [
         imgWidth: 128,
         imgHeight: 134,
         left: 16,
-        top: 100,
+        top: 100
       },
       {
         type: 'defualt',
@@ -355,7 +355,7 @@ export const solutionMobileData = [
         imgWidth: 127.09,
         imgHeight: 89.09,
         left: 14,
-        top: 141,
+        top: 141
       },
       {
         type: 'defualt',
@@ -365,17 +365,17 @@ export const solutionMobileData = [
         imgWidth: 250.55,
         imgHeight: 142,
         left: 39,
-        top: 77,
+        top: 77
       },
 
       {
         type: 'image',
         src: '/imgs/solutions/01_group_mobile.png',
         name: '그룹관리',
-        grid: 4,
-      },
+        grid: 4
+      }
     ],
-    rowHeight: '250px 250px 160px',
+    rowHeight: '250px 250px 160px'
   },
   {
     id: 2,
@@ -385,7 +385,7 @@ export const solutionMobileData = [
         type: 'image',
         src: '/imgs/solutions/02_led_mobile.png',
         name: 'LED',
-        grid: 4,
+        grid: 4
       },
 
       {
@@ -396,7 +396,7 @@ export const solutionMobileData = [
         imgWidth: 159,
         imgHeight: 180,
         left: 17,
-        top: 70,
+        top: 70
       },
       {
         type: 'defualt',
@@ -406,13 +406,13 @@ export const solutionMobileData = [
         imgWidth: 111,
         imgHeight: 96,
         left: 25,
-        top: 130,
+        top: 130
       },
       {
         type: 'image',
         src: '/imgs/solutions/02_multi_mobile.png',
         name: '멀티비전',
-        grid: 4,
+        grid: 4
       },
       {
         type: 'image',
@@ -420,10 +420,10 @@ export const solutionMobileData = [
         name: '일반<br/>디지털 사이니지',
         grid: 4,
         left: 100,
-        top: 65,
-      },
+        top: 65
+      }
     ],
-    rowHeight: '140px 250px 140px 140px',
+    rowHeight: '140px 250px 140px 140px'
   },
   {
     id: 3,
@@ -437,7 +437,7 @@ export const solutionMobileData = [
         imgWidth: 149,
         imgHeight: 97,
         left: 159,
-        top: 25,
+        top: 25
       },
       {
         type: 'defualt',
@@ -447,7 +447,7 @@ export const solutionMobileData = [
         imgWidth: 117,
         imgHeight: 88,
         left: 21,
-        top: 110,
+        top: 110
       },
       {
         type: 'defualt',
@@ -457,7 +457,7 @@ export const solutionMobileData = [
         imgWidth: 144,
         imgHeight: 171.71,
         left: 5,
-        top: 75,
+        top: 75
       },
       {
         type: 'image',
@@ -465,11 +465,11 @@ export const solutionMobileData = [
         name: 'OTP 로그인',
         grid: 5,
         left: 0,
-        top: 0,
-      },
+        top: 0
+      }
     ],
-    rowHeight: '140px 250px 140px',
-  },
+    rowHeight: '140px 250px 140px'
+  }
 ];
 
 export const historyData = [
@@ -481,12 +481,12 @@ export const historyData = [
       '드림마크원 빌딩 웹포털 계약 체결',
       '도산150 빌딩 DID 설치',
       '롯데시티호텔 LED 사이니지 설치',
-      '설치형 사이니지 솔루션 신규 런칭',
+      '설치형 사이니지 솔루션 신규 런칭'
     ],
     img: '/imgs/historys/2023.jpg',
     bg: '/imgs/historys/2023.png',
     cardBg: '/imgs/historys/card/23.png',
-    height: 186,
+    height: 186
   },
   {
     year: 2022,
@@ -494,7 +494,7 @@ export const historyData = [
     img: '/imgs/historys/2022.jpg',
     bg: '/imgs/historys/2022.png',
     cardBg: '/imgs/historys/card/22.png',
-    height: 144,
+    height: 144
   },
   {
     year: 2021,
@@ -503,12 +503,12 @@ export const historyData = [
       '삼양식품 밀양공장 계약',
       '하나은행 계약',
       '세종큐비즈 중고폰 매입 키오스크 솔루션 계약',
-      'MODI GS인증 1등급 획득',
+      'MODI GS인증 1등급 획득'
     ],
     img: '/imgs/historys/2021.jpg',
     bg: '/imgs/historys/2021.png',
     cardBg: '/imgs/historys/card/21.png',
-    height: 186,
+    height: 186
   },
   {
     year: 2020,
@@ -518,12 +518,12 @@ export const historyData = [
       'LG유플러스 유심 키오스크 계약',
       '김포국제공항 계약',
       '청주국제공항 계약',
-      '판교알파돔 빌딩안내 설비공사 계약',
+      '판교알파돔 빌딩안내 설비공사 계약'
     ],
     img: '/imgs/historys/2020.jpg',
     bg: '/imgs/historys/2020.png',
     cardBg: '/imgs/historys/card/20.png',
-    height: 223,
+    height: 223
   },
   {
     year: 2019,
@@ -531,7 +531,7 @@ export const historyData = [
     img: '/imgs/historys/2019.jpg',
     bg: '/imgs/historys/2019.png',
     cardBg: '/imgs/historys/card/19.png',
-    height: 102,
+    height: 102
   },
   {
     year: 2018,
@@ -542,12 +542,12 @@ export const historyData = [
       '강남역 VR스테이션 계약 체결',
       '연세대학교 재계약',
       '인도 스타트업 사절단',
-      '디지털 뱅크 dsj 박람회',
+      '디지털 뱅크 dsj 박람회'
     ],
     img: '/imgs/historys/2018.jpg',
     bg: '/imgs/historys/2018.png',
     cardBg: '/imgs/historys/card/18.png',
-    height: 207,
+    height: 207
   },
   {
     year: 2017,
@@ -555,7 +555,7 @@ export const historyData = [
     img: '/imgs/historys/2017.jpg',
     bg: '/imgs/historys/2017.png',
     cardBg: '/imgs/historys/card/17.png',
-    height: 144,
+    height: 144
   },
   {
     year: 2016,
@@ -565,12 +565,12 @@ export const historyData = [
       '	기업부설연구소 설립',
       '	안양창조산업진흥원 협약 체결',
       '	스마트미디어 X캠프 디지털 사이니지 분야 우수상 수상',
-      '	글로벌 유망 컨텐츠 성과 보고회',
+      '	글로벌 유망 컨텐츠 성과 보고회'
     ],
     img: '/imgs/historys/2016.jpg',
     bg: '/imgs/historys/2016.png',
     cardBg: '/imgs/historys/card/16.png',
-    height: 228,
+    height: 228
   },
   {
     year: 2015,
@@ -582,12 +582,12 @@ export const historyData = [
       '	현대 HCN, 현대 미디어 투자 유치',
       '	수협 중앙회 계약 체결',
       '	벤처기업인증',
-      '	미래부 ICT분야 유망기업(K-Global) 선정',
+      '	미래부 ICT분야 유망기업(K-Global) 선정'
     ],
     img: '/imgs/historys/2015.jpg',
     bg: '/imgs/historys/2015.png',
     cardBg: '/imgs/historys/card/15.png',
-    height: 270,
+    height: 270
   },
   {
     year: 2014,
@@ -595,7 +595,7 @@ export const historyData = [
     img: '/imgs/historys/2014.jpg',
     bg: '/imgs/historys/2014.png',
     cardBg: '/imgs/historys/card/14.png',
-    height: 123,
+    height: 123
   },
   {
     year: 2013,
@@ -603,13 +603,13 @@ export const historyData = [
       '주식회사 시더 설립',
       '	부경대학교 & 서울과학기술대학교 개발 협력 계약 체결',
       '	삼성전자 플랫폼 런칭 파트너사 선정',
-      '	스마트 챌린지 휴맥스분야 최우수상 수상',
+      '	스마트 챌린지 휴맥스분야 최우수상 수상'
     ],
     img: '/imgs/historys/2013.jpg',
     bg: '/imgs/historys/2013.png',
     cardBg: '/imgs/historys/card/13.png',
-    height: 186,
-  },
+    height: 186
+  }
 ];
 
 export const solutionPkData = [
@@ -621,32 +621,32 @@ export const solutionPkData = [
         icon: {
           src: '/icons/usb.svg',
           width: 82.36,
-          height: 70.71,
+          height: 70.71
         },
         type: 'USB',
         subs: [
           {
-            text: '비 인터넷 환경 사용 가능',
-          },
-        ],
+            text: '비 인터넷 환경 사용 가능'
+          }
+        ]
       },
       {
         icon: {
           src: '/icons/intra.svg',
           width: 51.11,
-          height: 60,
+          height: 60
         },
         type: 'Intra',
         subs: [
           {
-            text: '내부망 인터넷 사용 가능',
+            text: '내부망 인터넷 사용 가능'
           },
           {
-            text: '기업 보안 특화 솔루션',
-          },
-        ],
-      },
-    ],
+            text: '기업 보안 특화 솔루션'
+          }
+        ]
+      }
+    ]
   },
   {
     id: 2,
@@ -656,89 +656,89 @@ export const solutionPkData = [
         icon: {
           src: '/icons/Star1.svg',
           width: 100,
-          height: 100,
+          height: 100
         },
         type: 'Standard',
         subs: [
           {
-            text: '콘텐츠 클라우드 저장',
+            text: '콘텐츠 클라우드 저장'
           },
           {
-            text: '실시간 원격 모니터링',
+            text: '실시간 원격 모니터링'
           },
           {
             text: '안드로이드 STB',
-            point: true,
-          },
-        ],
+            point: true
+          }
+        ]
       },
       {
         icon: {
           src: '/icons/Star2.svg',
           width: 100,
-          height: 100,
+          height: 100
         },
         type: 'Professional',
         subs: [
           {
-            text: '콘텐츠 클라우드 저장',
+            text: '콘텐츠 클라우드 저장'
           },
           {
-            text: '실시간 원격 모니터링',
+            text: '실시간 원격 모니터링'
           },
           {
             text: 'Window, Linux 호환 가능',
-            point: true,
+            point: true
           },
           {
             text: '디자인 템플릿 사용',
-            point: true,
+            point: true
           },
           {
             text: '그룹편성',
-            point: true,
+            point: true
           },
           {
             text: '스마트폰 제어',
-            point: true,
-          },
-        ],
+            point: true
+          }
+        ]
       },
       {
         icon: {
           src: '/icons/Star3.svg',
           width: 100,
-          height: 100,
+          height: 100
         },
         type: 'Enterprise',
         subs: [
           {
-            text: '콘텐츠 클라우드 저장',
+            text: '콘텐츠 클라우드 저장'
           },
           {
-            text: '실시간 원격 모니터링',
+            text: '실시간 원격 모니터링'
           },
           {
             text: '모든 OS 호환 가능',
-            point: true,
+            point: true
           },
           {
-            text: '디자인 템플릿 사용',
+            text: '디자인 템플릿 사용'
           },
           {
-            text: '그룹편성',
+            text: '그룹편성'
           },
           {
-            text: '스마트폰 제어',
+            text: '스마트폰 제어'
           },
           {
             text: '생방송 지원',
-            point: true,
-          },
-        ],
-      },
-    ],
-  },
+            point: true
+          }
+        ]
+      }
+    ]
+  }
 ];
 
 export const solutionPkMobileData = [
@@ -749,21 +749,21 @@ export const solutionPkMobileData = [
         icon: {
           src: '/icons/usb.svg',
           width: 59,
-          height: 50.65,
+          height: 50.65
         },
         type: 'USB',
-        subs: '비 인터넷 환경 사용 가능',
+        subs: '비 인터넷 환경 사용 가능'
       },
       {
         icon: {
           src: '/icons/intra.svg',
           width: 43.59,
-          height: 50,
+          height: 50
         },
         type: 'Intra',
-        subs: '내부망 인터넷 사용 가능',
-      },
-    ],
+        subs: '내부망 인터넷 사용 가능'
+      }
+    ]
   },
   {
     name: 'MODI Cloud',
@@ -772,31 +772,31 @@ export const solutionPkMobileData = [
         icon: {
           src: '/icons/Star1.svg',
           width: 60,
-          height: 60,
+          height: 60
         },
         type: 'Standard',
-        subs: '안드로이드 STB를 활용한 간편 편성',
+        subs: '안드로이드 STB를 활용한 간편 편성'
       },
       {
         icon: {
           src: '/icons/Star2.svg',
           width: 60,
-          height: 60,
+          height: 60
         },
         type: 'Professional',
-        subs: '운영체제를 가리지 않는 웹 기반 크로스 플랫폼',
+        subs: '운영체제를 가리지 않는 웹 기반 크로스 플랫폼'
       },
       {
         icon: {
           src: '/icons/Star3.svg',
           width: 60,
-          height: 60,
+          height: 60
         },
         type: 'Enterprise',
-        subs: '대규모 방송에 적합한 방송 전문 솔루션',
-      },
-    ],
-  },
+        subs: '대규모 방송에 적합한 방송 전문 솔루션'
+      }
+    ]
+  }
 ];
 
 export const solutionPkModalData = [
@@ -804,42 +804,42 @@ export const solutionPkModalData = [
     title: '콘텐츠 클라우드 저장',
     standard: true,
     professional: true,
-    enterprise: true,
+    enterprise: true
   },
   {
     title: '실시간 원격 모니터링',
     standard: true,
     professional: true,
-    enterprise: true,
+    enterprise: true
   },
   {
     title: '지원 OS',
     standard: '안드로이드STB',
     professional: 'Window,Linux<br/>호환 가능',
-    enterprise: '모든 OS 호환<br/>가능',
+    enterprise: '모든 OS 호환<br/>가능'
   },
   {
     title: '디자인 템플릿 사용',
     standard: '',
     professional: true,
-    enterprise: true,
+    enterprise: true
   },
   {
     title: '그룹편성',
     standard: '',
     professional: true,
-    enterprise: true,
+    enterprise: true
   },
   {
     title: '스마트폰 제어',
     standard: '',
     professional: true,
-    enterprise: true,
+    enterprise: true
   },
   {
     title: '생방송지원',
     standard: '',
     professional: '',
-    enterprise: true,
-  },
+    enterprise: true
+  }
 ];

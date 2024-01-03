@@ -163,13 +163,13 @@ export default function Referance() {
       <Slide
         slidesPerView={'auto'}
         pagination={{
-          clickable: true,
+          clickable: true
         }}
         centeredSlides={true}
         initialSlide={0}
         modules={[Autoplay, Pagination]}
         autoplay={{
-          delay: 3000,
+          delay: 3000
         }}
         spaceBetween={8}
         loopFillGroupWithBlank={true}
@@ -184,7 +184,7 @@ export default function Referance() {
           ga.event({
             action: 'click',
             category: 'Referance',
-            label: `slide`,
+            label: `slide`
           });
         }}
       >

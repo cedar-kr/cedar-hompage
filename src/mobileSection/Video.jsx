@@ -128,7 +128,7 @@ export default function Video() {
                   ga.event({
                     action: 'click',
                     category: 'YoutubeVideo',
-                    label: `link`,
+                    label: `link`
                   });
                 }}
               >
