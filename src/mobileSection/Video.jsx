@@ -1,36 +1,36 @@
-import styled, { keyframes } from 'styled-components'
-import Image from 'next/image'
-import Link from 'next/link'
+import styled, { keyframes } from 'styled-components';
+import Image from 'next/image';
+import Link from 'next/link';
 import * as ga from '../utils/ga';
 
 const VideoContainer = styled.section`
-  background-color: #19B4A2;
+  background-color: #19b4a2;
   padding-top: 64px;
   padding-bottom: 44px;
   padding-left: 16px;
-  padding-right:16px;
+  padding-right: 16px;
 `;
 
 const VideoWrapper = styled.div`
-  margin: 0 auto; 
+  margin: 0 auto;
 `;
 
 const VideoTextArea = styled.div`
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
-  color: #FFFFFF;
-  margin-bottom:40px;
+  color: #ffffff;
+  margin-bottom: 40px;
 `;
 
 const VideoTitle = styled.p`
-  width:100%;
+  width: 100%;
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 30px;
   letter-spacing: -0.04em;
-  color: #FFFFFF;
-  margin-bottom:10px;
+  color: #ffffff;
+  margin-bottom: 10px;
 `;
 
 const VideoText = styled.p`
@@ -39,7 +39,7 @@ const VideoText = styled.p`
   font-size: 15px;
   line-height: 22px;
 
-  color: #FFFFFF;
+  color: #ffffff;
 `;
 
 const VideoContents = styled.div`
@@ -56,15 +56,15 @@ const VideoImgArea = styled.div`
 `;
 
 const BtnWrapper = styled.div`
-  position: absolute; 
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 115px; 
+  width: 115px;
   height: 115px;
   margin-right: 13px;
   cursor: pointer;
-  z-index:100;
+  z-index: 100;
 `;
 
 const PlayBtn = styled.div`
@@ -98,7 +98,7 @@ const TextCircle = styled.div`
   background: url(/imgs/video_text.svg) no-repeat;
   left: 0;
   top: 0;
-  width: 115px; 
+  width: 115px;
   height: 115px;
   animation-name: ${Rotate};
   animation-duration: 12s;
@@ -109,11 +109,11 @@ const TextCircle = styled.div`
 `;
 
 const VideoImage = styled.div`
-  margin-top:30px;
+  margin-top: 30px;
 `;
 
 export default function Video() {
-  return(
+  return (
     <VideoContainer>
       <VideoWrapper width={80}>
         <VideoContents>
@@ -123,29 +123,27 @@ export default function Video() {
           </VideoTextArea>
           <VideoImgArea>
             <Link href={'https://www.youtube.com/channel/UCivb3IzyMclwLiXcKOKKTtw'}>
-            <BtnWrapper onClick={()=> {
-               ga.event({
-                action:'click',
-                category:'YoutubeVideo',
-                label:`link`,
-              })}}>
-              <PlayBtn>
-                <PlayBtnArrow />
-              </PlayBtn>
-              <TextCircle />
-            </BtnWrapper>
+              <BtnWrapper
+                onClick={() => {
+                  ga.event({
+                    action: 'click',
+                    category: 'YoutubeVideo',
+                    label: `link`,
+                  });
+                }}
+              >
+                <PlayBtn>
+                  <PlayBtnArrow />
+                </PlayBtn>
+                <TextCircle />
+              </BtnWrapper>
             </Link>
             <VideoImage>
-              <Image
-                src="/imgs/video_banner_mobile.png"
-                width={360}
-                height={100}
-                alt="Video Banner"
-              />
+              <Image src="/imgs/video_banner_mobile.png" width={360} height={100} alt="Video Banner" />
             </VideoImage>
           </VideoImgArea>
         </VideoContents>
       </VideoWrapper>
     </VideoContainer>
-  )
+  );
 }

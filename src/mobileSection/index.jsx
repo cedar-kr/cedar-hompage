@@ -10,7 +10,7 @@ import Footer from './Footer';
 
 export const MobileSection = () => {
   return (
-    <> 
+    <>
       <Header />
       <Business />
       <Referance />
@@ -21,5 +21,5 @@ export const MobileSection = () => {
       <Video />
       <Footer />
     </>
-  )
-}
+  );
+};

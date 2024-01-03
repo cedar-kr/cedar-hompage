@@ -1,8 +1,8 @@
-import Head from 'next/head'
-import { MobileSection } from '../mobileSection'
-import { Section } from '../section'
-import { Default, Mobile} from '../utils/media'
-import { useState, useEffect } from 'react'
+import Head from 'next/head';
+import { MobileSection } from '../mobileSection';
+import { Section } from '../section';
+import { Default, Mobile } from '../utils/media';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -19,7 +19,7 @@ export default function Home() {
           name="description"
           content="(주)시더는 매장내에 정보나 광고 디스플레이를 원격 관리하는 클라우드 및 안드로이드 기반 디지털 사이니지 솔루션을 서비스하고 있는 회사입니다."
         />
-        <meta charSet="UTF-8"/>
+        <meta charSet="UTF-8" />
         <link rel="icon" href="/favicon.png" type="image/x-icon" sizes="16x16" />
         {/* 기본 태그 미리보기 */}
         <meta property="og:type" content="website" />
@@ -43,10 +43,7 @@ export default function Home() {
         {/* <meta property="og:description" content="설명" /> */}
 
         {/* 트위터 미리보기 설정  */}
-        <meta
-          name="twitter:card"
-          content="트위터 카드 타입(요약정보, 사진, 비디오)"
-        />
+        <meta name="twitter:card" content="트위터 카드 타입(요약정보, 사진, 비디오)" />
         <meta name="twitter:title" content="(주) 시더" />
         {/* <meta name="twitter:description" content="설명" /> */}
         <meta name="twitter:image" content="https://example.com/image.jpg" />
@@ -66,8 +63,8 @@ export default function Home() {
 
         <link rel="icon" href="/icons/favicon.png" />
       </Head>
-      {
-        mounted && <div>
+      {mounted && (
+        <div>
           <Default>
             <Section />
           </Default>
@@ -75,7 +72,7 @@ export default function Home() {
             <MobileSection />
           </Mobile>
         </div>
-      }
+      )}
     </div>
-  )
+  );
 }
