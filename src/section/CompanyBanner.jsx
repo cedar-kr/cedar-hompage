@@ -93,7 +93,7 @@ export default function CompanyBanner() {
         {
           datas.map((data,index)=>{
             return (
-              <BannerAlign>
+              <BannerAlign key={index}>
               {
                 data.map((img,idx)=>{
                   return(

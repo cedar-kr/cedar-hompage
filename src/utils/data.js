@@ -93,11 +93,7 @@ export const referanceData = [
     imgSize:{
       width:277,
       height:273,
-    },
-    imgSize:{
-      width:277,
-      height:273,
-    },
+    }
   },
   {
     id:2,

@@ -101,7 +101,7 @@ const HistoryOpen = styled.div`
     text-align:center;
     justify-content: center;
     margin-right:10px;
-    zIndex:105;
+    z-index:105;
   }
 `;
 

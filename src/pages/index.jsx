@@ -2,8 +2,15 @@ import Head from 'next/head'
 import { MobileSection } from '../mobileSection'
 import { Section } from '../section'
 import { Default, Mobile} from '../utils/media'
+import { useState, useEffect } from 'react'
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div>
       <Head>
@@ -59,14 +66,16 @@ export default function Home() {
 
         <link rel="icon" href="/icons/favicon.png" />
       </Head>
-      <div>
-        <Default>
-          <Section/>
-        </Default>
-        <Mobile>
-          <MobileSection/>
-        </Mobile>
-      </div>
+      {
+        mounted && <div>
+          <Default>
+            <Section />
+          </Default>
+          <Mobile>
+            <MobileSection />
+          </Mobile>
+        </div>
+      }
     </div>
   )
 }
