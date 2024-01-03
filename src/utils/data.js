@@ -476,6 +476,21 @@ export const solutionMobileData = [
 
 export const historyData = [
   {
+    year:2023,
+    content:[
+      '카카오캠퍼스 키오스크 설치',
+      '광명시청 DID 설치',
+      '드림마크원 빌딩 웹포털 계약 체결',
+      '도산150 빌딩 DID 설치',
+      '롯데시티호텔 LED 사이니지 설치',
+      '설치형 사이니지 솔루션 신규 런칭'
+    ],
+    img:'/imgs/historys/2023.jpg',
+    bg:'/imgs/historys/2023.png',
+    cardBg:'/imgs/historys/card/23.png',
+    height:186
+  },
+  {
     year:2022,
     content:[
       '사이니지 솔루션 MODI v2개편',

@@ -48,7 +48,7 @@ export default function Footer() {
     <FooterWrapper>
       <Image src={'/imgs/footer_text_mobile.svg'} width={286} height={88} alt={'Footer Text'} />
       <FooterMap
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.5215064453173!2d127.036959515309!3d37.47201807981576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca132c4ce0d31%3A0x552c6f04ec65d82a!2z7ISc7Jq47Yq567OE7IucIOyEnOy0iOq1rCDqsJXrgqjrjIDroZwxOOq4uCA1IDPsuLU!5e0!3m2!1sko!2skr!4v1639369444913!5m2!1sko!2skr"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3169.323242790212!2d126.9693828252228!3d37.40583398332774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b5f3fa1dc9711%3A0x64a306a8e1d882a9!2z7Iqk66eI7Yq464S367mM65Sp!5e0!3m2!1sko!2skr!4v1704179042335!5m2!1sko!2skr"
         title="(주)시더 위치 정보" 
         width="100%"
         height="300px"
@@ -58,7 +58,7 @@ export default function Footer() {
       <FooterInfo>
         <FooterTexts>
           <Image src={'/icons/adress.svg' } width={10} height={14} alt={'Footer Icon'} />
-          <FooterText>서울특별시 서초구 강남대로 18길 5 (양재동) 3층</FooterText>
+          <FooterText>경기도 안양시 동안구 동편로20번길 9 스마트넷빌딩 202호</FooterText>
         </FooterTexts>
         <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
           <Link href="tel:070-4901-6150">
