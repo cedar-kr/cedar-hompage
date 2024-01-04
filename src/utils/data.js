@@ -208,7 +208,7 @@ export const solutionData = [
   {
     id: 1,
     title: '솔루션',
-    subs: '하드웨어를 가리지 않고 확장이 용이한 웹 기반 디지털 사이니지 솔루션.',
+    subs: '하드웨어를 가리지 않고 확장이 용이한 웹 기반 디지털 사이니지 솔루션',
     contents: [
       {
         type: 'defualt',
@@ -247,7 +247,7 @@ export const solutionData = [
   {
     id: 2,
     title: '하드웨어',
-    subs: '디바이스의 종류에 구애받지 않고 어디서든 관리 가능.',
+    subs: '디바이스의 종류에 구애받지 않고 어디서든 관리 가능',
     contents: [
       {
         type: 'image',
@@ -490,7 +490,7 @@ export const historyData = [
   },
   {
     year: 2022,
-    content: ['사이니지 솔루션 MODI v2개편', '마스턴 사옥 빌딩 사이니지 계약 체결', '카카오캠퍼스 계약 체결', '센텀포인트 강남 계약 체결'],
+    content: ['사이니지 솔루션 MODI v2 개편', '마스턴 사옥 빌딩 사이니지 계약 체결', '카카오캠퍼스 계약 체결', '센텀포인트 강남 계약 체결'],
     img: '/imgs/historys/2022.jpg',
     bg: '/imgs/historys/2022.png',
     cardBg: '/imgs/historys/card/22.png',
