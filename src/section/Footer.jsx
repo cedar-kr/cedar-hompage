@@ -36,7 +36,7 @@ const FooterTexts = styled.div`
   align-items: center;
 `;
 
-const FooterText = styled.div`
+const FooterText = styled.p`
   color: #fff;
   margin-left: 19px;
   margin-right: 38px;

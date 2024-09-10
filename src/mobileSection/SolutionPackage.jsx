@@ -13,7 +13,7 @@ const SolutionWrapper = styled.section`
   padding: 0px 16px;
 `;
 
-const SolutionPkTitle = styled.div`
+const SolutionPkTitle = styled.h1`
   font-family: 'S-CoreDream-6Bold';
   font-weight: bold;
   text-align: center;
@@ -81,7 +81,7 @@ const SolutionPkIcon = styled.div`
   flex-direction: column;
 `;
 
-const SolutionPkType = styled.div`
+const SolutionPkType = styled.h4`
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -94,7 +94,7 @@ const SolutionPkType = styled.div`
   margin-bottom: 8px;
 `;
 
-const SolutionPkInfoSubs = styled.div`
+const SolutionPkInfoSubs = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -125,7 +125,7 @@ const SolutionPkDetailButton = styled.div`
   cursor: pointer;
 `;
 
-const DetailText = styled.div`
+const DetailText = styled.span`
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 700;

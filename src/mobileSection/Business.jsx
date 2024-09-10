@@ -9,7 +9,7 @@ const BusinessContainer = styled.section`
   background: #f6f6f6;
 `;
 
-const BusinessTitle = styled.div`
+const BusinessTitle = styled.h1`
   margin-bottom: 34px;
   font-family: 'S-CoreDream-6Bold';
   font-style: normal;

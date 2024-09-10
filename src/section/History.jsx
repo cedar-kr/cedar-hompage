@@ -177,7 +177,7 @@ const HistoryCard = styled.div`
   `}
 `;
 
-const HistorySubs = styled.div`
+const HistorySubs = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;

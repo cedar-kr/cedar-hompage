@@ -30,7 +30,7 @@ const SolutionBannerInfo = styled.div`
   width: 100%;
 `;
 
-const SolutionBannerTitle = styled.div`
+const SolutionBannerTitle = styled.h6`
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 3rem;
@@ -52,7 +52,7 @@ const SolutionBannerTitle = styled.div`
   `}
 `;
 
-const SolutionBannerSubs = styled.div`
+const SolutionBannerSubs = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 2rem;

@@ -31,7 +31,7 @@ const FooterTexts = styled.div`
   cursor: ${(props) => (props.call ? 'pointer' : '')};
 `;
 
-const FooterText = styled.div`
+const FooterText = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;

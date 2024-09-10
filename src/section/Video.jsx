@@ -17,7 +17,7 @@ const VideoTextArea = styled.div`
   margin-right: 10px;
 `;
 
-const VideoTitle = styled.p`
+const VideoTitle = styled.h4`
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 700;
   font-size: 3rem;

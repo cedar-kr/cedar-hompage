@@ -36,7 +36,7 @@ const HeaderIntro = styled.div`
   padding-top: 60px;
 `;
 
-const HeaderText = styled.div`
+const HeaderText = styled.h1`
   font-family: 'Noto Sans KR', sans-serif;
   color: ${(props) => (props.point ? '#2FCFBE' : '#000')};
   font-weight: 700;
@@ -44,7 +44,7 @@ const HeaderText = styled.div`
   line-height: 52px;
 `;
 
-const HeaderEngText = styled.div`
+const HeaderEngText = styled.h1`
   font-family: 'Quentin';
   font-style: normal;
   font-weight: 400;
@@ -106,7 +106,7 @@ const Frame = styled.div`
   top: ${(props) => (props.left ? '0' : '')};
 `;
 
-const ImageInfo = styled.div`
+const ImageInfo = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;

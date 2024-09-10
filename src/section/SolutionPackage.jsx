@@ -27,7 +27,7 @@ const SolutionPkTitle = styled(Title)`
   text-align: center;
 `;
 
-const SolutionPkSubs = styled.div`
+const SolutionPkSubs = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 2rem;
@@ -174,7 +174,7 @@ const SolutionPkIcon = styled.div`
   `}
 `;
 
-const SolutionPkType = styled.div`
+const SolutionPkType = styled.h4`
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 700;
   font-size: 3rem;
@@ -270,7 +270,7 @@ export default function SolutionPackage() {
                         {detail.subs.map((subs, id) => {
                           return (
                             <SolutionPkInfoSubs key={id} point={subs.point}>
-                              {subs.text}
+                              <span>{subs.text}</span>
                               {!isTnm && (
                                 <CheckIcon>
                                   <Image src={'/icons/check.svg'} width={15} height={14.72} alt={'Check Icon'} />

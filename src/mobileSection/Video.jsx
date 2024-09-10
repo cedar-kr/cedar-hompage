@@ -22,7 +22,7 @@ const VideoTextArea = styled.div`
   margin-bottom: 40px;
 `;
 
-const VideoTitle = styled.p`
+const VideoTitle = styled.h6`
   width: 100%;
   font-style: normal;
   font-weight: 700;

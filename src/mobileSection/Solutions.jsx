@@ -17,7 +17,7 @@ const SolutionBox = styled.div`
   flex-direction: column;
 `;
 
-const SolutionNumber = styled.div`
+const SolutionNumber = styled.h1`
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -28,7 +28,7 @@ const SolutionNumber = styled.div`
   margin-bottom: 5px;
 `;
 
-const SolutionTitle = styled.div`
+const SolutionTitle = styled.h1`
   font-family: 'S-CoreDream-6Bold';
   font-style: normal;
   font-weight: 600;
@@ -62,7 +62,7 @@ const ContentBlock = styled.div`
   `};
 `;
 
-const ContentBlockTitle = styled.div`
+const ContentBlockTitle = styled.h4`
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 700;

@@ -34,7 +34,7 @@ const ReferVideo = styled.video`
   width: 100vw;
 `;
 
-const ReferTitle = styled.div`
+const ReferTitle = styled.h1`
   text-align: left;
   font-family: 'S-CoreDream-6Bold';
   font-style: normal;
@@ -108,7 +108,7 @@ const SlideItem = styled.div`
   cursor: pointer;
 `;
 
-const ItemTitle = styled.div`
+const ItemTitle = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -118,7 +118,7 @@ const ItemTitle = styled.div`
   color: #222222;
 `;
 
-const ItemSubs = styled.div`
+const ItemSubs = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;

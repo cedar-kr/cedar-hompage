@@ -94,7 +94,7 @@ const ReferContent = styled.div`
   `}
 `;
 
-const ReferTitle = styled.div`
+const ReferTitle = styled.h1`
   margin-top: 81px;
   text-align: left;
   font-family: 'S-CoreDream-6Bold';
@@ -127,7 +127,7 @@ const ReferTitle = styled.div`
   `}
 `;
 
-const ReferSubs = styled.div`
+const ReferSubs = styled.p`
   font-style: normal;
   font-weight: 400;
   font-size: 2rem;
@@ -299,7 +299,7 @@ const SlideItem = styled.div`
   `}
 `;
 
-const ItemTitle = styled.div`
+const ItemTitle = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -339,7 +339,7 @@ const ItemImage = styled.div`
   `}
 `;
 
-const ItemSubs = styled.div`
+const ItemSubs = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;

@@ -63,7 +63,7 @@ const HeaderIntro = styled.div`
   margin-right: 50px;
 `;
 
-const HeaderText = styled.div`
+const HeaderText = styled.h1`
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 700;
   font-size: 7rem;
@@ -85,7 +85,7 @@ const HeaderText = styled.div`
   `}
 `;
 
-const HeaderEngText = styled.div`
+const HeaderEngText = styled.h1`
   font-family: 'Quentin';
   font-weight: 400;
   font-size: 10rem;
@@ -156,7 +156,7 @@ const Frame = styled.div`
   top: ${(props) => (props.left ? '0' : '')};
 `;
 
-const ImageInfo = styled.div`
+const ImageInfo = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 1.5rem;

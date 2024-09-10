@@ -45,7 +45,7 @@ const SolutionInfo = styled.div`
   `}
 `;
 
-const SolutionNumber = styled.div`
+const SolutionNumber = styled.h1`
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 700;
   font-size: 4rem;
@@ -80,7 +80,7 @@ const SolutionTitle = styled(Title)`
   `}
 `;
 
-const SolutionSubs = styled.div`
+const SolutionSubs = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 2rem;
@@ -173,7 +173,7 @@ const ContentBlock = styled.div`
   `};
 `;
 
-const ContentBlockTitle = styled.div`
+const ContentBlockTitle = styled.h4`
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 700;
   font-size: 3rem;

@@ -18,7 +18,7 @@ const HistorySection = styled.section`
   padding-top: 40px;
 `;
 
-const HistoryTitle = styled.div`
+const HistoryTitle = styled.h1`
   font-style: normal;
   font-weight: 600;
   font-size: 30px;
@@ -51,7 +51,7 @@ const HistoryCard = styled.div`
   overflow: hidden;
 `;
 
-const HistoryYear = styled.div`
+const HistoryYear = styled.h4`
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 900;
@@ -69,7 +69,7 @@ const YearLine = styled.div`
   height: 100%;
 `;
 
-const HistorySubs = styled.div`
+const HistorySubs = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;

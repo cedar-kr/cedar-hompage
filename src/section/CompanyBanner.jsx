@@ -24,7 +24,7 @@ const CompanyTitle = styled(Title)`
   text-align: center;
 `;
 
-const CompanySubs = styled.div`
+const CompanySubs = styled.p`
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 2rem;
