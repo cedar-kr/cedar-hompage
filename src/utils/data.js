@@ -474,6 +474,30 @@ export const solutionMobileData = [
 
 export const historyData = [
   {
+    year: 2025,
+    content: ['김포공항 국제선 키오스크 설치', '배리어프리 키오스크 개발 진행', '광주중학교 사이니지 설치'],
+    img: '/imgs/historys/2025.jpg',
+    bg: '/imgs/historys/2025.png',
+    cardBg: '/imgs/historys/card/25.png',
+    height: 123
+  },
+  {
+    year: 2024,
+    content: [
+      '인프라 사업부 영업 확장',
+      '서울 올림픽공원 키오스크 설치',
+      '드림마크원 빌딩 출입방문 시스템 설치',
+      '가톨릭대학교 사이니지 설치',
+      '대구경북과학기술원 무선랜 고도화사업',
+      '문화원 데이터센터 시스템 구축 ISP 용역',
+      '카카오 AI캠퍼스 헬로키친 BGM 음향공사'
+    ],
+    img: '/imgs/historys/2024.jpg',
+    bg: '/imgs/historys/2024.png',
+    cardBg: '/imgs/historys/card/24.png',
+    height: 207
+  },
+  {
     year: 2023,
     content: [
       '카카오캠퍼스 키오스크 설치',
