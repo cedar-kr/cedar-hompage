@@ -488,7 +488,6 @@ export const historyData = [
       '서울 올림픽공원 키오스크 설치',
       '드림마크원 빌딩 출입방문 시스템 설치',
       '가톨릭대학교 사이니지 설치',
-      '대구경북과학기술원 무선랜 고도화사업',
       '카카오 AI캠퍼스 헬로키친 BGM 음향공사'
     ],
     img: '/imgs/historys/2024.jpg',
@@ -513,7 +512,7 @@ export const historyData = [
   },
   {
     year: 2022,
-    content: ['사이니지 솔루션 MODI v2 개편', '마스턴 사옥 빌딩 사이니지 계약 체결', '카카오캠퍼스 계약 체결', '센텀포인트 강남 계약 체결'],
+    content: ['사이니지 솔루션 MODI v2 개편', '마스턴 사옥 빌딩 사이니지 계약 체결', '카카오캠퍼스 계약 체결'],
     img: '/imgs/historys/2022.jpg',
     bg: '/imgs/historys/2022.png',
     cardBg: '/imgs/historys/card/22.png',
