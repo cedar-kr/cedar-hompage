@@ -3,7 +3,7 @@ import { MobileSection } from '../mobileSection';
 import { Section } from '../section';
 import { Default, Mobile } from '../utils/media';
 import { useState, useEffect } from 'react';
-import SmartSignAi from '../popups/smartsignai';
+import SmartSignAiPopup from '../popups/SmartsignaiPopup';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -72,7 +72,7 @@ export default function Home() {
           <Mobile>
             <MobileSection />
           </Mobile>
-          <SmartSignAi />
+          <SmartSignAiPopup />
         </div>
       )}
     </div>
