@@ -20,6 +20,9 @@ const Container = styled.div`
 
 const Image = styled.img`
   max-height: calc(100vh - 48px);
+  ${({ theme }) => theme.mobile`
+    max-height: calc(100vh - 30px);
+  `}
   object-fit: contain;
 `;
 
@@ -32,12 +35,21 @@ const Footer = styled.div`
   padding: 16px;
   background-color: #000;
 
+  ${({ theme }) => theme.mobile`
+    padding: 10px;
+  `}
+
   > span {
     color: #fff;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 16px;
+    line-height: 100%;
     font-weight: 600;
     cursor: pointer;
+
+    ${({ theme }) => theme.mobile`
+      font-size: 10px;
+    `}
   }
 `;
 
