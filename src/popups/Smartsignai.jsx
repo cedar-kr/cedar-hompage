@@ -43,7 +43,7 @@ const Footer = styled.div`
 
 const SMARTSIGNAI_POPUP_KEY = "SMARTSIGNAI_POPUP_KEY";
 
-const SmartSignAi = () => {
+export const SmartSignAi = () => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -75,5 +75,3 @@ const SmartSignAi = () => {
     </Container>
   )
 }
-
-export default SmartSignAi;
