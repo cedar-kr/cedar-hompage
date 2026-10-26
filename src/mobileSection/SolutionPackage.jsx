@@ -179,14 +179,14 @@ export default function SolutionPackage(params) {
                   return (
                     <SolutionPkInfo key={idx} size={data.name}>
                       <SolutionPkIcon>
-                        <Image src={detail.icon.src} height={detail.icon.height} width={detail.icon.width} alt={'Solution Package Icon'} />
+                        <Image src={detail.icon.src} height={detail.icon.height} width={detail.icon.width} alt={'Solution Package Icon'} unoptimized />
                         <SolutionPkType>{detail.type}</SolutionPkType>
                       </SolutionPkIcon>
                       <SolutionPkInfoSubs>{detail.subs}</SolutionPkInfoSubs>
                       {data.name === 'MODI Cloud' && (
                         <SolutionPkDetailButton onClick={() => modalOpen(detail.type)}>
                           <DetailText>자세히 보기</DetailText>
-                          <Image src={'/icons/greenArrow.png'} height={8.33} width={5} alt={'Read More Icon'} />
+                          <Image src={'/icons/greenArrow.png'} height={8.33} width={5} alt={'Read More Icon'} unoptimized />
                         </SolutionPkDetailButton>
                       )}
                     </SolutionPkInfo>

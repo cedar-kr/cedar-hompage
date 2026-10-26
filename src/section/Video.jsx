@@ -145,7 +145,7 @@ export default function Video() {
                 </BtnWrapper>
               </a>
             </Link>
-            <Image src="/imgs/video_banner.png" width={624} height={150} alt="Video Banner" />
+            <Image src="/imgs/video_banner.png" width={624} height={150} alt="Video Banner" unoptimized />
           </VideoImgArea>
         </VideoContents>
       </Wrapper>

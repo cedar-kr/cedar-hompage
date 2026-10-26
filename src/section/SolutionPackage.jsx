@@ -263,7 +263,7 @@ export default function SolutionPackage() {
                   return (
                     <SolutionPkInfo key={idx}>
                       <SolutionPkIcon type={detail.type == 'Intra' ? 'true' : 'false'}>
-                        <Image src={detail.icon.src} height={detail.icon.height} width={detail.icon.width} alt={'Solution Package Icon'} />
+                        <Image src={detail.icon.src} height={detail.icon.height} width={detail.icon.width} alt={'Solution Package Icon'} unoptimized />
                         <SolutionPkType>{detail.type}</SolutionPkType>
                       </SolutionPkIcon>
                       <SolutionPkSubsBox height={data.name == 'MODI Local' ? 'true' : 'false'}>
@@ -273,7 +273,7 @@ export default function SolutionPackage() {
                               <span>{subs.text}</span>
                               {!isTnm && (
                                 <CheckIcon>
-                                  <Image src={'/icons/check.svg'} width={15} height={14.72} alt={'Check Icon'} />
+                                  <Image src={'/icons/check.svg'} width={15} height={14.72} alt={'Check Icon'} unoptimized />
                                 </CheckIcon>
                               )}
                             </SolutionPkInfoSubs>

@@ -433,7 +433,7 @@ export default function Referance() {
                     <SlideItem key={idx}>
                       <ItemTitle>{data.title}</ItemTitle>
                       <ItemImage width={data.imgSize.width} height={data.imgSize.height}>
-                        <Image src={data.src} layout="fill" objectFit="contain" alt={'Reference Menu'} />
+                        <Image src={data.src} layout="fill" objectFit="contain" alt={'Reference Menu'} unoptimized />
                       </ItemImage>
                       {!isDesktop && data.subsEnter ? (
                         <ItemSubs dangerouslySetInnerHTML={{ __html: data.subsEnter }}></ItemSubs>

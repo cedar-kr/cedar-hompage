@@ -81,7 +81,7 @@ const SmartSignAi = () => {
             localStorage.setItem(SMARTSIGNAI_POPUP_KEY, nowDate);
             setShow(false);
           }}
-        >오늘하루동안보지않기</span>
+        >오늘 하루 동안 보지 않기</span>
         <span onClick={() => setShow(false)} style={{ color: "#ff0" }}>{`[닫기]`}</span>
       </Footer>
     </Container>

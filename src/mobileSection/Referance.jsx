@@ -193,7 +193,7 @@ export default function Referance() {
             <SwiperSlide key={index}>
               <SlideItem>
                 <ItemTitle>{data.title}</ItemTitle>
-                <Image src={data.src} width={data.imgSize.width} height={data.imgSize.height} alt={'Reference Menu'} />
+                <Image src={data.src} width={data.imgSize.width} height={data.imgSize.height} alt={'Reference Menu'} unoptimized />
                 <ItemSubs dangerouslySetInnerHTML={{ __html: data.subs }}></ItemSubs>
               </SlideItem>
             </SwiperSlide>

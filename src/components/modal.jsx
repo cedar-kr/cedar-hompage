@@ -90,7 +90,7 @@ const Check = (props) => {
   return (
     <Td width={props.width}>
       {typeof props.type == 'boolean' ? (
-        <Image src={props.color == 'true' ? '/icons/check_color.png' : '/icons/check_gray.png'} height={14.72} width={15} />
+        <Image src={props.color == 'true' ? '/icons/check_color.png' : '/icons/check_gray.png'} height={14.72} width={15} unoptimized />
       ) : (
         <PointText color={props.color} dangerouslySetInnerHTML={{ __html: props.type }}></PointText>
       )}
@@ -106,7 +106,7 @@ export default function SolutionModal(props) {
       <SolutionModalBox onClick={(e) => e.stopPropagation()}>
         <ModalTitle>
           MODI Original Line 비교표
-          <Image onClick={closeModal} src={'/icons/close.png'} height={15} width={15} />
+          <Image onClick={closeModal} src={'/icons/close.png'} height={15} width={15} unoptimized />
         </ModalTitle>
         <Table>
           <Thead>

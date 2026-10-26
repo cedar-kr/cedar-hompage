@@ -82,7 +82,7 @@ export default function Solution() {
         <SolutionBannerSubs>자사는 다양한 모듈 연동과 기술 확대로 신개념 디지털 사이니지 생태계를 구축합니다.</SolutionBannerSubs>
       </SolutionBannerInfo>
       <div>
-        <Image src={'/imgs/solutions/Banner.png'} height={150} width={624} alt={'Solution Banner'} />
+        <Image src={'/imgs/solutions/Banner.png'} height={150} width={624} alt={'Solution Banner'} unoptimized />
       </div>
     </SolutionWrapper>
   );

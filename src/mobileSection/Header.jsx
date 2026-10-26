@@ -180,7 +180,7 @@ export default function Header() {
   return (
     <div>
       <HeaderLogo>
-        <Image src={'/icons/mobile_logo.png'} width={67.2} height={18} alt={'Cedar Logo'} />
+        <Image src={'/icons/mobile_logo.png'} width={67.2} height={18} alt={'Cedar Logo'} unoptimized />
       </HeaderLogo>
       {headerData.map((data, idx) => {
         return (
@@ -193,18 +193,32 @@ export default function Header() {
               </HeaderIntro>
               <HeaderFrame>
                 <Frame left>
-                  <Image src={'/imgs/headers/header_frame_left.svg'} height={33.27} width={33.71} alt={'Left Frame'} />
+                  <Image src={'/imgs/headers/header_frame_left.svg'} height={33.27} width={33.71} alt={'Left Frame'} unoptimized />
                 </Frame>
                 <HeaderFrameImg>
                   <HeaderFirstImg id={data.id}>
-                    <Image src={data.mobileImg[0].src} width={data.mobileImg[0].width} height={data.mobileImg[0].height} alt={'Header Main Image'} priority />
+                    <Image
+                      src={data.mobileImg[0].src}
+                      width={data.mobileImg[0].width}
+                      height={data.mobileImg[0].height}
+                      alt={'Header Main Image'}
+                      priority
+                      unoptimized
+                    />
                   </HeaderFirstImg>
                   <HeaderLastImg id={data.id}>
-                    <Image src={data.mobileImg[1].src} width={data.mobileImg[1].width} height={data.mobileImg[1].height} alt={'Header Sub Image'} priority />
+                    <Image
+                      src={data.mobileImg[1].src}
+                      width={data.mobileImg[1].width}
+                      height={data.mobileImg[1].height}
+                      alt={'Header Sub Image'}
+                      priority
+                      unoptimized
+                    />
                   </HeaderLastImg>
                 </HeaderFrameImg>
                 <Frame right>
-                  <Image src={'/imgs/headers/header_frame_right.svg'} height={33.27} width={33.71} alt={'Right Frame'} />
+                  <Image src={'/imgs/headers/header_frame_right.svg'} height={33.27} width={33.71} alt={'Right Frame'} unoptimized />
                 </Frame>
                 <ImageInfo>{data.subs}</ImageInfo>
               </HeaderFrame>

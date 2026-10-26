@@ -232,7 +232,7 @@ export default function Solution() {
                 <ContentBlock key={idx} bg={content.type === 'image' ? content.src : null} grid={content.grid}>
                   {content.type === 'defualt' && (
                     <ContentBlockImg top={content.top} left={content.left}>
-                      <Image src={content.src} width={content.imgWidth} height={content.imgHeight} alt={'Solution Type'} />
+                      <Image src={content.src} width={content.imgWidth} height={content.imgHeight} alt={'Solution Type'} unoptimized />
                     </ContentBlockImg>
                   )}
                   <ContentBlockTitle

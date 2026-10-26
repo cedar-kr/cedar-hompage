@@ -212,7 +212,7 @@ export default function History() {
         {historyData.map((data, idx) => {
           return (
             <SwiperSlide key={idx}>
-              <HistoryBackground src={data.img} layout="fill" alt={'History Background'} priority />
+              <HistoryBackground src={data.img} layout="fill" alt={'History Background'} priority unoptimized />
             </SwiperSlide>
           );
         })}

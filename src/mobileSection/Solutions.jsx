@@ -104,7 +104,7 @@ export default function Solution() {
                   ></ContentBlockTitle>
                   {content.type === 'defualt' && (
                     <ContentBlockImg top={content.top} left={content.left}>
-                      <Image src={content.src} width={content.imgWidth} height={content.imgHeight} alt={'Solution Type'} />
+                      <Image src={content.src} width={content.imgWidth} height={content.imgHeight} alt={'Solution Type'} unoptimized />
                     </ContentBlockImg>
                   )}
                 </ContentBlock>

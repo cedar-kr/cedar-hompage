@@ -92,7 +92,11 @@ export default function CompanyBanner() {
         return (
           <BannerAlign key={index}>
             {data.map((img, idx) => {
-              return <BannerItem key={idx}>{img.id <= 18 && <Image src={img.src} height={img.height} width={img.width} alt={'Comapny Banner'} />}</BannerItem>;
+              return (
+                <BannerItem key={idx}>
+                  {img.id <= 18 && <Image src={img.src} height={img.height} width={img.width} alt={'Comapny Banner'} unoptimized />}
+                </BannerItem>
+              );
             })}
           </BannerAlign>
         );

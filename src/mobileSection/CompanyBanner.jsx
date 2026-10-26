@@ -10,7 +10,7 @@ const CompanyBannerWrapper = styled.div`
 export default function CompanyBanner() {
   return (
     <CompanyBannerWrapper>
-      <Image src={'/imgs/companyBanner/mobile.png'} height={250} width={360} alt={'Company Banner'} />
+      <Image src={'/imgs/companyBanner/mobile.png'} height={250} width={360} alt={'Company Banner'} unoptimized />
     </CompanyBannerWrapper>
   );
 }

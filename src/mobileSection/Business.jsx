@@ -82,7 +82,7 @@ export default function Business() {
             return (
               <div key={idx}>
                 <Box>
-                  <BoxItemIcon src={data.icon_m} height={70} width={70} alt="Business Icons" />
+                  <BoxItemIcon src={data.icon_m} height={70} width={70} alt="Business Icons" unoptimized />
                   <BoxItemTitle>{data.title}</BoxItemTitle>
                   <BoxItemText idx={idx}>{data.content}</BoxItemText>
                 </Box>

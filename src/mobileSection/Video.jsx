@@ -139,7 +139,7 @@ export default function Video() {
               </BtnWrapper>
             </Link>
             <VideoImage>
-              <Image src="/imgs/video_banner_mobile.png" width={360} height={100} alt="Video Banner" />
+              <Image src="/imgs/video_banner_mobile.png" width={360} height={100} alt="Video Banner" unoptimized />
             </VideoImage>
           </VideoImgArea>
         </VideoContents>

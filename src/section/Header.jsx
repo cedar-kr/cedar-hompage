@@ -273,7 +273,7 @@ export default function Header() {
   return (
     <HeaderWrapper>
       <HeaderLogo>
-        <Image src={'/icons/logo.png'} width={112} height={30} alt={'Cedar Logo'} priority />
+        <Image src={'/icons/logo.png'} width={112} height={30} alt={'Cedar Logo'} priority unoptimized />
       </HeaderLogo>
       <HeaderSlideBox>
         {headerData.map((data, idx) => {
@@ -288,18 +288,18 @@ export default function Header() {
                   </HeaderIntro>
                   <HeaderFrame>
                     <Frame left>
-                      <Image src={'/imgs/headers/header_frame_left.svg'} height={76} width={77} alt={'Left Frame'} />
+                      <Image src={'/imgs/headers/header_frame_left.svg'} height={76} width={77} alt={'Left Frame'} unoptimized />
                     </Frame>
                     <HeaderFrameImg>
                       <MainImage id={data.id}>
-                        <Image src={data.imgs[0].src} width={data.imgs[0].width} height={data.imgs[0].height} alt={'Header Main Image'} priority />
+                        <Image src={data.imgs[0].src} width={data.imgs[0].width} height={data.imgs[0].height} alt={'Header Main Image'} priority unoptimized />
                       </MainImage>
                       <SubImage id={data.id} bottom={data.bottom} right={data.right}>
-                        <Image src={data.imgs[1].src} width={data.imgs[1].width} height={data.imgs[1].height} priority alt={'Header Sub Image'} />
+                        <Image src={data.imgs[1].src} width={data.imgs[1].width} height={data.imgs[1].height} priority alt={'Header Sub Image'} unoptimized />
                       </SubImage>
                     </HeaderFrameImg>
                     <Frame>
-                      <Image src={'/imgs/headers/header_frame_right.svg'} height={76} width={77} alt={'Right Frame'} />
+                      <Image src={'/imgs/headers/header_frame_right.svg'} height={76} width={77} alt={'Right Frame'} unoptimized />
                     </Frame>
                     <ImageInfo>{data.subs}</ImageInfo>
                   </HeaderFrame>

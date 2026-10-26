@@ -128,7 +128,7 @@ export default function Business() {
           {businessData.map((data, idx) => {
             return (
               <Box key={idx}>
-                <BoxItemIcon src={data.icon} height={50} width={50} alt="Business Icons" />
+                <BoxItemIcon src={data.icon} height={50} width={50} alt="Business Icons" unoptimized />
                 <BoxItemTitle>{data.title}</BoxItemTitle>
                 <BoxItemText idx={idx}>{data.content}</BoxItemText>
               </Box>
